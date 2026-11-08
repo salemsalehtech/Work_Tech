@@ -1,0 +1,18 @@
+import { lazy } from 'react';
+export const Home = lazy(() => import('@pages/Home'));
+export const Products = lazy(() => import('@pages/Products'));
+export const ProductDetails = lazy(() => import('@pages/ProductDetails'));
+export const Cart = lazy(() => import('@pages/Cart'));
+export const Checkout = lazy(() => import('@pages/Checkout'));
+export const OrderSuccess = lazy(() => import('@pages/OrderSuccess'));
+export const Auth = lazy(() => import('@pages/Auth'));
+export const Account = lazy(() => import('@pages/Account'));
+export const Orders = lazy(() => import('@pages/Orders'));
+export const Wishlist = lazy(() => import('@pages/Wishlist'));
+export const Finder = lazy(() => import('@pages/Finder'));
+export const Compare = lazy(() => import('@pages/Compare'));
+export const About = lazy(() => import('@pages/About'));
+export const Contact = lazy(() => import('@pages/Contact'));
+export const Faq = lazy(() => import('@pages/Faq'));
+export const Policies = lazy(() => import('@pages/Policies'));
+export const NotFound = lazy(() => import('@pages/NotFound'));
