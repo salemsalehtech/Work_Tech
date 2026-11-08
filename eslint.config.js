@@ -26,12 +26,21 @@ export default [
     },
     rules: {
       // The `@` alias (vite.config.js / jsconfig.json) is resolved by Vite; `vite build` fails on bad paths.
-      'import/no-unresolved': ['error', { ignore: ['^@/'] }],
+      'import/no-unresolved': [
+        'error',
+        { ignore: ['^@/', '^@(app|features|pages|services|shared)/'] },
+      ],
+      // axios and i18next are meant to be used as `axios.create()` / `i18n.use()`.
+      'import/no-named-as-default-member': 'off',
+
       'import/order': [
         'error',
         {
           groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
-          pathGroups: [{ pattern: '@/**', group: 'internal' }],
+          pathGroups: [
+            { pattern: '@/**', group: 'internal' },
+            { pattern: '@{app,features,pages,services,shared}/**', group: 'internal' },
+          ],
           pathGroupsExcludedImportTypes: ['builtin'],
           alphabetize: { order: 'asc', caseInsensitive: true },
           'newlines-between': 'always',
