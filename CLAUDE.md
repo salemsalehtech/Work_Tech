@@ -372,11 +372,12 @@ Update this list as tasks finish.
 - [x] GitHub repository (`salemsalehtech/Work_Tech`) with `develop` as default and branch protection on `main` and `develop`
 - [x] Phase 1 setup commits on `main` and `develop`
 - [x] GitHub Actions dropped (account billing); replaced by Husky pre-push + Vercel build check
-- [ ] Add `.husky/pre-push` and connect the repository to Vercel
+- [x] `.husky/pre-push` runs lint, format check, tests and build
+- [ ] Connect the repository to Vercel
 - [ ] Phase 1 "done when" checks verified ← current task
 - [x] Phase 2: architecture skeleton (merged)
 - [x] System Analysis & Design v1.2 (EN + AR)
-- [ ] Phase 4: `db.json` (products with `createdAt`, reviews, orders) still missing; only json-server and the `api` script were merged
+- [x] Phase 4: mock data (`db.json`) and json-server, fixed to the data contract
 - [ ] Page ownership decided and recorded in section 6
 
 ---
