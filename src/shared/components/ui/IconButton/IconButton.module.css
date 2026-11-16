@@ -1,0 +1,29 @@
+.iconButton {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: var(--control-md);
+  height: var(--control-md);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  cursor: pointer;
+}
+
+.sm {
+  width: 40px;
+  height: 40px;
+}
+
+.iconButton[aria-pressed='true'] {
+  border-color: var(--color-ink);
+  background: var(--color-gold-50);
+}
+
+.heart[aria-pressed='true'] {
+  border-color: var(--color-line);
+  background: var(--color-surface);
+  color: var(--color-sale);
+}
