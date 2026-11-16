@@ -1,3 +1,4 @@
+// Every route of the store. Build links with these, never with hand-written strings.
 export const PATHS = {
   HOME: '/',
   PRODUCTS: '/products',
@@ -18,3 +19,7 @@ export const PATHS = {
   FAQ: '/faq',
   POLICIES: '/policies',
 };
+
+export const productPath = (id) => `/products/${encodeURIComponent(id)}`;
+export const orderPath = (id) => `/orders/${encodeURIComponent(id)}`;
+export const searchPath = (query) => `/search?q=${encodeURIComponent(query)}`;
