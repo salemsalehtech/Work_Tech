@@ -1,0 +1,31 @@
+{
+  "skipToContent": "انتقل إلى المحتوى",
+  "promo": "توصيل مجاني فوق 20,000 جنيه · تقسيط من 6 إلى 36 شهرًا",
+  "nav": {
+    "allLaptops": "كل اللابتوبات",
+    "finder": "مساعد الاختيار",
+    "compare": "المقارنة",
+    "wishlist": "المفضلة",
+    "account": "حسابي",
+    "cart": "السلة",
+    "signIn": "تسجيل الدخول",
+    "trackOrder": "تتبع الطلب",
+    "help": "المساعدة",
+    "about": "من نحن",
+    "contact": "تواصل معنا",
+    "faq": "الأسئلة الشائعة",
+    "policies": "السياسات",
+    "cartWithCount_zero": "السلة فارغة",
+    "cartWithCount_one": "السلة، منتج واحد",
+    "cartWithCount_two": "السلة، منتجان",
+    "cartWithCount_few": "السلة، {{count}} منتجات",
+    "cartWithCount_many": "السلة، {{count}} منتجًا",
+    "cartWithCount_other": "السلة، {{count}} منتج"
+  },
+  "language": {
+    "switchTo": "English"
+  },
+  "footer": {
+    "copyright": "© {{year}} WorkTech · مشروع تخرج DEPI، متجر تجريبي"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "productCard": {
+    "addToCart": "أضف إلى السلة",
+    "outOfStock": "نفدت الكمية",
+    "onlyLeft": "متبقٍ {{count}} فقط",
+    "saveToWishlist": "أضف إلى المفضلة",
+    "addToCompare": "أضف إلى المقارنة"
+  }
+}
