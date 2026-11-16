@@ -23,14 +23,14 @@ Each member has a personal guide in Arabic, with the architecture, the Git rules
 
 ## Roles
 
-| Role                        | Owner           | Branch        | Folders                                                                                                                              |
-| --------------------------- | --------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| Team lead and integration   | Salem Saleh     | `salem`       | `src/app`, `src/services`, `src/shared/hooks`, `src/pages/Finder`, `src/features/finder/components`, deployment                      |
-| UI kit and content pages    | Asmaa Nehad     | `asmaa`       | `src/shared/components/ui`, `src/shared/styles`, `src/shared/utils/validators.js`, `src/pages/{About,Contact,Faq,Policies,NotFound}` |
-| Catalog and product details | Wassim Gomaa    | `wasim`       | `src/features/catalog`, `src/pages/{Products,SearchResults,ProductDetails}`                                                          |
-| Cart and checkout           | Zein El-Din Amr | `zein`        | `src/features/{cart,checkout}`, `src/features/finder/model`, `src/pages/{Cart,Checkout,OrderSuccess}`                                |
-| Account and orders          | Abdelrahman     | `abdelrahman` | `src/features/{auth,orders,wishlist}`, `src/pages/{Auth,Account,Orders,OrderDetails,Wishlist}`                                       |
-| Compare and Home            | Fares Ahmed     | `fares`       | `src/features/compare`, `src/pages/{Compare,Home}`                                                                                   |
+| Role                        | Owner           | Branch        | Folders                                                                                                               |
+| --------------------------- | --------------- | ------------- | --------------------------------------------------------------------------------------------------------------------- |
+| Team lead and integration   | Salem Saleh     | `salem`       | `src/app`, `src/services`, `src/shared/hooks`, `src/pages/Finder`, `src/features/finder/components`, deployment       |
+| UI kit and Home             | Asmaa Nehad     | `asmaa`       | `src/shared/components/ui`, `src/shared/styles`, `src/shared/utils/validators.js`, `src/pages/Home`                   |
+| Catalog and product details | Wassim Gomaa    | `wasim`       | `src/features/catalog`, `src/pages/{Products,SearchResults,ProductDetails}`                                           |
+| Cart, checkout and compare  | Zein El-Din Amr | `zein`        | `src/features/{cart,checkout,compare}`, `src/features/finder/model`, `src/pages/{Cart,Checkout,OrderSuccess,Compare}` |
+| Account and orders          | Abdelrahman     | `abdelrahman` | `src/features/{auth,orders,wishlist}`, `src/pages/{Auth,Account,Orders,OrderDetails,Wishlist}`                        |
+| Content pages and photos    | Fares Ahmed     | `fares`       | `src/pages/{About,Contact,Faq,Policies,NotFound}`, `public/images`                                                    |
 
 Laptop Finder: Zein writes the scoring (`scoreLaptops`), Salem builds the pages.
 
@@ -51,17 +51,17 @@ Things one person builds and others use. These deadlines come first.
 | From        | Delivers                                               | To                         | By            |
 | ----------- | ------------------------------------------------------ | -------------------------- | ------------- |
 | Salem       | The foundation on `develop`                            | Everyone                   | Tue 17, 10 am |
-| Zein        | `addItem`, `toCartItem` from `@features/cart`          | Wassim, Fares, Abdelrahman | Tue 17, 9 pm  |
-| Fares       | `toggleCompare` from `@features/compare`               | Wassim                     | Tue 17, 9 pm  |
-| Asmaa       | Tabs, Toggle, Breadcrumbs, SectionHeader               | Wassim, Fares              | Tue 17, 9 pm  |
-| Asmaa       | `isEgyptianMobile`, `isEmail` from `@shared/utils`     | Zein, Abdelrahman          | Wed 18, noon  |
+| Zein        | `addItem`, `toCartItem` from `@features/cart`          | Wassim, Asmaa, Abdelrahman | Tue 17, 9 pm  |
+| Zein        | `toggleCompare` from `@features/compare`               | Wassim                     | Tue 17, 9 pm  |
+| Asmaa       | Tabs, Toggle, Breadcrumbs, SectionHeader               | Wassim, Zein, Fares        | Tue 17, 9 pm  |
+| Asmaa       | `isEgyptianMobile`, `isEmail` from `@shared/utils`     | Zein, Abdelrahman, Fares   | Wed 18, noon  |
 | Abdelrahman | `toggleWishlist` from `@features/wishlist`             | Wassim                     | Wed 18, noon  |
-| Asmaa       | Accordion, ChoiceList, OptionCards, SegmentedControl   | Wassim, Zein, Salem        | Wed 18, 9 pm  |
-| Wassim      | `useProductCardActions` from `@features/catalog`       | Fares, Abdelrahman, Asmaa  | Thu 19, noon  |
+| Asmaa       | Accordion, ChoiceList, OptionCards, SegmentedControl   | Wassim, Zein, Salem, Fares | Wed 18, 9 pm  |
+| Wassim      | `useProductCardActions` from `@features/catalog`       | Asmaa, Abdelrahman, Fares  | Thu 19, noon  |
 | Abdelrahman | `RequireAuth` from `@features/auth`                    | Salem                      | Thu 19, 3 pm  |
 | Asmaa       | CheckoutStepper, OrderTracker, AccountNav, FilterGroup | Zein, Abdelrahman, Wassim  | Thu 19, 9 pm  |
 | Zein        | `scoreLaptops` from `@features/finder`                 | Salem                      | Thu 19, 9 pm  |
-| Fares       | `CompareBar` from `@features/compare`                  | Wassim                     | Fri 20, noon  |
+| Zein        | `CompareBar` from `@features/compare`                  | Wassim                     | Sat 21, noon  |
 | Asmaa       | InstallmentPicker, Toast                               | Wassim, Salem              | Fri 20, 3 pm  |
 
 Waiting for something? Put a placeholder with `// TODO(name): …` and keep going.

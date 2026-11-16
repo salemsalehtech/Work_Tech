@@ -52,14 +52,14 @@ The old repository `nhahub/NHA-5-046` is no longer used. All work happens in `sa
 
 ## 3. Team
 
-| #   | Member                         | Role                              | Branch        |
-| --- | ------------------------------ | --------------------------------- | ------------- |
-| 1   | Salem Saleh                    | Team lead and integration         | `salem`       |
-| 2   | Asmaa Nehad Farouk             | UI kit and content pages          | `asmaa`       |
-| 3   | Wassim Gomaa El-Sakka          | Catalog and product details       | `wasim`       |
-| 4   | Zein El-Din Amr El-Sayed Ahmed | Cart and checkout, Finder scoring | `zein`        |
-| 5   | Abdelrahman Hany Mohamed       | Account, orders and wishlist      | `abdelrahman` |
-| 6   | Fares Ahmed Mostafa Slim       | Compare and Home                  | `fares`       |
+| #   | Member                         | Role                                       | Branch        |
+| --- | ------------------------------ | ------------------------------------------ | ------------- |
+| 1   | Salem Saleh                    | Team lead and integration                  | `salem`       |
+| 2   | Asmaa Nehad Farouk             | UI kit and Home                            | `asmaa`       |
+| 3   | Wassim Gomaa El-Sakka          | Catalog and product details                | `wasim`       |
+| 4   | Zein El-Din Amr El-Sayed Ahmed | Cart, checkout, compare and Finder scoring | `zein`        |
+| 5   | Abdelrahman Hany Mohamed       | Account, orders and wishlist               | `abdelrahman` |
+| 6   | Fares Ahmed Mostafa Slim       | Content pages and product photos           | `fares`       |
 
 Page owners are in section 6. Each member has a personal guide in `docs/team/`.
 
@@ -106,7 +106,7 @@ Do not add a library that is not in this table without asking me first.
 
 | #   | Page             | Route            | Owner                 |
 | --- | ---------------- | ---------------- | --------------------- |
-| 01  | Home             | `/`              | Fares                 |
+| 01  | Home             | `/`              | Asmaa                 |
 | 02  | Products         | `/products`      | Wassim                |
 | 02b | Search results   | `/search?q=`     | Wassim                |
 | 03  | Product Details  | `/products/:id`  | Wassim                |
@@ -119,12 +119,12 @@ Do not add a library that is not in this table without asking me first.
 | 09b | Order details    | `/orders/:id`    | Abdelrahman           |
 | 10  | Wishlist         | `/wishlist`      | Abdelrahman           |
 | 11  | Laptop Finder    | `/finder`        | Salem (scoring: Zein) |
-| 12  | Compare          | `/compare`       | Fares                 |
-| 13  | About            | `/about`         | Asmaa                 |
-| 14  | Contact          | `/contact`       | Asmaa                 |
-| 15  | FAQ              | `/faq`           | Asmaa                 |
-| 16  | Policies         | `/policies`      | Asmaa                 |
-| 17  | Not Found        | `*`              | Asmaa                 |
+| 12  | Compare          | `/compare`       | Zein                  |
+| 13  | About            | `/about`         | Fares                 |
+| 14  | Contact          | `/contact`       | Fares                 |
+| 15  | FAQ              | `/faq`           | Fares                 |
+| 16  | Policies         | `/policies`      | Fares                 |
+| 17  | Not Found        | `*`              | Fares                 |
 
 **Design reference:** Figma files for all 19 screens at desktop (1440 px), tablet (834 px) and mobile (390 px). The Figma design is the source of truth for layout and spacing. The **WorkTech Design System** artifact (https://claude.ai/artifact/Eu4My81oEnprokYGMEwnMv) holds the measured tokens, every component with its rules, a **Pages** section (what each screen holds, top to bottom) and the screens Figma does not have (loading, empty, error, mobile menu, filter drawer, checkout steps 2–3, Finder results, Create account). Build from it.
 
