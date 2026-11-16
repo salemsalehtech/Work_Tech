@@ -1,0 +1,4532 @@
+{
+  "products": [
+    {
+      "id": "asus-zenbook-14",
+      "brand": "ASUS",
+      "name": "Zenbook 14 OLED",
+      "price": 76999,
+      "oldPrice": 105499,
+      "currency": "EGP",
+      "images": ["/images/products/asus-zenbook-14-1.jpg"],
+      "rating": 4.4,
+      "reviewsCount": 5,
+      "stock": 20,
+      "valueScore": 86,
+      "specs": {
+        "cpu": "Intel Core Ultra 7 255H",
+        "ram": 16,
+        "storage": 512,
+        "gpu": "Intel Arc",
+        "screen": 14,
+        "resolution": "2880x1800 OLED",
+        "battery": "75 Wh",
+        "weight": 1.2,
+        "os": "Windows 11"
+      },
+      "options": {
+        "memory": [
+          {
+            "label": "16 GB",
+            "delta": 0
+          },
+          {
+            "label": "32 GB",
+            "delta": 5500
+          }
+        ],
+        "storage": [
+          {
+            "label": "512 GB",
+            "delta": 0
+          },
+          {
+            "label": "1 TB",
+            "delta": 4000
+          }
+        ],
+        "warranty": [
+          {
+            "label": "1 year",
+            "delta": 0
+          },
+          {
+            "label": "2 years",
+            "delta": 3100
+          },
+          {
+            "label": "3 years",
+            "delta": 5400
+          }
+        ]
+      },
+      "tags": ["ultrabook", "oled"],
+      "createdAt": "2026-09-08"
+    },
+    {
+      "id": "asus-tuf-f16",
+      "brand": "ASUS",
+      "name": "Asus TUF F16 Gaming Laptop",
+      "price": 58444,
+      "oldPrice": null,
+      "currency": "EGP",
+      "images": ["/images/products/asus-tuf-f16-1.jpg"],
+      "rating": 4.2,
+      "reviewsCount": 5,
+      "stock": 2,
+      "valueScore": 87,
+      "specs": {
+        "cpu": "Intel Core 5 210H",
+        "ram": 16,
+        "storage": 512,
+        "gpu": "NVIDIA GeForce RTX 3050",
+        "screen": 16,
+        "resolution": "1920x1200 FHD plus",
+        "battery": "56 Wh",
+        "weight": 2.2,
+        "os": "Windows 11"
+      },
+      "options": {
+        "memory": [
+          {
+            "label": "16 GB",
+            "delta": 0
+          },
+          {
+            "label": "32 GB",
+            "delta": 5500
+          }
+        ],
+        "storage": [
+          {
+            "label": "512 GB",
+            "delta": 0
+          },
+          {
+            "label": "1 TB",
+            "delta": 4000
+          }
+        ],
+        "warranty": [
+          {
+            "label": "1 year",
+            "delta": 0
+          },
+          {
+            "label": "2 years",
+            "delta": 2300
+          },
+          {
+            "label": "3 years",
+            "delta": 4100
+          }
+        ]
+      },
+      "tags": ["gaming"],
+      "createdAt": "2026-09-01"
+    },
+    {
+      "id": "asus-vivobook-15",
+      "brand": "ASUS",
+      "name": "Asus Vivobook 15",
+      "price": 39899,
+      "oldPrice": 42999,
+      "currency": "EGP",
+      "images": ["/images/products/asus-vivobook-15-1.jpg"],
+      "rating": 4,
+      "reviewsCount": 4,
+      "stock": 17,
+      "valueScore": 87,
+      "specs": {
+        "cpu": "Intel Core 7 350",
+        "ram": 8,
+        "storage": 512,
+        "gpu": "Intel Graphics",
+        "screen": 15.6,
+        "resolution": "1920x1080 IPS",
+        "battery": "42 Wh",
+        "weight": 1.7,
+        "os": "Windows 11"
+      },
+      "options": {
+        "memory": [
+          {
+            "label": "8 GB",
+            "delta": 0
+          },
+          {
+            "label": "16 GB",
+            "delta": 3000
+          }
+        ],
+        "storage": [
+          {
+            "label": "512 GB",
+            "delta": 0
+          },
+          {
+            "label": "1 TB",
+            "delta": 4000
+          }
+        ],
+        "warranty": [
+          {
+            "label": "1 year",
+            "delta": 0
+          },
+          {
+            "label": "2 years",
+            "delta": 1600
+          },
+          {
+            "label": "3 years",
+            "delta": 2800
+          }
+        ]
+      },
+      "tags": ["ultrabook", "business"],
+      "createdAt": "2026-03-16"
+    },
+    {
+      "id": "asus-rog-strix-g16-g614ph-rv659w",
+      "brand": "ASUS",
+      "name": "ASUS ROG Strix G16 G614PH-RV659W",
+      "price": 84999,
+      "oldPrice": 114599,
+      "currency": "EGP",
+      "images": ["/images/products/asus-rog-strix-g16-g614ph-rv659w-1.jpg"],
+      "rating": 4.2,
+      "reviewsCount": 5,
+      "stock": 1,
+      "valueScore": 81,
+      "specs": {
+        "cpu": "AMD Ryzen 9 8940HX",
+        "ram": 16,
+        "storage": 512,
+        "gpu": "NVIDIA GeForce RTX 5050",
+        "screen": 16,
+        "resolution": "1920x1200 WUXGA",
+        "battery": "90 Wh",
+        "weight": 2.5,
+        "os": "Windows 11"
+      },
+      "options": {
+        "memory": [
+          {
+            "label": "16 GB",
+            "delta": 0
+          },
+          {
+            "label": "32 GB",
+            "delta": 5500
+          }
+        ],
+        "storage": [
+          {
+            "label": "512 GB",
+            "delta": 0
+          },
+          {
+            "label": "1 TB",
+            "delta": 4000
+          }
+        ],
+        "warranty": [
+          {
+            "label": "1 year",
+            "delta": 0
+          },
+          {
+            "label": "2 years",
+            "delta": 3400
+          },
+          {
+            "label": "3 years",
+            "delta": 5900
+          }
+        ]
+      },
+      "tags": ["gaming"],
+      "createdAt": "2026-08-30"
+    },
+    {
+      "id": "asus-rog-strix-g16-g614ph-rv161w",
+      "brand": "ASUS",
+      "name": "ASUS ROG Strix G16 G614PH-RV161W",
+      "price": 83999,
+      "oldPrice": 94000,
+      "currency": "EGP",
+      "images": ["/images/products/asus-rog-strix-g16-g614ph-rv161w-1.jpg"],
+      "rating": 4.3,
+      "reviewsCount": 4,
+      "stock": 9,
+      "valueScore": 81,
+      "specs": {
+        "cpu": "AMD R9-8940HX",
+        "ram": 16,
+        "storage": 1024,
+        "gpu": "NVIDIA GeForce RTX 5050",
+        "screen": 16,
+        "resolution": "1920x1200 WUXGA",
+        "battery": "90 Wh",
+        "weight": 2.5,
+        "os": "Windows 11"
+      },
+      "options": {
+        "memory": [
+          {
+            "label": "16 GB",
+            "delta": 0
+          },
+          {
+            "label": "32 GB",
+            "delta": 5500
+          }
+        ],
+        "storage": [
+          {
+            "label": "1 TB",
+            "delta": 0
+          },
+          {
+            "label": "2 TB",
+            "delta": 7500
+          }
+        ],
+        "warranty": [
+          {
+            "label": "1 year",
+            "delta": 0
+          },
+          {
+            "label": "2 years",
+            "delta": 3400
+          },
+          {
+            "label": "3 years",
+            "delta": 5900
+          }
+        ]
+      },
+      "tags": ["gaming"],
+      "createdAt": "2026-08-28"
+    },
+    {
+      "id": "asus-tuf-a16",
+      "brand": "ASUS",
+      "name": "ASUS TUF Gaming A16",
+      "price": 99999,
+      "oldPrice": 114599,
+      "currency": "EGP",
+      "images": ["/images/products/asus-tuf-a16-1.jpg"],
+      "rating": 4.2,
+      "reviewsCount": 5,
+      "stock": 19,
+      "valueScore": 81,
+      "specs": {
+        "cpu": "AMD Ryzen 7 7445HS",
+        "ram": 16,
+        "storage": 1024,
+        "gpu": "NVIDIA GeForce RTX 4050",
+        "screen": 16,
+        "resolution": "1920x1200 WUXGA IPS",
+        "battery": "56 Wh",
+        "weight": 2.18,
+        "os": "Windows 11"
+      },
+      "options": {
+        "memory": [
+          {
+            "label": "16 GB",
+            "delta": 0
+          },
+          {
+            "label": "32 GB",
+            "delta": 5500
+          }
+        ],
+        "storage": [
+          {
+            "label": "1 TB",
+            "delta": 0
+          },
+          {
+            "label": "2 TB",
+            "delta": 7500
+          }
+        ],
+        "warranty": [
+          {
+            "label": "1 year",
+            "delta": 0
+          },
+          {
+            "label": "2 years",
+            "delta": 4000
+          },
+          {
+            "label": "3 years",
+            "delta": 7000
+          }
+        ]
+      },
+      "tags": ["gaming"],
+      "createdAt": "2026-02-14"
+    },
+    {
+      "id": "lenovo-loq-15irx9",
+      "brand": "Lenovo",
+      "name": "Lenovo LOQ 15IRX9 Gaming Laptop",
+      "price": 66999,
+      "oldPrice": null,
+      "currency": "EGP",
+      "images": ["/images/products/lenovo-loq-15irx9-1.jpg"],
+      "rating": 4.2,
+      "reviewsCount": 5,
+      "stock": 23,
+      "valueScore": 81,
+      "specs": {
+        "cpu": "AMD Ryzen 7 7445HS",
+        "ram": 16,
+        "storage": 1024,
+        "gpu": "NVIDIA GeForce RTX 4050",
+        "screen": 16,
+        "resolution": "1920x1200 WUXGA IPS",
+        "battery": "56 Wh",
+        "weight": 2.18,
+        "os": "Windows 11"
+      },
+      "options": {
+        "memory": [
+          {
+            "label": "16 GB",
+            "delta": 0
+          },
+          {
+            "label": "32 GB",
+            "delta": 5500
+          }
+        ],
+        "storage": [
+          {
+            "label": "1 TB",
+            "delta": 0
+          },
+          {
+            "label": "2 TB",
+            "delta": 7500
+          }
+        ],
+        "warranty": [
+          {
+            "label": "1 year",
+            "delta": 0
+          },
+          {
+            "label": "2 years",
+            "delta": 2700
+          },
+          {
+            "label": "3 years",
+            "delta": 4700
+          }
+        ]
+      },
+      "tags": ["gaming"],
+      "createdAt": "2026-03-10"
+    },
+    {
+      "id": "lenovo-legion-5-15iax10",
+      "brand": "Lenovo",
+      "name": "Lenovo Legion 5 15IAX10 Gaming Laptop",
+      "price": 122395,
+      "oldPrice": null,
+      "currency": "EGP",
+      "images": ["/images/products/lenovo-legion-5-15iax10-1.jpg"],
+      "rating": 4.2,
+      "reviewsCount": 5,
+      "stock": 21,
+      "valueScore": 89,
+      "specs": {
+        "cpu": "Intel Core Ultra 9 275HX",
+        "ram": 32,
+        "storage": 1024,
+        "gpu": "NVIDIA GeForce RTX 5070",
+        "screen": 15.1,
+        "resolution": "2560x1600 WQXGA OLED",
+        "battery": "56 Wh",
+        "weight": 1.9,
+        "os": "Free DOS"
+      },
+      "options": {
+        "memory": [
+          {
+            "label": "32 GB",
+            "delta": 0
+          },
+          {
+            "label": "64 GB",
+            "delta": 10000
+          }
+        ],
+        "storage": [
+          {
+            "label": "1 TB",
+            "delta": 0
+          },
+          {
+            "label": "2 TB",
+            "delta": 7500
+          }
+        ],
+        "warranty": [
+          {
+            "label": "1 year",
+            "delta": 0
+          },
+          {
+            "label": "2 years",
+            "delta": 4900
+          },
+          {
+            "label": "3 years",
+            "delta": 8600
+          }
+        ]
+      },
+      "tags": ["gaming", "oled"],
+      "createdAt": "2026-09-09"
+    },
+    {
+      "id": "lenovo-ideapad-slim-3-15irh10-83k101eued",
+      "brand": "Lenovo",
+      "name": "IdeaPad Slim 3 15IRH10",
+      "price": 41499,
+      "oldPrice": 43999,
+      "currency": "EGP",
+      "images": ["/images/products/lenovo-ideapad-slim-3-15irh10-83k101eued-1.jpg"],
+      "rating": 4,
+      "reviewsCount": 4,
+      "stock": 0,
+      "valueScore": 65,
+      "specs": {
+        "cpu": "Intel Core i5-13420H",
+        "ram": 16,
+        "storage": 512,
+        "gpu": "Intel UHD Graphics",
+        "screen": 15.3,
+        "resolution": "1920x1200 WUXGA IPS",
+        "battery": "50 Wh",
+        "weight": 1.59,
+        "os": "Windows 11"
+      },
+      "options": {
+        "memory": [
+          {
+            "label": "16 GB",
+            "delta": 0
+          },
+          {
+            "label": "32 GB",
+            "delta": 5500
+          }
+        ],
+        "storage": [
+          {
+            "label": "512 GB",
+            "delta": 0
+          },
+          {
+            "label": "1 TB",
+            "delta": 4000
+          }
+        ],
+        "warranty": [
+          {
+            "label": "1 year",
+            "delta": 0
+          },
+          {
+            "label": "2 years",
+            "delta": 1700
+          },
+          {
+            "label": "3 years",
+            "delta": 2900
+          }
+        ]
+      },
+      "tags": ["student"],
+      "createdAt": "2025-10-11"
+    },
+    {
+      "id": "lenovo-ideapad-slim-3-15iru8",
+      "brand": "Lenovo",
+      "name": "Lenovo IdeaPad Slim 3 15IRU8",
+      "price": 29231,
+      "oldPrice": null,
+      "currency": "EGP",
+      "images": ["/images/products/lenovo-ideapad-slim-3-15iru8-1.jpg"],
+      "rating": 4,
+      "reviewsCount": 4,
+      "stock": 20,
+      "valueScore": 72,
+      "specs": {
+        "cpu": "Intel Core i3-1315U",
+        "ram": 8,
+        "storage": 256,
+        "gpu": "Intel UHD Graphics",
+        "screen": 15.6,
+        "resolution": "1920x1080 FHD",
+        "battery": "47 Wh",
+        "weight": 1.62,
+        "os": "Windows 11"
+      },
+      "options": {
+        "memory": [
+          {
+            "label": "8 GB",
+            "delta": 0
+          },
+          {
+            "label": "16 GB",
+            "delta": 3000
+          }
+        ],
+        "storage": [
+          {
+            "label": "256 GB",
+            "delta": 0
+          },
+          {
+            "label": "512 GB",
+            "delta": 2500
+          }
+        ],
+        "warranty": [
+          {
+            "label": "1 year",
+            "delta": 0
+          },
+          {
+            "label": "2 years",
+            "delta": 1200
+          },
+          {
+            "label": "3 years",
+            "delta": 2000
+          }
+        ]
+      },
+      "tags": ["student"],
+      "createdAt": "2026-06-04"
+    },
+    {
+      "id": "lenovo-loq-15iax9e-essential",
+      "brand": "Lenovo",
+      "name": "Lenovo LOQ 15IAX9E Essential Gaming Laptop",
+      "price": 53999,
+      "oldPrice": null,
+      "currency": "EGP",
+      "images": ["/images/products/lenovo-loq-15iax9e-essential-1.jpg"],
+      "rating": 4,
+      "reviewsCount": 4,
+      "stock": 2,
+      "valueScore": 88,
+      "specs": {
+        "cpu": "Intel Core i5-12450HX",
+        "ram": 16,
+        "storage": 512,
+        "gpu": "NVIDIA GeForce RTX 2050",
+        "screen": 15.6,
+        "resolution": "1920x1080 FHD IPS",
+        "battery": "57 Wh",
+        "weight": 1.77,
+        "os": "Windows"
+      },
+      "options": {
+        "memory": [
+          {
+            "label": "16 GB",
+            "delta": 0
+          },
+          {
+            "label": "32 GB",
+            "delta": 5500
+          }
+        ],
+        "storage": [
+          {
+            "label": "512 GB",
+            "delta": 0
+          },
+          {
+            "label": "1 TB",
+            "delta": 4000
+          }
+        ],
+        "warranty": [
+          {
+            "label": "1 year",
+            "delta": 0
+          },
+          {
+            "label": "2 years",
+            "delta": 2200
+          },
+          {
+            "label": "3 years",
+            "delta": 3800
+          }
+        ]
+      },
+      "tags": ["gaming"],
+      "createdAt": "2026-01-28"
+    },
+    {
+      "id": "lenovo-loq-15arp9-83jc00p6ed",
+      "brand": "Lenovo",
+      "name": "Lenovo LOQ 15ARP9",
+      "price": 99999,
+      "oldPrice": 114599,
+      "currency": "EGP",
+      "images": ["/images/products/lenovo-loq-15arp9-83jc00p6ed-1.jpg"],
+      "rating": 4.2,
+      "reviewsCount": 5,
+      "stock": 14,
+      "valueScore": 81,
+      "specs": {
+        "cpu": "AMD Ryzen 5 7235HS",
+        "ram": 16,
+        "storage": 512,
+        "gpu": "NVIDIA GeForce RTX 3050",
+        "screen": 15.6,
+        "resolution": "1920x1080 FHD IPS",
+        "battery": null,
+        "weight": 2.38,
+        "os": "Windows 11"
+      },
+      "options": {
+        "memory": [
+          {
+            "label": "16 GB",
+            "delta": 0
+          },
+          {
+            "label": "32 GB",
+            "delta": 5500
+          }
+        ],
+        "storage": [
+          {
+            "label": "512 GB",
+            "delta": 0
+          },
+          {
+            "label": "1 TB",
+            "delta": 4000
+          }
+        ],
+        "warranty": [
+          {
+            "label": "1 year",
+            "delta": 0
+          },
+          {
+            "label": "2 years",
+            "delta": 4000
+          },
+          {
+            "label": "3 years",
+            "delta": 7000
+          }
+        ]
+      },
+      "tags": ["gaming"],
+      "createdAt": "2026-05-03"
+    },
+    {
+      "id": "lenovo-thinkpad-e14-gen6-21m70007us",
+      "brand": "Lenovo",
+      "name": "Lenovo ThinkPad E14 Gen 6",
+      "price": 84599,
+      "oldPrice": null,
+      "currency": "EGP",
+      "images": ["/images/products/lenovo-thinkpad-e14-gen6-21m70007us-1.jpg"],
+      "rating": 4.3,
+      "reviewsCount": 4,
+      "stock": 10,
+      "valueScore": 90,
+      "specs": {
+        "cpu": "Intel Core Ultra 7 155U",
+        "ram": 16,
+        "storage": 512,
+        "gpu": "Intel Graphics",
+        "screen": 14,
+        "resolution": "1920x1200 WUXGA IPS",
+        "battery": "45 Wh",
+        "weight": 1.42,
+        "os": "Windows 11 Pro"
+      },
+      "options": {
+        "memory": [
+          {
+            "label": "16 GB",
+            "delta": 0
+          },
+          {
+            "label": "32 GB",
+            "delta": 5500
+          }
+        ],
+        "storage": [
+          {
+            "label": "512 GB",
+            "delta": 0
+          },
+          {
+            "label": "1 TB",
+            "delta": 4000
+          }
+        ],
+        "warranty": [
+          {
+            "label": "1 year",
+            "delta": 0
+          },
+          {
+            "label": "2 years",
+            "delta": 3400
+          },
+          {
+            "label": "3 years",
+            "delta": 5900
+          }
+        ]
+      },
+      "tags": ["business"],
+      "createdAt": "2026-05-04"
+    },
+    {
+      "id": "hp-laptop-ai-15-fd2002ne",
+      "brand": "HP",
+      "name": "HP Laptop AI 15-fd2002ne",
+      "price": 50999,
+      "oldPrice": null,
+      "currency": "EGP",
+      "images": ["/images/products/hp-laptop-ai-15-fd2002ne-1.jpg"],
+      "rating": 4,
+      "reviewsCount": 4,
+      "stock": 13,
+      "valueScore": 74,
+      "specs": {
+        "cpu": "Intel Core Ultra 7-255U",
+        "ram": 16,
+        "storage": 512,
+        "gpu": "Intel Graphics",
+        "screen": 15.6,
+        "resolution": "1920x1080 IPS",
+        "battery": "41 Wh",
+        "weight": 1.8,
+        "os": "DOS"
+      },
+      "options": {
+        "memory": [
+          {
+            "label": "16 GB",
+            "delta": 0
+          },
+          {
+            "label": "32 GB",
+            "delta": 5500
+          }
+        ],
+        "storage": [
+          {
+            "label": "512 GB",
+            "delta": 0
+          },
+          {
+            "label": "1 TB",
+            "delta": 4000
+          }
+        ],
+        "warranty": [
+          {
+            "label": "1 year",
+            "delta": 0
+          },
+          {
+            "label": "2 years",
+            "delta": 2000
+          },
+          {
+            "label": "3 years",
+            "delta": 3600
+          }
+        ]
+      },
+      "tags": ["business"],
+      "createdAt": "2026-03-24"
+    },
+    {
+      "id": "hp-victus-15-fa1096ne",
+      "brand": "HP",
+      "name": "Hp Victus 15-fa1096ne Gaming Laptop ",
+      "price": 17500,
+      "oldPrice": null,
+      "currency": "EGP",
+      "images": ["/images/products/hp-victus-15-fa1096ne-1.jpg"],
+      "rating": 4,
+      "reviewsCount": 5,
+      "stock": 11,
+      "valueScore": 78,
+      "specs": {
+        "cpu": "Intel Core i7-13700H",
+        "ram": 16,
+        "storage": 512,
+        "gpu": "NVIDIA GeForce RTX 4050 6GB GDDR6",
+        "screen": 15.6,
+        "resolution": "1920x1080 IPS 144Hz",
+        "battery": "70 Wh",
+        "weight": 3.94,
+        "os": "DOS"
+      },
+      "options": {
+        "memory": [
+          {
+            "label": "16 GB",
+            "delta": 0
+          },
+          {
+            "label": "32 GB",
+            "delta": 5500
+          }
+        ],
+        "storage": [
+          {
+            "label": "512 GB",
+            "delta": 0
+          },
+          {
+            "label": "1 TB",
+            "delta": 4000
+          }
+        ],
+        "warranty": [
+          {
+            "label": "1 year",
+            "delta": 0
+          },
+          {
+            "label": "2 years",
+            "delta": 1000
+          },
+          {
+            "label": "3 years",
+            "delta": 1800
+          }
+        ]
+      },
+      "tags": ["gaming"],
+      "createdAt": "2026-03-20"
+    },
+    {
+      "id": "hp-victus-16-r1052ne",
+      "brand": "HP",
+      "name": "HP Victus 16-R1052ne Gaming Laptop",
+      "price": 91099,
+      "oldPrice": null,
+      "currency": "EGP",
+      "images": ["/images/products/hp-victus-16-r1052ne-1.jpg"],
+      "rating": 4.2,
+      "reviewsCount": 5,
+      "stock": 15,
+      "valueScore": 82,
+      "specs": {
+        "cpu": "Intel Core i7-14700HX",
+        "ram": 16,
+        "storage": 1024,
+        "gpu": "NVIDIA GeForce RTX 4070 8GB",
+        "screen": 16.1,
+        "resolution": "1920x1080 IPS 144Hz",
+        "battery": "70 Wh",
+        "weight": 2.33,
+        "os": "Free DOS"
+      },
+      "options": {
+        "memory": [
+          {
+            "label": "16 GB",
+            "delta": 0
+          },
+          {
+            "label": "32 GB",
+            "delta": 5500
+          }
+        ],
+        "storage": [
+          {
+            "label": "1 TB",
+            "delta": 0
+          },
+          {
+            "label": "2 TB",
+            "delta": 7500
+          }
+        ],
+        "warranty": [
+          {
+            "label": "1 year",
+            "delta": 0
+          },
+          {
+            "label": "2 years",
+            "delta": 3600
+          },
+          {
+            "label": "3 years",
+            "delta": 6400
+          }
+        ]
+      },
+      "tags": ["gaming"],
+      "createdAt": "2026-07-26"
+    },
+    {
+      "id": "hp-omnibook-3-16-bw0001ne",
+      "brand": "HP",
+      "name": "HP OmniBook 3 16-bw0001ne",
+      "price": 50999,
+      "oldPrice": null,
+      "currency": "EGP",
+      "images": ["/images/products/hp-omnibook-3-16-bw0001ne-1.jpg"],
+      "rating": 4,
+      "reviewsCount": 4,
+      "stock": 20,
+      "valueScore": 80,
+      "specs": {
+        "cpu": "AMD Ryzen AI 7 250",
+        "ram": 16,
+        "storage": 512,
+        "gpu": "AMD Radeon 780M",
+        "screen": 16,
+        "resolution": "1920x1200 LCD",
+        "battery": "68 Wh",
+        "weight": 1.64,
+        "os": "Windows 11 Home"
+      },
+      "options": {
+        "memory": [
+          {
+            "label": "16 GB",
+            "delta": 0
+          },
+          {
+            "label": "32 GB",
+            "delta": 5500
+          }
+        ],
+        "storage": [
+          {
+            "label": "512 GB",
+            "delta": 0
+          },
+          {
+            "label": "1 TB",
+            "delta": 4000
+          }
+        ],
+        "warranty": [
+          {
+            "label": "1 year",
+            "delta": 0
+          },
+          {
+            "label": "2 years",
+            "delta": 2000
+          },
+          {
+            "label": "3 years",
+            "delta": 3600
+          }
+        ]
+      },
+      "tags": ["business", "student"],
+      "createdAt": "2025-10-15"
+    },
+    {
+      "id": "hp-15s-eq2014ne",
+      "brand": "HP",
+      "name": "HP 15s-EQ2014NE",
+      "price": 24999,
+      "oldPrice": null,
+      "currency": "EGP",
+      "images": ["/images/products/hp-15s-eq2014ne-1.jpg"],
+      "rating": 4,
+      "reviewsCount": 4,
+      "stock": 0,
+      "valueScore": 55,
+      "specs": {
+        "cpu": "Ryzen 5 5500U",
+        "ram": 4,
+        "storage": 256,
+        "gpu": "AMD Radeon Graphics",
+        "screen": 15.6,
+        "resolution": "1920x1080 LED",
+        "battery": "41 Wh",
+        "weight": 2.45,
+        "os": "DOS"
+      },
+      "options": {
+        "memory": [
+          {
+            "label": "4 GB",
+            "delta": 0
+          },
+          {
+            "label": "8 GB",
+            "delta": 1500
+          }
+        ],
+        "storage": [
+          {
+            "label": "256 GB",
+            "delta": 0
+          },
+          {
+            "label": "512 GB",
+            "delta": 2500
+          }
+        ],
+        "warranty": [
+          {
+            "label": "1 year",
+            "delta": 0
+          },
+          {
+            "label": "2 years",
+            "delta": 1000
+          },
+          {
+            "label": "3 years",
+            "delta": 1800
+          }
+        ]
+      },
+      "tags": ["student"],
+      "createdAt": "2025-10-01"
+    },
+    {
+      "id": "hp-victus-15-fa1082wm",
+      "brand": "HP",
+      "name": "Hp Victus 15-fa1082wm Gaming Laptop",
+      "price": 67277,
+      "oldPrice": null,
+      "currency": "EGP",
+      "images": ["/images/products/hp-victus-15-fa1082wm-1.jpg"],
+      "rating": 4.3,
+      "reviewsCount": 3,
+      "stock": 17,
+      "valueScore": 75,
+      "specs": {
+        "cpu": "Intel Core i5-13420H",
+        "ram": 16,
+        "storage": 512,
+        "gpu": "NVIDIA GeForce RTX 4050 6GB GDDR6",
+        "screen": 15.6,
+        "resolution": "1920x1080 LED",
+        "battery": "41 Wh",
+        "weight": 2.45,
+        "os": "DOS"
+      },
+      "options": {
+        "memory": [
+          {
+            "label": "16 GB",
+            "delta": 0
+          },
+          {
+            "label": "32 GB",
+            "delta": 5500
+          }
+        ],
+        "storage": [
+          {
+            "label": "512 GB",
+            "delta": 0
+          },
+          {
+            "label": "1 TB",
+            "delta": 4000
+          }
+        ],
+        "warranty": [
+          {
+            "label": "1 year",
+            "delta": 0
+          },
+          {
+            "label": "2 years",
+            "delta": 2700
+          },
+          {
+            "label": "3 years",
+            "delta": 4700
+          }
+        ]
+      },
+      "tags": ["student"],
+      "createdAt": "2026-01-11"
+    },
+    {
+      "id": "dell-15-dc15250",
+      "brand": "Dell",
+      "name": "Dell 15 DC15250",
+      "price": 43999,
+      "oldPrice": null,
+      "currency": "EGP",
+      "images": ["/images/products/dell-15-dc15250-1.jpg"],
+      "rating": 4,
+      "reviewsCount": 4,
+      "stock": 23,
+      "valueScore": 70,
+      "specs": {
+        "cpu": "Intel Core i7-1355U",
+        "ram": 16,
+        "storage": 512,
+        "gpu": "Intel UHD Graphics",
+        "screen": 15.6,
+        "resolution": "1920x1080",
+        "battery": "54 Wh",
+        "weight": 1.62,
+        "os": "Windows 11 Home"
+      },
+      "options": {
+        "memory": [
+          {
+            "label": "16 GB",
+            "delta": 0
+          },
+          {
+            "label": "32 GB",
+            "delta": 5500
+          }
+        ],
+        "storage": [
+          {
+            "label": "512 GB",
+            "delta": 0
+          },
+          {
+            "label": "1 TB",
+            "delta": 4000
+          }
+        ],
+        "warranty": [
+          {
+            "label": "1 year",
+            "delta": 0
+          },
+          {
+            "label": "2 years",
+            "delta": 1800
+          },
+          {
+            "label": "3 years",
+            "delta": 3100
+          }
+        ]
+      },
+      "tags": ["business", "student"],
+      "createdAt": "2025-10-07"
+    },
+    {
+      "id": "dell-latitude-e5550",
+      "brand": "Dell",
+      "name": "Dell Latitude E 5550 Laptop",
+      "price": 15440,
+      "oldPrice": null,
+      "currency": "EGP",
+      "images": ["/images/products/dell-latitude-e5550-1.jpg"],
+      "rating": 4,
+      "reviewsCount": 4,
+      "stock": 0,
+      "valueScore": 35,
+      "specs": {
+        "cpu": "Intel Core i5 5th Gen",
+        "ram": 4,
+        "storage": 250,
+        "gpu": "Intel Integrated Graphics",
+        "screen": 15.6,
+        "resolution": "1366x768",
+        "battery": "51 Wh",
+        "weight": 2.14,
+        "os": "Windows"
+      },
+      "options": {
+        "memory": [
+          {
+            "label": "4 GB",
+            "delta": 0
+          },
+          {
+            "label": "8 GB",
+            "delta": 1500
+          }
+        ],
+        "storage": [
+          {
+            "label": "250 GB",
+            "delta": 0
+          },
+          {
+            "label": "512 GB",
+            "delta": 2500
+          }
+        ],
+        "warranty": [
+          {
+            "label": "1 year",
+            "delta": 0
+          },
+          {
+            "label": "2 years",
+            "delta": 1000
+          },
+          {
+            "label": "3 years",
+            "delta": 1800
+          }
+        ]
+      },
+      "tags": ["business"],
+      "createdAt": "2026-01-09"
+    },
+    {
+      "id": "dell-pro-14-pc14250",
+      "brand": "Dell",
+      "name": "Dell Pro 14 PC14250",
+      "price": 85000,
+      "oldPrice": null,
+      "currency": "EGP",
+      "images": ["/images/products/dell-pro-14-pc14250-1.jpg"],
+      "rating": 4.3,
+      "reviewsCount": 4,
+      "stock": 8,
+      "valueScore": 75,
+      "specs": {
+        "cpu": "Intel Core Ultra 5 235U",
+        "ram": 16,
+        "storage": 512,
+        "gpu": "Intel Graphics",
+        "screen": 14,
+        "resolution": "1920x1200 IPS",
+        "battery": "55 Wh",
+        "weight": 1.36,
+        "os": "Ubuntu 24.04 LTS"
+      },
+      "options": {
+        "memory": [
+          {
+            "label": "16 GB",
+            "delta": 0
+          },
+          {
+            "label": "32 GB",
+            "delta": 5500
+          }
+        ],
+        "storage": [
+          {
+            "label": "512 GB",
+            "delta": 0
+          },
+          {
+            "label": "1 TB",
+            "delta": 4000
+          }
+        ],
+        "warranty": [
+          {
+            "label": "1 year",
+            "delta": 0
+          },
+          {
+            "label": "2 years",
+            "delta": 3400
+          },
+          {
+            "label": "3 years",
+            "delta": 6000
+          }
+        ]
+      },
+      "tags": ["business"],
+      "createdAt": "2026-02-24"
+    },
+    {
+      "id": "dell-pro-16-pc16250",
+      "brand": "Dell",
+      "name": "Dell Pro 16 PC16250",
+      "price": 99999,
+      "oldPrice": null,
+      "currency": "EGP",
+      "images": ["/images/products/dell-pro-16-pc16250-1.jpg"],
+      "rating": 4.3,
+      "reviewsCount": 4,
+      "stock": 14,
+      "valueScore": 72,
+      "specs": {
+        "cpu": "Intel Core Ultra 5 235U",
+        "ram": 16,
+        "storage": 512,
+        "gpu": "Intel Graphics",
+        "screen": 16,
+        "resolution": "1920x1200",
+        "battery": "55 Wh",
+        "weight": 1.92,
+        "os": "Windows 11 Pro"
+      },
+      "options": {
+        "memory": [
+          {
+            "label": "16 GB",
+            "delta": 0
+          },
+          {
+            "label": "32 GB",
+            "delta": 5500
+          }
+        ],
+        "storage": [
+          {
+            "label": "512 GB",
+            "delta": 0
+          },
+          {
+            "label": "1 TB",
+            "delta": 4000
+          }
+        ],
+        "warranty": [
+          {
+            "label": "1 year",
+            "delta": 0
+          },
+          {
+            "label": "2 years",
+            "delta": 4000
+          },
+          {
+            "label": "3 years",
+            "delta": 7000
+          }
+        ]
+      },
+      "tags": ["business"],
+      "createdAt": "2025-10-19"
+    },
+    {
+      "id": "dell-vostro-3530",
+      "brand": "Dell",
+      "name": "Dell Vostro 3530 Laptop",
+      "price": 38999,
+      "oldPrice": null,
+      "currency": "EGP",
+      "images": ["/images/products/dell-vostro-3530-1.jpg"],
+      "rating": 4,
+      "reviewsCount": 4,
+      "stock": 23,
+      "valueScore": 66,
+      "specs": {
+        "cpu": "Intel Core i7-1355U",
+        "ram": 8,
+        "storage": 512,
+        "gpu": "Intel UHD Graphics",
+        "screen": 15.6,
+        "resolution": "1920x1080",
+        "battery": "54 Wh",
+        "weight": 1.66,
+        "os": "Ubuntu"
+      },
+      "options": {
+        "memory": [
+          {
+            "label": "8 GB",
+            "delta": 0
+          },
+          {
+            "label": "16 GB",
+            "delta": 3000
+          }
+        ],
+        "storage": [
+          {
+            "label": "512 GB",
+            "delta": 0
+          },
+          {
+            "label": "1 TB",
+            "delta": 4000
+          }
+        ],
+        "warranty": [
+          {
+            "label": "1 year",
+            "delta": 0
+          },
+          {
+            "label": "2 years",
+            "delta": 1600
+          },
+          {
+            "label": "3 years",
+            "delta": 2700
+          }
+        ]
+      },
+      "tags": ["business"],
+      "createdAt": "2025-11-18"
+    },
+    {
+      "id": "dell-inspiron-14-7440-2in1",
+      "brand": "Dell",
+      "name": "Dell Inspiron 14-7440 2n1 Laptop",
+      "price": 49999,
+      "oldPrice": null,
+      "currency": "EGP",
+      "images": ["/images/products/dell-inspiron-14-7440-2in1-1.jpg"],
+      "rating": 4.3,
+      "reviewsCount": 4,
+      "stock": 14,
+      "valueScore": 68,
+      "specs": {
+        "cpu": "Intel Core 5 120U",
+        "ram": 8,
+        "storage": 512,
+        "gpu": "Intel Graphics",
+        "screen": 14,
+        "resolution": "1920x1200 IPS",
+        "battery": "64 Wh",
+        "weight": 1.71,
+        "os": "Windows 11"
+      },
+      "options": {
+        "memory": [
+          {
+            "label": "8 GB",
+            "delta": 0
+          },
+          {
+            "label": "16 GB",
+            "delta": 3000
+          }
+        ],
+        "storage": [
+          {
+            "label": "512 GB",
+            "delta": 0
+          },
+          {
+            "label": "1 TB",
+            "delta": 4000
+          }
+        ],
+        "warranty": [
+          {
+            "label": "1 year",
+            "delta": 0
+          },
+          {
+            "label": "2 years",
+            "delta": 2000
+          },
+          {
+            "label": "3 years",
+            "delta": 3500
+          }
+        ]
+      },
+      "tags": ["student", "2-in-1"],
+      "createdAt": "2026-05-15"
+    },
+    {
+      "id": "apple-macbook-neo-13",
+      "brand": "Apple",
+      "name": "Apple MacBook Neo 13",
+      "price": 49500,
+      "oldPrice": null,
+      "currency": "EGP",
+      "images": ["/images/products/apple-macbook-neo-13-1.jpg"],
+      "rating": 4.3,
+      "reviewsCount": 4,
+      "stock": 13,
+      "valueScore": 78,
+      "specs": {
+        "cpu": "Apple A18 Pro",
+        "ram": 8,
+        "storage": 256,
+        "gpu": "Apple 5-core GPU",
+        "screen": 13,
+        "resolution": "2408x1506 Liquid Retina",
+        "battery": "36.48 Wh",
+        "weight": 2.12,
+        "os": "macOS"
+      },
+      "options": {
+        "memory": [
+          {
+            "label": "8 GB",
+            "delta": 0
+          },
+          {
+            "label": "16 GB",
+            "delta": 10000
+          }
+        ],
+        "storage": [
+          {
+            "label": "256 GB",
+            "delta": 0
+          },
+          {
+            "label": "512 GB",
+            "delta": 10000
+          }
+        ],
+        "warranty": [
+          {
+            "label": "1 year",
+            "delta": 0
+          },
+          {
+            "label": "2 years",
+            "delta": 2000
+          },
+          {
+            "label": "3 years",
+            "delta": 3500
+          }
+        ]
+      },
+      "tags": ["student", "ultrabook"],
+      "createdAt": "2025-10-07"
+    },
+    {
+      "id": "apple-macbook-pro-14-m5",
+      "brand": "Apple",
+      "name": "Apple MacBook Pro 14 M5",
+      "price": 126349,
+      "oldPrice": null,
+      "currency": "EGP",
+      "images": ["/images/products/apple-macbook-pro-14-m5-1.jpg"],
+      "rating": 4.8,
+      "reviewsCount": 4,
+      "stock": 22,
+      "valueScore": 80,
+      "specs": {
+        "cpu": "Apple M5 10-core",
+        "ram": 16,
+        "storage": 1024,
+        "gpu": "Apple M5 10-core GPU",
+        "screen": 14.2,
+        "resolution": "3024x1964 Liquid Retina XDR",
+        "battery": "72.4 Wh",
+        "weight": 1.55,
+        "os": "macOS"
+      },
+      "options": {
+        "memory": [
+          {
+            "label": "16 GB",
+            "delta": 0
+          },
+          {
+            "label": "24 GB",
+            "delta": 10000
+          }
+        ],
+        "storage": [
+          {
+            "label": "1 TB",
+            "delta": 0
+          },
+          {
+            "label": "2 TB",
+            "delta": 20000
+          }
+        ],
+        "warranty": [
+          {
+            "label": "1 year",
+            "delta": 0
+          },
+          {
+            "label": "2 years",
+            "delta": 5100
+          },
+          {
+            "label": "3 years",
+            "delta": 8800
+          }
+        ]
+      },
+      "tags": ["business", "creator"],
+      "createdAt": "2026-09-27"
+    },
+    {
+      "id": "apple-macbook-air-13-m5",
+      "brand": "Apple",
+      "name": "MacBook Air 13 M5",
+      "price": 84333,
+      "oldPrice": null,
+      "currency": "EGP",
+      "images": ["/images/products/apple-macbook-air-13-m5-1.jpg"],
+      "rating": 4.5,
+      "reviewsCount": 4,
+      "stock": 14,
+      "valueScore": 82,
+      "specs": {
+        "cpu": "Apple M5 10-core",
+        "ram": 16,
+        "storage": 512,
+        "gpu": "Apple M5 10-core GPU",
+        "screen": 13.6,
+        "resolution": "2560x1664 Liquid Retina",
+        "battery": "53.8 Wh",
+        "weight": 1.23,
+        "os": "macOS"
+      },
+      "options": {
+        "memory": [
+          {
+            "label": "16 GB",
+            "delta": 0
+          },
+          {
+            "label": "24 GB",
+            "delta": 10000
+          }
+        ],
+        "storage": [
+          {
+            "label": "512 GB",
+            "delta": 0
+          },
+          {
+            "label": "1 TB",
+            "delta": 10000
+          }
+        ],
+        "warranty": [
+          {
+            "label": "1 year",
+            "delta": 0
+          },
+          {
+            "label": "2 years",
+            "delta": 3400
+          },
+          {
+            "label": "3 years",
+            "delta": 5900
+          }
+        ]
+      },
+      "tags": ["student", "ultrabook"],
+      "createdAt": "2026-09-19"
+    },
+    {
+      "id": "apple-macbook-pro-14-m4-pro",
+      "brand": "Apple",
+      "name": "MacBook Pro 14 M4 Pro",
+      "price": 145000,
+      "oldPrice": null,
+      "currency": "EGP",
+      "images": ["/images/products/apple-macbook-pro-14-m4-pro-1.jpg"],
+      "rating": 4.8,
+      "reviewsCount": 4,
+      "stock": 1,
+      "valueScore": 80,
+      "specs": {
+        "cpu": "Apple M4 Pro 12-core",
+        "ram": 24,
+        "storage": 512,
+        "gpu": "Apple M4 Pro 16-core GPU",
+        "screen": 14.2,
+        "resolution": "3024x1964 Liquid Retina XDR",
+        "battery": "66 Wh",
+        "weight": 1.6,
+        "os": "macOS"
+      },
+      "options": {
+        "memory": [
+          {
+            "label": "24 GB",
+            "delta": 0
+          },
+          {
+            "label": "48 GB",
+            "delta": 20000
+          }
+        ],
+        "storage": [
+          {
+            "label": "512 GB",
+            "delta": 0
+          },
+          {
+            "label": "1 TB",
+            "delta": 10000
+          }
+        ],
+        "warranty": [
+          {
+            "label": "1 year",
+            "delta": 0
+          },
+          {
+            "label": "2 years",
+            "delta": 5800
+          },
+          {
+            "label": "3 years",
+            "delta": 10200
+          }
+        ]
+      },
+      "tags": ["gaming", "business", "creator"],
+      "createdAt": "2026-05-15"
+    },
+    {
+      "id": "apple-macbook-air-13-m4",
+      "brand": "Apple",
+      "name": "Apple MacBook Air 13 M4",
+      "price": 75000,
+      "oldPrice": null,
+      "currency": "EGP",
+      "images": ["/images/products/apple-macbook-air-13-m4-1.jpg"],
+      "rating": 4.8,
+      "reviewsCount": 4,
+      "stock": 13,
+      "valueScore": 78,
+      "specs": {
+        "cpu": "Apple M4 10-core",
+        "ram": 16,
+        "storage": 256,
+        "gpu": "Apple M4 8-core GPU",
+        "screen": 13.6,
+        "resolution": "2560x1664 Liquid Retina",
+        "battery": "53.8 Wh",
+        "weight": 1.24,
+        "os": "macOS"
+      },
+      "options": {
+        "memory": [
+          {
+            "label": "16 GB",
+            "delta": 0
+          },
+          {
+            "label": "24 GB",
+            "delta": 10000
+          }
+        ],
+        "storage": [
+          {
+            "label": "256 GB",
+            "delta": 0
+          },
+          {
+            "label": "512 GB",
+            "delta": 10000
+          }
+        ],
+        "warranty": [
+          {
+            "label": "1 year",
+            "delta": 0
+          },
+          {
+            "label": "2 years",
+            "delta": 3000
+          },
+          {
+            "label": "3 years",
+            "delta": 5300
+          }
+        ]
+      },
+      "tags": ["student", "ultrabook"],
+      "createdAt": "2026-06-14"
+    },
+    {
+      "id": "acer-nitro-v-15",
+      "brand": "Acer",
+      "name": "Acer Nitro V 15 Gaming Laptop",
+      "price": 78799,
+      "oldPrice": null,
+      "currency": "EGP",
+      "images": ["/images/products/acer-nitro-v-15-1.jpg"],
+      "rating": 4,
+      "reviewsCount": 4,
+      "stock": 17,
+      "valueScore": 78,
+      "specs": {
+        "cpu": "Intel Core i9-13900H",
+        "ram": 16,
+        "storage": 512,
+        "gpu": "NVIDIA GeForce RTX 5060",
+        "screen": 15.6,
+        "resolution": "1920x1080",
+        "battery": "57 Wh",
+        "weight": 4,
+        "os": "Windows 11 Home"
+      },
+      "options": {
+        "memory": [
+          {
+            "label": "16 GB",
+            "delta": 0
+          },
+          {
+            "label": "32 GB",
+            "delta": 5500
+          }
+        ],
+        "storage": [
+          {
+            "label": "512 GB",
+            "delta": 0
+          },
+          {
+            "label": "1 TB",
+            "delta": 4000
+          }
+        ],
+        "warranty": [
+          {
+            "label": "1 year",
+            "delta": 0
+          },
+          {
+            "label": "2 years",
+            "delta": 3200
+          },
+          {
+            "label": "3 years",
+            "delta": 5500
+          }
+        ]
+      },
+      "tags": ["gaming"],
+      "createdAt": "2026-09-05"
+    },
+    {
+      "id": "acer-aspire-go-16",
+      "brand": "Acer",
+      "name": "Acer Aspire Go 16 Laptop",
+      "price": 53799,
+      "oldPrice": null,
+      "currency": "EGP",
+      "images": ["/images/products/acer-aspire-go-16-1.jpg"],
+      "rating": 4,
+      "reviewsCount": 4,
+      "stock": 15,
+      "valueScore": 78,
+      "specs": {
+        "cpu": "Intel Core 9-270H",
+        "ram": 8,
+        "storage": 512,
+        "gpu": "Intel Graphics",
+        "screen": 15.6,
+        "resolution": "1920x1080",
+        "battery": "50 Wh",
+        "weight": 4,
+        "os": "Windows 11 Home"
+      },
+      "options": {
+        "memory": [
+          {
+            "label": "8 GB",
+            "delta": 0
+          },
+          {
+            "label": "16 GB",
+            "delta": 3000
+          }
+        ],
+        "storage": [
+          {
+            "label": "512 GB",
+            "delta": 0
+          },
+          {
+            "label": "1 TB",
+            "delta": 4000
+          }
+        ],
+        "warranty": [
+          {
+            "label": "1 year",
+            "delta": 0
+          },
+          {
+            "label": "2 years",
+            "delta": 2200
+          },
+          {
+            "label": "3 years",
+            "delta": 3800
+          }
+        ]
+      },
+      "tags": ["gaming"],
+      "createdAt": "2026-02-24"
+    },
+    {
+      "id": "acer-nitro-5",
+      "brand": "Acer",
+      "name": "Acer Nitro 5 Gaming Laptop",
+      "price": 88630,
+      "oldPrice": null,
+      "currency": "EGP",
+      "images": ["/images/products/acer-nitro-5-1.jpg"],
+      "rating": 4,
+      "reviewsCount": 4,
+      "stock": 14,
+      "valueScore": 79,
+      "specs": {
+        "cpu": "Intel Core i5-13500HX",
+        "ram": 64,
+        "storage": 2048,
+        "gpu": "NVIDIA GeForce RTX 4050",
+        "screen": 16,
+        "resolution": "1920x1200 IPS",
+        "battery": "90 Wh",
+        "weight": 2.6,
+        "os": "Windows 11 Pro"
+      },
+      "options": {
+        "memory": [
+          {
+            "label": "64 GB",
+            "delta": 0
+          }
+        ],
+        "storage": [
+          {
+            "label": "2 TB",
+            "delta": 0
+          }
+        ],
+        "warranty": [
+          {
+            "label": "1 year",
+            "delta": 0
+          },
+          {
+            "label": "2 years",
+            "delta": 3500
+          },
+          {
+            "label": "3 years",
+            "delta": 6200
+          }
+        ]
+      },
+      "tags": ["gaming"],
+      "createdAt": "2026-02-13"
+    },
+    {
+      "id": "acer-predator-triton-300-se",
+      "brand": "Acer",
+      "name": "acer Predator Triton 300 SE 14 Gaming Laptop",
+      "price": 79999,
+      "oldPrice": null,
+      "currency": "EGP",
+      "images": ["/images/products/acer-predator-triton-300-se-1.jpg"],
+      "rating": 4.3,
+      "reviewsCount": 4,
+      "stock": 4,
+      "valueScore": 74,
+      "specs": {
+        "cpu": "Intel 14-Core i7-12700H",
+        "ram": 16,
+        "storage": 512,
+        "gpu": "NVIDIA GeForce RTX 3060",
+        "screen": 14,
+        "resolution": "1920x1200 IPS",
+        "battery": "56 Wh",
+        "weight": 1.7,
+        "os": "Windows 11"
+      },
+      "options": {
+        "memory": [
+          {
+            "label": "16 GB",
+            "delta": 0
+          },
+          {
+            "label": "32 GB",
+            "delta": 5500
+          }
+        ],
+        "storage": [
+          {
+            "label": "512 GB",
+            "delta": 0
+          },
+          {
+            "label": "1 TB",
+            "delta": 4000
+          }
+        ],
+        "warranty": [
+          {
+            "label": "1 year",
+            "delta": 0
+          },
+          {
+            "label": "2 years",
+            "delta": 3200
+          },
+          {
+            "label": "3 years",
+            "delta": 5600
+          }
+        ]
+      },
+      "tags": ["gaming"],
+      "createdAt": "2025-10-19"
+    },
+    {
+      "id": "acer-nitro-17-an17-41-r7g3",
+      "brand": "Acer",
+      "name": "Acer Nitro 17 Gaming Laptop",
+      "price": 95500,
+      "oldPrice": null,
+      "currency": "EGP",
+      "images": ["/images/products/acer-nitro-17-an17-41-r7g3-1.jpg"],
+      "rating": 4.5,
+      "reviewsCount": 4,
+      "stock": 17,
+      "valueScore": 82,
+      "specs": {
+        "cpu": "AMD Ryzen 7 7840HS",
+        "ram": 16,
+        "storage": 1024,
+        "gpu": "NVIDIA GeForce RTX 4060",
+        "screen": 17.3,
+        "resolution": "2560x1440 IPS",
+        "battery": "90 Wh",
+        "weight": 3.1,
+        "os": "Windows 11 Home"
+      },
+      "options": {
+        "memory": [
+          {
+            "label": "16 GB",
+            "delta": 0
+          },
+          {
+            "label": "32 GB",
+            "delta": 5500
+          }
+        ],
+        "storage": [
+          {
+            "label": "1 TB",
+            "delta": 0
+          },
+          {
+            "label": "2 TB",
+            "delta": 7500
+          }
+        ],
+        "warranty": [
+          {
+            "label": "1 year",
+            "delta": 0
+          },
+          {
+            "label": "2 years",
+            "delta": 3800
+          },
+          {
+            "label": "3 years",
+            "delta": 6700
+          }
+        ]
+      },
+      "tags": ["gaming"],
+      "createdAt": "2026-01-05"
+    },
+    {
+      "id": "msi-modern-14-h13m",
+      "brand": "MSI",
+      "name": "MSI Modern 14 H13M Laptop",
+      "price": 32899,
+      "oldPrice": 45449,
+      "currency": "EGP",
+      "images": ["/images/products/msi-modern-14-h13m-1.jpg"],
+      "rating": 4.3,
+      "reviewsCount": 4,
+      "stock": 16,
+      "valueScore": 66,
+      "specs": {
+        "cpu": "Intel Core i5-1334U",
+        "ram": 8,
+        "storage": 512,
+        "gpu": "Intel Graphics",
+        "screen": 14,
+        "resolution": "1920x1200 IPS",
+        "battery": "58 Wh",
+        "weight": 1.49,
+        "os": "Free DOS"
+      },
+      "options": {
+        "memory": [
+          {
+            "label": "8 GB",
+            "delta": 0
+          },
+          {
+            "label": "16 GB",
+            "delta": 3000
+          }
+        ],
+        "storage": [
+          {
+            "label": "512 GB",
+            "delta": 0
+          },
+          {
+            "label": "1 TB",
+            "delta": 4000
+          }
+        ],
+        "warranty": [
+          {
+            "label": "1 year",
+            "delta": 0
+          },
+          {
+            "label": "2 years",
+            "delta": 1300
+          },
+          {
+            "label": "3 years",
+            "delta": 2300
+          }
+        ]
+      },
+      "tags": ["business"],
+      "createdAt": "2026-08-01"
+    },
+    {
+      "id": "msi-modern-15-f1mg",
+      "brand": "MSI",
+      "name": "MSI Modern 15 F1MG Laptop",
+      "price": 31168,
+      "oldPrice": null,
+      "currency": "EGP",
+      "images": ["/images/products/msi-modern-15-f1mg-1.jpg"],
+      "rating": 4,
+      "reviewsCount": 4,
+      "stock": 21,
+      "valueScore": 71,
+      "specs": {
+        "cpu": "Intel Core 5 120U",
+        "ram": 8,
+        "storage": 512,
+        "gpu": "Intel Graphics",
+        "screen": 15.6,
+        "resolution": "1920x1080 IPS",
+        "battery": "46.8 Wh",
+        "weight": 1.7,
+        "os": ""
+      },
+      "options": {
+        "memory": [
+          {
+            "label": "8 GB",
+            "delta": 0
+          },
+          {
+            "label": "16 GB",
+            "delta": 3000
+          }
+        ],
+        "storage": [
+          {
+            "label": "512 GB",
+            "delta": 0
+          },
+          {
+            "label": "1 TB",
+            "delta": 4000
+          }
+        ],
+        "warranty": [
+          {
+            "label": "1 year",
+            "delta": 0
+          },
+          {
+            "label": "2 years",
+            "delta": 1200
+          },
+          {
+            "label": "3 years",
+            "delta": 2200
+          }
+        ]
+      },
+      "tags": ["business"],
+      "createdAt": "2026-02-23"
+    },
+    {
+      "id": "msi-cyborg-15-max-c2wf",
+      "brand": "MSI",
+      "name": "MSI Cyborg 15 Max C2WF Laptop",
+      "price": 75799,
+      "oldPrice": 104899,
+      "currency": "EGP",
+      "images": ["/images/products/msi-cyborg-15-max-c2wf-1.jpg"],
+      "rating": 4.3,
+      "reviewsCount": 4,
+      "stock": 9,
+      "valueScore": 70,
+      "specs": {
+        "cpu": "Intel Core i7-13620H",
+        "ram": 16,
+        "storage": 512,
+        "gpu": "NVIDIA GeForce RTX 5060 ",
+        "screen": 15.6,
+        "resolution": "1920x1080 IPS",
+        "battery": "60 Wh",
+        "weight": 2,
+        "os": "Windows 11"
+      },
+      "options": {
+        "memory": [
+          {
+            "label": "16 GB",
+            "delta": 0
+          },
+          {
+            "label": "32 GB",
+            "delta": 5500
+          }
+        ],
+        "storage": [
+          {
+            "label": "512 GB",
+            "delta": 0
+          },
+          {
+            "label": "1 TB",
+            "delta": 4000
+          }
+        ],
+        "warranty": [
+          {
+            "label": "1 year",
+            "delta": 0
+          },
+          {
+            "label": "2 years",
+            "delta": 3000
+          },
+          {
+            "label": "3 years",
+            "delta": 5300
+          }
+        ]
+      },
+      "tags": ["gaming"],
+      "createdAt": "2026-09-14"
+    },
+    {
+      "id": "msi-cyborg-15-max-c13we",
+      "brand": "MSI",
+      "name": "MSI Cyborg 15 Max C13WE Laptop",
+      "price": 71999,
+      "oldPrice": 97099,
+      "currency": "EGP",
+      "images": ["/images/products/msi-cyborg-15-max-c13we-1.jpg"],
+      "rating": 4,
+      "reviewsCount": 4,
+      "stock": 3,
+      "valueScore": 72,
+      "specs": {
+        "cpu": "Intel Core i7-13620H",
+        "ram": 16,
+        "storage": 512,
+        "gpu": "NVIDIA GeForce RTX 5050",
+        "screen": 15.6,
+        "resolution": "1920x1080 IPS",
+        "battery": "60 Wh",
+        "weight": 1.98,
+        "os": "Windows 11"
+      },
+      "options": {
+        "memory": [
+          {
+            "label": "16 GB",
+            "delta": 0
+          },
+          {
+            "label": "32 GB",
+            "delta": 5500
+          }
+        ],
+        "storage": [
+          {
+            "label": "512 GB",
+            "delta": 0
+          },
+          {
+            "label": "1 TB",
+            "delta": 4000
+          }
+        ],
+        "warranty": [
+          {
+            "label": "1 year",
+            "delta": 0
+          },
+          {
+            "label": "2 years",
+            "delta": 2900
+          },
+          {
+            "label": "3 years",
+            "delta": 5000
+          }
+        ]
+      },
+      "tags": ["gaming"],
+      "createdAt": "2026-09-15"
+    },
+    {
+      "id": "msi-prestige13-ai-evo-a1mg-261eg",
+      "brand": "MSI",
+      "name": "MSI Prestige13 AI Evo A1MG-261EG Laptop",
+      "price": 53499,
+      "oldPrice": 73749,
+      "currency": "EGP",
+      "images": ["/images/products/msi-prestige13-ai-evo-a1mg-261eg-1.jpg"],
+      "rating": 4.5,
+      "reviewsCount": 4,
+      "stock": 16,
+      "valueScore": 84,
+      "specs": {
+        "cpu": "Intel Core Ultra 7 155H",
+        "ram": 16,
+        "storage": 512,
+        "gpu": "Intel Arc Graphics",
+        "screen": 13.3,
+        "resolution": "2880x1800 OLED",
+        "battery": "75 Wh",
+        "weight": 0.99,
+        "os": "Windows 11"
+      },
+      "options": {
+        "memory": [
+          {
+            "label": "16 GB",
+            "delta": 0
+          },
+          {
+            "label": "32 GB",
+            "delta": 5500
+          }
+        ],
+        "storage": [
+          {
+            "label": "512 GB",
+            "delta": 0
+          },
+          {
+            "label": "1 TB",
+            "delta": 4000
+          }
+        ],
+        "warranty": [
+          {
+            "label": "1 year",
+            "delta": 0
+          },
+          {
+            "label": "2 years",
+            "delta": 2100
+          },
+          {
+            "label": "3 years",
+            "delta": 3700
+          }
+        ]
+      },
+      "tags": ["business", "ultrabook"],
+      "createdAt": "2025-10-10"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "r-001",
+      "productId": "asus-zenbook-14",
+      "userName": "Ahmed M.",
+      "rating": 5,
+      "title": "Great screen",
+      "body": "The OLED screen is amazing and the battery lasts all day.",
+      "date": "2026-09-14",
+      "helpful": 12,
+      "verified": true
+    },
+    {
+      "id": "r-002",
+      "productId": "asus-zenbook-14",
+      "userName": "Sara K.",
+      "rating": 4,
+      "title": "Super lightweight and portable",
+      "body": "I carry it to university every day and barely feel it in my bag. Performance is smooth for multitasking, though the glossy screen reflects light outdoors.",
+      "date": "2026-09-21",
+      "helpful": 7,
+      "verified": true
+    },
+    {
+      "id": "r-003",
+      "productId": "asus-zenbook-14",
+      "userName": "Omar T.",
+      "rating": 5,
+      "title": "Best ultrabook in this price range",
+      "body": "Build quality feels very premium with the all-aluminum chassis. The keyboard is comfortable for long typing sessions and it stays quiet under normal workloads.",
+      "date": "2026-10-03",
+      "helpful": 19,
+      "verified": true
+    },
+    {
+      "id": "r-004",
+      "productId": "asus-zenbook-14",
+      "userName": "Nadia H.",
+      "rating": 3,
+      "title": "Good laptop but limited ports",
+      "body": "The display and speed are great, but having to use a dongle for extra USB-A accessories is a bit inconvenient. Speakers are also just average.",
+      "date": "2026-10-18",
+      "helpful": 4,
+      "verified": false
+    },
+    {
+      "id": "r-005",
+      "productId": "asus-zenbook-14",
+      "userName": "Khaled R.",
+      "rating": 5,
+      "title": "Fast boot and vibrant colors",
+      "body": "Everything opens instantly and watching movies on this panel is a treat. Easily gets me through a full 9-to-5 workday without reaching for the charger.",
+      "date": "2026-11-02",
+      "helpful": 9,
+      "verified": true
+    },
+    {
+      "id": "r-006",
+      "productId": "asus-tuf-f16",
+      "userName": "Youssef A.",
+      "rating": 5,
+      "title": "Beast for 1080p and 1440p gaming",
+      "body": "Handles heavy AAA titles smoothly with great frame rates. The 16-inch 16:10 display gives plenty of vertical space and the cooling system keeps temps under control.",
+      "date": "2026-08-19",
+      "helpful": 24,
+      "verified": true
+    },
+    {
+      "id": "r-007",
+      "productId": "asus-tuf-f16",
+      "userName": "Mina G.",
+      "rating": 4,
+      "title": "Solid build, loud fans on Turbo",
+      "body": "Very sturdy chassis that feels like it can take a beating. Performance is awesome for video editing and gaming, though the fans get noticeably noisy under full load.",
+      "date": "2026-09-05",
+      "helpful": 15,
+      "verified": true
+    },
+    {
+      "id": "r-008",
+      "productId": "asus-tuf-f16",
+      "userName": "Tarek S.",
+      "rating": 5,
+      "title": "Great value for the specs",
+      "body": "Hard to beat this price-to-performance ratio. Upgrading the RAM and adding a second SSD took less than ten minutes.",
+      "date": "2026-09-28",
+      "helpful": 11,
+      "verified": true
+    },
+    {
+      "id": "r-009",
+      "productId": "asus-tuf-f16",
+      "userName": "Heba N.",
+      "rating": 3,
+      "title": "Heavy charger to carry around",
+      "body": "The laptop itself performs well and the keyboard feels responsive, but the power brick is huge and battery life drops fast when unplugged.",
+      "date": "2026-10-12",
+      "helpful": 6,
+      "verified": false
+    },
+    {
+      "id": "r-010",
+      "productId": "asus-tuf-f16",
+      "userName": "Karim E.",
+      "rating": 4,
+      "title": "Smooth high-refresh screen",
+      "body": "Competitive shooters feel super fluid on this panel. I switched off the aggressive RGB lighting and it looks clean enough to bring to work.",
+      "date": "2026-11-01",
+      "helpful": 8,
+      "verified": true
+    },
+    {
+      "id": "r-011",
+      "productId": "asus-vivobook-15",
+      "userName": "Salma W.",
+      "rating": 5,
+      "title": "Perfect daily driver for students",
+      "body": "Handles dozens of browser tabs, Word documents, and Zoom calls without any lag. Very affordable for what it offers.",
+      "date": "2026-08-24",
+      "helpful": 14,
+      "verified": true
+    },
+    {
+      "id": "r-012",
+      "productId": "asus-vivobook-15",
+      "userName": "Mahmoud F.",
+      "rating": 4,
+      "title": "Comfortable keyboard with numpad",
+      "body": "Having a full-sized number pad makes Excel work much faster. The hinge lays completely flat at 180 degrees which is handy when sharing my screen.",
+      "date": "2026-09-11",
+      "helpful": 9,
+      "verified": true
+    },
+    {
+      "id": "r-013",
+      "productId": "asus-vivobook-15",
+      "userName": "Dina L.",
+      "rating": 3,
+      "title": "Decent performance, average display",
+      "body": "It runs office tasks smoothly and boots up quickly, but the viewing angles and brightness could be a bit better in bright rooms.",
+      "date": "2026-10-02",
+      "helpful": 5,
+      "verified": true
+    },
+    {
+      "id": "r-014",
+      "productId": "asus-vivobook-15",
+      "userName": "Amr Z.",
+      "rating": 4,
+      "title": "Light for a 15-inch laptop",
+      "body": "Expected it to be bulkier, so I was pleasantly surprised by how slim it is. Webcam privacy shutter is a nice touch.",
+      "date": "2026-10-27",
+      "helpful": 3,
+      "verified": false
+    },
+    {
+      "id": "r-015",
+      "productId": "asus-rog-strix-g16-g614ph-rv659w",
+      "userName": "Mostafa B.",
+      "rating": 5,
+      "title": "Absolute powerhouse for gaming and rendering",
+      "body": "The tri-fan cooling with liquid metal keeps temperatures impressively low even during long gaming sessions. Frame rates on ultra settings are rock solid.",
+      "date": "2026-08-30",
+      "helpful": 28,
+      "verified": true
+    },
+    {
+      "id": "r-016",
+      "productId": "asus-rog-strix-g16-g614ph-rv659w",
+      "userName": "Ziad H.",
+      "rating": 5,
+      "title": "Incredible screen and RGB aesthetics",
+      "body": "The 16-inch Nebula display has super punchy colors and zero noticeable ghosting. The wraparound RGB light bar looks awesome on my desk setup.",
+      "date": "2026-09-17",
+      "helpful": 16,
+      "verified": true
+    },
+    {
+      "id": "r-017",
+      "productId": "asus-rog-strix-g16-g614ph-rv659w",
+      "userName": "Ramy K.",
+      "rating": 4,
+      "title": "Top-tier performance, not meant for portability",
+      "body": "Runs everything I throw at it effortlessly, including 3D modeling and Blender renders. Just keep in mind it is heavy and the power adapter is massive.",
+      "date": "2026-10-08",
+      "helpful": 10,
+      "verified": true
+    },
+    {
+      "id": "r-018",
+      "productId": "asus-rog-strix-g16-g614ph-rv659w",
+      "userName": "Nour E.",
+      "rating": 4,
+      "title": "Responsive keyboard and great thermals",
+      "body": "Per-key RGB customization through Armoury Crate is very detailed and the key travel feels great. Coil whine was slightly noticeable at first but settled down.",
+      "date": "2026-10-25",
+      "helpful": 7,
+      "verified": true
+    },
+    {
+      "id": "r-019",
+      "productId": "asus-rog-strix-g16-g614ph-rv659w",
+      "userName": "Hady M.",
+      "rating": 3,
+      "title": "Powerful machine but pricey",
+      "body": "Performance is undeniable and the screen is gorgeous, though the plastic palm rest picks up fingerprints easily and battery life is short off the charger.",
+      "date": "2026-11-06",
+      "helpful": 5,
+      "verified": false
+    },
+    {
+      "id": "r-020",
+      "productId": "asus-rog-strix-g16-g614ph-rv161w",
+      "userName": "Sherif N.",
+      "rating": 5,
+      "title": "Unmatched speed and smooth gameplay",
+      "body": "Every modern title runs effortlessly on high settings with zero stuttering. The cooling architecture keeps the keyboard area cool even after hours of gaming.",
+      "date": "2026-09-02",
+      "helpful": 21,
+      "verified": true
+    },
+    {
+      "id": "r-021",
+      "productId": "asus-rog-strix-g16-g614ph-rv161w",
+      "userName": "Mariam Y.",
+      "rating": 5,
+      "title": "A dream laptop for content creators",
+      "body": "Video rendering in Premiere Pro and After Effects is blazing fast, and the color accuracy on this 16-inch screen makes color grading a breeze.",
+      "date": "2026-09-19",
+      "helpful": 14,
+      "verified": true
+    },
+    {
+      "id": "r-022",
+      "productId": "asus-rog-strix-g16-g614ph-rv161w",
+      "userName": "Wael A.",
+      "rating": 4,
+      "title": "Great specs, bulky power supply",
+      "body": "Performance is top-notch and the port selection covers everything I need without dongles. Only downside is carrying the heavy charging brick when traveling.",
+      "date": "2026-10-11",
+      "helpful": 8,
+      "verified": true
+    },
+    {
+      "id": "r-023",
+      "productId": "asus-rog-strix-g16-g614ph-rv161w",
+      "userName": "Farah T.",
+      "rating": 3,
+      "title": "Loud fans under heavy load",
+      "body": "The screen and keyboard feel fantastic, and it handles heavy multitasking with ease, but you definitely need headphones when running games on Turbo mode.",
+      "date": "2026-11-04",
+      "helpful": 4,
+      "verified": false
+    },
+    {
+      "id": "r-024",
+      "productId": "asus-tuf-a16",
+      "userName": "Hassan M.",
+      "rating": 5,
+      "title": "Amazing battery life for a gaming laptop",
+      "body": "The AMD processor efficiency really shines here. I can easily get through lectures and web browsing on battery, then plug it in at night for high-FPS gaming.",
+      "date": "2026-08-27",
+      "helpful": 22,
+      "verified": true
+    },
+    {
+      "id": "r-025",
+      "productId": "asus-tuf-a16",
+      "userName": "Laila R.",
+      "rating": 4,
+      "title": "Clean design with slim bezels",
+      "body": "Unlike older gaming laptops, this one looks sleek and minimal with very thin screen borders. Runs demanding games smoothly without overheating.",
+      "date": "2026-09-15",
+      "helpful": 13,
+      "verified": true
+    },
+    {
+      "id": "r-026",
+      "productId": "asus-tuf-a16",
+      "userName": "Bassem K.",
+      "rating": 5,
+      "title": "Reliable workhorse for engineering apps",
+      "body": "Handles AutoCAD, SolidWorks, and heavy simulations with zero hiccups. The military-grade durability gives peace of mind when commuting daily.",
+      "date": "2026-10-06",
+      "helpful": 17,
+      "verified": true
+    },
+    {
+      "id": "r-027",
+      "productId": "asus-tuf-a16",
+      "userName": "Menna S.",
+      "rating": 3,
+      "title": "Good performance, average webcam and speakers",
+      "body": "Gaming and productivity speeds are great for the price, though the built-in speakers lack bass and the lid is a bit of a fingerprint magnet.",
+      "date": "2026-10-29",
+      "helpful": 6,
+      "verified": false
+    },
+    {
+      "id": "r-028",
+      "productId": "asus-tuf-a16",
+      "userName": "Adel F.",
+      "rating": 4,
+      "title": "Cool and quiet in Silent mode",
+      "body": "Switching profiles in Armoury Crate makes a huge difference. Dead silent during office work and delivers serious power once Turbo mode kicks in.",
+      "date": "2026-11-09",
+      "helpful": 9,
+      "verified": true
+    },
+    {
+      "id": "r-029",
+      "productId": "lenovo-loq-15irx9",
+      "userName": "Eslam H.",
+      "rating": 5,
+      "title": "Best budget gaming laptop right now",
+      "body": "Gives you near-Legion build quality and cooling at a much lower price. Runs modern games smoothly at 1080p with stable frame rates and no thermal throttling.",
+      "date": "2026-08-22",
+      "helpful": 26,
+      "verified": true
+    },
+    {
+      "id": "r-030",
+      "productId": "lenovo-loq-15irx9",
+      "userName": "Yasmine M.",
+      "rating": 4,
+      "title": "Great keyboard and rear ports layout",
+      "body": "Having most of the ports at the back keeps my desk super clean from tangled cables. The Lenovo keyboard is easily the most comfortable one I have typed on.",
+      "date": "2026-09-12",
+      "helpful": 15,
+      "verified": true
+    },
+    {
+      "id": "r-031",
+      "productId": "lenovo-loq-15irx9",
+      "userName": "Seif K.",
+      "rating": 5,
+      "title": "Color-accurate 100% sRGB display",
+      "body": "Unlike older budget gaming screens that looked washed out, this panel has rich colors and crisp brightness for both gaming and photo editing.",
+      "date": "2026-10-01",
+      "helpful": 18,
+      "verified": true
+    },
+    {
+      "id": "r-032",
+      "productId": "lenovo-loq-15irx9",
+      "userName": "Rana A.",
+      "rating": 3,
+      "title": "Battery life is quite limited",
+      "body": "Performance while plugged in is fantastic, but on battery power it barely lasts around three hours even with light browsing and screen brightness lowered.",
+      "date": "2026-10-20",
+      "helpful": 9,
+      "verified": true
+    },
+    {
+      "id": "r-033",
+      "productId": "lenovo-loq-15irx9",
+      "userName": "Maged S.",
+      "rating": 4,
+      "title": "Subtle look that fits anywhere",
+      "body": "Doesn't scream gamer with flashy lights, so I can comfortably bring it to university lectures and client meetings without drawing unwanted attention.",
+      "date": "2026-11-08",
+      "helpful": 11,
+      "verified": false
+    },
+    {
+      "id": "r-034",
+      "productId": "lenovo-legion-5-15iax10",
+      "userName": "Aly M.",
+      "rating": 5,
+      "title": "Unbeatable cooling and sustained performance",
+      "body": "The Legion Coldfront thermal system keeps temperatures remarkably low even during marathon gaming sessions. Zero thermal throttling and consistently high frame rates.",
+      "date": "2026-08-29",
+      "helpful": 29,
+      "verified": true
+    },
+    {
+      "id": "r-035",
+      "productId": "lenovo-legion-5-15iax10",
+      "userName": "Nadine G.",
+      "rating": 5,
+      "title": "Sleek professional design with serious power",
+      "body": "Looks clean enough for an office environment while packing desktop-level performance under the hood. The TrueStrike keyboard is a joy to type and game on.",
+      "date": "2026-09-18",
+      "helpful": 17,
+      "verified": true
+    },
+    {
+      "id": "r-036",
+      "productId": "lenovo-legion-5-15iax10",
+      "userName": "Hossam E.",
+      "rating": 4,
+      "title": "Gorgeous display and snappy response times",
+      "body": "Colors pop right out of the box and motion clarity in fast-paced shooters is super crisp. Lenovo Vantage makes switching performance modes effortless.",
+      "date": "2026-10-09",
+      "helpful": 12,
+      "verified": true
+    },
+    {
+      "id": "r-037",
+      "productId": "lenovo-legion-5-15iax10",
+      "userName": "Salma K.",
+      "rating": 4,
+      "title": "Heavy charger, awesome machine",
+      "body": "Everything about the build quality and speed feels premium, though carrying the laptop alongside its massive power brick takes a toll on your shoulder.",
+      "date": "2026-10-28",
+      "helpful": 8,
+      "verified": true
+    },
+    {
+      "id": "r-038",
+      "productId": "lenovo-legion-5-15iax10",
+      "userName": "Tamer R.",
+      "rating": 3,
+      "title": "Great plugged in, modest battery life",
+      "body": "Rips through 4K video edits and modern AAA games without breaking a sweat, but don't expect more than three to four hours away from an outlet.",
+      "date": "2026-11-10",
+      "helpful": 6,
+      "verified": false
+    },
+    {
+      "id": "r-039",
+      "productId": "lenovo-ideapad-slim-3-15irh10-83k101eued",
+      "userName": "Mona A.",
+      "rating": 5,
+      "title": "Fast and reliable for everyday work",
+      "body": "The H-series processor handles heavy spreadsheets, video calls, and dozens of open browser tabs effortlessly. Great value for anyone needing speed on a budget.",
+      "date": "2026-08-25",
+      "helpful": 16,
+      "verified": true
+    },
+    {
+      "id": "r-040",
+      "productId": "lenovo-ideapad-slim-3-15irh10-83k101eued",
+      "userName": "Walid K.",
+      "rating": 4,
+      "title": "Slim, lightweight, and easy to carry",
+      "body": "Fits easily into my backpack for daily commutes without adding much weight. Boots up in seconds and the webcam privacy shutter is a practical addition.",
+      "date": "2026-09-14",
+      "helpful": 11,
+      "verified": true
+    },
+    {
+      "id": "r-041",
+      "productId": "lenovo-ideapad-slim-3-15irh10-83k101eued",
+      "userName": "Hana S.",
+      "rating": 3,
+      "title": "Good performance, average screen brightness",
+      "body": "Runs all my university software smoothly and stays cool during normal use, though the display looks a bit dim if you sit right next to a sunny window.",
+      "date": "2026-10-04",
+      "helpful": 7,
+      "verified": true
+    },
+    {
+      "id": "r-042",
+      "productId": "lenovo-ideapad-slim-3-15irh10-83k101eued",
+      "userName": "Sameh T.",
+      "rating": 4,
+      "title": "Comfortable typing and solid battery",
+      "body": "The keyboard layout feels natural right away and Rapid Charge gets me back up and running in no time when I forget to plug it in overnight.",
+      "date": "2026-10-30",
+      "helpful": 5,
+      "verified": false
+    },
+    {
+      "id": "r-043",
+      "productId": "lenovo-ideapad-slim-3-15iru8",
+      "userName": "Shady M.",
+      "rating": 5,
+      "title": "Great everyday laptop for the price",
+      "body": "Handles web browsing, Microsoft Office, and streaming effortlessly. Very lightweight and easy to slip into any backpack for daily commuting.",
+      "date": "2026-08-20",
+      "helpful": 14,
+      "verified": true
+    },
+    {
+      "id": "r-044",
+      "productId": "lenovo-ideapad-slim-3-15iru8",
+      "userName": "Reem H.",
+      "rating": 4,
+      "title": "Quiet operation and decent battery",
+      "body": "Stays whisper-quiet during online classes and note-taking, and the battery easily lasts around six to seven hours of moderate use.",
+      "date": "2026-09-09",
+      "helpful": 9,
+      "verified": true
+    },
+    {
+      "id": "r-045",
+      "productId": "lenovo-ideapad-slim-3-15iru8",
+      "userName": "Beshoy G.",
+      "rating": 3,
+      "title": "Good for light tasks, not for heavy workloads",
+      "body": "Boots up fast thanks to the NVMe SSD, though the display colors look a bit washed out and it is strictly meant for basic productivity rather than editing or gaming.",
+      "date": "2026-10-03",
+      "helpful": 6,
+      "verified": true
+    },
+    {
+      "id": "r-046",
+      "productId": "lenovo-ideapad-slim-3-15iru8",
+      "userName": "Mai A.",
+      "rating": 4,
+      "title": "Comfortable keyboard and solid port selection",
+      "body": "Having a full-size HDMI port, SD card reader, and USB-C means I never need adapters. Typing feels snappy and accurate.",
+      "date": "2026-10-24",
+      "helpful": 4,
+      "verified": false
+    },
+    {
+      "id": "r-047",
+      "productId": "lenovo-loq-15iax9e-essential",
+      "userName": "Fady N.",
+      "rating": 5,
+      "title": "Surprisingly light for a gaming machine",
+      "body": "Much thinner and lighter than standard gaming laptops, making it easy to carry to college while still running esports titles and AAA games smoothly at 1080p.",
+      "date": "2026-08-31",
+      "helpful": 20,
+      "verified": true
+    },
+    {
+      "id": "r-048",
+      "productId": "lenovo-loq-15iax9e-essential",
+      "userName": "Nourhan M.",
+      "rating": 4,
+      "title": "Clean minimalist design and great value",
+      "body": "Looks like a sleek everyday notebook rather than a bulky gaming rig. The 144Hz screen is smooth and color accuracy is much better than expected at this price.",
+      "date": "2026-09-22",
+      "helpful": 14,
+      "verified": true
+    },
+    {
+      "id": "r-049",
+      "productId": "lenovo-loq-15iax9e-essential",
+      "userName": "Zeyad K.",
+      "rating": 4,
+      "title": "Solid entry-level gaming and coding laptop",
+      "body": "Handles programming IDEs, Docker containers, and casual gaming without breaking a sweat. The keyboard has crisp feedback and stays comfortable during long sessions.",
+      "date": "2026-10-14",
+      "helpful": 9,
+      "verified": true
+    },
+    {
+      "id": "r-050",
+      "productId": "lenovo-loq-15iax9e-essential",
+      "userName": "Aya E.",
+      "rating": 3,
+      "title": "Good performance, limited upgrade slots",
+      "body": "Runs quietly compared to heavier rigs and boots up fast, though having only a single RAM slot means you should pick the right configuration upfront.",
+      "date": "2026-11-05",
+      "helpful": 7,
+      "verified": false
+    },
+    {
+      "id": "r-051",
+      "productId": "lenovo-loq-15arp9-83jc00p6ed",
+      "userName": "Kareem H.",
+      "rating": 5,
+      "title": "Ryzen power and killer GPU performance",
+      "body": "The AMD Ryzen processor paired with dedicated graphics crushes modern games at high settings. Thermals stay well under control even after hours of intense play.",
+      "date": "2026-08-28",
+      "helpful": 23,
+      "verified": true
+    },
+    {
+      "id": "r-052",
+      "productId": "lenovo-loq-15arp9-83jc00p6ed",
+      "userName": "Salma T.",
+      "rating": 5,
+      "title": "Vibrant 100% sRGB screen and great build",
+      "body": "Colors look super accurate for both gaming and graphic design work. The hinge feels sturdy and the Luna Grey finish looks clean and professional.",
+      "date": "2026-09-16",
+      "helpful": 16,
+      "verified": true
+    },
+    {
+      "id": "r-053",
+      "productId": "lenovo-loq-15arp9-83jc00p6ed",
+      "userName": "Omar W.",
+      "rating": 4,
+      "title": "Awesome gaming rig, short unplugged runtime",
+      "body": "Runs everything smoothly while plugged in and the rear I/O layout keeps cables tidy. Because this Ryzen chip lacks an integrated GPU, battery life is around two and a half hours.",
+      "date": "2026-10-07",
+      "helpful": 19,
+      "verified": true
+    },
+    {
+      "id": "r-054",
+      "productId": "lenovo-loq-15arp9-83jc00p6ed",
+      "userName": "Dalia M.",
+      "rating": 4,
+      "title": "Comfortable keyboard and easy upgrades",
+      "body": "Typing is snappy with great key travel, and opening the bottom panel to add extra NVMe storage was straightforward. Fans get loud on Performance mode, so headphones help.",
+      "date": "2026-10-26",
+      "helpful": 8,
+      "verified": true
+    },
+    {
+      "id": "r-055",
+      "productId": "lenovo-loq-15arp9-83jc00p6ed",
+      "userName": "Hisham R.",
+      "rating": 3,
+      "title": "Great specs for the money, heavy charger",
+      "body": "Hard to beat the frame rates you get at this price point, though carrying the laptop and the bulky power adapter in a backpack every day gets tiring.",
+      "date": "2026-11-11",
+      "helpful": 5,
+      "verified": false
+    },
+    {
+      "id": "r-056",
+      "productId": "lenovo-thinkpad-e14-gen6-21m70007us",
+      "userName": "Tarek M.",
+      "rating": 5,
+      "title": "Legendary ThinkPad keyboard and rock-solid build",
+      "body": "Typing on this keyboard all day is effortless, and the TrackPoint is still unmatched when working without a mouse. The aluminum chassis feels durable enough to last for years.",
+      "date": "2026-08-23",
+      "helpful": 21,
+      "verified": true
+    },
+    {
+      "id": "r-057",
+      "productId": "lenovo-thinkpad-e14-gen6-21m70007us",
+      "userName": "Rania S.",
+      "rating": 5,
+      "title": "Ideal 14-inch business and coding companion",
+      "body": "The 16:10 aspect ratio gives extra vertical room for code editors and spreadsheets. It handles Docker, multiple browser windows, and Teams calls without breaking a sweat.",
+      "date": "2026-09-13",
+      "helpful": 15,
+      "verified": true
+    },
+    {
+      "id": "r-058",
+      "productId": "lenovo-thinkpad-e14-gen6-21m70007us",
+      "userName": "Hazem A.",
+      "rating": 4,
+      "title": "Great port selection and easy upgrades",
+      "body": "Having Ethernet, Thunderbolt, USB-A, and HDMI built right in means zero dongles at the office. Opening the bottom cover to upgrade RAM and storage was super straightforward.",
+      "date": "2026-10-05",
+      "helpful": 12,
+      "verified": true
+    },
+    {
+      "id": "r-059",
+      "productId": "lenovo-thinkpad-e14-gen6-21m70007us",
+      "userName": "Noha K.",
+      "rating": 3,
+      "title": "Reliable workhorse, modest display colors",
+      "body": "Performance, fingerprint reader speed, and quiet thermals are all top-notch for office tasks, though the base screen is best suited for documents rather than color-critical photo work.",
+      "date": "2026-10-27",
+      "helpful": 7,
+      "verified": false
+    },
+    {
+      "id": "r-060",
+      "productId": "hp-laptop-ai-15-fd2002ne",
+      "userName": "Maged K.",
+      "rating": 5,
+      "title": "Smooth multitasking with great AI features",
+      "body": "Handles heavy office work, video meetings, and dozens of Chrome tabs without slowing down. The dedicated Copilot key and AI noise reduction make remote work much easier.",
+      "date": "2026-08-26",
+      "helpful": 18,
+      "verified": true
+    },
+    {
+      "id": "r-061",
+      "productId": "hp-laptop-ai-15-fd2002ne",
+      "userName": "Menna T.",
+      "rating": 4,
+      "title": "Sleek, lightweight, and charges super fast",
+      "body": "Very easy to carry around campus all day, and HP Fast Charge tops up the battery in under an hour between classes. The silver finish looks clean and modern.",
+      "date": "2026-09-19",
+      "helpful": 12,
+      "verified": true
+    },
+    {
+      "id": "r-062",
+      "productId": "hp-laptop-ai-15-fd2002ne",
+      "userName": "Ayman S.",
+      "rating": 3,
+      "title": "Snappy performance, average screen viewing angles",
+      "body": "Boots up quickly and runs quietly during everyday productivity tasks, though the display colors look slightly muted when viewed from the side.",
+      "date": "2026-10-13",
+      "helpful": 6,
+      "verified": true
+    },
+    {
+      "id": "r-063",
+      "productId": "hp-laptop-ai-15-fd2002ne",
+      "userName": "Farida N.",
+      "rating": 4,
+      "title": "Comfortable full-size keyboard for long typing",
+      "body": "Having a built-in numeric keypad is a huge plus for accounting and Excel spreadsheets. Webcam quality with the privacy shutter is noticeably clearer than older models.",
+      "date": "2026-11-03",
+      "helpful": 9,
+      "verified": false
+    },
+    {
+      "id": "r-064",
+      "productId": "hp-victus-15-fa1096ne",
+      "userName": "Marwan E.",
+      "rating": 5,
+      "title": "Clean design that doesn't scream gaming",
+      "body": "The Mica Silver chassis looks sleek enough for university classes and office meetings while easily running modern games at 1080p high settings.",
+      "date": "2026-08-29",
+      "helpful": 21,
+      "verified": true
+    },
+    {
+      "id": "r-065",
+      "productId": "hp-victus-15-fa1096ne",
+      "userName": "Salma B.",
+      "rating": 4,
+      "title": "Smooth 144Hz display and fast performance",
+      "body": "Competitive games feel responsive on the high-refresh screen, and the OMEN Gaming Hub makes switching between Quiet and Performance modes simple.",
+      "date": "2026-09-17",
+      "helpful": 14,
+      "verified": true
+    },
+    {
+      "id": "r-066",
+      "productId": "hp-victus-15-fa1096ne",
+      "userName": "Yasser H.",
+      "rating": 4,
+      "title": "Great value for gaming and video editing",
+      "body": "Handles Premiere Pro timelines and heavy multitasking smoothly. Upgrading the storage was easy, though it only has one M.2 SSD slot so keep that in mind.",
+      "date": "2026-10-08",
+      "helpful": 18,
+      "verified": true
+    },
+    {
+      "id": "r-067",
+      "productId": "hp-victus-15-fa1096ne",
+      "userName": "Rana M.",
+      "rating": 3,
+      "title": "Good specs, noticeable screen wobble",
+      "body": "Performance for the price is hard to beat and the keyboard feels comfortable, but the display hinge wobbles a bit if you type fast or sit under a ceiling fan.",
+      "date": "2026-10-29",
+      "helpful": 9,
+      "verified": true
+    },
+    {
+      "id": "r-068",
+      "productId": "hp-victus-15-fa1096ne",
+      "userName": "Kareem S.",
+      "rating": 4,
+      "title": "Decent thermals with a cooling pad",
+      "body": "Stays quiet during browsing and coding, and with a basic laptop stand underneath, temperatures remain solid even during long gaming sessions.",
+      "date": "2026-11-12",
+      "helpful": 6,
+      "verified": false
+    },
+    {
+      "id": "r-069",
+      "productId": "hp-victus-16-r1052ne",
+      "userName": "Ziad M.",
+      "rating": 5,
+      "title": "Bigger 16-inch screen and rock-solid performance",
+      "body": "The extra screen real estate over the 15-inch model makes a noticeable difference for both immersive gaming and split-screen productivity. Runs modern titles effortlessly at high settings.",
+      "date": "2026-08-27",
+      "helpful": 24,
+      "verified": true
+    },
+    {
+      "id": "r-070",
+      "productId": "hp-victus-16-r1052ne",
+      "userName": "Nourhan A.",
+      "rating": 5,
+      "title": "Improved cooling and sleek RGB keyboard",
+      "body": "Thermals are noticeably better than previous generations, keeping frame rates steady during long sessions. The customizable backlit keyboard looks clean and types comfortably.",
+      "date": "2026-09-18",
+      "helpful": 16,
+      "verified": true
+    },
+    {
+      "id": "r-071",
+      "productId": "hp-victus-16-r1052ne",
+      "userName": "Hossam T.",
+      "rating": 4,
+      "title": "Great workstation for 3D rendering and gaming",
+      "body": "Handles Blender, AutoCAD, and heavy multitasking without stuttering. Having dual M.2 SSD slots on the 16-inch chassis made expanding storage super easy.",
+      "date": "2026-10-06",
+      "helpful": 19,
+      "verified": true
+    },
+    {
+      "id": "r-072",
+      "productId": "hp-victus-16-r1052ne",
+      "userName": "Dina W.",
+      "rating": 3,
+      "title": "Powerful specs, bulky power adapter",
+      "body": "Performance plugged in is fantastic, though the laptop is fairly heavy to carry around campus every day and battery life lasts only about three hours off the charger.",
+      "date": "2026-10-25",
+      "helpful": 8,
+      "verified": true
+    },
+    {
+      "id": "r-073",
+      "productId": "hp-victus-16-r1052ne",
+      "userName": "Sherif K.",
+      "rating": 4,
+      "title": "Understated look with strong internals",
+      "body": "Looks professional enough for office meetings while delivering serious horsepower under the hood. Fan noise is reasonable on Balanced mode.",
+      "date": "2026-11-11",
+      "helpful": 7,
+      "verified": false
+    },
+    {
+      "id": "r-074",
+      "productId": "hp-omnibook-3-16-bw0001ne",
+      "userName": "Laila H.",
+      "rating": 5,
+      "title": "Expansive 16-inch screen and great battery life",
+      "body": "The large 16:10 display makes working with side-by-side documents and spreadsheets effortless. Battery easily lasts through a full day of classes and remote meetings.",
+      "date": "2026-08-30",
+      "helpful": 17,
+      "verified": true
+    },
+    {
+      "id": "r-075",
+      "productId": "hp-omnibook-3-16-bw0001ne",
+      "userName": "Mostafa R.",
+      "rating": 4,
+      "title": "Sleek design with snappy AI productivity features",
+      "body": "Looks much more premium than expected at this price point. Everyday multitasking is smooth and the webcam clarity with automatic framing works great for video calls.",
+      "date": "2026-09-20",
+      "helpful": 11,
+      "verified": true
+    },
+    {
+      "id": "r-076",
+      "productId": "hp-omnibook-3-16-bw0001ne",
+      "userName": "Nadia E.",
+      "rating": 4,
+      "title": "Comfortable keyboard with numeric keypad",
+      "body": "Typing feels responsive and having a dedicated numpad speeds up data entry considerably. It also runs cool and quiet even with plenty of browser tabs open.",
+      "date": "2026-10-14",
+      "helpful": 8,
+      "verified": true
+    },
+    {
+      "id": "r-077",
+      "productId": "hp-omnibook-3-16-bw0001ne",
+      "userName": "Amr G.",
+      "rating": 3,
+      "title": "Great for office tasks, modest display brightness",
+      "body": "Speed and build quality are solid for daily work and streaming, though the screen could be a bit brighter when working near sunny windows.",
+      "date": "2026-11-04",
+      "helpful": 5,
+      "verified": false
+    },
+    {
+      "id": "r-078",
+      "productId": "hp-15s-eq2014ne",
+      "userName": "Salma N.",
+      "rating": 5,
+      "title": "Reliable everyday laptop for students and office work",
+      "body": "Handles Word, Excel, Zoom meetings, and web browsing smoothly without lag. Lightweight enough to carry in a backpack all day and boots up in seconds.",
+      "date": "2026-08-21",
+      "helpful": 15,
+      "verified": true
+    },
+    {
+      "id": "r-079",
+      "productId": "hp-15s-eq2014ne",
+      "userName": "Khaled M.",
+      "rating": 4,
+      "title": "Great value and fast charging",
+      "body": "The Ryzen processor delivers snappy performance for daily multitasking, and HP Fast Charge gets the battery back up quickly when I forget to plug it in.",
+      "date": "2026-09-10",
+      "helpful": 10,
+      "verified": true
+    },
+    {
+      "id": "r-080",
+      "productId": "hp-15s-eq2014ne",
+      "userName": "Heba T.",
+      "rating": 3,
+      "title": "Good speed, average display viewing angles",
+      "body": "Works well for studying and streaming movies indoors, though the screen loses contrast if you tilt it too far back or sit in bright sunlight.",
+      "date": "2026-10-03",
+      "helpful": 6,
+      "verified": true
+    },
+    {
+      "id": "r-081",
+      "productId": "hp-15s-eq2014ne",
+      "userName": "Tarek A.",
+      "rating": 4,
+      "title": "Comfortable keyboard with full numeric pad",
+      "body": "Typing feels responsive and having the full numpad makes financial spreadsheets much faster to work through. Quiet fans during normal usage.",
+      "date": "2026-10-28",
+      "helpful": 4,
+      "verified": false
+    },
+    {
+      "id": "r-082",
+      "productId": "dell-15-dc15250",
+      "userName": "Youssef H.",
+      "rating": 5,
+      "title": "Sturdy daily workhorse with crisp display",
+      "body": "Handles heavy multitasking, Office apps, and dozens of open browser tabs smoothly. The anti-glare screen is easy on the eyes during long study and work sessions.",
+      "date": "2026-08-24",
+      "helpful": 16,
+      "verified": true
+    },
+    {
+      "id": "r-083",
+      "productId": "dell-15-dc15250",
+      "userName": "Mariam K.",
+      "rating": 4,
+      "title": "Comfortable lift-hinge typing angle",
+      "body": "The slightly elevated hinge makes typing noticeably more ergonomic and helps keep airflow steady underneath. ExpressCharge tops up the battery surprisingly fast.",
+      "date": "2026-09-14",
+      "helpful": 11,
+      "verified": true
+    },
+    {
+      "id": "r-084",
+      "productId": "dell-15-dc15250",
+      "userName": "Mahmoud E.",
+      "rating": 3,
+      "title": "Solid performance, basic plastic build",
+      "body": "Speed and responsiveness are great for the price, though the chassis feels a bit plasticky and the built-in speakers lack depth.",
+      "date": "2026-10-09",
+      "helpful": 6,
+      "verified": true
+    },
+    {
+      "id": "r-085",
+      "productId": "dell-15-dc15250",
+      "userName": "Nour S.",
+      "rating": 4,
+      "title": "Great port selection and full numpad",
+      "body": "Having an SD card reader, HDMI, and multiple USB ports eliminates the need for adapters. Runs cool and quiet during everyday productivity tasks.",
+      "date": "2026-11-02",
+      "helpful": 5,
+      "verified": false
+    },
+    {
+      "id": "r-086",
+      "productId": "dell-latitude-e5550",
+      "userName": "Sherif M.",
+      "rating": 5,
+      "title": "Built like a tank and super reliable",
+      "body": "Picked up a refurbished unit for office work and browsing, and the magnesium-alloy chassis still feels rock solid. The keyboard is deep, tactile, and a pleasure to type on.",
+      "date": "2026-08-22",
+      "helpful": 19,
+      "verified": true
+    },
+    {
+      "id": "r-087",
+      "productId": "dell-latitude-e5550",
+      "userName": "Hala A.",
+      "rating": 4,
+      "title": "Great budget workhorse with full port selection",
+      "body": "Having VGA, HDMI, Ethernet, and three USB ports built right in makes connecting to older office projectors and monitors effortless. Very easy to upgrade RAM and SSD.",
+      "date": "2026-09-11",
+      "helpful": 13,
+      "verified": true
+    },
+    {
+      "id": "r-088",
+      "productId": "dell-latitude-e5550",
+      "userName": "Wael K.",
+      "rating": 3,
+      "title": "Solid durability, heavy and older hardware",
+      "body": "Handles Word, Excel, and web browsing without issues once fitted with an SSD, though it is noticeably bulky compared to modern laptops and battery life is modest.",
+      "date": "2026-10-05",
+      "helpful": 7,
+      "verified": true
+    },
+    {
+      "id": "r-089",
+      "productId": "dell-latitude-e5550",
+      "userName": "Mona R.",
+      "rating": 4,
+      "title": "Quiet cooling and comfortable 15.6-inch screen",
+      "body": "Runs cool and quiet during long spreadsheets and accounting sessions, and having the full numeric keypad is super convenient.",
+      "date": "2026-10-29",
+      "helpful": 5,
+      "verified": false
+    },
+    {
+      "id": "r-090",
+      "productId": "dell-pro-14-pc14250",
+      "userName": "Amr N.",
+      "rating": 5,
+      "title": "Sleek enterprise design with great portability",
+      "body": "Lightweight enough for daily commuting while feeling sturdy and well-built. The 16:10 display provides extra vertical space that makes coding and reviewing documents much more comfortable.",
+      "date": "2026-08-26",
+      "helpful": 18,
+      "verified": true
+    },
+    {
+      "id": "r-091",
+      "productId": "dell-pro-14-pc14250",
+      "userName": "Dina M.",
+      "rating": 5,
+      "title": "All-day battery life and crisp webcam",
+      "body": "Easily gets through a full workday of Teams meetings, heavy spreadsheets, and browser tabs without reaching for the charger. The AI noise cancellation keeps calls crystal clear.",
+      "date": "2026-09-17",
+      "helpful": 14,
+      "verified": true
+    },
+    {
+      "id": "r-092",
+      "productId": "dell-pro-14-pc14250",
+      "userName": "Karim T.",
+      "rating": 4,
+      "title": "Modern ports and responsive keyboard",
+      "body": "Having Thunderbolt 4, HDMI, and USB-A ports built in means zero dongles needed at client meetings. Typing is quiet and snappy with great key travel.",
+      "date": "2026-10-08",
+      "helpful": 9,
+      "verified": true
+    },
+    {
+      "id": "r-093",
+      "productId": "dell-pro-14-pc14250",
+      "userName": "Salma H.",
+      "rating": 3,
+      "title": "Great business machine, base screen is just okay",
+      "body": "Performance, security features, and quiet thermals are excellent for office workloads, though the standard display brightness is average if you work near bright windows.",
+      "date": "2026-11-01",
+      "helpful": 6,
+      "verified": false
+    },
+    {
+      "id": "r-094",
+      "productId": "dell-pro-16-pc16250",
+      "userName": "Hisham A.",
+      "rating": 5,
+      "title": "Expansive 16:10 display built for serious productivity",
+      "body": "The extra screen space makes working across large financial models, side-by-side documents, and dashboards effortless. Runs cool and quiet even under heavy enterprise workloads.",
+      "date": "2026-08-29",
+      "helpful": 20,
+      "verified": true
+    },
+    {
+      "id": "r-095",
+      "productId": "dell-pro-16-pc16250",
+      "userName": "Nermine K.",
+      "rating": 5,
+      "title": "Full-size keyboard with numpad and strong battery",
+      "body": "Having a dedicated numeric keypad alongside a spacious palm rest is a dream for accounting work. Battery life easily covers a full workday away from the desk.",
+      "date": "2026-09-19",
+      "helpful": 15,
+      "verified": true
+    },
+    {
+      "id": "r-096",
+      "productId": "dell-pro-16-pc16250",
+      "userName": "Tarek S.",
+      "rating": 4,
+      "title": "Comprehensive port selection and solid build",
+      "body": "Thunderbolt 4, full-size HDMI, RJ45 Ethernet, and USB-A ports are all built right in, making office docking seamless. Feels sturdy without being overly heavy for a 16-inch laptop.",
+      "date": "2026-10-11",
+      "helpful": 11,
+      "verified": true
+    },
+    {
+      "id": "r-097",
+      "productId": "dell-pro-16-pc16250",
+      "userName": "Rana E.",
+      "rating": 3,
+      "title": "Great office workhorse, average speakers",
+      "body": "Speed, AI video call enhancements, and security features are top-notch for daily corporate tasks, though the downward-firing speakers sound a bit thin for media.",
+      "date": "2026-11-04",
+      "helpful": 5,
+      "verified": false
+    },
+    {
+      "id": "r-098",
+      "productId": "dell-vostro-3530",
+      "userName": "Mostafa K.",
+      "rating": 5,
+      "title": "Reliable business laptop with smooth 120Hz display",
+      "body": "The 120Hz anti-glare screen makes scrolling through long spreadsheets and documents noticeably smoother. Handles daily office multitasking and video calls without any lag.",
+      "date": "2026-08-25",
+      "helpful": 17,
+      "verified": true
+    },
+    {
+      "id": "r-099",
+      "productId": "dell-vostro-3530",
+      "userName": "Aya M.",
+      "rating": 4,
+      "title": "Great port selection including RJ45 Ethernet",
+      "body": "Having a built-in Ethernet port, HDMI, SD card reader, and USB-C makes office setups effortless without needing extra adapters. The lift-hinge design also gives a comfortable typing angle.",
+      "date": "2026-09-16",
+      "helpful": 12,
+      "verified": true
+    },
+    {
+      "id": "r-100",
+      "productId": "dell-vostro-3530",
+      "userName": "Ramy S.",
+      "rating": 3,
+      "title": "Good performance, average battery and plastic body",
+      "body": "Boots up quickly and runs accounting software smoothly, though the plastic chassis feels basic and battery life averages around four to five hours under regular work.",
+      "date": "2026-10-10",
+      "helpful": 7,
+      "verified": true
+    },
+    {
+      "id": "r-101",
+      "productId": "dell-vostro-3530",
+      "userName": "Noha E.",
+      "rating": 4,
+      "title": "Full numeric keypad and fast charging",
+      "body": "Typing feels crisp and having a dedicated calculator key and full numpad is super convenient for daily data entry. ExpressCharge tops up the battery quickly during breaks.",
+      "date": "2026-11-03",
+      "helpful": 5,
+      "verified": false
+    },
+    {
+      "id": "r-102",
+      "productId": "dell-inspiron-14-7440-2in1",
+      "userName": "Salma K.",
+      "rating": 5,
+      "title": "Versatile 2-in-1 with a sturdy 360-degree hinge",
+      "body": "Switching between laptop mode for typing papers and tablet mode for sketching or reading PDFs feels seamless. The Ice Blue aluminum finish looks sleek and premium.",
+      "date": "2026-08-28",
+      "helpful": 19,
+      "verified": true
+    },
+    {
+      "id": "r-103",
+      "productId": "dell-inspiron-14-7440-2in1",
+      "userName": "Omar H.",
+      "rating": 5,
+      "title": "Crisp 16:10 touchscreen and snappy performance",
+      "body": "The extra vertical screen height is great for browsing and Office apps, and touch responsiveness is spot-on. Handles multitasking and video calls smoothly without overheating.",
+      "date": "2026-09-21",
+      "helpful": 14,
+      "verified": true
+    },
+    {
+      "id": "r-104",
+      "productId": "dell-inspiron-14-7440-2in1",
+      "userName": "Yasmine T.",
+      "rating": 4,
+      "title": "Great portability and solid port selection",
+      "body": "Easy to carry around university all day, and having full-size HDMI, SD card reader, and dual USB-C ports means I rarely need dongles. Typing on the backlit keyboard is very comfortable.",
+      "date": "2026-10-12",
+      "helpful": 10,
+      "verified": true
+    },
+    {
+      "id": "r-105",
+      "productId": "dell-inspiron-14-7440-2in1",
+      "userName": "Khaled N.",
+      "rating": 3,
+      "title": "Nice convertible design, glossy screen reflections",
+      "body": "Build quality and everyday speed are solid, though the glossy touch display reflects overhead lights indoors and the active pen has to be purchased separately.",
+      "date": "2026-11-05",
+      "helpful": 6,
+      "verified": false
+    },
+    {
+      "id": "r-106",
+      "productId": "apple-macbook-neo-13",
+      "userName": "Karim M.",
+      "rating": 5,
+      "title": "Unbeatable value for entering the Mac ecosystem",
+      "body": "The aluminum unibody feels every bit as premium as higher-end MacBooks, and macOS runs smoothly across Safari, Office apps, and streaming without a hitch.",
+      "date": "2026-08-30",
+      "helpful": 24,
+      "verified": true
+    },
+    {
+      "id": "r-107",
+      "productId": "apple-macbook-neo-13",
+      "userName": "Nourhan S.",
+      "rating": 5,
+      "title": "Silent fanless design and all-day battery",
+      "body": "Zero fan noise even during long study sessions, and the battery easily lasts through a full day of university lectures and note-taking without bringing the charger.",
+      "date": "2026-09-23",
+      "helpful": 18,
+      "verified": true
+    },
+    {
+      "id": "r-108",
+      "productId": "apple-macbook-neo-13",
+      "userName": "Tarek E.",
+      "rating": 4,
+      "title": "Sharp Liquid Retina display and great portability",
+      "body": "Text looks razor-sharp on the 13-inch screen and the trackpad is still unmatched. Super lightweight to slip into any bag, making it ideal for travel and coffee shop work.",
+      "date": "2026-10-15",
+      "helpful": 12,
+      "verified": true
+    },
+    {
+      "id": "r-109",
+      "productId": "apple-macbook-neo-13",
+      "userName": "Heba A.",
+      "rating": 3,
+      "title": "Great everyday laptop, limited ports and base storage",
+      "body": "Speed, speakers, and build quality are fantastic for the price, though you will definitely need a USB-C hub for external accessories and should consider upgrading storage upfront.",
+      "date": "2026-11-06",
+      "helpful": 8,
+      "verified": false
+    },
+    {
+      "id": "r-110",
+      "productId": "apple-macbook-pro-14-m5",
+      "userName": "Ziad K.",
+      "rating": 5,
+      "title": "Blazing M5 performance for 4K editing and AI workflows",
+      "body": "The M5 chip chews through multi-cam 4K timelines in Final Cut Pro and runs local AI models effortlessly. Even under heavy rendering loads, the fans stay remarkably quiet.",
+      "date": "2026-08-29",
+      "helpful": 27,
+      "verified": true
+    },
+    {
+      "id": "r-111",
+      "productId": "apple-macbook-pro-14-m5",
+      "userName": "Farida M.",
+      "rating": 5,
+      "title": "Stunning Liquid Retina XDR display and speakers",
+      "body": "HDR content, deep blacks, and 120Hz ProMotion scrolling look incredible, and the six-speaker sound system rivals dedicated desktop speakers. Easily the best 14-inch screen on the market.",
+      "date": "2026-09-22",
+      "helpful": 21,
+      "verified": true
+    },
+    {
+      "id": "r-112",
+      "productId": "apple-macbook-pro-14-m5",
+      "userName": "Ahmed R.",
+      "rating": 5,
+      "title": "Unmatched battery life and built-in pro ports",
+      "body": "Having HDMI, an SDXC card slot, MagSafe 3, and multiple Thunderbolt ports means no dongles on location shoots. I routinely get over 16 hours of real-world coding and browsing on a single charge.",
+      "date": "2026-10-14",
+      "helpful": 16,
+      "verified": true
+    },
+    {
+      "id": "r-113",
+      "productId": "apple-macbook-pro-14-m5",
+      "userName": "Dalia S.",
+      "rating": 4,
+      "title": "Desktop-class power in a portable frame, pricey upgrades",
+      "body": "Build quality, keyboard feel, and speed are second to none, though Apple's RAM and SSD upgrade tiers add up quickly and the Space Black finish still picks up occasional fingerprints.",
+      "date": "2026-11-07",
+      "helpful": 9,
+      "verified": false
+    },
+    {
+      "id": "r-114",
+      "productId": "apple-macbook-air-13-m5",
+      "userName": "Mariam H.",
+      "rating": 5,
+      "title": "Effortless speed in a razor-thin silent design",
+      "body": "The M5 chip flies through Xcode builds, Lightroom photo edits, and dozens of browser tabs with zero fan noise. Being able to toss something this thin and light into a tote bag every day is unmatched.",
+      "date": "2026-08-31",
+      "helpful": 25,
+      "verified": true
+    },
+    {
+      "id": "r-115",
+      "productId": "apple-macbook-air-13-m5",
+      "userName": "Youssef T.",
+      "rating": 5,
+      "title": "True all-day battery life and MagSafe convenience",
+      "body": "Easily lasts 15+ hours of real-world writing, streaming, and video calls without bringing a charger. MagSafe frees up both Thunderbolt ports when plugged in at my desk.",
+      "date": "2026-09-25",
+      "helpful": 19,
+      "verified": true
+    },
+    {
+      "id": "r-116",
+      "productId": "apple-macbook-air-13-m5",
+      "userName": "Laila N.",
+      "rating": 4,
+      "title": "Crisp Liquid Retina display and best-in-class trackpad",
+      "body": "Colors are vibrant, text is tack-sharp, and the Force Touch trackpad remains the gold standard on any laptop. The speakers sound surprisingly full for such a thin chassis.",
+      "date": "2026-10-16",
+      "helpful": 13,
+      "verified": true
+    },
+    {
+      "id": "r-117",
+      "productId": "apple-macbook-air-13-m5",
+      "userName": "Omar K.",
+      "rating": 4,
+      "title": "Nearly perfect ultraportable, still 60Hz screen",
+      "body": "Performance and build quality are phenomenal for everyday work and travel, though a 120Hz ProMotion display and an extra USB-C port on the right side would make it completely untouchable.",
+      "date": "2026-11-08",
+      "helpful": 8,
+      "verified": false
+    },
+    {
+      "id": "r-118",
+      "productId": "apple-macbook-pro-14-m4-pro",
+      "userName": "Hazem M.",
+      "rating": 5,
+      "title": "Workstation-grade power with Thunderbolt 5 speed",
+      "body": "The M4 Pro chip compiles massive codebases and renders 3D scenes in Blender effortlessly. Having Thunderbolt 5 ports makes transferring huge RAW video files to external NVMe drives practically instant.",
+      "date": "2026-08-27",
+      "helpful": 26,
+      "verified": true
+    },
+    {
+      "id": "r-119",
+      "productId": "apple-macbook-pro-14-m4-pro",
+      "userName": "Salma A.",
+      "rating": 5,
+      "title": "Gorgeous XDR display and studio-quality mics",
+      "body": "The Liquid Retina XDR panel with 120Hz ProMotion is bright, color-accurate, and a dream for photo grading. The Center Stage camera and three-mic array make client calls sound crisp.",
+      "date": "2026-09-20",
+      "helpful": 20,
+      "verified": true
+    },
+    {
+      "id": "r-120",
+      "productId": "apple-macbook-pro-14-m4-pro",
+      "userName": "Karim N.",
+      "rating": 5,
+      "title": "Incredible efficiency and zero dongle headaches",
+      "body": "Even with all that pro-level GPU and CPU horsepower, battery life easily clears 14 hours on mixed creative workloads. Built-in HDMI, SD card slot, and MagSafe save me every single day.",
+      "date": "2026-10-13",
+      "helpful": 15,
+      "verified": true
+    },
+    {
+      "id": "r-121",
+      "productId": "apple-macbook-pro-14-m4-pro",
+      "userName": "Rania T.",
+      "rating": 4,
+      "title": "Best compact pro laptop, hefty price tag",
+      "body": "Thermals, keyboard, speakers, and sustained speed are unmatched in a 14-inch chassis, though it is noticeably denser than an Air and storage upgrades remain expensive.",
+      "date": "2026-11-05",
+      "helpful": 9,
+      "verified": false
+    },
+    {
+      "id": "r-122",
+      "productId": "apple-macbook-air-13-m4",
+      "userName": "Nour E.",
+      "rating": 5,
+      "title": "Sweet spot of price, speed, and portability",
+      "body": "The M4 chip handles 4K video cuts, heavy Lightroom libraries, and dozens of browser tabs without breaking a sweat or making a sound. Easily the best all-around laptop for students and professionals.",
+      "date": "2026-08-29",
+      "helpful": 28,
+      "verified": true
+    },
+    {
+      "id": "r-123",
+      "productId": "apple-macbook-air-13-m4",
+      "userName": "Yasmine H.",
+      "rating": 5,
+      "title": "Multi-monitor support with the lid open is a game changer",
+      "body": "Being able to drive two external displays while keeping the built-in Liquid Retina screen open finally fixes the biggest limitation of older Air models. Desk setup feels effortless now.",
+      "date": "2026-09-21",
+      "helpful": 22,
+      "verified": true
+    },
+    {
+      "id": "r-124",
+      "productId": "apple-macbook-air-13-m4",
+      "userName": "Mostafa A.",
+      "rating": 5,
+      "title": "16GB base RAM and upgraded Center Stage camera",
+      "body": "Starting at 16GB unified memory makes multitasking silky smooth right out of the box, and the 12MP Center Stage webcam keeps me framed nicely on client video calls.",
+      "date": "2026-10-14",
+      "helpful": 17,
+      "verified": true
+    },
+    {
+      "id": "r-125",
+      "productId": "apple-macbook-air-13-m4",
+      "userName": "Rami K.",
+      "rating": 4,
+      "title": "Phenomenal battery life, only two Thunderbolt ports",
+      "body": "Routinely hits 15 hours of real-world browsing and document work away from an outlet, though I still wish it had at least one USB-C port on the right side for flexible charging.",
+      "date": "2026-11-06",
+      "helpful": 10,
+      "verified": false
+    },
+    {
+      "id": "r-126",
+      "productId": "acer-nitro-v-15",
+      "userName": "Mahmoud T.",
+      "rating": 5,
+      "title": "Unbeatable budget gaming performance and smooth 144Hz screen",
+      "body": "Handles esports titles and modern AAA games at 1080p high settings without stuttering. The 144Hz IPS panel feels super responsive, and the subtle Obsidian Black chassis doesn't look overly flashy for university classes.",
+      "date": "2026-08-28",
+      "helpful": 23,
+      "verified": true
+    },
+    {
+      "id": "r-127",
+      "productId": "acer-nitro-v-15",
+      "userName": "Salma W.",
+      "rating": 4,
+      "title": "Easy RAM and SSD upgrades with NitroSense control",
+      "body": "Adding a second NVMe SSD and extra RAM took ten minutes, and the NitroSense app makes switching between Quiet and Performance modes effortless. Great value for engineering software and gaming.",
+      "date": "2026-09-19",
+      "helpful": 16,
+      "verified": true
+    },
+    {
+      "id": "r-128",
+      "productId": "acer-nitro-v-15",
+      "userName": "Youssef A.",
+      "rating": 4,
+      "title": "Thunderbolt 4 port is a huge bonus at this price",
+      "body": "Having a Thunderbolt 4 USB-C port alongside HDMI and three USB-A ports makes connecting external monitors and fast storage super convenient. Thermals stay solid during long sessions.",
+      "date": "2026-10-11",
+      "helpful": 11,
+      "verified": true
+    },
+    {
+      "id": "r-129",
+      "productId": "acer-nitro-v-15",
+      "userName": "Heba K.",
+      "rating": 3,
+      "title": "Strong specs, loud fans on Performance mode",
+      "body": "Frame rates and daily speed are impressive for the money, though the fans get noticeably loud under heavy GPU loads and the screen color gamut is fairly basic for photo editing.",
+      "date": "2026-11-04",
+      "helpful": 7,
+      "verified": false
+    },
+    {
+      "id": "r-130",
+      "productId": "acer-aspire-go-16",
+      "userName": "Nadia M.",
+      "rating": 5,
+      "title": "Spacious 16:10 display and smooth everyday speed",
+      "body": "The extra vertical screen height makes reading research papers, editing Word documents, and browsing so much easier without constant scrolling. Boots up fast and handles daily multitasking effortlessly.",
+      "date": "2026-08-29",
+      "helpful": 18,
+      "verified": true
+    },
+    {
+      "id": "r-131",
+      "productId": "acer-aspire-go-16",
+      "userName": "Khaled R.",
+      "rating": 4,
+      "title": "Impressive battery life and full numeric keypad",
+      "body": "Easily gets through a full day of university lectures and spreadsheets without hunting for a power outlet. Having a dedicated numpad and comfortable keyboard travel makes data entry much faster.",
+      "date": "2026-09-20",
+      "helpful": 13,
+      "verified": true
+    },
+    {
+      "id": "r-132",
+      "productId": "acer-aspire-go-16",
+      "userName": "Aya S.",
+      "rating": 4,
+      "title": "Clean lightweight build with great port variety",
+      "body": "Surprisingly slim and light for a 16-inch laptop, and having USB-C, HDMI, and full-size USB-A ports built in means zero dongle hassle. Runs cool and quiet during Zoom calls.",
+      "date": "2026-10-12",
+      "helpful": 9,
+      "verified": true
+    },
+    {
+      "id": "r-133",
+      "productId": "acer-aspire-go-16",
+      "userName": "Tarek B.",
+      "rating": 3,
+      "title": "Great budget productivity machine, modest screen colors",
+      "body": "Reliability, battery endurance, and speed for Office apps and streaming are hard to beat at this price, though display brightness and color vibrancy are fairly basic outdoors.",
+      "date": "2026-11-05",
+      "helpful": 5,
+      "verified": false
+    },
+    {
+      "id": "r-134",
+      "productId": "acer-nitro-5",
+      "userName": "Sherif E.",
+      "rating": 5,
+      "title": "A legendary budget gaming laptop that still delivers",
+      "body": "Runs demanding games smoothly at 1080p high settings, and upgrading the RAM and adding a second SSD was an absolute breeze. The keyboard typing feel and red backlight look great too.",
+      "date": "2026-08-30",
+      "helpful": 25,
+      "verified": true
+    },
+    {
+      "id": "r-135",
+      "productId": "acer-nitro-5",
+      "userName": "Dina G.",
+      "rating": 4,
+      "title": "Sturdy build and reliable high-refresh display",
+      "body": "The 144Hz panel makes fast-paced shooters feel incredibly smooth and responsive. NitroSense gives easy manual control over the dual fans when temperatures rise during long sessions.",
+      "date": "2026-09-22",
+      "helpful": 17,
+      "verified": true
+    },
+    {
+      "id": "r-136",
+      "productId": "acer-nitro-5",
+      "userName": "Mostafa T.",
+      "rating": 4,
+      "title": "Great hardware for video editing and gaming",
+      "body": "Handles Premiere Pro timelines and multi-app multitasking without stuttering. Plenty of I/O ports including HDMI, RJ45 Ethernet, and USB-C mean you rarely need adapters.",
+      "date": "2026-10-14",
+      "helpful": 12,
+      "verified": true
+    },
+    {
+      "id": "r-137",
+      "productId": "acer-nitro-5",
+      "userName": "Heba S.",
+      "rating": 3,
+      "title": "Powerful specs, heavy chassis and loud fans",
+      "body": "Gaming performance is fantastic for the price, but the power brick is quite bulky to carry around daily and the fans sound like a jet engine when pushed hard on Turbo mode.",
+      "date": "2026-11-06",
+      "helpful": 8,
+      "verified": false
+    },
+    {
+      "id": "r-138",
+      "productId": "acer-predator-triton-300-se",
+      "userName": "Amr K.",
+      "rating": 5,
+      "title": "Sleek metallic chassis with serious gaming punch",
+      "body": "Unlike bulky traditional gaming laptops, the clean silver aesthetic looks professional in meeting rooms or lecture halls. Inside, it handles heavy AAA games and 4K rendering effortlessly.",
+      "date": "2026-08-31",
+      "helpful": 22,
+      "verified": true
+    },
+    {
+      "id": "r-139",
+      "productId": "acer-predator-triton-300-se",
+      "userName": "Farida H.",
+      "rating": 5,
+      "title": "Gorgeous high-refresh OLED display",
+      "body": "Colors pop with incredible contrast, deep blacks, and super smooth motion during fast-paced games. The 3-zone RGB keyboard is crisp and satisfying to type on.",
+      "date": "2026-09-24",
+      "helpful": 16,
+      "verified": true
+    },
+    {
+      "id": "r-140",
+      "productId": "acer-predator-triton-300-se",
+      "userName": "Tarek M.",
+      "rating": 4,
+      "title": "Compact portability and Thunderbolt 4 support",
+      "body": "Easy to slip into a backpack for travel without weighing down your shoulders. Having Thunderbolt 4 and full-size HDMI makes connecting external monitors and fast docks seamless.",
+      "date": "2026-10-15",
+      "helpful": 11,
+      "verified": true
+    },
+    {
+      "id": "r-141",
+      "productId": "acer-predator-triton-300-se",
+      "userName": "Nouran E.",
+      "rating": 3,
+      "title": "Fantastic compact power, tight internal upgradeability",
+      "body": "Performance and build quality are top-tier for a 14-inch gaming machine, though soldered components and tight interior space mean upgrading storage or RAM later is quite limited.",
+      "date": "2026-11-07",
+      "helpful": 7,
+      "verified": false
+    },
+    {
+      "id": "r-142",
+      "productId": "acer-nitro-17-an17-41-r7g3",
+      "userName": "Karim Z.",
+      "rating": 5,
+      "title": "Massive 17.3-inch 165Hz screen creates total immersion",
+      "body": "The huge screen real estate with a buttery-smooth 165Hz refresh rate makes open-world games and cinematic titles look breathtaking. Runs cool even during extended gaming sessions.",
+      "date": "2026-09-01",
+      "helpful": 24,
+      "verified": true
+    },
+    {
+      "id": "r-143",
+      "productId": "acer-nitro-17-an17-41-r7g3",
+      "userName": "Salma T.",
+      "rating": 5,
+      "title": "Exceptional multitasking and powerful Ryzen processor",
+      "body": "Handles video rendering, heavy programming environments, and background chat apps simultaneously without dropping a frame. The 4-zone RGB keyboard is also very comfortable.",
+      "date": "2026-09-25",
+      "helpful": 18,
+      "verified": true
+    },
+    {
+      "id": "r-144",
+      "productId": "acer-nitro-17-an17-41-r7g3",
+      "userName": "Hisham R.",
+      "rating": 4,
+      "title": "Abundant ports and easy internal upgrades",
+      "body": "Having multiple USB-C ports, HDMI 2.1, Ethernet, and an easy-to-access second M.2 slot makes customization and peripheral connection a breeze. Great desktop replacement.",
+      "date": "2026-10-18",
+      "helpful": 12,
+      "verified": true
+    },
+    {
+      "id": "r-145",
+      "productId": "acer-nitro-17-an17-41-r7g3",
+      "userName": "Mona K.",
+      "rating": 4,
+      "title": "Fantastic performance, bulky and heavy chassis",
+      "body": "It delivers phenomenal frame rates and screen space for the price, but the 17-inch form factor and heavy power brick make it cumbersome to carry in a standard backpack daily.",
+      "date": "2026-11-09",
+      "helpful": 8,
+      "verified": false
+    },
+    {
+      "id": "r-146",
+      "productId": "msi-modern-14-h13m",
+      "userName": "Youssef M.",
+      "rating": 5,
+      "title": "Sleek enterprise aesthetic with snappy everyday performance",
+      "body": "The classic black aluminum chassis looks professional in meetings and classes alike. Boot times are lightning fast, and multitasking across heavy Excel sheets and dozens of Chrome tabs is effortless.",
+      "date": "2026-09-02",
+      "helpful": 21,
+      "verified": true
+    },
+    {
+      "id": "r-147",
+      "productId": "msi-modern-14-h13m",
+      "userName": "Nermine A.",
+      "rating": 5,
+      "title": "Lightweight and comfortable backlit keyboard",
+      "body": "Weighing just under 1.4 kg makes carrying it in a tote bag all day completely effortless. The tactile keyboard with white backlighting is comfortable for late-night typing and writing papers.",
+      "date": "2026-09-27",
+      "helpful": 15,
+      "verified": true
+    },
+    {
+      "id": "r-148",
+      "productId": "msi-modern-14-h13m",
+      "userName": "Ziad S.",
+      "rating": 4,
+      "title": "Good port selection and quiet thermals",
+      "body": "Having USB-C with power delivery, multiple USB-A ports, HDMI, and a MicroSD card reader covers all basic peripheral needs without needing dongles. Fans stay remarkably quiet during office work.",
+      "date": "2026-10-19",
+      "helpful": 10,
+      "verified": true
+    },
+    {
+      "id": "r-149",
+      "productId": "msi-modern-14-h13m",
+      "userName": "Dalia K.",
+      "rating": 3,
+      "title": "Great budget productivity, average screen brightness",
+      "body": "Performance and reliability for schoolwork and office tasks are top-notch for the price, though the 14-inch screen is a bit dim if you try to use it outdoors in direct sunlight.",
+      "date": "2026-11-10",
+      "helpful": 6,
+      "verified": false
+    },
+    {
+      "id": "r-150",
+      "productId": "msi-modern-15-f1mg",
+      "userName": "Ahmed F.",
+      "rating": 5,
+      "title": "Generous 15.6-inch screen and reliable everyday speed",
+      "body": "The larger display real estate makes splitting windows side-by-side or working with wide spreadsheets super comfortable. Boots up instantly and handles daily office workloads without any lag.",
+      "date": "2026-09-03",
+      "helpful": 20,
+      "verified": true
+    },
+    {
+      "id": "r-151",
+      "productId": "msi-modern-15-f1mg",
+      "userName": "Rania M.",
+      "rating": 4,
+      "title": "Full numeric keypad and clean minimalist design",
+      "body": "Having a dedicated number pad is a massive time-saver for accounting and data entry tasks. The carbon gray finish looks sleek and professional in any office setting.",
+      "date": "2026-09-28",
+      "helpful": 14,
+      "verified": true
+    },
+    {
+      "id": "r-152",
+      "productId": "msi-modern-15-f1mg",
+      "userName": "Hassan E.",
+      "rating": 4,
+      "title": "Great port variety and comfortable typing angle",
+      "body": "Includes USB-C, multiple USB-A slots, HDMI, and a MicroSD reader, meaning zero dongle hassle. The drop-down hinge design gives a pleasant tilt to the keyboard while improving airflow.",
+      "date": "2026-10-20",
+      "helpful": 10,
+      "verified": true
+    },
+    {
+      "id": "r-153",
+      "productId": "msi-modern-15-f1mg",
+      "userName": "Yasmin S.",
+      "rating": 3,
+      "title": "Solid productivity machine, average battery life",
+      "body": "Performance, keyboard feel, and build quality are great for the price point, though the battery tends to drain in about four to five hours of continuous browsing and requires the charger handy.",
+      "date": "2026-11-11",
+      "helpful": 6,
+      "verified": false
+    },
+    {
+      "id": "r-154",
+      "productId": "msi-cyborg-15-max-c2wf",
+      "userName": "Mahmoud N.",
+      "rating": 5,
+      "title": "Futuristic translucent design with powerful gaming punch",
+      "body": "The translucent chassis parts showing internal mechanical elements look genuinely cool. It runs modern AAA games smoothly at high frame rates and the 144Hz display keeps motion looking fluid.",
+      "date": "2026-09-04",
+      "helpful": 26,
+      "verified": true
+    },
+    {
+      "id": "r-155",
+      "productId": "msi-cyborg-15-max-c2wf",
+      "userName": "Reham K.",
+      "rating": 5,
+      "title": "Snappy multi-app performance and vibrant backlit keyboard",
+      "body": "Handles heavy coding environments, video editing software, and gaming seamlessly. The translucent blue-lit keyboard feels very tactile and looks fantastic in dimly lit rooms.",
+      "date": "2026-09-29",
+      "helpful": 19,
+      "verified": true
+    },
+    {
+      "id": "r-156",
+      "productId": "msi-cyborg-15-max-c2wf",
+      "userName": "Emad B.",
+      "rating": 4,
+      "title": "Great I/O and fast SSD speeds",
+      "body": "Having USB-C with DisplayPort support, HDMI 2.1, and RJ45 Ethernet makes setting up a full gaming battle station very easy. Game loading times are virtually non-existent.",
+      "date": "2026-10-21",
+      "helpful": 13,
+      "verified": true
+    },
+    {
+      "id": "r-157",
+      "productId": "msi-cyborg-15-max-c2wf",
+      "userName": "Nada H.",
+      "rating": 3,
+      "title": "Fantastic gamer aesthetic, fans get noisy under load",
+      "body": "Gaming and multitasking performance are top-tier for the cost, but the cooling fans spin up quite loudly when pushing the GPU during heavy sessions and battery life is short.",
+      "date": "2026-11-12",
+      "helpful": 7,
+      "verified": false
+    },
+    {
+      "id": "r-158",
+      "productId": "msi-cyborg-15-max-c13we",
+      "userName": "Tamer O.",
+      "rating": 5,
+      "title": "Striking translucent chassis and smooth 144Hz gaming",
+      "body": "The cyberpunk-inspired translucent aesthetic and neon keyboard backlighting give it a really unique personality. It breezes through esports titles and modern games at high refresh rates without stuttering.",
+      "date": "2026-09-05",
+      "helpful": 23,
+      "verified": true
+    },
+    {
+      "id": "r-159",
+      "productId": "msi-cyborg-15-max-c13we",
+      "userName": "Basant M.",
+      "rating": 4,
+      "title": "Fast processing speeds and responsive keyboard",
+      "body": "Handling heavy multimedia projects, coding IDEs, and gaming simultaneously is a breeze. The keys have satisfying travel and bounce back quickly during long typing sessions.",
+      "date": "2026-09-30",
+      "helpful": 16,
+      "verified": true
+    },
+    {
+      "id": "r-160",
+      "productId": "msi-cyborg-15-max-c13we",
+      "userName": "Sameh K.",
+      "rating": 4,
+      "title": "Great port variety and quick file transfers",
+      "body": "Equipped with USB-C, HDMI 2.1, and RJ45 Ethernet, making it super easy to hook up external gaming monitors and wired networking for low-latency matches.",
+      "date": "2026-10-22",
+      "helpful": 11,
+      "verified": true
+    },
+    {
+      "id": "r-161",
+      "productId": "msi-cyborg-15-max-c13we",
+      "userName": "Marwa E.",
+      "rating": 3,
+      "title": "Powerful gaming rig, speakers lack bass",
+      "body": "Great overall performance for the price point, but the built-in speakers sound tinny and lack depth, so you will definitely want to plug in a headset or external speakers for gaming.",
+      "date": "2026-11-13",
+      "helpful": 6,
+      "verified": false
+    },
+    {
+      "id": "r-162",
+      "productId": "msi-prestige13-ai-evo-a1mg-261eg",
+      "userName": "Sherif F.",
+      "rating": 5,
+      "title": "Incredibly lightweight with stunning OLED visuals",
+      "body": "Weighing practically nothing makes this laptop a dream for traveling professionals. The OLED screen offers pitch-black contrast and vibrant colors that make photo editing and movie streaming look phenomenal.",
+      "date": "2026-09-06",
+      "helpful": 25,
+      "verified": true
+    },
+    {
+      "id": "r-163",
+      "productId": "msi-prestige13-ai-evo-a1mg-261eg",
+      "userName": "Menna T.",
+      "rating": 5,
+      "title": "All-day battery life and snappy AI performance",
+      "body": "The Intel Core Ultra processor breezes through productivity tasks and local AI workloads while sipping battery. I easily get through a full workday of writing and meetings without reaching for the charger.",
+      "date": "2026-10-01",
+      "helpful": 18,
+      "verified": true
+    },
+    {
+      "id": "r-164",
+      "productId": "msi-prestige13-ai-evo-a1mg-261eg",
+      "userName": "Khaled M.",
+      "rating": 4,
+      "title": "Robust magnesium-aluminum build and great ports",
+      "body": "Despite being feather-light, the chassis feels rigid and premium. Having Thunderbolt 4, full-size HDMI, and a USB-A port on a 13-inch machine is a huge win for connectivity.",
+      "date": "2026-10-23",
+      "helpful": 12,
+      "verified": true
+    },
+    {
+      "id": "r-165",
+      "productId": "msi-prestige13-ai-evo-a1mg-261eg",
+      "userName": "Doha R.",
+      "rating": 4,
+      "title": "Fantastic ultraportable, compact keyboard takes time",
+      "body": "The portability and screen quality are unmatched for frequent flyers, though the keyboard layout is quite compact, which took a couple of days of typing to get fully used to.",
+      "date": "2026-11-14",
+      "helpful": 7,
+      "verified": false
+    },
+    {
+      "id": "r-166",
+      "productId": "hp-victus-15-fa1082wm",
+      "userName": "Mostafa K.",
+      "rating": 4,
+      "title": "Strong for the price",
+      "body": "Runs my engineering software and light games smoothly. The fans get loud under load.",
+      "date": "2026-09-21",
+      "helpful": 9,
+      "verified": true
+    },
+    {
+      "id": "r-167",
+      "productId": "hp-victus-15-fa1082wm",
+      "userName": "Hana S.",
+      "rating": 5,
+      "title": "Great screen for study",
+      "body": "Bright 144 Hz screen and fast startup. Battery lasts a full university day if I lower the brightness.",
+      "date": "2026-10-03",
+      "helpful": 6,
+      "verified": true
+    },
+    {
+      "id": "r-168",
+      "productId": "hp-victus-15-fa1082wm",
+      "userName": "Youssef A.",
+      "rating": 4,
+      "title": "Good, a bit heavy",
+      "body": "Performance is very good, but it is heavier than I expected to carry every day.",
+      "date": "2026-10-19",
+      "helpful": 3,
+      "verified": false
+    }
+  ],
+  "orders": [
+    {
+      "id": "WT-10001",
+      "userId": "demo-user-1",
+      "createdAt": "2026-10-14T10:20:00Z",
+      "status": "delivered",
+      "items": [
+        {
+          "productId": "lenovo-loq-15irx9",
+          "name": "Lenovo LOQ 15IRX9 Gaming Laptop",
+          "price": 66999,
+          "quantity": 1,
+          "options": {
+            "memory": "16 GB",
+            "storage": "1 TB",
+            "warranty": "1 year"
+          }
+        }
+      ],
+      "shipping": {
+        "fullName": "Marwan Tarek",
+        "phone": "01022334455",
+        "city": "Cairo",
+        "address": "16 El Tayaran St"
+      },
+      "payment": {
+        "method": "card"
+      },
+      "totals": {
+        "subtotal": 66999,
+        "shipping": 0,
+        "discount": 0,
+        "total": 66999
+      }
+    },
+    {
+      "id": "WT-10002",
+      "userId": "demo-user-1",
+      "createdAt": "2026-10-15T10:20:00Z",
+      "status": "delivered",
+      "items": [
+        {
+          "productId": "asus-zenbook-14",
+          "name": "Zenbook 14 OLED",
+          "price": 85599,
+          "quantity": 1,
+          "options": {
+            "memory": "32 GB",
+            "storage": "512 GB",
+            "warranty": "2 years"
+          }
+        }
+      ],
+      "shipping": {
+        "fullName": "Ahmed Mahmoud",
+        "phone": "01012345678",
+        "city": "Cairo",
+        "address": "15 Nasr City St"
+      },
+      "payment": {
+        "method": "card"
+      },
+      "totals": {
+        "subtotal": 85599,
+        "shipping": 0,
+        "discount": 0,
+        "total": 85599
+      }
+    },
+    {
+      "id": "WT-10003",
+      "userId": "demo-user-1",
+      "createdAt": "2026-10-27T13:20:00Z",
+      "status": "shipped",
+      "items": [
+        {
+          "productId": "hp-laptop-ai-15-fd2002ne",
+          "name": "HP Laptop AI 15-fd2002ne",
+          "price": 50999,
+          "quantity": 1,
+          "options": {
+            "memory": "16 GB",
+            "storage": "512 GB",
+            "warranty": "1 year"
+          }
+        }
+      ],
+      "shipping": {
+        "fullName": "Ramy Mounir",
+        "phone": "01292031425",
+        "city": "Alexandria",
+        "address": "44 Miami St"
+      },
+      "payment": {
+        "method": "cod"
+      },
+      "totals": {
+        "subtotal": 50999,
+        "shipping": 0,
+        "discount": 0,
+        "total": 50999
+      }
+    },
+    {
+      "id": "WT-10004",
+      "userId": "demo-user-1",
+      "createdAt": "2026-11-06T16:20:00Z",
+      "status": "processing",
+      "items": [
+        {
+          "productId": "dell-15-dc15250",
+          "name": "Dell 15 DC15250",
+          "price": 43999,
+          "quantity": 1,
+          "options": {
+            "memory": "16 GB",
+            "storage": "512 GB",
+            "warranty": "1 year"
+          }
+        }
+      ],
+      "shipping": {
+        "fullName": "Rana Adel",
+        "phone": "01544556655",
+        "city": "Mansoura",
+        "address": "18 El Gomhoria St"
+      },
+      "payment": {
+        "method": "card"
+      },
+      "totals": {
+        "subtotal": 43999,
+        "shipping": 0,
+        "discount": 2000,
+        "total": 41999
+      }
+    },
+    {
+      "id": "WT-10005",
+      "userId": "demo-user-1",
+      "createdAt": "2026-11-08T16:20:00Z",
+      "status": "placed",
+      "items": [
+        {
+          "productId": "apple-macbook-air-13-m5",
+          "name": "MacBook Air 13 M5",
+          "price": 84333,
+          "quantity": 1,
+          "options": {
+            "memory": "16 GB",
+            "storage": "512 GB",
+            "warranty": "1 year"
+          }
+        }
+      ],
+      "shipping": {
+        "fullName": "Youssef Adel",
+        "phone": "01500000138",
+        "city": "Mansoura",
+        "address": "12 El Gomhoria Street"
+      },
+      "payment": {
+        "method": "card"
+      },
+      "totals": {
+        "subtotal": 84333,
+        "shipping": 0,
+        "discount": 0,
+        "total": 84333
+      }
+    },
+    {
+      "id": "WT-10006",
+      "userId": "demo-user-1",
+      "createdAt": "2026-11-14T19:50:00Z",
+      "status": "cancelled",
+      "items": [
+        {
+          "productId": "msi-modern-15-f1mg",
+          "name": "MSI Modern 15 F1MG Laptop",
+          "price": 31168,
+          "quantity": 1,
+          "options": {
+            "memory": "8 GB",
+            "storage": "512 GB",
+            "warranty": "1 year"
+          }
+        }
+      ],
+      "shipping": {
+        "fullName": "Khaled Tarek",
+        "phone": "01067890534",
+        "city": "Mansoura",
+        "address": "15 El Gomhoria St"
+      },
+      "payment": {
+        "method": "cod"
+      },
+      "totals": {
+        "subtotal": 31168,
+        "shipping": 0,
+        "discount": 0,
+        "total": 31168
+      }
+    }
+  ]
+}
