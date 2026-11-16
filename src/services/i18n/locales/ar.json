@@ -1,4 +1,4 @@
 {
   "app": { "name": "WorkTech" },
-  "common": { "loading": "...جاري التحميل" }
+  "common": { "loading": "جاري التحميل..." }
 }

@@ -1,9 +1,13 @@
 name: CI
 
+# Manual only while GitHub Actions is unavailable on this account.
+# The same checks run locally in .husky/pre-push before every push.
+# To re-enable, restore:
+#   pull_request:
+#   push:
+#     branches: [main, develop]
 on:
-  pull_request:
-  push:
-    branches: [main, develop]
+  workflow_dispatch:
 
 concurrency:
   group: ci-${{ github.ref }}
