@@ -42,7 +42,11 @@ The old repository `nhahub/NHA-5-046` is no longer used. All work happens in `sa
 
 **In scope:** the 17 pages in section 6, a mock REST API, cart and wishlist persisted in the browser, demo accounts stored in the browser, English and Arabic, deployment to Vercel.
 
-**Out of scope:** a real backend or database, real payments, real authentication or security, an admin dashboard.
+**Out of scope:** a real backend or database, real payments, real authentication or security, an admin dashboard. Admin and JWT authentication were designed and tested in design v1.1 and are deferred (design doc §13.4).
+
+**Build exactly what is in Figma.** Do not add pages or features that are not in the design.
+
+**Design reference:** `docs/system-analysis-design.pdf` (English) and `docs/system-analysis-design-ar.pdf` (Arabic), version 1.2. Business rules (BR-xx), use cases (UC-xx) and requirements (FR-xx) are defined there.
 
 ---
 
@@ -63,13 +67,13 @@ Page ownership is not decided yet. When it is, record it in section 6.
 
 ## 4. Deadlines
 
-| Milestone                               | Deadline        | Status                             |
-| --------------------------------------- | --------------- | ---------------------------------- |
-| Project Planning & Management           | 16 Oct 2026     | Documentation written              |
-| Requirements Gathering                  | 16 Oct 2026     | Documentation written              |
-| System Analysis & Design                | 6 Nov 2026      | **Overdue**: diagrams still needed |
-| Implementation (source code)            | **30 Nov 2026** | Not started                        |
-| Final presentation, testing and reports | **4 Dec 2026**  | Not started                        |
+| Milestone                               | Deadline        | Status                                          |
+| --------------------------------------- | --------------- | ----------------------------------------------- |
+| Project Planning & Management           | 16 Oct 2026     | Documentation written                           |
+| Requirements Gathering                  | 16 Oct 2026     | Documentation written                           |
+| System Analysis & Design                | 6 Nov 2026      | Done (v1.2): `docs/system-analysis-design*.pdf` |
+| Implementation (source code)            | **30 Nov 2026** | Not started                                     |
+| Final presentation, testing and reports | **4 Dec 2026**  | Not started                                     |
 
 The schedule is compressed. Protect the core flow first (browse → product → cart → checkout), then the smart tools, then polish.
 
@@ -77,21 +81,22 @@ The schedule is compressed. Protect the core flow first (browse → product → 
 
 ## 5. Tech stack
 
-| Concern         | Choice                                      | Notes                              |
-| --------------- | ------------------------------------------- | ---------------------------------- |
-| Language        | JavaScript                                  | No TypeScript                      |
-| Build           | Vite + React 18                             |                                    |
-| Routing         | React Router (`createBrowserRouter`)        | 17 routes, lazy-loaded pages       |
-| Shared state    | Redux Toolkit + react-redux                 | Only cart, wishlist, compare, auth |
-| HTTP            | Axios                                       | One shared client                  |
-| Mock API        | JSON Server                                 | Serves `db.json` on port 3001      |
-| i18n            | i18next + react-i18next                     | `en` and `ar`, RTL for Arabic      |
-| Styling         | CSS Modules + CSS variables (design tokens) | No CSS frameworks, no UI libraries |
-| Lint and format | ESLint (flat config) + Prettier             |                                    |
-| Tests           | Vitest + React Testing Library              |                                    |
-| Git hooks       | Husky + lint-staged + commitlint            | Conventional Commits               |
-| CI              | GitHub Actions                              | lint, format check, test, build    |
-| Deploy          | Vercel                                      | Rewrite all routes to `index.html` |
+| Concern         | Choice                                      | Notes                                                                                        |
+| --------------- | ------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| Language        | JavaScript                                  | No TypeScript                                                                                |
+| Build           | Vite + React 18                             |                                                                                              |
+| Routing         | React Router (`createBrowserRouter`)        | 17 routes, lazy-loaded pages                                                                 |
+| Shared state    | Redux Toolkit + react-redux                 | Only cart, wishlist, compare, auth                                                           |
+| Server data     | RTK Query (part of Redux Toolkit)           | Fetching and caching; no extra package                                                       |
+| HTTP            | Axios                                       | One shared client                                                                            |
+| Mock API        | JSON Server                                 | Serves `db.json` on port 3001                                                                |
+| i18n            | i18next + react-i18next                     | `en` and `ar`, RTL for Arabic                                                                |
+| Styling         | CSS Modules + CSS variables (design tokens) | No CSS frameworks, no UI libraries                                                           |
+| Lint and format | ESLint (flat config) + Prettier             |                                                                                              |
+| Tests           | Vitest + React Testing Library              |                                                                                              |
+| Git hooks       | Husky + lint-staged + commitlint            | Conventional Commits                                                                         |
+| Checks          | Husky pre-push + Vercel build               | lint, format check, test, build before every push; GitHub Actions not used (account billing) |
+| Deploy          | Vercel                                      | Rewrite all routes to `index.html`                                                           |
 
 Do not add a library that is not in this table without asking me first.
 
@@ -182,15 +187,15 @@ app  ->  pages  ->  features  ->  shared
 
 ### Where state lives
 
-| Kind of state                     | Where                                       | Example                                          |
-| --------------------------------- | ------------------------------------------- | ------------------------------------------------ |
-| Server data                       | API functions + custom hooks in the feature | Product list, product details, reviews, orders   |
-| Shared client state               | Redux Toolkit slice                         | Cart, wishlist, compare, current user            |
-| Local UI state                    | `useState` in the component                 | Open dropdown, active tab, form fields           |
-| Filters, sort, search, pagination | URL search params                           | `/products?brand=asus&ram=16&sort=price`         |
-| Persistence                       | localStorage                                | Cart, wishlist, compare, language, demo accounts |
+| Kind of state                     | Where                                 | Example                                          |
+| --------------------------------- | ------------------------------------- | ------------------------------------------------ |
+| Server data                       | RTK Query endpoints (cache in memory) | Product list, product details, reviews, orders   |
+| Shared client state               | Redux Toolkit slice                   | Cart, wishlist, compare, current user            |
+| Local UI state                    | `useState` in the component           | Open dropdown, active tab, form fields           |
+| Filters, sort, search, pagination | URL search params                     | `/products?brand=asus&ram=16&sort=price`         |
+| Persistence                       | localStorage                          | Cart, wishlist, compare, language, demo accounts |
 
-Server data is **never** copied into Redux.
+Server data is **never** copied into Redux slices; it lives only in the RTK Query cache (products and reviews kept 5 minutes; orders refetch on open). Cookies are not used.
 
 ### Every data-driven view handles four states
 
@@ -250,9 +255,12 @@ JSON Server serves `db.json` at `VITE_API_URL` (default `http://localhost:3001`)
       { "label": "3 years", "delta": 2500 }
     ]
   },
-  "tags": ["ultrabook", "oled"]
+  "tags": ["ultrabook", "oled"],
+  "createdAt": "2026-06-15"
 }
 ```
+
+**Data rule (verified):** every `orders.userId` must match a demo account id and every `reviews.productId` must exist in `products`. JSON Server silently deletes orphan records on any DELETE request. The store never sends DELETE.
 
 If a field needs to change, change it here first, then in `db.json` and the code.
 
@@ -303,7 +311,7 @@ CSS rules:
 - `main`: deployable, protected. Only updated from `develop` at milestones.
 - `develop`: integration, protected, the default branch.
 - `feature/<scope>-<short-name>`: one branch per task, created from `develop`. Example: `feature/catalog-filters`.
-- Every change reaches `develop` through a pull request with **1 approval** and a **green CI**.
+- Every change reaches `develop` through a pull request with **1 approval**, passing pre-push checks and a green Vercel build.
 - **Conventional Commits:** `feat: add product filters`, `fix: correct cart total rounding`, `docs: update readme`, `chore: ...`, `refactor: ...`, `test: ...`, `ci: ...`.
 - Small, focused commits and pull requests.
 - Step-by-step commands for the team: [`docs/git-guide.pdf`](docs/git-guide.pdf) (Arabic).
@@ -363,11 +371,12 @@ Update this list as tasks finish.
 - [x] Figma designs: 17 pages at 3 sizes
 - [x] GitHub repository (`salemsalehtech/Work_Tech`) with `develop` as default and branch protection on `main` and `develop`
 - [x] Phase 1 setup commits on `main` and `develop`
-- [ ] **CI blocked**: GitHub Actions jobs do not start because the account is locked due to a billing issue. Fix billing, then re-run.
-- [ ] Required CI status check added to the branch ruleset (after CI runs once)
+- [x] GitHub Actions dropped (account billing); replaced by Husky pre-push + Vercel build check
+- [ ] Add `.husky/pre-push` and connect the repository to Vercel
 - [ ] Phase 1 "done when" checks verified ← current task
-- [ ] Phase 2: architecture skeleton
-- [ ] System Analysis & Design diagrams (overdue)
+- [x] Phase 2: architecture skeleton (merged)
+- [x] System Analysis & Design v1.2 (EN + AR)
+- [ ] Phase 4: `db.json` (products with `createdAt`, reviews, orders) still missing; only json-server and the `api` script were merged
 - [ ] Page ownership decided and recorded in section 6
 
 ---
