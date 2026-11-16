@@ -32,7 +32,7 @@ Each member has a personal guide in Arabic, with the architecture, the Git rules
 | Account and orders          | Abdelrahman     | `abdelrahman` | `src/features/{auth,orders,wishlist}`, `src/pages/{Auth,Account,Orders,OrderDetails,Wishlist}`                                       |
 | Compare and Home            | Fares Ahmed     | `fares`       | `src/features/compare`, `src/pages/{Compare,Home}`                                                                                   |
 
-The Laptop Finder is shared to help Fares: Zein writes the scoring (`scoreLaptops`), Salem builds the pages.
+Laptop Finder: Zein writes the scoring (`scoreLaptops`), Salem builds the pages.
 
 ## Calendar
 

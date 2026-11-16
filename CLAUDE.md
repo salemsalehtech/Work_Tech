@@ -52,14 +52,14 @@ The old repository `nhahub/NHA-5-046` is no longer used. All work happens in `sa
 
 ## 3. Team
 
-| #   | Member                         | Role                                        | Branch        |
-| --- | ------------------------------ | ------------------------------------------- | ------------- |
-| 1   | Salem Saleh                    | Team lead and integration                   | `salem`       |
-| 2   | Asmaa Nehad Farouk             | UI kit and content pages                    | `asmaa`       |
-| 3   | Wassim Gomaa El-Sakka          | Catalog and product details                 | `wasim`       |
-| 4   | Zein El-Din Amr El-Sayed Ahmed | Cart and checkout, Finder scoring           | `zein`        |
-| 5   | Abdelrahman Hany Mohamed       | Account, orders and wishlist                | `abdelrahman` |
-| 6   | Fares Ahmed Mostafa Slim       | Compare and Home (Salem and Zein on Finder) | `fares`       |
+| #   | Member                         | Role                              | Branch        |
+| --- | ------------------------------ | --------------------------------- | ------------- |
+| 1   | Salem Saleh                    | Team lead and integration         | `salem`       |
+| 2   | Asmaa Nehad Farouk             | UI kit and content pages          | `asmaa`       |
+| 3   | Wassim Gomaa El-Sakka          | Catalog and product details       | `wasim`       |
+| 4   | Zein El-Din Amr El-Sayed Ahmed | Cart and checkout, Finder scoring | `zein`        |
+| 5   | Abdelrahman Hany Mohamed       | Account, orders and wishlist      | `abdelrahman` |
+| 6   | Fares Ahmed Mostafa Slim       | Compare and Home                  | `fares`       |
 
 Page owners are in section 6. Each member has a personal guide in `docs/team/`.
 
