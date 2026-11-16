@@ -102,29 +102,31 @@ Do not add a library that is not in this table without asking me first.
 
 ---
 
-## 6. Pages (17)
+## 6. Pages (17 + 2 detail screens)
 
-| #   | Page                               | Route            | Owner |
-| --- | ---------------------------------- | ---------------- | ----- |
-| 01  | Home                               | `/`              |       |
-| 02  | Products (also search results)     | `/products`      |       |
-| 03  | Product Details                    | `/products/:id`  |       |
-| 04  | Cart                               | `/cart`          |       |
-| 05  | Checkout                           | `/checkout`      |       |
-| 06  | Order Success                      | `/order-success` |       |
-| 07  | Login / Register                   | `/auth`          |       |
-| 08  | My Account                         | `/account`       |       |
-| 09  | My Orders (list and order details) | `/orders`        |       |
-| 10  | Wishlist                           | `/wishlist`      |       |
-| 11  | Laptop Finder                      | `/finder`        |       |
-| 12  | Compare                            | `/compare`       |       |
-| 13  | About                              | `/about`         |       |
-| 14  | Contact                            | `/contact`       |       |
-| 15  | FAQ                                | `/faq`           |       |
-| 16  | Policies                           | `/policies`      |       |
-| 17  | Not Found                          | `*`              |       |
+| #   | Page             | Route            | Owner |
+| --- | ---------------- | ---------------- | ----- |
+| 01  | Home             | `/`              |       |
+| 02  | Products         | `/products`      |       |
+| 02b | Search results   | `/search?q=`     |       |
+| 03  | Product Details  | `/products/:id`  |       |
+| 04  | Cart             | `/cart`          |       |
+| 05  | Checkout         | `/checkout`      |       |
+| 06  | Order Success    | `/order-success` |       |
+| 07  | Login / Register | `/auth`          |       |
+| 08  | My Account       | `/account`       |       |
+| 09  | My Orders        | `/orders`        |       |
+| 09b | Order details    | `/orders/:id`    |       |
+| 10  | Wishlist         | `/wishlist`      |       |
+| 11  | Laptop Finder    | `/finder`        |       |
+| 12  | Compare          | `/compare`       |       |
+| 13  | About            | `/about`         |       |
+| 14  | Contact          | `/contact`       |       |
+| 15  | FAQ              | `/faq`           |       |
+| 16  | Policies         | `/policies`      |       |
+| 17  | Not Found        | `*`              |       |
 
-**Design reference:** Figma files for all 17 pages at desktop (1440 px), tablet (834 px) and mobile (390 px). The Figma design is the source of truth for layout and spacing. When I share a screenshot or a Figma export of a page, match it.
+**Design reference:** Figma files for all 19 screens at desktop (1440 px), tablet (834 px) and mobile (390 px). The Figma design is the source of truth for layout and spacing. The **WorkTech Design System** artifact (https://claude.ai/artifact/Eu4My81oEnprokYGMEwnMv) holds the measured tokens, every component with its rules, a **Pages** section (what each screen holds, top to bottom) and the screens Figma does not have (loading, empty, error, mobile menu, filter drawer, checkout steps 2–3, Finder results, Create account). Build from it.
 
 **Key features per page:**
 
@@ -213,7 +215,9 @@ JSON Server serves `db.json` at `VITE_API_URL` (default `http://localhost:3001`)
 | GET    | `/products/:id`          | One product                                                 |
 | GET    | `/reviews?productId=:id` | Reviews of a product                                        |
 | GET    | `/orders?userId=:id`     | Orders of a user                                            |
+| GET    | `/orders/:id`            | One order (Order details)                                   |
 | POST   | `/orders`                | Create an order                                             |
+| GET    | `/accessories`           | Accessories (Cart "Complete the setup"), `?category=`       |
 
 **Product shape (agree before building the catalog):**
 
@@ -239,7 +243,21 @@ JSON Server serves `db.json` at `VITE_API_URL` (default `http://localhost:3001`)
     "resolution": "2880x1800 OLED",
     "battery": "75 Wh",
     "weight": 1.2,
-    "os": "Windows 11"
+    "os": "Windows 11",
+    "cores": 16,
+    "threads": 16,
+    "gpuVram": null,
+    "gpuTgp": null,
+    "refreshRate": 120,
+    "panel": "OLED",
+    "thickness": 14.9,
+    "thunderbolt": "Thunderbolt 4",
+    "videoOut": "HDMI 2.0",
+    "wifi": "Wi-Fi 7",
+    "bluetooth": "5.4",
+    "ports": ["2× Thunderbolt 4 (USB-C)", "2× USB-A 3.2", "HDMI 2.0", "3.5 mm jack"],
+    "webcam": "1080p FHD",
+    "keyboard": "Backlit"
   },
   "options": {
     "memory": [
@@ -255,10 +273,53 @@ JSON Server serves `db.json` at `VITE_API_URL` (default `http://localhost:3001`)
       { "label": "3 years", "delta": 2500 }
     ]
   },
+  "inTheBox": ["Zenbook 14 OLED", "65 W power adapter", "Quick start guide"],
   "tags": ["ultrabook", "oled"],
   "createdAt": "2026-06-15"
 }
 ```
+
+`gpuVram` and `gpuTgp` are `null` for integrated graphics. `valueScore` is stored 0–100 and shown ÷ 10 ("8.6"). The spec extras (`cores` … `keyboard`, `inTheBox`) are demo values derived from the CPU and GPU family: check them before the final demo.
+
+**Accessory shape** (`/accessories`, ids start with `acc-`):
+
+```json
+{
+  "id": "acc-logitech-g305",
+  "kind": "accessory",
+  "category": "mouse",
+  "brand": "Logitech",
+  "name": "G305 Lightspeed wireless mouse",
+  "price": 1290,
+  "oldPrice": null,
+  "currency": "EGP",
+  "images": ["/images/accessories/acc-logitech-g305-1.jpg"],
+  "stock": 30,
+  "specsLine": "HERO 12K sensor · 99 g · 1× AA",
+  "fitsScreen": null,
+  "createdAt": "2026-03-10"
+}
+```
+
+Categories: `mouse`, `sleeve`, `backpack`, `cooling`, `audio`, `hub`, `charger`. `fitsScreen` is the largest screen in inches a sleeve, backpack or cooling pad fits (`null` = any).
+
+**Review shape:** `{ id, productId, userName, city, config, rating, title, body, date, helpful, verified }`. `config` is the configuration the buyer has ("16GB · 512GB").
+
+**Order shape:** `{ id, userId, createdAt, status, items, shipping, payment, totals }`. Each item is `{ productId, kind, name, price, quantity, options }`: `kind` is `"laptop"` (with `options` `{memory, storage, warranty}`, `price` = base + deltas) or `"accessory"` (`options: null`). `totals` is `{ subtotal, shipping, discount, total }`.
+
+**Order status** values and how they show (Figma labels):
+
+| `status`     | Shown as     | Tracker step                       |
+| ------------ | ------------ | ---------------------------------- |
+| `placed`     | Placed       | 1 of 4 (can be cancelled)          |
+| `processing` | Packed       | 2 of 4                             |
+| `shipped`    | With courier | 3 of 4                             |
+| `delivered`  | Delivered    | 4 of 4                             |
+| `cancelled`  | Cancelled    | no tracker (Figma's "Returned" UI) |
+
+Constants live in `src/shared/constants` (`ORDER_STATUS`, `ORDER_STEP_INDEX`, `FREE_SHIPPING_THRESHOLD` …).
+
+**Shipping:** free when the subtotal is **20,000 EGP or more**, else **150 EGP**, in every governorate. Express (next day, Cairo and Giza only) adds 150 EGP on top. Every "free delivery" text in the UI says 20,000. Cash on delivery only for totals under 50,000 EGP.
 
 **Data rule (verified):** every `orders.userId` must match a demo account id and every `reviews.productId` must exist in `products`. JSON Server silently deletes orphan records on any DELETE request. The store never sends DELETE.
 
@@ -268,15 +329,20 @@ If a field needs to change, change it here first, then in `db.json` and the code
 
 ## 9. Design system
 
-| Token          | Value                                                  |
-| -------------- | ------------------------------------------------------ |
-| `--color-red`  | `#D1040B` (brand, "work")                              |
-| `--color-blue` | `#0264CF` (brand, "TECH", primary actions)             |
-| `--color-gold` | `#F7A909` (highlights, ratings)                        |
-| `--color-sky`  | `#32B5FD` (accents)                                    |
-| `--color-ink`  | `#0B1526` (text, dark surfaces)                        |
-| Font           | IBM Plex Sans (English), IBM Plex Sans Arabic (Arabic) |
-| Breakpoints    | mobile-first: `>= 834px` tablet, `>= 1440px` desktop   |
+| Token          | Value                                                                       |
+| -------------- | --------------------------------------------------------------------------- |
+| `--color-red`  | `#D1040B` (brand, "work" in the wordmark only)                              |
+| `--color-sale` | `#C1030A` (sale price, discount badge, Deals, Cancel, Sign out)             |
+| `--color-blue` | `#0264CF` (brand, "TECH", primary actions)                                  |
+| `--color-gold` | `#F7A909` (stars, Laptop Finder mark, gold buttons with ink text)           |
+| `--color-sky`  | `#32B5FD` (illustration accents)                                            |
+| `--color-ink`  | `#0B1526` (text, rules, dark surfaces)                                      |
+| Text greys     | `#3D4757` body copy, `#556070` muted labels                                 |
+| Font           | IBM Plex Sans (text), IBM Plex Mono (labels, numbers), IBM Plex Sans Arabic |
+| Radius         | 3 badges, 4 chips, 6 controls, 8 cards. No drop shadows                     |
+| Breakpoints    | mobile-first: `>= 834px` tablet, `>= 1200px` desktop (Figma frames at 1440) |
+
+The full token list (37 colors, type scale, spacing, sizes) is `tokens.json` in the Design System artifact; copy it into `src/shared/styles/tokens.css`.
 
 CSS rules:
 
@@ -378,6 +444,10 @@ Update this list as tasks finish.
 - [x] Phase 2: architecture skeleton (merged)
 - [x] System Analysis & Design v1.2 (EN + AR)
 - [x] Phase 4: mock data (`db.json`) and json-server, fixed to the data contract
+- [x] Design System v2 measured from the Figma exports (31 components, Pages, missing screens)
+- [x] Data for the design: full spec fields, review city/config, `accessories`, order item `kind`
+- [x] Routes for Search results (`/search`) and Order details (`/orders/:id`); shared constants
+- [ ] Product images in `public/images/products/` and `public/images/accessories/`
 - [ ] Page ownership decided and recorded in section 6
 
 ---
