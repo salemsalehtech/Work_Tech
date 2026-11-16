@@ -1,4 +1,17 @@
 {
-  "app": { "name": "WorkTech" },
-  "common": { "loading": "Loading..." }
+  "app": {
+    "name": "WorkTech"
+  },
+  "common": {
+    "loading": "Loading..."
+  },
+  "orders": {
+    "status": {
+      "placed": "Placed",
+      "processing": "Packed",
+      "shipped": "With courier",
+      "delivered": "Delivered",
+      "cancelled": "Cancelled"
+    }
+  }
 }

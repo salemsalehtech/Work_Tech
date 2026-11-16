@@ -1,4 +1,17 @@
 {
-  "app": { "name": "WorkTech" },
-  "common": { "loading": "جاري التحميل..." }
+  "app": {
+    "name": "WorkTech"
+  },
+  "common": {
+    "loading": "جاري التحميل..."
+  },
+  "orders": {
+    "status": {
+      "placed": "تم الطلب",
+      "processing": "تم التجهيز",
+      "shipped": "مع المندوب",
+      "delivered": "تم التوصيل",
+      "cancelled": "ملغي"
+    }
+  }
 }

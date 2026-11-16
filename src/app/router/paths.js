@@ -1,6 +1,7 @@
 export const PATHS = {
   HOME: '/',
   PRODUCTS: '/products',
+  SEARCH: '/search',
   PRODUCT_DETAILS: '/products/:id',
   CART: '/cart',
   CHECKOUT: '/checkout',
@@ -8,6 +9,7 @@ export const PATHS = {
   AUTH: '/auth',
   ACCOUNT: '/account',
   ORDERS: '/orders',
+  ORDER_DETAILS: '/orders/:id',
   WISHLIST: '/wishlist',
   FINDER: '/finder',
   COMPARE: '/compare',

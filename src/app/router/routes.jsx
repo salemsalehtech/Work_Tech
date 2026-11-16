@@ -14,11 +14,13 @@ import {
   Finder,
   Home,
   NotFound,
+  OrderDetails,
   Orders,
   OrderSuccess,
   Policies,
   ProductDetails,
   Products,
+  SearchResults,
   Wishlist,
 } from './lazyPages';
 import { PATHS } from './paths';
@@ -28,6 +30,7 @@ export const router = createBrowserRouter([
     children: [
       { path: PATHS.HOME, element: <Home /> },
       { path: PATHS.PRODUCTS, element: <Products /> },
+      { path: PATHS.SEARCH, element: <SearchResults /> },
       { path: PATHS.PRODUCT_DETAILS, element: <ProductDetails /> },
       { path: PATHS.CART, element: <Cart /> },
       { path: PATHS.CHECKOUT, element: <Checkout /> },
@@ -35,6 +38,7 @@ export const router = createBrowserRouter([
       { path: PATHS.AUTH, element: <Auth /> },
       { path: PATHS.ACCOUNT, element: <Account /> },
       { path: PATHS.ORDERS, element: <Orders /> },
+      { path: PATHS.ORDER_DETAILS, element: <OrderDetails /> },
       { path: PATHS.WISHLIST, element: <Wishlist /> },
       { path: PATHS.FINDER, element: <Finder /> },
       { path: PATHS.COMPARE, element: <Compare /> },
