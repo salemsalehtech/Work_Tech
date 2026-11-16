@@ -52,16 +52,16 @@ The old repository `nhahub/NHA-5-046` is no longer used. All work happens in `sa
 
 ## 3. Team
 
-| #   | Member                         | Role        |
-| --- | ------------------------------ | ----------- |
-| 1   | Salem Saleh                    | Team Leader |
-| 2   | Abdelrahman Hany Mohamed       | Developer   |
-| 3   | Fares Ahmed Mostafa Slim       | Developer   |
-| 4   | Wassim Gomaa El-Sakka          | Developer   |
-| 5   | Zein El-Din Amr El-Sayed Ahmed | Developer   |
-| 6   | Asmaa Nehad Farouk             | Developer   |
+| #   | Member                         | Role                                        | Branch        |
+| --- | ------------------------------ | ------------------------------------------- | ------------- |
+| 1   | Salem Saleh                    | Team lead and integration                   | `salem`       |
+| 2   | Asmaa Nehad Farouk             | UI kit and content pages                    | `asmaa`       |
+| 3   | Wassim Gomaa El-Sakka          | Catalog and product details                 | `wasim`       |
+| 4   | Zein El-Din Amr El-Sayed Ahmed | Cart and checkout, Finder scoring           | `zein`        |
+| 5   | Abdelrahman Hany Mohamed       | Account, orders and wishlist                | `abdelrahman` |
+| 6   | Fares Ahmed Mostafa Slim       | Compare and Home (Salem and Zein on Finder) | `fares`       |
 
-Page ownership is not decided yet. When it is, record it in section 6.
+Page owners are in section 6. Each member has a personal guide in `docs/team/`.
 
 ---
 
@@ -72,7 +72,7 @@ Page ownership is not decided yet. When it is, record it in section 6.
 | Project Planning & Management           | 16 Oct 2026     | Documentation written                           |
 | Requirements Gathering                  | 16 Oct 2026     | Documentation written                           |
 | System Analysis & Design                | 6 Nov 2026      | Done (v1.2): `docs/system-analysis-design*.pdf` |
-| Implementation (source code)            | **30 Nov 2026** | Not started                                     |
+| Implementation (source code)            | **30 Nov 2026** | In progress, team deadline **24 Nov 2026**      |
 | Final presentation, testing and reports | **4 Dec 2026**  | Not started                                     |
 
 The schedule is compressed. Protect the core flow first (browse → product → cart → checkout), then the smart tools, then polish.
@@ -104,27 +104,27 @@ Do not add a library that is not in this table without asking me first.
 
 ## 6. Pages (17 + 2 detail screens)
 
-| #   | Page             | Route            | Owner |
-| --- | ---------------- | ---------------- | ----- |
-| 01  | Home             | `/`              |       |
-| 02  | Products         | `/products`      |       |
-| 02b | Search results   | `/search?q=`     |       |
-| 03  | Product Details  | `/products/:id`  |       |
-| 04  | Cart             | `/cart`          |       |
-| 05  | Checkout         | `/checkout`      |       |
-| 06  | Order Success    | `/order-success` |       |
-| 07  | Login / Register | `/auth`          |       |
-| 08  | My Account       | `/account`       |       |
-| 09  | My Orders        | `/orders`        |       |
-| 09b | Order details    | `/orders/:id`    |       |
-| 10  | Wishlist         | `/wishlist`      |       |
-| 11  | Laptop Finder    | `/finder`        |       |
-| 12  | Compare          | `/compare`       |       |
-| 13  | About            | `/about`         |       |
-| 14  | Contact          | `/contact`       |       |
-| 15  | FAQ              | `/faq`           |       |
-| 16  | Policies         | `/policies`      |       |
-| 17  | Not Found        | `*`              |       |
+| #   | Page             | Route            | Owner                 |
+| --- | ---------------- | ---------------- | --------------------- |
+| 01  | Home             | `/`              | Fares                 |
+| 02  | Products         | `/products`      | Wassim                |
+| 02b | Search results   | `/search?q=`     | Wassim                |
+| 03  | Product Details  | `/products/:id`  | Wassim                |
+| 04  | Cart             | `/cart`          | Zein                  |
+| 05  | Checkout         | `/checkout`      | Zein                  |
+| 06  | Order Success    | `/order-success` | Zein                  |
+| 07  | Login / Register | `/auth`          | Abdelrahman           |
+| 08  | My Account       | `/account`       | Abdelrahman           |
+| 09  | My Orders        | `/orders`        | Abdelrahman           |
+| 09b | Order details    | `/orders/:id`    | Abdelrahman           |
+| 10  | Wishlist         | `/wishlist`      | Abdelrahman           |
+| 11  | Laptop Finder    | `/finder`        | Salem (scoring: Zein) |
+| 12  | Compare          | `/compare`       | Fares                 |
+| 13  | About            | `/about`         | Asmaa                 |
+| 14  | Contact          | `/contact`       | Asmaa                 |
+| 15  | FAQ              | `/faq`           | Asmaa                 |
+| 16  | Policies         | `/policies`      | Asmaa                 |
+| 17  | Not Found        | `*`              | Asmaa                 |
 
 **Design reference:** Figma files for all 19 screens at desktop (1440 px), tablet (834 px) and mobile (390 px). The Figma design is the source of truth for layout and spacing. The **WorkTech Design System** artifact (https://claude.ai/artifact/Eu4My81oEnprokYGMEwnMv) holds the measured tokens, every component with its rules, a **Pages** section (what each screen holds, top to bottom) and the screens Figma does not have (loading, empty, error, mobile menu, filter drawer, checkout steps 2–3, Finder results, Create account). Build from it.
 
@@ -396,9 +396,9 @@ CSS rules:
 - Repository: `https://github.com/salemsalehtech/Work_Tech.git`
 - `main`: deployable, protected. Only updated from `develop` at milestones.
 - `develop`: integration, protected, the default branch.
-- `feature/<scope>-<short-name>`: one branch per task, created from `develop`. Example: `feature/catalog-filters`.
-- Every change reaches `develop` through a pull request with **1 approval**, passing pre-push checks and a green Vercel build.
-- **Conventional Commits:** `feat: add product filters`, `fix: correct cart total rounding`, `docs: update readme`, `chore: ...`, `refactor: ...`, `test: ...`, `ci: ...`.
+- One personal branch per member, named after them (`salem`, `asmaa`, `wasim`, `zein`, `abdelrahman`, `fares`), created from `develop`. Members push only to their own branch and merge `develop` into it every morning.
+- When the lead asks, a member opens a pull request from their branch into `develop`. Only the lead merges, after review (daily, 9 to 11 pm), with passing pre-push checks and a green Vercel build.
+- **Conventional Commits** with a scope and a body that explains what changed and why (body lines under 100 characters): `feat(catalog): add product filters`, `fix: correct cart total rounding`, `docs: update readme`, `chore: ...`, `refactor: ...`, `test: ...`, `ci: ...`.
 - Small, focused commits and pull requests.
 - Step-by-step commands for the team: [`docs/git-guide.pdf`](docs/git-guide.pdf) (Arabic).
 
@@ -472,8 +472,8 @@ Update this list as tasks finish.
 
 ---
 
-## 14. Current task: Phase 5, implementation (10 days)
+## 14. Current task: Phase 5, implementation (17 to 24 Nov 2026)
 
-Six people build in parallel on the foundation. Roles, folders, the day-by-day plan and the team rules are in **docs/team-plan.md**. Each person works only in the folders of their role; changes to `app/`, `shared/` or `services/` go through the team lead.
+Six people build in parallel on the foundation. Roles, folders, the dated task list and the team rules are in **docs/team-plan.md**; each member has a personal guide (Arabic PDF) in **docs/team/**. Each person works only in the folders of their role; changes to `app/`, `shared/` or `services/` go through the team lead.
 
 **Done when:** all 19 screens match the Design System at 1440, 834 and 390 px in English and Arabic, every data view shows its four states, `npm run lint`, `npm run test:run` and `npm run build` pass, and the store works on Vercel against the hosted API.

@@ -1,8 +1,8 @@
-# Team plan: 10 days to delivery
+# Team plan: 17 to 24 November 2026
 
-Six roles, each owning its own folders, so nobody waits for anybody. Everything shared (tokens, UI kit, data layer, store, translations, layout) is already in the repository: build on it from day 1.
+Six people, each owning their own folders, so nobody waits for anybody. Everything shared (tokens, UI kit, data layer, store, translations, layout) is already in the repository: build on it from day one.
 
-Read first: `CLAUDE.md` §7 (architecture and building blocks) and the **WorkTech Design System** (tokens, components, the Pages section and the screens Figma does not have).
+Each member has a personal guide in Arabic, with the architecture, the Git rules and every task step by step: `docs/team/worktech-guide-<name>.pdf`. This file is the short version for the whole team.
 
 ## What is ready
 
@@ -23,66 +23,58 @@ Read first: `CLAUDE.md` §7 (architecture and building blocks) and the **WorkTec
 
 ## Roles
 
-| #   | Role                      | Owner | Folders                                                                                                                                    |
-| --- | ------------------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| 1   | Team lead and integration |       | `src/app`, `src/services`, deployment                                                                                                      |
-| 2   | UI kit and content pages  |       | `src/shared/components/ui`, `src/shared/styles`, `src/pages/{About,Contact,Faq,Policies,NotFound}`, `locales/*/content.json`               |
-| 3   | Catalog                   |       | `src/features/catalog`, `src/pages/{Products,SearchResults,ProductDetails}`, `locales/*/catalog.json`                                      |
-| 4   | Cart and checkout         |       | `src/features/{cart,checkout}`, `src/pages/{Cart,Checkout,OrderSuccess}`, `locales/*/{cart,checkout}.json`                                 |
-| 5   | Account and orders        |       | `src/features/{auth,orders,wishlist}`, `src/pages/{Auth,Account,Orders,OrderDetails,Wishlist}`, `locales/*/{account,orders,wishlist}.json` |
-| 6   | Smart tools and home      |       | `src/features/{finder,compare}`, `src/pages/{Finder,Compare,Home}`, `locales/*/{finder,compare,home}.json`                                 |
+| Role                        | Owner           | Branch        | Folders                                                                                                                              |
+| --------------------------- | --------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| Team lead and integration   | Salem Saleh     | `salem`       | `src/app`, `src/services`, `src/shared/hooks`, `src/pages/Finder`, `src/features/finder/components`, deployment                      |
+| UI kit and content pages    | Asmaa Nehad     | `asmaa`       | `src/shared/components/ui`, `src/shared/styles`, `src/shared/utils/validators.js`, `src/pages/{About,Contact,Faq,Policies,NotFound}` |
+| Catalog and product details | Wassim Gomaa    | `wasim`       | `src/features/catalog`, `src/pages/{Products,SearchResults,ProductDetails}`                                                          |
+| Cart and checkout           | Zein El-Din Amr | `zein`        | `src/features/{cart,checkout}`, `src/features/finder/model`, `src/pages/{Cart,Checkout,OrderSuccess}`                                |
+| Account and orders          | Abdelrahman     | `abdelrahman` | `src/features/{auth,orders,wishlist}`, `src/pages/{Auth,Account,Orders,OrderDetails,Wishlist}`                                       |
+| Compare and Home            | Fares Ahmed     | `fares`       | `src/features/compare`, `src/pages/{Compare,Home}`                                                                                   |
 
-## Day by day
+The Laptop Finder is shared to help Fares: Zein writes the scoring (`scoreLaptops`), Salem builds the pages.
 
-Days 1–3: logic and data with a simple layout. Days 4–7: the final look at 1440, 834 and 390. Day 8: Arabic and RTL, the four states. Day 9: tests and fixes. Day 10: code freeze and deployment.
+## Calendar
 
-### 1. Team lead and integration
+| Days              | Goal                                                                |
+| ----------------- | ------------------------------------------------------------------- |
+| Tue 17 and Wed 18 | Slices, models and their tests; a first simple version of each page |
+| Thu 19 to Sat 21  | Every page complete at 1440 px                                      |
+| Sun 22            | 834 and 390 px, Arabic and RTL, the four states                     |
+| Mon 23            | Tests and fixes; last pull request by 6 pm                          |
+| Tue 24            | Code freeze at noon, `develop` into `main`, deployment, delivery    |
 
-1. Day 1: host `db.json` on Render (json-server, Node), set `VITE_API_URL` on Vercel, connect Vercel to the repository.
-2. Day 1–2: header search: submit goes to `searchPath(q)`.
-3. Day 3–6: full header (category row with the current link, short nav for the help pages), mobile menu (`Drawer side="start"`), four-column footer for Home and the catalog, page titles.
-4. Every day: review and merge pull requests into `develop` before 11 pm.
-5. Day 8–10: read all Arabic text once, write the test report, deploy, freeze.
+## Handoffs
 
-### 2. UI kit and content pages
+Things one person builds and others use. These deadlines come first.
 
-1. Day 1–4: build the rest of the kit from the Design System, same names and props: Tabs, Toggle, SegmentedControl, ChoiceList, OptionCards, InstallmentPicker, Breadcrumbs, SectionHeader, Accordion, Toast (with a provider in `AppLayout`, ask the lead), CheckoutStepper, OrderTracker, AccountNav, CompareBar, FilterGroup. Export each one from `ui/index.js` the day it works, even before it is polished.
-2. Day 5–7: About, Contact (form with validation), FAQ (Accordion and category filter), Policies (three tabs), Not found.
-3. Day 8–9: check every page at 834 and 390 and fix the kit where needed.
+| From        | Delivers                                               | To                         | By            |
+| ----------- | ------------------------------------------------------ | -------------------------- | ------------- |
+| Salem       | The foundation on `develop`                            | Everyone                   | Tue 17, 10 am |
+| Zein        | `addItem`, `toCartItem` from `@features/cart`          | Wassim, Fares, Abdelrahman | Tue 17, 9 pm  |
+| Fares       | `toggleCompare` from `@features/compare`               | Wassim                     | Tue 17, 9 pm  |
+| Asmaa       | Tabs, Toggle, Breadcrumbs, SectionHeader               | Wassim, Fares              | Tue 17, 9 pm  |
+| Asmaa       | `isEgyptianMobile`, `isEmail` from `@shared/utils`     | Zein, Abdelrahman          | Wed 18, noon  |
+| Abdelrahman | `toggleWishlist` from `@features/wishlist`             | Wassim                     | Wed 18, noon  |
+| Asmaa       | Accordion, ChoiceList, OptionCards, SegmentedControl   | Wassim, Zein, Salem        | Wed 18, 9 pm  |
+| Wassim      | `useProductCardActions` from `@features/catalog`       | Fares, Abdelrahman, Asmaa  | Thu 19, noon  |
+| Abdelrahman | `RequireAuth` from `@features/auth`                    | Salem                      | Thu 19, 3 pm  |
+| Asmaa       | CheckoutStepper, OrderTracker, AccountNav, FilterGroup | Zein, Abdelrahman, Wassim  | Thu 19, 9 pm  |
+| Zein        | `scoreLaptops` from `@features/finder`                 | Salem                      | Thu 19, 9 pm  |
+| Fares       | `CompareBar` from `@features/compare`                  | Wassim                     | Fri 20, noon  |
+| Asmaa       | InstallmentPicker, Toast                               | Wassim, Salem              | Fri 20, 3 pm  |
 
-### 3. Catalog
-
-1. Day 1–2: filters and sort in the URL (`useSearchParams`) mapped to json-server params; pagination with `_page` and `_limit=9` and `total`.
-2. Day 2–3: finish `ProductCard` (tag badges from `tags`). Others already use it: never change its props without telling the group.
-3. Day 3–5: Products and Search results (sidebar on desktop, `Drawer` with filters below 1200px, load more, empty and error states).
-4. Day 5–7: Product details: gallery, options that change the price (`priceWithOptions`), installment plans, spec tabs, reviews with sort and helpful, similar laptops.
-
-### 4. Cart and checkout
-
-1. Day 1–2: `cartSlice` reducers: add (merge by `cartItemKey`), set quantity (1 to min(stock, 5)), remove, clear, apply promo. Tests next to the slice.
-2. Day 3–4: Cart page: lines, "Complete the setup" accessories, promo code, totals with `calcCartTotals`, empty state.
-3. Day 5–7: Checkout in three steps with validation (Egyptian mobile 11 digits starting 01; cash on delivery under 50,000), `useCreateOrderMutation`, Order success.
-
-### 5. Account and orders
-
-1. Day 1–2: `authSlice` (demo accounts in localStorage, sign in, sign out, create account), `wishlistSlice` (add with `savedPrice`, remove, price alert).
-2. Day 3–4: Sign in and Create account, My account (details, addresses, notifications).
-3. Day 5–7: My orders (status chips, search), Order details (tracker, cancel while placed with `useUpdateOrderStatusMutation`), Wishlist.
-
-### 6. Smart tools and home
-
-1. Day 1–2: `compareSlice` (max `MAX_COMPARE_ITEMS`), Finder scoring as pure functions with tests in `features/finder/model/`.
-2. Day 3–5: Compare page (stronger value per row, differences only, sticky product row), compare bar on Products (export it from `@features/compare` for role 3), Finder questions and results.
-3. Day 5–7: Home: hero, categories, featured with a filter, Finder promo, deals band, brands, newsletter.
+Waiting for something? Put a placeholder with `// TODO(name): …` and keep going.
 
 ## Rules that keep everyone moving
 
-1. **Stay in your folders.** Need something in `app/`, `shared/` or `services/`? Ask the lead in the group, keep working with a `// TODO(lead): …` meanwhile.
-2. **Use what exists.** No second button, no own price formatting, no `axios` in components, no hard-coded colors or text. If a component is missing, use the closest one and leave a TODO.
-3. **One branch per task**, named `feature/<role-area>-<what>` (for example `feature/cart-promo-code`), from `develop`. Small pull requests, at least one a day.
-4. **Every morning:** `git checkout develop && git pull`, then `git merge develop` into your branch.
-5. **Before every push** the hook runs lint, format check, tests and build. Fix, never skip.
-6. **Shared props are a contract.** Changing a prop of `ProductCard`, a UI kit component or a slice selector needs a message in the group first.
+1. **Stay in your folders.** Need something in `app/`, `shared/` or `services/`? Ask Salem in the group.
+2. **Use what exists.** No second button, no own price formatting, no `axios` in components, no hard-coded colors or text.
+3. **One personal branch.** Push only to your own branch. Every morning merge `develop` into it.
+4. **Commits explain the work.** `type(scope): what you did`, then one to three lines on what and why. One topic per commit, at least three commits a day.
+5. **Pull requests on request.** When Salem asks (or the task says so), open a pull request from your branch into `develop`. Only Salem merges, after review, every day from 9 to 11 pm.
+6. **Hooks are not optional.** Lint, format check, tests and build run before every push. Fix, never skip.
+7. **Shared props are a contract.** Changing a prop of `ProductCard`, a UI kit component or a slice selector needs a message in the group first.
 
 ## Definition of done for a page
 
