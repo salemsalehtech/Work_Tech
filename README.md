@@ -14,7 +14,8 @@ A laptop e-commerce storefront built with React (DEPI Round 5 graduation project
 | i18n         | i18next, react-i18next (English / Arabic)        |
 | Testing      | Vitest, Testing Library, jsdom                   |
 | Code quality | ESLint, Prettier, Husky, lint-staged, commitlint |
-| CI / Hosting | GitHub Actions, Vercel                           |
+| Mock API     | JSON Server (`db.json`)                          |
+| Hosting      | Vercel                                           |
 
 ## Requirements
 
@@ -24,14 +25,18 @@ A laptop e-commerce storefront built with React (DEPI Round 5 graduation project
 ## Getting started
 
 ```bash
-git clone https://github.com/nhahub/NHA-5-046.git
-cd NHA-5-046
-npm install
-cp .env.example .env
-npm run dev
+git clone https://github.com/salemsalehtech/Work_Tech.git
+cd Work_Tech
+npm ci
+cp .env.example .env   # Windows PowerShell: copy .env.example .env
 ```
 
-The app runs at http://localhost:5173.
+Run the app and the mock API in two terminals:
+
+```bash
+npm run dev   # the store at http://localhost:5173
+npm run api   # the mock API at http://localhost:3001
+```
 
 ## Scripts
 
@@ -47,6 +52,7 @@ The app runs at http://localhost:5173.
 | `npm run test`          | Run tests in watch mode             |
 | `npm run test:run`      | Run tests once                      |
 | `npm run test:coverage` | Run tests once with coverage report |
+| `npm run api`           | Start the mock API on port 3001     |
 
 ## Contributing
 
@@ -60,7 +66,7 @@ The app runs at http://localhost:5173.
 
 - Open a pull request into `develop` and fill in the template.
 - At least one teammate must review and approve before merging.
-- CI (lint, format, tests, build) must pass.
+- Lint, format check, tests and build must pass. They run automatically before every `git push`.
 
 ### Commit messages
 
@@ -72,4 +78,8 @@ fix(auth): redirect to login when the token expires
 docs: explain the branch naming rules
 ```
 
-Git hooks run automatically after `npm install`: staged files are linted and formatted before each commit, and the commit message is checked by commitlint.
+Git hooks are installed by `npm ci`:
+
+- **pre-commit:** staged files are linted and formatted.
+- **commit-msg:** the message is checked by commitlint.
+- **pre-push:** lint, format check, tests and build run; a failure blocks the push.
