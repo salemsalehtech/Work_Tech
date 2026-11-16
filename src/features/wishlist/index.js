@@ -1,1 +1,5 @@
-export { default as wishlistReducer } from './wishlistSlice';
+export {
+  default as wishlistReducer,
+  selectWishlistCount,
+  selectWishlistItems,
+} from './wishlistSlice';

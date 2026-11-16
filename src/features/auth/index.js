@@ -1,1 +1,1 @@
-export { default as authReducer } from './authSlice';
+export { default as authReducer, selectCurrentUser } from './authSlice';
