@@ -147,45 +147,65 @@ Do not add a library that is not in this table without asking me first.
 
 ```
 src/
-  app/            # App.jsx, providers, router (paths.js, routes.jsx), store
+  app/
+    App.jsx       # providers
+    layout/       # AppLayout, SiteHeader, SiteFooter, RouteError (they read cart and user state)
+    router/       # lazyPages.js, routes.jsx
+    store/        # store + persistence.js (cart, wishlist, compare, auth in localStorage)
   features/       # one folder per business domain
-    catalog/      # products, filters, search, product details, reviews
-    cart/         # cartSlice + cart components and hooks
+    catalog/      # catalogApi (products, reviews), ProductCard, filters, product details
+    cart/         # cartSlice, accessoriesApi, model/cartTotals.js (shipping, promo, totals)
     checkout/
-    orders/
+    orders/       # ordersApi (list, one order, create, cancel)
     auth/         # authSlice (demo accounts)
     wishlist/     # wishlistSlice
     compare/      # compareSlice
     finder/
   pages/          # one folder per page; thin, composes feature components
   services/
-    api/          # apiClient.js (axios instance)
-    i18n/         # i18next setup and locales (en, ar)
+    api/          # apiClient (axios), axiosBaseQuery, baseApi (RTK Query)
+    i18n/         # i18next setup; locales/<en|ar>/<namespace>.json
   shared/
-    assets/       # images, icons, fonts
-    components/
-      ui/         # Button, Input, Badge, Rating, Modal ...
-      layout/     # Layout, Header, Footer
+    assets/brand/ # logo
+    components/ui # the UI kit (list below)
     config/       # env.js
-    constants/
+    constants/    # routes (PATHS, productPath…), commerce rules, order status
     hooks/
-    styles/       # tokens.css, global.css
-    utils/        # formatPrice, calcInstallment ...
-  test/           # test setup
+    styles/       # tokens.css (from the Design System), global.css
+    utils/        # formatPrice, monthlyInstallment, discountPercent, priceWithOptions, storage
+  test/           # setup.js, renderWithProviders.jsx
   main.jsx
+public/images/    # product and accessory photos (see public/images/README.md)
 ```
 
-Each feature folder may contain `api/`, `components/`, `hooks/`, an optional `<name>Slice.js`, and an `index.js` that is its **public API**.
+Each feature folder may contain `api/`, `components/`, `hooks/`, `model/` (pure logic with tests), an optional `<name>Slice.js`, and an `index.js` that is its **public API**.
 
-### Dependency rule
+### Dependency rule (enforced by ESLint)
 
 ```
-app  ->  pages  ->  features  ->  shared
+app  ->  pages  ->  features  ->  shared / services
 ```
 
-- `shared` never imports from `features`, `pages` or `app`.
-- A feature imports another feature **only** through that feature's `index.js`.
-- Pages import features only through their `index.js`.
+- `shared` and `services` never import from `features`, `pages` or `app`.
+- A feature imports another feature **only** through that feature's `index.js` (`@features/cart`, never `@features/cart/model/...`).
+- Pages import features only through their `index.js`, and never import `app`.
+- `npm run lint` fails on any of these, so a broken boundary cannot be committed.
+
+### Building blocks every page uses
+
+| Need                            | Use                                                                                                                                                  |
+| ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Server data                     | A feature API built with `baseApi.injectEndpoints()` (example: `features/catalog/api/catalogApi.js`). Never `axios` in a component.                  |
+| The four states of a view       | `<DataState result={query} loading={…} empty={…}>{(data) => …}</DataState>`                                                                          |
+| Text                            | `useTranslation('<namespace>')` with keys in `locales/en/<namespace>.json` and `locales/ar/<namespace>.json`. A new file is picked up automatically. |
+| Links                           | `PATHS`, `productPath(id)`, `orderPath(id)`, `searchPath(q)` from `@shared/constants`                                                                |
+| Prices                          | `<Price>` or `formatPrice(value, i18n.language)`; never format by hand                                                                               |
+| Business numbers                | `FREE_SHIPPING_THRESHOLD`, `SHIPPING_FEE`, `MAX_COMPARE_ITEMS`… from `@shared/constants`                                                             |
+| Cart, checkout and order totals | `calcCartTotals(items, { promoCode, express })` from `@features/cart`                                                                                |
+| Page width                      | `<Container>` (`width="narrow"` for checkout and Finder, `"slim"` for order success)                                                                 |
+| Component tests                 | `renderWithProviders(ui, { reducer, route })` from `src/test/renderWithProviders.jsx`                                                                |
+
+**UI kit** (`@shared/components/ui`): Badge, Button, Checkbox, Container, DataState, Drawer, EmptyState, ErrorState, Icon, IconButton, Input, Price, ProductImage, QuantityStepper, Rating, Select, Skeleton, ValueScore. Still to build from the Design System: Tabs, Toggle, SegmentedControl, ChoiceList, OptionCards, InstallmentPicker, Breadcrumbs, SectionHeader, Accordion, Toast, CheckoutStepper, OrderTracker, AccountNav, CompareBar, FilterGroup.
 
 ### Where state lives
 
@@ -440,41 +460,20 @@ Update this list as tasks finish.
 - [x] GitHub Actions dropped (account billing); replaced by Husky pre-push + Vercel build check
 - [x] `.husky/pre-push` runs lint, format check, tests and build
 - [ ] Connect the repository to Vercel
-- [ ] Phase 1 "done when" checks verified ← current task
 - [x] Phase 2: architecture skeleton (merged)
 - [x] System Analysis & Design v1.2 (EN + AR)
 - [x] Phase 4: mock data (`db.json`) and json-server, fixed to the data contract
 - [x] Design System v2 measured from the Figma exports (31 components, Pages, missing screens)
 - [x] Data for the design: full spec fields, review city/config, `accessories`, order item `kind`
 - [x] Routes for Search results (`/search`) and Order details (`/orders/:id`); shared constants
+- [x] Foundation for parallel work: tokens, UI kit, ProductCard, data layer, store persistence, i18n namespaces, layout, architecture lint rules, tests
 - [ ] Product images in `public/images/products/` and `public/images/accessories/`
 - [ ] Page ownership decided and recorded in section 6
 
 ---
 
-## 14. Current task: Phase 1, environment setup
+## 14. Current task: Phase 5, implementation (10 days)
 
-**Goal:** a clean, reproducible project that every teammate can clone and run, with **no application code**.
+Six people build in parallel on the foundation. Roles, folders, the day-by-day plan and the team rules are in **docs/team-plan.md**. Each person works only in the folders of their role; changes to `app/`, `shared/` or `services/` go through the team lead.
 
-**Scope:**
-
-1. Vite + React 18 (JavaScript) in the repository root. Remove all demo content. Keep only `src/main.jsx`, a `src/App.jsx` that returns `null`, and `src/test/setup.js`.
-2. Install the runtime libraries from section 5 (React Router, Redux Toolkit, react-redux, Axios, i18next, react-i18next) but **do not use them yet**.
-3. Dev tooling: ESLint flat config (react, react-hooks, react-refresh, jsx-a11y, import), Prettier, eslint-config-prettier, Vitest + jsdom + Testing Library + coverage, Husky, lint-staged, commitlint.
-4. Config files: `vite.config.js` (alias `@` → `src`, Vitest settings), `jsconfig.json`, `.prettierrc.json`, `.prettierignore`, `.editorconfig`, `.gitattributes` (LF), `.gitignore`, `.env.example`, `.nvmrc` (Node LTS), `commitlint.config.js`, `vercel.json`.
-5. Scripts: `dev`, `build`, `preview`, `lint`, `lint:fix`, `format`, `format:check`, `test`, `test:run`, `test:coverage`, `prepare`.
-6. `.vscode/extensions.json` and `.vscode/settings.json` (format on save, ESLint fix on save).
-7. `.github/workflows/ci.yml` (lint, format check, test, build on PRs and pushes to `main` and `develop`) and `.github/pull_request_template.md`.
-8. `README.md`: description, stack, requirements, getting started, scripts, contributing.
-
-**Not in scope:** pages, components, routes, store, i18n setup, API client, CSS, data. Those belong to later phases.
-
-**Git:** create `feature/setup-environment` from `develop`. Make small Conventional Commits. Do not push. When done, tell me so I can push and open the pull request.
-
-**Done when:**
-
-- `npm ci`, `npm run dev`, `npm run build`, `npm run lint`, `npm run format:check` and `npm run test:run` all succeed.
-- A commit with a bad message is rejected, and a file with a lint error cannot be committed.
-- `src` contains only the three allowed files.
-
-**Before starting:** inspect the repository, show me your plan and the list of files you will create, and wait for my "go".
+**Done when:** all 19 screens match the Design System at 1440, 834 and 390 px in English and Arabic, every data view shows its four states, `npm run lint`, `npm run test:run` and `npm run build` pass, and the store works on Vercel against the hosted API.
