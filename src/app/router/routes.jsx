@@ -1,6 +1,8 @@
 import { createBrowserRouter } from 'react-router-dom';
 
-import { Layout } from '@shared/components/layout';
+import { PATHS } from '@shared/constants';
+
+import { AppLayout, RouteError } from '../layout';
 
 import {
   About,
@@ -23,10 +25,10 @@ import {
   SearchResults,
   Wishlist,
 } from './lazyPages';
-import { PATHS } from './paths';
 export const router = createBrowserRouter([
   {
-    element: <Layout />,
+    element: <AppLayout />,
+    errorElement: <RouteError />,
     children: [
       { path: PATHS.HOME, element: <Home /> },
       { path: PATHS.PRODUCTS, element: <Products /> },
