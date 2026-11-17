@@ -63,6 +63,8 @@ export default [
     rules: {
       ...react.configs.flat.recommended.rules,
       ...react.configs.flat['jsx-runtime'].rules,
+      // Plain JavaScript without the prop-types package: props are documented with JSDoc.
+      'react/prop-types': 'off',
     },
   },
   {
@@ -79,6 +81,62 @@ export default [
       ...reactHooks.configs.recommended.rules,
       'react/react-in-jsx-scope': 'off',
       'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+    },
+  },
+
+  // Architecture: app → pages → features → shared, features only through their index.js.
+  {
+    files: ['src/shared/**/*.{js,jsx}', 'src/services/**/*.{js,jsx}'],
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: [
+            {
+              group: ['@app', '@app/*', '@pages', '@pages/*', '@features', '@features/*'],
+              message:
+                'shared and services are the bottom layer: they never import app, pages or features.',
+            },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    files: ['src/features/**/*.{js,jsx}'],
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: [
+            {
+              group: ['@app', '@app/*', '@pages', '@pages/*'],
+              message: 'features never import app or pages.',
+            },
+            {
+              group: ['@features/*/*'],
+              message: "Import another feature only through its index.js: '@features/<name>'.",
+            },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    files: ['src/pages/**/*.{js,jsx}'],
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: [
+            { group: ['@app', '@app/*'], message: 'pages never import app.' },
+            {
+              group: ['@features/*/*'],
+              message: "Import a feature only through its index.js: '@features/<name>'.",
+            },
+          ],
+        },
+      ],
     },
   },
 

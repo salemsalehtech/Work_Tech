@@ -1,1 +1,1 @@
-export { default as compareReducer } from './compareSlice';
+export { default as compareReducer, selectCompareCount, selectCompareIds } from './compareSlice';

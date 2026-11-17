@@ -1,0 +1,127 @@
+.header {
+  border-bottom: 1px solid var(--color-line);
+  background: var(--color-surface);
+}
+
+.topbar {
+  background: var(--color-ink);
+  color: var(--color-on-ink);
+  font-size: var(--text-caption-size);
+}
+
+.topbarInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  min-height: var(--topbar-height);
+}
+
+.promo {
+  font-family: var(--font-mono);
+  letter-spacing: 0.02em;
+}
+
+.utility {
+  display: none;
+  gap: 20px;
+}
+
+.utility a,
+.language {
+  color: var(--color-on-ink);
+}
+
+.language {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-8);
+  padding-block: 14px;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  width: var(--logo-header);
+  height: var(--logo-header);
+  object-fit: contain;
+}
+
+.wordmark {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.work {
+  color: var(--color-red);
+}
+
+.tech {
+  color: var(--color-blue);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.link {
+  display: none;
+  align-items: center;
+  gap: var(--space-2);
+  height: var(--control-md);
+  padding-inline: 12px;
+  font-size: var(--text-ui-size);
+  font-weight: 500;
+  color: var(--color-ink);
+}
+
+.count {
+  font-family: var(--font-mono);
+  font-size: var(--text-caption-size);
+  color: var(--color-text-muted);
+}
+
+.cart {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  height: var(--control-md);
+  padding-inline: 14px;
+  border-radius: var(--radius-md);
+  background: var(--color-ink);
+  color: var(--color-surface);
+  font-size: var(--text-ui-size);
+  font-weight: 500;
+}
+
+.cart:hover {
+  color: var(--color-surface);
+}
+
+.cartLabel {
+  display: none;
+}
+
+@media (min-width: 834px) {
+  .utility,
+  .link,
+  .cartLabel {
+    display: inline-flex;
+  }
+}

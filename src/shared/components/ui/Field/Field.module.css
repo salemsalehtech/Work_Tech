@@ -1,0 +1,64 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.label {
+  font-size: var(--text-small-size);
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.optional {
+  font-weight: 400;
+  color: var(--color-text-muted);
+}
+
+.hint,
+.error {
+  font-size: var(--text-caption-size);
+}
+
+.hint {
+  color: var(--color-text-muted);
+}
+
+.error {
+  font-weight: 500;
+  color: var(--color-sale);
+}
+
+/* Shared look of text inputs and selects. */
+.control {
+  width: 100%;
+  height: var(--field);
+  padding: 0 12px;
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  font-size: var(--text-body-size);
+  color: var(--color-text);
+}
+
+.control::placeholder {
+  color: var(--color-text-muted);
+}
+
+.control:hover {
+  border-color: var(--color-text-muted);
+}
+
+.control[aria-invalid='true'] {
+  border-color: var(--color-sale);
+}
+
+.control:disabled {
+  background: var(--color-surface-subtle);
+  color: var(--color-disabled);
+}
+
+.large {
+  height: var(--control-lg);
+}

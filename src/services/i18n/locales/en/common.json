@@ -1,0 +1,30 @@
+{
+  "app": {
+    "name": "WorkTech",
+    "tagline": "Better Tech. Brighter Future."
+  },
+  "status": {
+    "loading": "Loading...",
+    "empty": "Nothing here yet.",
+    "errorTitle": "We could not load this",
+    "errorText": "Check your connection and try again.",
+    "retry": "Try again",
+    "errorEyebrow": "Error"
+  },
+  "actions": {
+    "close": "Close",
+    "edit": "Edit",
+    "save": "Save changes",
+    "cancel": "Cancel",
+    "remove": "Remove",
+    "backHome": "Back to the store",
+    "decrease": "Decrease quantity",
+    "increase": "Increase quantity"
+  },
+  "price": {
+    "or": "or",
+    "months": "months",
+    "vat": "VAT included"
+  },
+  "quantity": "Quantity"
+}

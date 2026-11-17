@@ -1,0 +1,9 @@
+{
+  "productCard": {
+    "addToCart": "Add to cart",
+    "outOfStock": "Out of stock",
+    "onlyLeft": "Only {{count}} left",
+    "saveToWishlist": "Save to wishlist",
+    "addToCompare": "Add to comparison"
+  }
+}
