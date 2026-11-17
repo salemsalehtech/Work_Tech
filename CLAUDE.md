@@ -52,16 +52,16 @@ The old repository `nhahub/NHA-5-046` is no longer used. All work happens in `sa
 
 ## 3. Team
 
-| #   | Member                         | Role        |
-| --- | ------------------------------ | ----------- |
-| 1   | Salem Saleh                    | Team Leader |
-| 2   | Abdelrahman Hany Mohamed       | Developer   |
-| 3   | Fares Ahmed Mostafa Slim       | Developer   |
-| 4   | Wassim Gomaa El-Sakka          | Developer   |
-| 5   | Zein El-Din Amr El-Sayed Ahmed | Developer   |
-| 6   | Asmaa Nehad Farouk             | Developer   |
+| #   | Member                         | Role                                       | Branch        |
+| --- | ------------------------------ | ------------------------------------------ | ------------- |
+| 1   | Salem Saleh                    | Team lead and integration                  | `salem`       |
+| 2   | Asmaa Nehad Farouk             | UI kit and Home                            | `asmaa`       |
+| 3   | Wassim Gomaa El-Sakka          | Catalog and product details                | `wasim`       |
+| 4   | Zein El-Din Amr El-Sayed Ahmed | Cart, checkout, compare and Finder scoring | `zein`        |
+| 5   | Abdelrahman Hany Mohamed       | Account, orders and wishlist               | `abdelrahman` |
+| 6   | Fares Ahmed Mostafa Slim       | Content pages and product photos           | `fares`       |
 
-Page ownership is not decided yet. When it is, record it in section 6.
+Page owners are in section 6. Each member has a personal guide in `docs/team/`.
 
 ---
 
@@ -72,7 +72,7 @@ Page ownership is not decided yet. When it is, record it in section 6.
 | Project Planning & Management           | 16 Oct 2026     | Documentation written                           |
 | Requirements Gathering                  | 16 Oct 2026     | Documentation written                           |
 | System Analysis & Design                | 6 Nov 2026      | Done (v1.2): `docs/system-analysis-design*.pdf` |
-| Implementation (source code)            | **30 Nov 2026** | Not started                                     |
+| Implementation (source code)            | **30 Nov 2026** | In progress, team deadline **24 Nov 2026**      |
 | Final presentation, testing and reports | **4 Dec 2026**  | Not started                                     |
 
 The schedule is compressed. Protect the core flow first (browse → product → cart → checkout), then the smart tools, then polish.
@@ -102,29 +102,31 @@ Do not add a library that is not in this table without asking me first.
 
 ---
 
-## 6. Pages (17)
+## 6. Pages (17 + 2 detail screens)
 
-| #   | Page                               | Route            | Owner |
-| --- | ---------------------------------- | ---------------- | ----- |
-| 01  | Home                               | `/`              |       |
-| 02  | Products (also search results)     | `/products`      |       |
-| 03  | Product Details                    | `/products/:id`  |       |
-| 04  | Cart                               | `/cart`          |       |
-| 05  | Checkout                           | `/checkout`      |       |
-| 06  | Order Success                      | `/order-success` |       |
-| 07  | Login / Register                   | `/auth`          |       |
-| 08  | My Account                         | `/account`       |       |
-| 09  | My Orders (list and order details) | `/orders`        |       |
-| 10  | Wishlist                           | `/wishlist`      |       |
-| 11  | Laptop Finder                      | `/finder`        |       |
-| 12  | Compare                            | `/compare`       |       |
-| 13  | About                              | `/about`         |       |
-| 14  | Contact                            | `/contact`       |       |
-| 15  | FAQ                                | `/faq`           |       |
-| 16  | Policies                           | `/policies`      |       |
-| 17  | Not Found                          | `*`              |       |
+| #   | Page             | Route            | Owner                 |
+| --- | ---------------- | ---------------- | --------------------- |
+| 01  | Home             | `/`              | Asmaa                 |
+| 02  | Products         | `/products`      | Wassim                |
+| 02b | Search results   | `/search?q=`     | Wassim                |
+| 03  | Product Details  | `/products/:id`  | Wassim                |
+| 04  | Cart             | `/cart`          | Zein                  |
+| 05  | Checkout         | `/checkout`      | Zein                  |
+| 06  | Order Success    | `/order-success` | Zein                  |
+| 07  | Login / Register | `/auth`          | Abdelrahman           |
+| 08  | My Account       | `/account`       | Abdelrahman           |
+| 09  | My Orders        | `/orders`        | Abdelrahman           |
+| 09b | Order details    | `/orders/:id`    | Abdelrahman           |
+| 10  | Wishlist         | `/wishlist`      | Abdelrahman           |
+| 11  | Laptop Finder    | `/finder`        | Salem (scoring: Zein) |
+| 12  | Compare          | `/compare`       | Zein                  |
+| 13  | About            | `/about`         | Fares                 |
+| 14  | Contact          | `/contact`       | Fares                 |
+| 15  | FAQ              | `/faq`           | Fares                 |
+| 16  | Policies         | `/policies`      | Fares                 |
+| 17  | Not Found        | `*`              | Fares                 |
 
-**Design reference:** Figma files for all 17 pages at desktop (1440 px), tablet (834 px) and mobile (390 px). The Figma design is the source of truth for layout and spacing. When I share a screenshot or a Figma export of a page, match it.
+**Design reference:** Figma files for all 19 screens at desktop (1440 px), tablet (834 px) and mobile (390 px). The Figma design is the source of truth for layout and spacing. The **WorkTech Design System** artifact (https://claude.ai/artifact/Eu4My81oEnprokYGMEwnMv) holds the measured tokens, every component with its rules, a **Pages** section (what each screen holds, top to bottom) and the screens Figma does not have (loading, empty, error, mobile menu, filter drawer, checkout steps 2–3, Finder results, Create account). Build from it.
 
 **Key features per page:**
 
@@ -145,45 +147,65 @@ Do not add a library that is not in this table without asking me first.
 
 ```
 src/
-  app/            # App.jsx, providers, router (paths.js, routes.jsx), store
+  app/
+    App.jsx       # providers
+    layout/       # AppLayout, SiteHeader, SiteFooter, RouteError (they read cart and user state)
+    router/       # lazyPages.js, routes.jsx
+    store/        # store + persistence.js (cart, wishlist, compare, auth in localStorage)
   features/       # one folder per business domain
-    catalog/      # products, filters, search, product details, reviews
-    cart/         # cartSlice + cart components and hooks
+    catalog/      # catalogApi (products, reviews), ProductCard, filters, product details
+    cart/         # cartSlice, accessoriesApi, model/cartTotals.js (shipping, promo, totals)
     checkout/
-    orders/
+    orders/       # ordersApi (list, one order, create, cancel)
     auth/         # authSlice (demo accounts)
     wishlist/     # wishlistSlice
     compare/      # compareSlice
     finder/
   pages/          # one folder per page; thin, composes feature components
   services/
-    api/          # apiClient.js (axios instance)
-    i18n/         # i18next setup and locales (en, ar)
+    api/          # apiClient (axios), axiosBaseQuery, baseApi (RTK Query)
+    i18n/         # i18next setup; locales/<en|ar>/<namespace>.json
   shared/
-    assets/       # images, icons, fonts
-    components/
-      ui/         # Button, Input, Badge, Rating, Modal ...
-      layout/     # Layout, Header, Footer
+    assets/brand/ # logo
+    components/ui # the UI kit (list below)
     config/       # env.js
-    constants/
+    constants/    # routes (PATHS, productPath…), commerce rules, order status
     hooks/
-    styles/       # tokens.css, global.css
-    utils/        # formatPrice, calcInstallment ...
-  test/           # test setup
+    styles/       # tokens.css (from the Design System), global.css
+    utils/        # formatPrice, monthlyInstallment, discountPercent, priceWithOptions, storage
+  test/           # setup.js, renderWithProviders.jsx
   main.jsx
+public/images/    # product and accessory photos (see public/images/README.md)
 ```
 
-Each feature folder may contain `api/`, `components/`, `hooks/`, an optional `<name>Slice.js`, and an `index.js` that is its **public API**.
+Each feature folder may contain `api/`, `components/`, `hooks/`, `model/` (pure logic with tests), an optional `<name>Slice.js`, and an `index.js` that is its **public API**.
 
-### Dependency rule
+### Dependency rule (enforced by ESLint)
 
 ```
-app  ->  pages  ->  features  ->  shared
+app  ->  pages  ->  features  ->  shared / services
 ```
 
-- `shared` never imports from `features`, `pages` or `app`.
-- A feature imports another feature **only** through that feature's `index.js`.
-- Pages import features only through their `index.js`.
+- `shared` and `services` never import from `features`, `pages` or `app`.
+- A feature imports another feature **only** through that feature's `index.js` (`@features/cart`, never `@features/cart/model/...`).
+- Pages import features only through their `index.js`, and never import `app`.
+- `npm run lint` fails on any of these, so a broken boundary cannot be committed.
+
+### Building blocks every page uses
+
+| Need                            | Use                                                                                                                                                  |
+| ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Server data                     | A feature API built with `baseApi.injectEndpoints()` (example: `features/catalog/api/catalogApi.js`). Never `axios` in a component.                  |
+| The four states of a view       | `<DataState result={query} loading={…} empty={…}>{(data) => …}</DataState>`                                                                          |
+| Text                            | `useTranslation('<namespace>')` with keys in `locales/en/<namespace>.json` and `locales/ar/<namespace>.json`. A new file is picked up automatically. |
+| Links                           | `PATHS`, `productPath(id)`, `orderPath(id)`, `searchPath(q)` from `@shared/constants`                                                                |
+| Prices                          | `<Price>` or `formatPrice(value, i18n.language)`; never format by hand                                                                               |
+| Business numbers                | `FREE_SHIPPING_THRESHOLD`, `SHIPPING_FEE`, `MAX_COMPARE_ITEMS`… from `@shared/constants`                                                             |
+| Cart, checkout and order totals | `calcCartTotals(items, { promoCode, express })` from `@features/cart`                                                                                |
+| Page width                      | `<Container>` (`width="narrow"` for checkout and Finder, `"slim"` for order success)                                                                 |
+| Component tests                 | `renderWithProviders(ui, { reducer, route })` from `src/test/renderWithProviders.jsx`                                                                |
+
+**UI kit** (`@shared/components/ui`): Badge, Button, Checkbox, Container, DataState, Drawer, EmptyState, ErrorState, Icon, IconButton, Input, Price, ProductImage, QuantityStepper, Rating, Select, Skeleton, ValueScore. Still to build from the Design System: Tabs, Toggle, SegmentedControl, ChoiceList, OptionCards, InstallmentPicker, Breadcrumbs, SectionHeader, Accordion, Toast, CheckoutStepper, OrderTracker, AccountNav, CompareBar, FilterGroup.
 
 ### Where state lives
 
@@ -213,7 +235,9 @@ JSON Server serves `db.json` at `VITE_API_URL` (default `http://localhost:3001`)
 | GET    | `/products/:id`          | One product                                                 |
 | GET    | `/reviews?productId=:id` | Reviews of a product                                        |
 | GET    | `/orders?userId=:id`     | Orders of a user                                            |
+| GET    | `/orders/:id`            | One order (Order details)                                   |
 | POST   | `/orders`                | Create an order                                             |
+| GET    | `/accessories`           | Accessories (Cart "Complete the setup"), `?category=`       |
 
 **Product shape (agree before building the catalog):**
 
@@ -239,7 +263,21 @@ JSON Server serves `db.json` at `VITE_API_URL` (default `http://localhost:3001`)
     "resolution": "2880x1800 OLED",
     "battery": "75 Wh",
     "weight": 1.2,
-    "os": "Windows 11"
+    "os": "Windows 11",
+    "cores": 16,
+    "threads": 16,
+    "gpuVram": null,
+    "gpuTgp": null,
+    "refreshRate": 120,
+    "panel": "OLED",
+    "thickness": 14.9,
+    "thunderbolt": "Thunderbolt 4",
+    "videoOut": "HDMI 2.0",
+    "wifi": "Wi-Fi 7",
+    "bluetooth": "5.4",
+    "ports": ["2× Thunderbolt 4 (USB-C)", "2× USB-A 3.2", "HDMI 2.0", "3.5 mm jack"],
+    "webcam": "1080p FHD",
+    "keyboard": "Backlit"
   },
   "options": {
     "memory": [
@@ -255,10 +293,53 @@ JSON Server serves `db.json` at `VITE_API_URL` (default `http://localhost:3001`)
       { "label": "3 years", "delta": 2500 }
     ]
   },
+  "inTheBox": ["Zenbook 14 OLED", "65 W power adapter", "Quick start guide"],
   "tags": ["ultrabook", "oled"],
   "createdAt": "2026-06-15"
 }
 ```
+
+`gpuVram` and `gpuTgp` are `null` for integrated graphics. `valueScore` is stored 0–100 and shown ÷ 10 ("8.6"). The spec extras (`cores` … `keyboard`, `inTheBox`) are demo values derived from the CPU and GPU family: check them before the final demo.
+
+**Accessory shape** (`/accessories`, ids start with `acc-`):
+
+```json
+{
+  "id": "acc-logitech-g305",
+  "kind": "accessory",
+  "category": "mouse",
+  "brand": "Logitech",
+  "name": "G305 Lightspeed wireless mouse",
+  "price": 1290,
+  "oldPrice": null,
+  "currency": "EGP",
+  "images": ["/images/accessories/acc-logitech-g305-1.jpg"],
+  "stock": 30,
+  "specsLine": "HERO 12K sensor · 99 g · 1× AA",
+  "fitsScreen": null,
+  "createdAt": "2026-03-10"
+}
+```
+
+Categories: `mouse`, `sleeve`, `backpack`, `cooling`, `audio`, `hub`, `charger`. `fitsScreen` is the largest screen in inches a sleeve, backpack or cooling pad fits (`null` = any).
+
+**Review shape:** `{ id, productId, userName, city, config, rating, title, body, date, helpful, verified }`. `config` is the configuration the buyer has ("16GB · 512GB").
+
+**Order shape:** `{ id, userId, createdAt, status, items, shipping, payment, totals }`. Each item is `{ productId, kind, name, price, quantity, options }`: `kind` is `"laptop"` (with `options` `{memory, storage, warranty}`, `price` = base + deltas) or `"accessory"` (`options: null`). `totals` is `{ subtotal, shipping, discount, total }`.
+
+**Order status** values and how they show (Figma labels):
+
+| `status`     | Shown as     | Tracker step                       |
+| ------------ | ------------ | ---------------------------------- |
+| `placed`     | Placed       | 1 of 4 (can be cancelled)          |
+| `processing` | Packed       | 2 of 4                             |
+| `shipped`    | With courier | 3 of 4                             |
+| `delivered`  | Delivered    | 4 of 4                             |
+| `cancelled`  | Cancelled    | no tracker (Figma's "Returned" UI) |
+
+Constants live in `src/shared/constants` (`ORDER_STATUS`, `ORDER_STEP_INDEX`, `FREE_SHIPPING_THRESHOLD` …).
+
+**Shipping:** free when the subtotal is **20,000 EGP or more**, else **150 EGP**, in every governorate. Express (next day, Cairo and Giza only) adds 150 EGP on top. Every "free delivery" text in the UI says 20,000. Cash on delivery only for totals under 50,000 EGP.
 
 **Data rule (verified):** every `orders.userId` must match a demo account id and every `reviews.productId` must exist in `products`. JSON Server silently deletes orphan records on any DELETE request. The store never sends DELETE.
 
@@ -268,15 +349,20 @@ If a field needs to change, change it here first, then in `db.json` and the code
 
 ## 9. Design system
 
-| Token          | Value                                                  |
-| -------------- | ------------------------------------------------------ |
-| `--color-red`  | `#D1040B` (brand, "work")                              |
-| `--color-blue` | `#0264CF` (brand, "TECH", primary actions)             |
-| `--color-gold` | `#F7A909` (highlights, ratings)                        |
-| `--color-sky`  | `#32B5FD` (accents)                                    |
-| `--color-ink`  | `#0B1526` (text, dark surfaces)                        |
-| Font           | IBM Plex Sans (English), IBM Plex Sans Arabic (Arabic) |
-| Breakpoints    | mobile-first: `>= 834px` tablet, `>= 1440px` desktop   |
+| Token          | Value                                                                       |
+| -------------- | --------------------------------------------------------------------------- |
+| `--color-red`  | `#D1040B` (brand, "work" in the wordmark only)                              |
+| `--color-sale` | `#C1030A` (sale price, discount badge, Deals, Cancel, Sign out)             |
+| `--color-blue` | `#0264CF` (brand, "TECH", primary actions)                                  |
+| `--color-gold` | `#F7A909` (stars, Laptop Finder mark, gold buttons with ink text)           |
+| `--color-sky`  | `#32B5FD` (illustration accents)                                            |
+| `--color-ink`  | `#0B1526` (text, rules, dark surfaces)                                      |
+| Text greys     | `#3D4757` body copy, `#556070` muted labels                                 |
+| Font           | IBM Plex Sans (text), IBM Plex Mono (labels, numbers), IBM Plex Sans Arabic |
+| Radius         | 3 badges, 4 chips, 6 controls, 8 cards. No drop shadows                     |
+| Breakpoints    | mobile-first: `>= 834px` tablet, `>= 1200px` desktop (Figma frames at 1440) |
+
+The full token list (37 colors, type scale, spacing, sizes) is `tokens.json` in the Design System artifact; copy it into `src/shared/styles/tokens.css`.
 
 CSS rules:
 
@@ -310,9 +396,9 @@ CSS rules:
 - Repository: `https://github.com/salemsalehtech/Work_Tech.git`
 - `main`: deployable, protected. Only updated from `develop` at milestones.
 - `develop`: integration, protected, the default branch.
-- `feature/<scope>-<short-name>`: one branch per task, created from `develop`. Example: `feature/catalog-filters`.
-- Every change reaches `develop` through a pull request with **1 approval**, passing pre-push checks and a green Vercel build.
-- **Conventional Commits:** `feat: add product filters`, `fix: correct cart total rounding`, `docs: update readme`, `chore: ...`, `refactor: ...`, `test: ...`, `ci: ...`.
+- One personal branch per member, named after them (`salem`, `asmaa`, `wasim`, `zein`, `abdelrahman`, `fares`), created from `develop`. Members push only to their own branch and merge `develop` into it every morning.
+- When the lead asks, a member opens a pull request from their branch into `develop`. Only the lead merges, after review (daily, 9 to 11 pm), with passing pre-push checks and a green Vercel build.
+- **Conventional Commits** with a scope and a body that explains what changed and why (body lines under 100 characters): `feat(catalog): add product filters`, `fix: correct cart total rounding`, `docs: update readme`, `chore: ...`, `refactor: ...`, `test: ...`, `ci: ...`.
 - Small, focused commits and pull requests.
 - Step-by-step commands for the team: [`docs/git-guide.pdf`](docs/git-guide.pdf) (Arabic).
 
@@ -374,37 +460,20 @@ Update this list as tasks finish.
 - [x] GitHub Actions dropped (account billing); replaced by Husky pre-push + Vercel build check
 - [x] `.husky/pre-push` runs lint, format check, tests and build
 - [ ] Connect the repository to Vercel
-- [ ] Phase 1 "done when" checks verified ← current task
 - [x] Phase 2: architecture skeleton (merged)
 - [x] System Analysis & Design v1.2 (EN + AR)
 - [x] Phase 4: mock data (`db.json`) and json-server, fixed to the data contract
+- [x] Design System v2 measured from the Figma exports (31 components, Pages, missing screens)
+- [x] Data for the design: full spec fields, review city/config, `accessories`, order item `kind`
+- [x] Routes for Search results (`/search`) and Order details (`/orders/:id`); shared constants
+- [x] Foundation for parallel work: tokens, UI kit, ProductCard, data layer, store persistence, i18n namespaces, layout, architecture lint rules, tests
+- [ ] Product images in `public/images/products/` and `public/images/accessories/`
 - [ ] Page ownership decided and recorded in section 6
 
 ---
 
-## 14. Current task: Phase 1, environment setup
+## 14. Current task: Phase 5, implementation (17 to 24 Nov 2026)
 
-**Goal:** a clean, reproducible project that every teammate can clone and run, with **no application code**.
+Six people build in parallel on the foundation. Roles, folders, the dated task list and the team rules are in **docs/team-plan.md**; each member has a personal guide (Arabic PDF) in **docs/team/**. Each person works only in the folders of their role; changes to `app/`, `shared/` or `services/` go through the team lead.
 
-**Scope:**
-
-1. Vite + React 18 (JavaScript) in the repository root. Remove all demo content. Keep only `src/main.jsx`, a `src/App.jsx` that returns `null`, and `src/test/setup.js`.
-2. Install the runtime libraries from section 5 (React Router, Redux Toolkit, react-redux, Axios, i18next, react-i18next) but **do not use them yet**.
-3. Dev tooling: ESLint flat config (react, react-hooks, react-refresh, jsx-a11y, import), Prettier, eslint-config-prettier, Vitest + jsdom + Testing Library + coverage, Husky, lint-staged, commitlint.
-4. Config files: `vite.config.js` (alias `@` → `src`, Vitest settings), `jsconfig.json`, `.prettierrc.json`, `.prettierignore`, `.editorconfig`, `.gitattributes` (LF), `.gitignore`, `.env.example`, `.nvmrc` (Node LTS), `commitlint.config.js`, `vercel.json`.
-5. Scripts: `dev`, `build`, `preview`, `lint`, `lint:fix`, `format`, `format:check`, `test`, `test:run`, `test:coverage`, `prepare`.
-6. `.vscode/extensions.json` and `.vscode/settings.json` (format on save, ESLint fix on save).
-7. `.github/workflows/ci.yml` (lint, format check, test, build on PRs and pushes to `main` and `develop`) and `.github/pull_request_template.md`.
-8. `README.md`: description, stack, requirements, getting started, scripts, contributing.
-
-**Not in scope:** pages, components, routes, store, i18n setup, API client, CSS, data. Those belong to later phases.
-
-**Git:** create `feature/setup-environment` from `develop`. Make small Conventional Commits. Do not push. When done, tell me so I can push and open the pull request.
-
-**Done when:**
-
-- `npm ci`, `npm run dev`, `npm run build`, `npm run lint`, `npm run format:check` and `npm run test:run` all succeed.
-- A commit with a bad message is rejected, and a file with a lint error cannot be committed.
-- `src` contains only the three allowed files.
-
-**Before starting:** inspect the repository, show me your plan and the list of files you will create, and wait for my "go".
+**Done when:** all 19 screens match the Design System at 1440, 834 and 390 px in English and Arabic, every data view shows its four states, `npm run lint`, `npm run test:run` and `npm run build` pass, and the store works on Vercel against the hosted API.

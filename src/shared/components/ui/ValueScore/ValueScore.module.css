@@ -1,0 +1,35 @@
+.valueScore {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* --fill is set inline from the score (nearest 10%). */
+.bar {
+  display: block;
+  width: 48px;
+  height: 10px;
+  background:
+    repeating-linear-gradient(90deg, transparent 0 3px, var(--color-surface) 3px 5px),
+    linear-gradient(90deg, var(--color-blue) 0 var(--fill), var(--color-star-off) var(--fill) 100%);
+}
+
+.large .bar {
+  height: 12px;
+}
+
+.number {
+  font-family: var(--font-mono);
+  font-size: var(--text-caption-size);
+  font-weight: 600;
+}
+
+.large .number {
+  font-size: var(--text-small-size);
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: var(--text-mono-xs-size);
+  color: var(--color-text-muted);
+}

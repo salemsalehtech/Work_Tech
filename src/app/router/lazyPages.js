@@ -1,6 +1,7 @@
 import { lazy } from 'react';
 export const Home = lazy(() => import('@pages/Home'));
 export const Products = lazy(() => import('@pages/Products'));
+export const SearchResults = lazy(() => import('@pages/SearchResults'));
 export const ProductDetails = lazy(() => import('@pages/ProductDetails'));
 export const Cart = lazy(() => import('@pages/Cart'));
 export const Checkout = lazy(() => import('@pages/Checkout'));
@@ -8,6 +9,7 @@ export const OrderSuccess = lazy(() => import('@pages/OrderSuccess'));
 export const Auth = lazy(() => import('@pages/Auth'));
 export const Account = lazy(() => import('@pages/Account'));
 export const Orders = lazy(() => import('@pages/Orders'));
+export const OrderDetails = lazy(() => import('@pages/OrderDetails'));
 export const Wishlist = lazy(() => import('@pages/Wishlist'));
 export const Finder = lazy(() => import('@pages/Finder'));
 export const Compare = lazy(() => import('@pages/Compare'));

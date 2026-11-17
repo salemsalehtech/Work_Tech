@@ -1,0 +1,27 @@
+{
+  "skipToContent": "Skip to content",
+  "promo": "FREE DELIVERY OVER 20,000 EGP · INSTALLMENTS 6–36 MONTHS",
+  "nav": {
+    "allLaptops": "All laptops",
+    "finder": "Laptop Finder",
+    "compare": "Compare",
+    "wishlist": "Wishlist",
+    "account": "Account",
+    "cart": "Cart",
+    "signIn": "Sign in",
+    "trackOrder": "Track order",
+    "help": "Help",
+    "about": "About",
+    "contact": "Contact",
+    "faq": "FAQ",
+    "policies": "Policies",
+    "cartWithCount_one": "Cart, {{count}} item",
+    "cartWithCount_other": "Cart, {{count}} items"
+  },
+  "language": {
+    "switchTo": "العربية"
+  },
+  "footer": {
+    "copyright": "© {{year}} WorkTech · DEPI graduation project, demo store"
+  }
+}

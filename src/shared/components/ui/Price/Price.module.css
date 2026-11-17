@@ -1,0 +1,58 @@
+.price {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-variant-numeric: tabular-nums;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2);
+}
+
+.now {
+  font-size: var(--text-price-size);
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.md .now {
+  font-size: 20px;
+}
+
+.xl .now {
+  font-size: var(--text-price-xl-size);
+  letter-spacing: var(--text-price-xl-tracking);
+}
+
+.sale .now {
+  color: var(--color-sale);
+}
+
+.old {
+  font-size: var(--text-price-old-size);
+  color: var(--color-text-muted);
+}
+
+.vat {
+  font-size: var(--text-small-size);
+  color: var(--color-text-muted);
+}
+
+.monthly {
+  font-size: var(--text-caption-size);
+  color: var(--color-text-muted);
+}
+
+.monthly b {
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.xl .monthly {
+  margin-top: var(--space-1);
+  font-size: var(--text-ui-size);
+  color: var(--color-text-body);
+}

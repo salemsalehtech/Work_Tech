@@ -1,0 +1,9 @@
+{
+  "status": {
+    "placed": "تم الطلب",
+    "processing": "تم التجهيز",
+    "shipped": "مع المندوب",
+    "delivered": "تم التوصيل",
+    "cancelled": "ملغي"
+  }
+}
