@@ -9,20 +9,34 @@ export const SORTS = {
 };
 
 /**
-  @param {URLSearchParams | string} input
-*/
+ * @param {string | null} value
+ * @returns {number | undefined}
+ */
+function parseNonNegativeNumber(value) {
+  if (value === null || value.trim() === '') return undefined;
+  const num = Number(value);
+  return Number.isFinite(num) && num >= 0 ? num : undefined;
+}
+
+/**
+ * @param {URLSearchParams | string} input
+ */
 export function toApiParams(input) {
   const searchParams = input instanceof URLSearchParams ? input : new URLSearchParams(input);
 
-  const rawPage = Number(searchParams.get('page') ?? 1);
+  const rawPage = Math.floor(Number(searchParams.get('page') ?? 1));
   const page = Number.isFinite(rawPage) && rawPage > 0 ? rawPage : 1;
 
-  const brands = searchParams.getAll('brand').filter(Boolean);
-  const rams = searchParams.getAll('ram').map(Number).filter(Boolean);
+  const brands = searchParams
+    .getAll('brand')
+    .map((b) => b.trim())
+    .filter(Boolean);
 
-  const min = searchParams.get('min');
-  const max = searchParams.get('max');
-  const rating = searchParams.get('rating');
+  const rams = searchParams
+    .getAll('ram')
+    .map((r) => (r.trim() === '' ? NaN : Number(r)))
+    .filter((n) => Number.isFinite(n) && n > 0);
+
   const inStock = searchParams.get('inStock');
   const sortKey = searchParams.get('sort') ?? 'featured';
 
@@ -30,9 +44,9 @@ export function toApiParams(input) {
     q: searchParams.get('q')?.trim() || undefined,
     brand: brands.length > 0 ? brands : undefined,
     'specs.ram': rams.length > 0 ? rams : undefined,
-    price_gte: min ? Number(min) : undefined,
-    price_lte: max ? Number(max) : undefined,
-    rating_gte: rating ? Number(rating) : undefined,
+    price_gte: parseNonNegativeNumber(searchParams.get('min')),
+    price_lte: parseNonNegativeNumber(searchParams.get('max')),
+    rating_gte: parseNonNegativeNumber(searchParams.get('rating')),
     stock_gte: inStock === 'true' || inStock === '1' ? 1 : undefined,
     ...(SORTS[sortKey] ?? SORTS.featured),
     _page: 1,

@@ -65,4 +65,43 @@ describe('toApiParams', () => {
     expect(result._page).toBe(1);
     expect(result._limit).toBe(27);
   });
+
+  it('accepts a raw query string, trims q and brand values, and supports inStock=1', () => {
+    const result = toApiParams('q=  legion pro  &brand= Lenovo &brand=   &inStock=1&min=0');
+
+    expect(result.q).toBe('legion pro');
+    expect(result.brand).toEqual(['Lenovo']);
+    expect(result.stock_gte).toBe(1);
+    expect(result.price_gte).toBe(0);
+  });
+
+  it('does not include _sort or _order for featured or unknown sort values', () => {
+    const featuredResult = toApiParams('sort=featured');
+    expect(featuredResult._sort).toBeUndefined();
+    expect(featuredResult._order).toBeUndefined();
+
+    const unknownResult = toApiParams('sort=invalid-sort');
+    expect(unknownResult._sort).toBeUndefined();
+    expect(unknownResult._order).toBeUndefined();
+  });
+
+  it('sanitizes non-numeric, negative, and fractional values in min, max, rating, ram, and page', () => {
+    const invalidNums = toApiParams(
+      'min=abc&max=-500&rating=-1&ram=-8&ram=0&ram=abc&ram=16&page=2.8',
+    );
+
+    expect(invalidNums.price_gte).toBeUndefined();
+    expect(invalidNums.price_lte).toBeUndefined();
+    expect(invalidNums.rating_gte).toBeUndefined();
+    expect(invalidNums['specs.ram']).toEqual([16]);
+    expect(invalidNums._page).toBe(1);
+    expect(invalidNums._limit).toBe(18);
+  });
+
+  it('falls back to page 1 (_limit = 9) when page is 0, negative, or non-numeric', () => {
+    expect(toApiParams('page=0')._limit).toBe(PAGE_SIZE);
+    expect(toApiParams('page=-3')._limit).toBe(PAGE_SIZE);
+    expect(toApiParams('page=abc')._limit).toBe(PAGE_SIZE);
+    expect(toApiParams('page=0.9')._limit).toBe(PAGE_SIZE);
+  });
 });
