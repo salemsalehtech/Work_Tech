@@ -2,6 +2,11 @@
  * Base styles for the whole store. Component styles live in their own *.module.css.
  * Only element defaults and a few accessibility helpers belong here.
  */
+@import 'tailwindcss';
+@plugin "daisyui" {
+  themes: light --default;
+}
+
 *,
 *::before,
 *::after {
