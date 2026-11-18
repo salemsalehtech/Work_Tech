@@ -1,0 +1,21 @@
+@import 'tailwindcss';
+
+.breadcrumbs-app {
+  font: var(--font-mono);
+  font-size: var(--text-caption-size);
+  text-transform: uppercase;
+}
+.breadcrumbs-app ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  list-style: none;
+}
+.breadcrumbs-app li {
+  display: flex;
+  align-items: center;
+}
+.breadcrumbs-app a {
+  text-decoration: none;
+  color: var(--color-text-muted);
+}
