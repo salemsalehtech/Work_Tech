@@ -17,3 +17,6 @@ export { default as Rating } from './Rating';
 export { default as Select } from './Select';
 export { default as Skeleton } from './Skeleton';
 export { default as ValueScore } from './ValueScore';
+export { default as Tabs } from './Tabs';
+export { default as Toggle } from './Toggle';
+export { default as Breadcrumbs } from './Breadcrumbs';

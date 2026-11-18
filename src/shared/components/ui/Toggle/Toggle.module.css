@@ -1,0 +1,11 @@
+@import 'tailwindcss';
+@plugin "daisyui";
+.toggle {
+  background: var(--color-toggle-off);
+  color: white;
+}
+
+.toggle:checked {
+  background: white;
+  color: var(--color-blue);
+}
