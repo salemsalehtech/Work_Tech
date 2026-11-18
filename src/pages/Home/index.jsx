@@ -1,4 +1,4 @@
 function Home() {
-  return <section>Home</section>;
+  return <h1>Home</h1>;
 }
 export default Home;
