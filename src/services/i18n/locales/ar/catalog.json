@@ -5,5 +5,13 @@
     "onlyLeft": "متبقٍ {{count}} فقط",
     "saveToWishlist": "أضف إلى المفضلة",
     "addToCompare": "أضف إلى المقارنة"
+  },
+  "grid": {
+    "showing": "يعرض {{shown}} من {{total}}",
+    "loadMore": "تحميل المزيد"
+  },
+  "empty": {
+    "title": "لا توجد أجهزة مطابقة",
+    "text": "جرب تعديل الفلاتر أو مسحها."
   }
 }

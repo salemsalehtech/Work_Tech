@@ -5,5 +5,13 @@
     "onlyLeft": "Only {{count}} left",
     "saveToWishlist": "Save to wishlist",
     "addToCompare": "Add to comparison"
+  },
+  "grid": {
+    "showing": "Showing {{shown}} of {{total}}",
+    "loadMore": "Load more laptops"
+  },
+  "empty": {
+    "title": "No laptops found",
+    "text": "Try adjusting or clearing your filters."
   }
 }
