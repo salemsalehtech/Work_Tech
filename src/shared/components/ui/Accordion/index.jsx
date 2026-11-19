@@ -1,11 +1,6 @@
 import { useId, useState } from 'react';
 
-function Accordion({
-  items = [],
-  allowMultiple = false,
-  defaultOpenIds = [],
-  accordionClassName = '',
-}) {
+function Accordion({ items = [], allowMultiple = false, defaultOpenIds = [], className = '' }) {
   const [open, setOpen] = useState(allowMultiple ? defaultOpenIds : defaultOpenIds.slice(0, 1));
   const baseId = useId();
   const handleAccordion = (id) => {
@@ -19,7 +14,7 @@ function Accordion({
   if (!items.length) return null;
 
   return (
-    <div className={`accordion ${accordionClassName}`}>
+    <div className={`accordion ${className}`}>
       {items.map(({ id, title, content }) => {
         const isOpen = open.includes(id);
         const headerId = `${baseId}-header-${id}`;
