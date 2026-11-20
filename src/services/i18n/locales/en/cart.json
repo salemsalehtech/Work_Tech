@@ -42,5 +42,10 @@
     "total": "Total",
     "checkout": "Proceed to Checkout",
     "secure": "Secure checkout"
+  },
+  "accessories": {
+    "title": "Complete your setup",
+    "description": "Recommended accessories for your device.",
+    "add": "Add to cart"
   }
 }

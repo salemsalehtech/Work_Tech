@@ -1,0 +1,99 @@
+.page {
+  padding: var(--space-8) 0 var(--space-18);
+}
+
+.product {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--space-8);
+  margin-top: var(--space-8);
+}
+
+.image {
+  width: 100%;
+  min-height: 400px;
+  object-fit: contain;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-subtle);
+}
+
+.details {
+  min-width: 0;
+}
+
+.brand {
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+}
+
+.details h1 {
+  margin: var(--space-2) 0;
+  font-size: var(--text-title-page-size);
+}
+
+.price {
+  margin: var(--space-5) 0;
+  font-size: var(--text-price-total-size);
+  font-weight: 700;
+}
+
+.optionGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.optionGroup label,
+.quantity label {
+  font-weight: 600;
+}
+
+.optionGroup select,
+.quantity input {
+  width: 100%;
+  min-height: var(--field);
+  padding: 0 var(--space-3);
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  font: inherit;
+}
+
+.quantity {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin: var(--space-5) 0;
+}
+
+.quantity input {
+  max-width: 120px;
+}
+
+.addButton {
+  width: 100%;
+  min-height: var(--control-xl);
+  border: 0;
+  border-radius: var(--radius-md);
+  background: var(--color-blue);
+  color: white;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+}
+
+.addButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+@media (max-width: 700px) {
+  .product {
+    grid-template-columns: 1fr;
+  }
+
+  .image {
+    min-height: 280px;
+  }
+}

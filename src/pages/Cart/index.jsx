@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import {
+  addItem,
   applyPromo,
   calcCartTotals,
   calcPromo,
@@ -12,6 +13,7 @@ import {
   removePromo,
   selectCartItems,
   setQuantity,
+  useGetAccessoriesQuery,
 } from '@features/cart';
 import { Breadcrumbs, Container, ProductImage, QuantityStepper } from '@shared/components/ui';
 import { FREE_SHIPPING_THRESHOLD } from '@shared/constants';
@@ -25,6 +27,8 @@ function Cart() {
 
   const items = useSelector(selectCartItems);
   const promoCode = useSelector((state) => state.cart.promoCode);
+
+  const { data: accessories = [], isLoading: accessoriesLoading } = useGetAccessoriesQuery();
 
   const [promoInput, setPromoInput] = useState('');
   const [promoError, setPromoError] = useState('');
@@ -60,6 +64,30 @@ function Cart() {
     setPromoError('');
   };
 
+  const cartProductIds = items.map((item) => item.productId);
+
+  const suggestedAccessories = accessories
+    .filter((item) => item.stock > 0 && !cartProductIds.includes(item.id))
+    .slice(0, 4);
+
+  const handleAddAccessory = (accessory) => {
+    dispatch(
+      addItem({
+        productId: accessory.id,
+        kind: 'accessory',
+        name: accessory.name,
+        brand: accessory.brand,
+        image: accessory.images?.[0],
+        specsLine: accessory.specsLine,
+        price: accessory.price,
+        warrantyDelta: 0,
+        options: null,
+        quantity: 1,
+        stock: accessory.stock,
+      }),
+    );
+  };
+
   return (
     <main className={styles.page}>
       <Container>
@@ -70,7 +98,11 @@ function Cart() {
         <div className={styles.header}>
           <div>
             <h1>{t('title')}</h1>
-            <p>{t('itemCount', { count: items.reduce((sum, item) => sum + item.quantity, 0) })}</p>
+            <p>
+              {t('itemCount', {
+                count: items.reduce((sum, item) => sum + item.quantity, 0),
+              })}
+            </p>
           </div>
 
           {!isEmpty && (
@@ -116,7 +148,9 @@ function Cart() {
                       <div className={styles.itemTop}>
                         <div>
                           <span className={styles.brand}>{item.brand}</span>
+
                           <h3>{item.name}</h3>
+
                           {item.specsLine && <p className={styles.specs}>{item.specsLine}</p>}
                         </div>
 
@@ -137,7 +171,10 @@ function Cart() {
                             .filter(([, value]) => value)
                             .map(([key, value]) => (
                               <span key={key}>
-                                {t(`options.${key}`, { defaultValue: key })}: {value}
+                                {t(`options.${key}`, {
+                                  defaultValue: key,
+                                })}
+                                : {value}
                               </span>
                             ))}
                         </div>
@@ -170,6 +207,44 @@ function Cart() {
               <Link to="/products" className={styles.continueLink}>
                 ← {t('continueShopping')}
               </Link>
+
+              {!accessoriesLoading && suggestedAccessories.length > 0 && (
+                <section className={styles.accessories}>
+                  <h2>{t('accessories.title')}</h2>
+
+                  <p>{t('accessories.description')}</p>
+
+                  <div className={styles.accessoriesGrid}>
+                    {suggestedAccessories.map((accessory) => (
+                      <article className={styles.accessoryCard} key={accessory.id}>
+                        <ProductImage
+                          src={accessory.images?.[0]}
+                          alt={accessory.name}
+                          className={styles.accessoryImage}
+                        />
+
+                        <span className={styles.brand}>{accessory.brand}</span>
+
+                        <h3>{accessory.name}</h3>
+
+                        {accessory.specsLine && (
+                          <p className={styles.specs}>{accessory.specsLine}</p>
+                        )}
+
+                        <strong>{money(accessory.price)}</strong>
+
+                        <button
+                          type="button"
+                          className={styles.accessoryButton}
+                          onClick={() => handleAddAccessory(accessory)}
+                        >
+                          {t('accessories.add')}
+                        </button>
+                      </article>
+                    ))}
+                  </div>
+                </section>
+              )}
 
               <section className={styles.shippingProgress}>
                 <div className={styles.shippingText}>
