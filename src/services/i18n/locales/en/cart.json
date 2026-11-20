@@ -1,1 +1,46 @@
-{}
+{
+  "breadcrumb": {
+    "home": "Home",
+    "cart": "Shopping Cart"
+  },
+  "title": "Shopping Cart",
+  "itemCount": "{{count}} items in your cart",
+  "clearCart": "Clear cart",
+  "itemsTitle": "Your Items",
+  "products": "products",
+  "removeItem": "Remove item",
+  "continueShopping": "Continue shopping",
+  "options": {
+    "memory": "Memory",
+    "storage": "Storage",
+    "warranty": "Warranty"
+  },
+  "empty": {
+    "title": "Your cart is empty",
+    "description": "Looks like you haven't added anything to your cart yet.",
+    "button": "Explore Products"
+  },
+  "shipping": {
+    "remaining": "You're {{amount}} away from free shipping!",
+    "unlocked": "You've unlocked free shipping!"
+  },
+  "promo": {
+    "label": "Promo Code",
+    "placeholder": "Enter promo code",
+    "apply": "Apply",
+    "invalid": "Invalid promo code. Please try again.",
+    "applied": "applied",
+    "remove": "Remove"
+  },
+  "summary": {
+    "title": "Order Summary",
+    "subtotal": "Subtotal",
+    "warranty": "Extended Warranty",
+    "shipping": "Shipping",
+    "free": "Free",
+    "discount": "Discount",
+    "total": "Total",
+    "checkout": "Proceed to Checkout",
+    "secure": "Secure checkout"
+  }
+}
