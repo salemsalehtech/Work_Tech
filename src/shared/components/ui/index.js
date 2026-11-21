@@ -23,4 +23,5 @@ export { default as Breadcrumbs } from './Breadcrumbs';
 export { default as Accordion } from './Accordion';
 export { default as ChoiceList } from './ChoiceList';
 export { default as OptionCards } from './OptionCards';
+export { default as OptionGroup } from './OptionCards';
 export { default as SegmentedControl } from './SegmentedControl';
