@@ -20,3 +20,7 @@ export { default as ValueScore } from './ValueScore';
 export { default as Tabs } from './Tabs';
 export { default as Toggle } from './Toggle';
 export { default as Breadcrumbs } from './Breadcrumbs';
+export { default as Accordion } from './Accordion';
+export { default as ChoiceList } from './ChoiceList';
+export { default as OptionCards } from './OptionCards';
+export { default as SegmentedControl } from './SegmentedControl';

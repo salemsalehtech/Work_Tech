@@ -1,1 +1,51 @@
-{}
+{
+  "breadcrumb": {
+    "home": "الرئيسية",
+    "cart": "سلة التسوق"
+  },
+  "title": "سلة التسوق",
+  "itemCount": "{{count}} منتجات في سلتك",
+  "clearCart": "إفراغ السلة",
+  "itemsTitle": "منتجاتك",
+  "products": "منتجات",
+  "removeItem": "حذف المنتج",
+  "continueShopping": "متابعة التسوق",
+  "options": {
+    "memory": "الذاكرة",
+    "storage": "التخزين",
+    "warranty": "الضمان"
+  },
+  "empty": {
+    "title": "سلة التسوق فارغة",
+    "description": "يبدو أنك لم تضف أي منتجات إلى سلة التسوق حتى الآن.",
+    "button": "تصفح المنتجات"
+  },
+  "shipping": {
+    "remaining": "أضف منتجات بقيمة {{amount}} لتحصل على شحن مجاني!",
+    "unlocked": "مبروك! حصلت على شحن مجاني."
+  },
+  "promo": {
+    "label": "كود الخصم",
+    "placeholder": "أدخل كود الخصم",
+    "apply": "تطبيق",
+    "invalid": "كود الخصم غير صحيح. حاول مرة أخرى.",
+    "applied": "تم تطبيقه",
+    "remove": "إزالة"
+  },
+  "summary": {
+    "title": "ملخص الطلب",
+    "subtotal": "المجموع الفرعي",
+    "warranty": "الضمان الإضافي",
+    "shipping": "الشحن",
+    "free": "مجاني",
+    "discount": "الخصم",
+    "total": "الإجمالي",
+    "checkout": "إتمام الشراء",
+    "secure": "عملية شراء آمنة"
+  },
+  "accessories": {
+    "title": "أكمل تجهيزاتك",
+    "description": "إكسسوارات مقترحة لجهازك.",
+    "add": "أضف إلى السلة"
+  }
+}
