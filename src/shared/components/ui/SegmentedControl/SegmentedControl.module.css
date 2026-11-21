@@ -1,0 +1,47 @@
+.group {
+  display: inline-flex;
+}
+
+.segment {
+  padding: 8px 18px;
+  font: inherit;
+  cursor: pointer;
+  color: #333;
+  background: #fff;
+  border: 1px solid #ccc;
+  transition:
+    background 0.15s,
+    color 0.15s;
+}
+
+.segment + .segment {
+  margin-inline-start: -1px;
+}
+
+.segment:first-child {
+  border-start-start-radius: 8px;
+  border-end-start-radius: 8px;
+}
+.segment:last-child {
+  border-start-end-radius: 8px;
+  border-end-end-radius: 8px;
+}
+
+.segment:hover:not(.active) {
+  background: #f5f5f5;
+}
+
+.active {
+  background: #111;
+  color: #fff;
+  border-color: #111;
+  position: relative;
+  z-index: 1;
+}
+
+.segment:focus-visible {
+  outline: 2px solid #4c8bf5;
+  outline-offset: 2px;
+  z-index: 2;
+  position: relative;
+}
