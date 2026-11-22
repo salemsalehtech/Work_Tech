@@ -6,12 +6,43 @@
     "saveToWishlist": "Save to wishlist",
     "addToCompare": "Add to comparison"
   },
-  "grid": {
-    "showing": "Showing {{shown}} of {{total}}",
-    "loadMore": "Load more laptops"
+  "products": {
+    "title": "Laptops",
+    "showingCount": "Showing {{shown}} of {{total}}",
+    "loadMore": "Load more laptops",
+    "emptyTitle": "No laptops found",
+    "emptyText": "Try adjusting or clearing your filters."
   },
-  "empty": {
-    "title": "No laptops found",
-    "text": "Try adjusting or clearing your filters."
+  "tags": {
+    "gaming": "Gaming",
+    "business": "Business",
+    "ultrabook": "Ultrabook",
+    "student": "Student",
+    "creator": "Creator",
+    "oled": "OLED",
+    "twoInOne": "2-in-1"
+  },
+  "filters": {
+    "title": "Filters",
+    "buttonCount": "Filters ({{count}})",
+    "clearAll": "Clear all",
+    "brand": "Brand",
+    "price": "Price (EGP)",
+    "minPrice": "Min",
+    "maxPrice": "Max",
+    "memory": "Memory",
+    "ramOption": "{{ram}} GB",
+    "rating": "Customer rating",
+    "ratingUp": "{{rating}} & up",
+    "anyRating": "Any rating",
+    "inStockOnly": "In stock only"
+  },
+  "sort": {
+    "label": "Sort products",
+    "featured": "Sort: Recommended",
+    "price-asc": "Price: Low to high",
+    "price-desc": "Price: High to low",
+    "rating": "Highest rated",
+    "newest": "Newest arrivals"
   }
 }
