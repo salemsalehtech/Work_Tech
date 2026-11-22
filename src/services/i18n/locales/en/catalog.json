@@ -6,12 +6,20 @@
     "saveToWishlist": "Save to wishlist",
     "addToCompare": "Add to comparison"
   },
-  "grid": {
-    "showing": "Showing {{shown}} of {{total}}",
-    "loadMore": "Load more laptops"
+  "products": {
+    "title": "Laptops",
+    "showingCount": "Showing {{shown}} of {{total}}",
+    "loadMore": "Load more laptops",
+    "emptyTitle": "No laptops found",
+    "emptyText": "Try adjusting or clearing your filters."
   },
-  "empty": {
-    "title": "No laptops found",
-    "text": "Try adjusting or clearing your filters."
+  "tags": {
+    "gaming": "Gaming",
+    "business": "Business",
+    "ultrabook": "Ultrabook",
+    "student": "Student",
+    "creator": "Creator",
+    "oled": "OLED",
+    "twoInOne": "2-in-1"
   }
 }

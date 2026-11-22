@@ -52,3 +52,16 @@ it('cannot be added to the cart when out of stock (BR-08)', () => {
 
   expect(screen.getByRole('button', { name: 'Out of stock' })).toBeDisabled();
 });
+
+it('shows a tag badge when there is no discount', () => {
+  renderWithProviders(<ProductCard product={{ ...product, oldPrice: null, tags: ['gaming'] }} />);
+
+  expect(screen.getByText('Gaming')).toBeInTheDocument();
+});
+
+it('shows the discount instead of the tag badge when both exist', () => {
+  renderWithProviders(<ProductCard product={{ ...product, oldPrice: 45990, tags: ['gaming'] }} />);
+
+  expect(screen.getByText('−15%')).toBeInTheDocument();
+  expect(screen.queryByText('Gaming')).not.toBeInTheDocument();
+});

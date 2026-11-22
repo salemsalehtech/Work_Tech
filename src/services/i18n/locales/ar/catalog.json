@@ -6,12 +6,20 @@
     "saveToWishlist": "أضف إلى المفضلة",
     "addToCompare": "أضف إلى المقارنة"
   },
-  "grid": {
-    "showing": "يعرض {{shown}} من {{total}}",
-    "loadMore": "تحميل المزيد"
+  "products": {
+    "title": "اللابتوبات",
+    "showingCount": "يعرض {{shown}} من {{total}}",
+    "loadMore": "تحميل المزيد",
+    "emptyTitle": "لا توجد أجهزة مطابقة",
+    "emptyText": "جرب تعديل الفلاتر أو مسحها."
   },
-  "empty": {
-    "title": "لا توجد أجهزة مطابقة",
-    "text": "جرب تعديل الفلاتر أو مسحها."
+  "tags": {
+    "gaming": "للألعاب",
+    "business": "للأعمال",
+    "ultrabook": "ألترابوك",
+    "student": "للطلاب",
+    "creator": "للمصممين",
+    "oled": "شاشة OLED",
+    "twoInOne": "2 في 1"
   }
 }
