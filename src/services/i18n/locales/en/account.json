@@ -1,1 +1,65 @@
-{}
+{
+  "auth": {
+    "title": "Welcome to WorkTech",
+    "signInTab": "Sign In",
+    "createAccountTab": "Create Account",
+    "signInTitle": "Sign in to your account",
+    "signInSubtitle": "Enter your email and password to access your account.",
+    "createAccountTitle": "Create your account",
+    "createAccountSubtitle": "Join WorkTech to track orders, save wishlist items, and checkout faster.",
+    "fields": {
+      "fullName": "Full Name",
+      "fullNamePlaceholder": "e.g. Marwan Tarek",
+      "email": "Email Address",
+      "emailPlaceholder": "name@example.com",
+      "phone": "Mobile Number",
+      "phonePlaceholder": "01012345678",
+      "password": "Password",
+      "passwordPlaceholder": "At least 8 characters",
+      "confirmPassword": "Confirm Password",
+      "confirmPasswordPlaceholder": "Re-enter your password",
+      "showPassword": "Show password",
+      "hidePassword": "Hide password"
+    },
+    "actions": {
+      "signIn": "Sign In",
+      "signingIn": "Signing in...",
+      "createAccount": "Create Account",
+      "creatingAccount": "Creating account...",
+      "useDemoAccount": "Use Demo Account",
+      "dontHaveAccount": "Don't have an account?",
+      "alreadyHaveAccount": "Already have an account?",
+      "goToSignUp": "Create one",
+      "goToSignIn": "Sign in"
+    },
+    "demo": {
+      "title": "Demo Account Credentials",
+      "subtitle": "Use these credentials to test the storefront and review sample orders.",
+      "badge": "Demo Account",
+      "email": "Email",
+      "password": "Password",
+      "fillButton": "Use Demo Credentials"
+    },
+    "validation": {
+      "fullNameRequired": "Full name is required",
+      "emailRequired": "Email address is required",
+      "emailInvalid": "Please enter a valid email address",
+      "phoneRequired": "Mobile number is required",
+      "phoneInvalid": "Please enter a valid Egyptian mobile number (e.g. 01012345678)",
+      "passwordRequired": "Password is required",
+      "passwordMinLength": "Password must be at least 8 characters",
+      "confirmPasswordRequired": "Please confirm your password",
+      "passwordsMismatch": "Passwords do not match"
+    },
+    "errors": {
+      "default": "An unexpected error occurred. Please try again.",
+      "invalidCredentials": "The email or password you entered is incorrect.",
+      "accountNotFound": "No account found with this email address.",
+      "incorrectPassword": "The password you entered is incorrect.",
+      "emailExists": "An account with this email already exists."
+    },
+    "success": {
+      "registered": "Account created successfully! Redirecting..."
+    }
+  }
+}

@@ -1,1 +1,65 @@
-{}
+{
+  "auth": {
+    "title": "مرحبًا بك في ورك تك",
+    "signInTab": "تسجيل الدخول",
+    "createAccountTab": "إنشاء حساب جديد",
+    "signInTitle": "تسجيل الدخول إلى حسابك",
+    "signInSubtitle": "أدخل بريدك الإلكتروني وكلمة المرور للوصول إلى حسابك.",
+    "createAccountTitle": "إنشاء حساب جديد",
+    "createAccountSubtitle": "انضم إلى ورك تك لتتبع طلباتك، وحفظ المنتجات في قائمة الرغبات، وإتمام الشراء بشكل أسرع.",
+    "fields": {
+      "fullName": "الاسم بالكامل",
+      "fullNamePlaceholder": "مثال: مروان طارق",
+      "email": "البريد الإلكتروني",
+      "emailPlaceholder": "name@example.com",
+      "phone": "رقم الهاتف المحمول",
+      "phonePlaceholder": "01012345678",
+      "password": "كلمة المرور",
+      "passwordPlaceholder": "8 أحرف على الأقل",
+      "confirmPassword": "تأكيد كلمة المرور",
+      "confirmPasswordPlaceholder": "أعد إدخال كلمة المرور",
+      "showPassword": "إظهار كلمة المرور",
+      "hidePassword": "إخفاء كلمة المرور"
+    },
+    "actions": {
+      "signIn": "تسجيل الدخول",
+      "signingIn": "جاري تسجيل الدخول...",
+      "createAccount": "إنشاء الحساب",
+      "creatingAccount": "جاري إنشاء الحساب...",
+      "useDemoAccount": "استخدام الحساب التجريبي",
+      "dontHaveAccount": "ليس لديك حساب؟",
+      "alreadyHaveAccount": "لديك حساب بالفعل؟",
+      "goToSignUp": "إنشاء حساب جديد",
+      "goToSignIn": "تسجيل الدخول"
+    },
+    "demo": {
+      "title": "بيانات الحساب التجريبي",
+      "subtitle": "استخدم هذه البيانات لتجربة المتجر واستعراض الطلبات السابقة.",
+      "badge": "حساب تجريبي",
+      "email": "البريد الإلكتروني",
+      "password": "كلمة المرور",
+      "fillButton": "استخدام بيانات الحساب التجريبي"
+    },
+    "validation": {
+      "fullNameRequired": "الاسم بالكامل مطلوب",
+      "emailRequired": "البريد الإلكتروني مطلوب",
+      "emailInvalid": "يرجى إدخال بريد إلكتروني صالح",
+      "phoneRequired": "رقم الهاتف المحمول مطلوب",
+      "phoneInvalid": "يرجى إدخال رقم هاتف محمول مصري صالح (مثال: 01012345678)",
+      "passwordRequired": "كلمة المرور مطلوبة",
+      "passwordMinLength": "يجب ألا تقل كلمة المرور عن 8 أحرف",
+      "confirmPasswordRequired": "يرجى تأكيد كلمة المرور",
+      "passwordsMismatch": "كلمتا المرور غير متطابقتين"
+    },
+    "errors": {
+      "default": "حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى.",
+      "invalidCredentials": "البريد الإلكتروني أو كلمة المرور غير صحيحة.",
+      "accountNotFound": "لا يوجد حساب مسجل بهذا البريد الإلكتروني.",
+      "incorrectPassword": "كلمة المرور التي أدخلتها غير صحيحة.",
+      "emailExists": "يوجد حساب مسجل بهذا البريد الإلكتروني بالفعل."
+    },
+    "success": {
+      "registered": "تم إنشاء الحساب بنجاح! جاري تحويلك..."
+    }
+  }
+}
