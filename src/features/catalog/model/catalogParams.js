@@ -1,3 +1,4 @@
+import { CATEGORIES } from '@/features/data/Categories';
 export const PAGE_SIZE = 9;
 
 export const SORTS = {
@@ -39,13 +40,30 @@ export function toApiParams(input) {
 
   const inStock = searchParams.get('inStock');
   const sortKey = searchParams.get('sort') ?? 'featured';
+  const categoryKey = searchParams.get('category') ?? 'all';
+
+  const categoryParams = CATEGORIES.find((category) => category.key === categoryKey)?.params ?? {};
+
+  // 8. Read the user's minimum and maximum price.
+  const requestedMin = parseNonNegativeNumber(searchParams.get('min'));
+  const requestedMax = parseNonNegativeNumber(searchParams.get('max'));
+
+  // 9. Get the maximum price imposed by the selected category.
+  const categoryMax = categoryParams.price_lte;
+
+  // 10. Combine the user's maximum price with the category maximum.
+  const priceLte =
+    requestedMax !== undefined && categoryMax !== undefined
+      ? Math.min(requestedMax, categoryMax)
+      : (requestedMax ?? categoryMax);
 
   return {
+    ...categoryParams,
     q: searchParams.get('q')?.trim() || undefined,
     brand: brands.length > 0 ? brands : undefined,
     'specs.ram': rams.length > 0 ? rams : undefined,
-    price_gte: parseNonNegativeNumber(searchParams.get('min')),
-    price_lte: parseNonNegativeNumber(searchParams.get('max')),
+    price_gte: requestedMin,
+    price_lte: priceLte,
     rating_gte: parseNonNegativeNumber(searchParams.get('rating')),
     stock_gte: inStock === 'true' || inStock === '1' ? 1 : undefined,
     ...(SORTS[sortKey] ?? SORTS.featured),
