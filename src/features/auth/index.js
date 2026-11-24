@@ -23,3 +23,5 @@ export {
   DEMO_CREDENTIALS,
   DEMO_USER,
 } from './model/demoAccounts';
+
+export { RequireAuth } from './components';
