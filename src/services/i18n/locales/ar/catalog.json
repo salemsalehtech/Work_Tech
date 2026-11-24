@@ -13,6 +13,16 @@
     "emptyTitle": "لا توجد أجهزة مطابقة",
     "emptyText": "جرب تعديل الفلاتر أو مسحها."
   },
+  "productDetails": {
+    "breadcrumbHome": "الرئيسية",
+    "inStock": "متوفر",
+    "buyNow": "اشترِ الآن",
+    "galleryLabel": "صور المنتج",
+    "thumbnailAlt": "{{name}} صورة {{index}}",
+    "notFoundTitle": "المنتج غير موجود",
+    "notFoundText": "الجهاز الذي تبحث عنه غير متوفر أو تم حذفه.",
+    "backToProducts": "العودة إلى اللابتوبات"
+  },
   "search": {
     "titleWithQuery": "نتائج «{{query}}»",
     "titleEmpty": "البحث في اللابتوبات",
