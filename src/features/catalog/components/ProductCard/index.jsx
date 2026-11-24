@@ -13,16 +13,11 @@ import {
 import { DEFAULT_INSTALLMENT_MONTHS, LOW_STOCK_AT, productPath } from '@shared/constants';
 import { discountPercent } from '@shared/utils';
 
+import { getProductTag } from '../../model/productTags';
+
 import styles from './ProductCard.module.css';
 import { specsLine } from './specsLine';
 
-/**
- * The laptop tile of every product grid (Home, Products, Search, Wishlist, 404).
- * It only shows data and reports clicks: the caller connects cart, wishlist and compare.
- *
- * variant: catalog (default, with the rating row) | home (bigger, no rating row)
- * tag: optional { label, tone } badge when there is no discount (e.g. "Best seller")
- */
 function ProductCard({
   product,
   variant = 'catalog',
@@ -40,6 +35,10 @@ function ProductCard({
   const outOfStock = stock === 0;
   const isHome = variant === 'home';
 
+  const mappedTag = !tag ? getProductTag(product.tags) : null;
+  const resolvedTag =
+    tag ?? (mappedTag ? { label: t(mappedTag.labelKey), tone: mappedTag.tone } : null);
+
   return (
     <article className={[styles.card, isHome && styles.home].filter(Boolean).join(' ')}>
       <div className={styles.media}>
@@ -49,9 +48,9 @@ function ProductCard({
             −{off}%
           </Badge>
         ) : (
-          tag && (
-            <Badge tone={tag.tone} className={styles.badge}>
-              {tag.label}
+          resolvedTag && (
+            <Badge tone={resolvedTag.tone} className={styles.badge}>
+              {resolvedTag.label}
             </Badge>
           )
         )}
