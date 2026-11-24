@@ -1,0 +1,22 @@
+.toast {
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 20px;
+  border-radius: 8px;
+  color: var(--color-surface-media);
+  background: var(--color-ink-hover);
+  z-index: 1000;
+  max-width: 90vw;
+  pointer-events: none;
+}
+.toast-success {
+  background: var(--color-success);
+}
+.toast-error {
+  background: var(--color-red);
+}
+.toast-info {
+  background: var(--color-blue);
+}
