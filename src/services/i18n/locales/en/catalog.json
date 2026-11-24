@@ -13,6 +13,14 @@
     "emptyTitle": "No laptops found",
     "emptyText": "Try adjusting or clearing your filters."
   },
+  "search": {
+    "titleWithQuery": "Results for “{{query}}”",
+    "titleEmpty": "Search laptops",
+    "emptyTitleWithQuery": "No results for “{{query}}”",
+    "emptyTitle": "No matching laptops",
+    "emptyText": "Try another keyword or pick one of the popular searches below.",
+    "suggestionsLabel": "Popular searches"
+  },
   "tags": {
     "gaming": "Gaming",
     "business": "Business",
