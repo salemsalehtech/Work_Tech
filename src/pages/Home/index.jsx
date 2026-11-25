@@ -4,6 +4,7 @@ function Home() {
   return (
     <section>
       <Navbar />
+      <h1>HOME</h1>
     </section>
   );
 }
