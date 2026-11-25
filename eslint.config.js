@@ -1,3 +1,5 @@
+import { readdirSync } from 'node:fs';
+
 import js from '@eslint/js';
 import prettier from 'eslint-config-prettier';
 import importPlugin from 'eslint-plugin-import';
@@ -6,6 +8,25 @@ import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefreshPlugin from 'eslint-plugin-react-refresh';
 import globals from 'globals';
+
+// '@/…' would go around the layer rules below, so only the test helpers may use it.
+const noRootAlias = {
+  regex: '^@/(?!test/)',
+  message: 'Use the layer alias: @app, @pages, @features, @services or @shared.',
+};
+
+// The same layers for relative paths, which no-restricted-imports cannot follow.
+const layerZones = [
+  { target: './src/shared', from: ['./src/app', './src/pages', './src/features'] },
+  { target: './src/services', from: ['./src/app', './src/pages', './src/features'] },
+  { target: './src/features', from: ['./src/app', './src/pages'] },
+  { target: './src/pages', from: ['./src/app', './src/features'] },
+  ...readdirSync('./src/features').map((name) => ({
+    target: `./src/features/${name}`,
+    from: './src/features',
+    except: [`./${name}`],
+  })),
+].map((zone) => ({ ...zone, message: 'Import another layer or feature through its alias.' }));
 
 export default [
   { ignores: ['dist', 'coverage', 'node_modules'] },
@@ -65,6 +86,7 @@ export default [
       ...react.configs.flat['jsx-runtime'].rules,
       // Plain JavaScript without the prop-types package: props are documented with JSDoc.
       'react/prop-types': 'off',
+      'no-console': ['error', { allow: ['warn', 'error'] }],
     },
   },
   {
@@ -86,12 +108,19 @@ export default [
 
   // Architecture: app → pages → features → shared, features only through their index.js.
   {
+    files: ['src/**/*.{js,jsx}'],
+    rules: {
+      'import/no-restricted-paths': ['error', { zones: layerZones }],
+    },
+  },
+  {
     files: ['src/shared/**/*.{js,jsx}', 'src/services/**/*.{js,jsx}'],
     rules: {
       'no-restricted-imports': [
         'error',
         {
           patterns: [
+            noRootAlias,
             {
               group: ['@app', '@app/*', '@pages', '@pages/*', '@features', '@features/*'],
               message:
@@ -109,6 +138,7 @@ export default [
         'error',
         {
           patterns: [
+            noRootAlias,
             {
               group: ['@app', '@app/*', '@pages', '@pages/*'],
               message: 'features never import app or pages.',
@@ -129,6 +159,7 @@ export default [
         'error',
         {
           patterns: [
+            noRootAlias,
             { group: ['@app', '@app/*'], message: 'pages never import app.' },
             {
               group: ['@features/*/*'],
