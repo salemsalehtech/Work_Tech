@@ -40,6 +40,19 @@ describe('ProductFilters & useCatalogFilters', () => {
     expect(params.get('page')).toBe('1');
   });
 
+  it('writes the processor, graphics and screen filters to the URL', async () => {
+    renderWithProviders(<FilterHarness />, { route: '/products' });
+
+    await userEvent.click(screen.getByRole('checkbox', { name: 'AMD' }));
+    await userEvent.click(screen.getByRole('checkbox', { name: 'RTX 40 series' }));
+    await userEvent.click(screen.getByRole('checkbox', { name: '16″' }));
+
+    const params = new URLSearchParams(screen.getByTestId('search').textContent);
+    expect(params.getAll('cpu')).toEqual(['amd']);
+    expect(params.getAll('gpu')).toEqual(['rtx-40']);
+    expect(params.getAll('screen')).toEqual(['16']);
+  });
+
   it('clears all active filters when Clear all is clicked', async () => {
     renderWithProviders(<FilterHarness />, {
       route: '/products?brand=ASUS&ram=16&inStock=1&page=2',

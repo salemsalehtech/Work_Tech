@@ -18,6 +18,13 @@ import { getProductTag } from '../../model/productTags';
 import styles from './ProductCard.module.css';
 import { specsLine } from './specsLine';
 
+/**
+ * The laptop tile of every product grid (Home, Products, Search, Wishlist, 404).
+ * It only shows data and reports clicks: the caller connects cart, wishlist and compare.
+ *
+ * variant: catalog (default, with the rating row) | home (bigger, no rating row)
+ * tag: optional { label, tone } badge when there is no discount; defaults to the product's first tag
+ */
 function ProductCard({
   product,
   variant = 'catalog',
