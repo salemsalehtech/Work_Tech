@@ -32,6 +32,7 @@ function OrderCard({ order }) {
           to={orderPath(order.id)}
           variant="outline"
           size="sm"
+          className={styles.details}
           aria-label={t('viewOrder', { id: order.id })}
         >
           {t('details')}
