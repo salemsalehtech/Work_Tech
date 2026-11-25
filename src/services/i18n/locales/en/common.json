@@ -35,5 +35,11 @@
   "installments": {
     "title": "Installment plan",
     "note": "Indicative. Final terms by the provider."
+  },
+  "password": {
+    "show": "Show",
+    "hide": "Hide",
+    "showLabel": "Show password",
+    "hideLabel": "Hide password"
   }
 }

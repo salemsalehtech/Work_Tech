@@ -1,269 +1,45 @@
-.page {
-  padding-block: var(--space-10);
-  min-height: calc(100vh - var(--topbar-height) - var(--header-simple-height) - 100px);
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.side {
+  padding: var(--space-8) var(--gutter-mobile) 0;
+}
+
+.column {
   display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.card {
-  width: 100%;
-  max-width: 480px;
+  flex-direction: column;
+  gap: var(--space-6);
+  max-width: 440px;
   margin-inline: auto;
-  background: var(--color-surface);
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius-lg);
-  padding: var(--space-8);
-  box-shadow: 0 4px 20px rgba(11, 21, 38, 0.05);
-}
-
-.header {
-  text-align: center;
-  margin-block-end: var(--space-6);
 }
 
 .title {
-  font-size: var(--text-h2-size);
-  line-height: var(--text-h2-line);
-  font-weight: var(--text-h2-weight);
-  color: var(--color-ink);
+  font-size: 28px;
   letter-spacing: var(--text-h2-tracking);
 }
 
-.subtitle {
-  margin-block-start: var(--space-2);
-  font-size: var(--text-body-size);
-  line-height: var(--text-body-line);
+.text {
+  margin-block-start: 6px;
   color: var(--color-text-muted);
 }
 
-.tabs {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-1);
-  background: var(--color-surface-subtle);
-  padding: 4px;
-  border-radius: var(--radius-md);
-  margin-block-end: var(--space-6);
-}
-
-.tab {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 40px;
-  background: transparent;
-  border: none;
-  border-radius: var(--radius-sm);
-  font-size: var(--text-ui-size);
-  font-weight: 500;
-  color: var(--color-text-muted);
-  cursor: pointer;
-  transition: all 0.15s ease-in-out;
-}
-
-.tab:hover {
-  color: var(--color-ink);
-}
-
-.tabActive {
-  background: var(--color-surface);
-  color: var(--color-ink);
-  font-weight: 600;
-  box-shadow: 0 1px 3px rgba(11, 21, 38, 0.1);
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-}
-
-.passwordWrapper {
-  position: relative;
-  width: 100%;
-}
-
-.passwordControl {
-  padding-inline-end: 44px;
-}
-
-.passwordToggle {
-  position: absolute;
-  inset-inline-end: 12px;
-  inset-block-start: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: var(--color-text-muted);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 6px;
-  border-radius: var(--radius-sm);
-  transition: color 0.15s;
-}
-
-.passwordToggle:hover {
-  color: var(--color-ink);
-}
-
-.passwordToggle:focus-visible {
-  outline: 2px solid var(--color-blue);
-  outline-offset: 2px;
-}
-
-.alertError {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-  padding: var(--space-3) var(--space-4);
-  background: var(--color-sale-50);
-  border: 1px solid var(--color-sale);
-  border-radius: var(--radius-md);
-  color: var(--color-sale);
-  font-size: var(--text-small-size);
-  font-weight: 500;
-  margin-block-end: var(--space-2);
-}
-
-.alertIcon {
-  flex-shrink: 0;
-}
-
-.submitBtn {
-  margin-block-start: var(--space-2);
-}
-
-.switchPrompt {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-2);
-  margin-block-start: var(--space-6);
-  font-size: var(--text-small-size);
-  color: var(--color-text-muted);
-}
-
-.switchLink {
-  background: none;
-  border: none;
-  padding: 0;
-  font-size: var(--text-small-size);
-  font-weight: 600;
-  color: var(--color-blue);
-  cursor: pointer;
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-
-.switchLink:hover {
-  color: var(--color-blue-hover);
-}
-
-/* Demo Credentials Box */
-.demoBox {
-  margin-block-start: var(--space-6);
-  padding: var(--space-4);
-  background: var(--color-surface-subtle);
-  border: 1px dashed var(--color-line-strong);
-  border-radius: var(--radius-md);
-}
-
-.demoHeader {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-block-end: var(--space-1);
-}
-
-.demoTitle {
-  font-size: var(--text-small-size);
-  font-weight: 600;
-  color: var(--color-ink);
-  margin: 0;
-}
-
-.demoBadge {
-  font-size: var(--text-mono-xs-size);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  background: var(--color-highlight);
-  color: var(--color-blue);
-  padding: 2px 8px;
-  border-radius: var(--radius-full);
-}
-
-.demoSubtitle {
-  font-size: var(--text-caption-size);
-  line-height: var(--text-caption-line);
-  color: var(--color-text-muted);
-  margin: 0 0 var(--space-3) 0;
-}
-
-.demoGrid {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
-  margin-block-end: var(--space-3);
-}
-
-.demoRow {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-2);
-}
-
-.demoLabel {
-  font-size: var(--text-caption-size);
-  color: var(--color-text-muted);
-}
-
-.demoValue {
-  font-family: var(--font-mono);
-  font-size: var(--text-code-size);
-  font-weight: 600;
-  color: var(--color-ink);
-  background: var(--color-surface);
-  padding: 2px 8px;
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius-xs);
-  user-select: all;
-}
-
-.demoFillBtn {
-  width: 100%;
-}
-
-/* Responsive adjustments */
-@media (max-width: 834px) {
-  .page {
-    padding-block: var(--space-6);
-  }
-
-  .card {
-    padding: var(--space-6);
-  }
-
-  .title {
-    font-size: var(--text-h2-sm-size);
+@media (min-width: 834px) {
+  .side {
+    padding: var(--space-12) var(--gutter) 0;
   }
 }
 
-@media (max-width: 480px) {
-  .page {
-    padding-block: var(--space-4);
+/* The dark panel reaches the footer, so the form side keeps its own space at the end. */
+@media (min-width: 1200px) {
+  .split {
+    grid-template-columns: 5fr 6fr;
+    min-height: calc(100vh - var(--topbar-height) - var(--header-simple-height));
+    margin-block-end: calc(-1 * var(--space-18));
   }
 
-  .card {
-    padding: var(--space-4);
-    border-radius: var(--radius-md);
-  }
-
-  .title {
-    font-size: 22px;
+  .side {
+    padding-block: var(--space-14) var(--space-18);
   }
 }

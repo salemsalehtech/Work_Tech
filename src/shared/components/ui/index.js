@@ -19,6 +19,7 @@ export { default as Input } from './Input';
 export { default as InstallmentPicker } from './InstallmentPicker';
 export { default as OptionCards } from './OptionCards';
 export { default as OrderTracker } from './OrderTracker';
+export { default as PasswordInput } from './PasswordInput';
 export { default as Price } from './Price';
 export { default as ProductImage } from './ProductImage';
 export { default as QuantityStepper } from './QuantityStepper';

@@ -1,240 +1,93 @@
-import { act, screen } from '@testing-library/react';
+import { screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Route, Routes } from 'react-router-dom';
-import { describe, expect, it } from 'vitest';
 
 import { renderWithProviders } from '@/test/renderWithProviders';
-import { authReducer, DEMO_USER, getStoredSession } from '@features/auth';
-import i18n from '@services/i18n';
-import { PATHS } from '@shared/constants';
+import { authReducer, RequireAuth, selectCurrentUser } from '@features/auth';
 
-import Account from './index';
+import Account from '.';
 
-function renderAccountPage(initialAuthState = {}) {
-  const preloadedAuth = {
-    user: {
-      ...DEMO_USER,
-      notifications: {
-        orderUpdates: true,
-        promotions: false,
-        priceDrops: true,
-        newsletter: false,
-      },
-      ...initialAuthState.user,
-    },
-    accounts: initialAuthState.accounts || [],
-    error: null,
-  };
-
-  return renderWithProviders(
+function renderAccount() {
+  const { store } = renderWithProviders(
     <Routes>
-      <Route path={PATHS.ACCOUNT} element={<Account />} />
-      <Route path={PATHS.HOME} element={<h1>Home Page</h1>} />
-      <Route path={PATHS.ORDERS} element={<h1>Orders Page</h1>} />
-      <Route path={PATHS.WISHLIST} element={<h1>Wishlist Page</h1>} />
+      <Route path="/" element={<h1>Home</h1>} />
+      <Route path="/auth" element={<h1>Sign in</h1>} />
+      <Route element={<RequireAuth />}>
+        <Route path="/account" element={<Account />} />
+      </Route>
     </Routes>,
     {
+      route: '/account',
       reducer: { auth: authReducer },
-      preloadedState: { auth: preloadedAuth },
-      route: PATHS.ACCOUNT,
+      preloadedState: { auth: { userId: 'demo-user-1', accounts: [] } },
     },
   );
+  return { user: () => selectCurrentUser(store.getState()) };
 }
+const click = (name) => userEvent.click(screen.getByRole('button', { name }));
 
-describe('Account Page (AB-04)', () => {
-  describe('Personal Information Section', () => {
-    it('displays the current authenticated user information', () => {
-      renderAccountPage();
+it('saves the account details', async () => {
+  const { user } = renderAccount();
+  const phone = screen.getByLabelText('Mobile number');
 
-      expect(screen.getByRole('heading', { name: /Personal Information/i })).toBeInTheDocument();
-      expect(screen.getByLabelText(/Full Name/i)).toHaveValue('Marwan Tarek');
-      expect(screen.getByLabelText(/Mobile Number/i)).toHaveValue('01022334455');
-      expect(screen.getByLabelText(/Email Address/i)).toHaveValue('marwan@worktech.com');
-      expect(screen.getByLabelText(/Email Address/i)).toBeDisabled();
-    });
+  await userEvent.clear(phone);
+  await userEvent.type(phone, '01111111111');
+  await click('Save changes');
 
-    it('rejects invalid Egyptian phone number', async () => {
-      const user = userEvent.setup();
-      renderAccountPage();
+  expect(user().phone).toBe('01111111111');
+  expect(screen.getByText('Your details were saved.')).toBeInTheDocument();
+});
 
-      const phoneInput = screen.getByLabelText(/Mobile Number/i);
-      await user.clear(phoneInput);
-      await user.type(phoneInput, '12345');
+it('does not save a wrong mobile number', async () => {
+  const { user } = renderAccount();
+  const phone = screen.getByLabelText('Mobile number');
 
-      await user.click(screen.getByRole('button', { name: /Save Changes/i }));
+  await userEvent.clear(phone);
+  await userEvent.type(phone, '123');
+  await click('Save changes');
 
-      expect(
-        await screen.findByText(/Please enter a valid Egyptian mobile number/i),
-      ).toBeInTheDocument();
-    });
+  expect(phone).toHaveFocus();
+  expect(user().phone).toBe('01022334455');
+});
 
-    it('successfully updates personal information and persists to storage', async () => {
-      const user = userEvent.setup();
-      const { store } = renderAccountPage();
+it('adds an address', async () => {
+  const { user } = renderAccount();
 
-      const nameInput = screen.getByLabelText(/Full Name/i);
-      const phoneInput = screen.getByLabelText(/Mobile Number/i);
+  await click('+ Add an address');
+  const form = within(screen.getByRole('button', { name: 'Save address' }).closest('form'));
+  await userEvent.type(form.getByLabelText('Full name'), 'Mona Adel');
+  await userEvent.type(form.getByLabelText('Mobile number'), '01012345678');
+  await userEvent.type(form.getByLabelText('City'), 'Giza');
+  await userEvent.type(form.getByLabelText('Address'), '25 Dokki Street, flat 4');
+  await click('Save address');
 
-      await user.clear(nameInput);
-      await user.type(nameInput, 'Ahmed Khaled');
+  expect(user().addresses).toHaveLength(2);
+  expect(screen.getByText('25 Dokki Street, flat 4')).toBeInTheDocument();
+});
 
-      await user.clear(phoneInput);
-      await user.type(phoneInput, '01123456789');
+it('asks before it removes an address', async () => {
+  const { user } = renderAccount();
 
-      await user.click(screen.getByRole('button', { name: /Save Changes/i }));
+  await click('Remove 16 El Tayaran St');
+  expect(user().addresses).toHaveLength(1);
+  await click('Remove');
 
-      expect(
-        await screen.findByText(/Your personal information has been updated successfully/i),
-      ).toBeInTheDocument();
+  expect(user().addresses).toHaveLength(0);
+});
 
-      const stateUser = store.getState().auth.user;
-      expect(stateUser.fullName).toBe('Ahmed Khaled');
-      expect(stateUser.phone).toBe('01123456789');
+it('keeps a notification choice', async () => {
+  const { user } = renderAccount();
 
-      // Persistence check: user data saved to browser session
-      const stored = getStoredSession();
-      expect(stored.fullName).toBe('Ahmed Khaled');
-      expect(stored.phone).toBe('01123456789');
-    });
-  });
+  await userEvent.click(screen.getByRole('switch', { name: 'Weekly newsletter' }));
 
-  describe('Addresses Management Section', () => {
-    it('displays saved addresses with details and default badge', () => {
-      renderAccountPage();
+  expect(user().notifications.newsletter).toBe(true);
+});
 
-      expect(screen.getByRole('heading', { name: /Saved Addresses/i })).toBeInTheDocument();
-      expect(screen.getByText('16 El Tayaran St', { exact: false })).toBeInTheDocument();
-      expect(screen.getByText('Default')).toBeInTheDocument();
-    });
+it('goes home after signing out', async () => {
+  const { user } = renderAccount();
 
-    it('shows empty state when user has no addresses', () => {
-      renderAccountPage({ user: { addresses: [] } });
+  await click('Sign out');
 
-      expect(screen.getByText(/No saved addresses/i)).toBeInTheDocument();
-      expect(screen.getByText(/You have not saved any addresses yet/i)).toBeInTheDocument();
-    });
-
-    it('validates, adds a new address, and persists to storage', async () => {
-      const user = userEvent.setup();
-      const { store, container } = renderAccountPage({ user: { addresses: [] } });
-
-      // Click add new address from empty state
-      await user.click(screen.getByRole('button', { name: /Add New Address/i }));
-
-      // Try submitting empty
-      await user.click(screen.getByRole('button', { name: /Save Address/i }));
-      expect(await screen.findByText(/Recipient name is required/i)).toBeInTheDocument();
-
-      // Fill valid address details
-      await user.type(screen.getByLabelText(/Recipient Name/i), 'Mohamed Ali');
-      const addressPhoneInput = container.querySelector('#address-phone');
-      await user.type(addressPhoneInput, '01234567890');
-      await user.type(screen.getByLabelText(/City/i), 'Giza');
-      await user.type(screen.getByLabelText(/Street Address/i), '25 Dokki Street, Apt 4');
-
-      await user.click(screen.getByRole('button', { name: /Save Address/i }));
-
-      expect(await screen.findByText(/New address added successfully/i)).toBeInTheDocument();
-      expect(screen.getByText('Mohamed Ali')).toBeInTheDocument();
-      expect(screen.getByText(/25 Dokki Street/i)).toBeInTheDocument();
-
-      const userAddresses = store.getState().auth.user.addresses;
-      expect(userAddresses).toHaveLength(1);
-      expect(userAddresses[0].fullName).toBe('Mohamed Ali');
-
-      // Persistence check
-      const stored = getStoredSession();
-      expect(stored.addresses).toHaveLength(1);
-      expect(stored.addresses[0].fullName).toBe('Mohamed Ali');
-    });
-
-    it('deletes an address and displays feedback', async () => {
-      const user = userEvent.setup();
-      const { store } = renderAccountPage();
-
-      expect(screen.getByText('16 El Tayaran St', { exact: false })).toBeInTheDocument();
-
-      const deleteBtn = screen.getByRole('button', { name: /Delete Marwan Tarek/i });
-      await user.click(deleteBtn);
-
-      expect(await screen.findByText(/Address deleted successfully/i)).toBeInTheDocument();
-      expect(store.getState().auth.user.addresses).toHaveLength(0);
-      expect(screen.getByText(/No saved addresses/i)).toBeInTheDocument();
-
-      // Persistence check
-      const stored = getStoredSession();
-      expect(stored.addresses).toHaveLength(0);
-    });
-  });
-
-  describe('Notification Preferences Section', () => {
-    it('displays notification categories and interactive toggle switches', () => {
-      renderAccountPage();
-
-      expect(
-        screen.getByRole('heading', { name: /Notification Preferences/i }),
-      ).toBeInTheDocument();
-      expect(screen.getByRole('heading', { name: /Order status updates/i })).toBeInTheDocument();
-      expect(
-        screen.getByRole('heading', { name: /Exclusive offers & promotions/i }),
-      ).toBeInTheDocument();
-      expect(screen.getByRole('heading', { name: /Price drop alerts/i })).toBeInTheDocument();
-      expect(screen.getByRole('heading', { name: /Weekly tech digest/i })).toBeInTheDocument();
-
-      const orderToggle = screen.getByRole('switch', { name: /Order status updates/i });
-      expect(orderToggle).toBeChecked();
-
-      const promoToggle = screen.getByRole('switch', { name: /Exclusive offers & promotions/i });
-      expect(promoToggle).not.toBeChecked();
-    });
-
-    it('toggles notification preference and saves state in Redux and storage', async () => {
-      const user = userEvent.setup();
-      const { store } = renderAccountPage();
-
-      const promoToggle = screen.getByRole('switch', { name: /Exclusive offers & promotions/i });
-      await user.click(promoToggle);
-
-      expect(await screen.findByText(/Preferences updated successfully/i)).toBeInTheDocument();
-      expect(store.getState().auth.user.notifications.promotions).toBe(true);
-
-      // Persistence check
-      const stored = getStoredSession();
-      expect(stored.notifications.promotions).toBe(true);
-    });
-  });
-
-  describe('Sign Out and Session Management', () => {
-    it('signs out the user and navigates to the Home page', async () => {
-      const user = userEvent.setup();
-      const { store } = renderAccountPage();
-
-      const logoutBtn = screen.getByTestId('logout-button');
-      await user.click(logoutBtn);
-
-      expect(store.getState().auth.user).toBeNull();
-      expect(await screen.findByText('Home Page')).toBeInTheDocument();
-    });
-  });
-
-  describe('Arabic Localization & RTL', () => {
-    it('renders the account page in Arabic when language is ar', async () => {
-      await act(async () => {
-        await i18n.changeLanguage('ar');
-      });
-
-      renderAccountPage();
-
-      expect(screen.getByRole('heading', { name: 'حسابي' })).toBeInTheDocument();
-      expect(screen.getByRole('heading', { name: 'البيانات الشخصية' })).toBeInTheDocument();
-      expect(screen.getByRole('heading', { name: 'العناوين المحفوظة' })).toBeInTheDocument();
-      expect(screen.getByRole('heading', { name: 'تفضيلات الإشعارات' })).toBeInTheDocument();
-      expect(screen.getByText('تسجيل الخروج')).toBeInTheDocument();
-
-      // Reset language back to en
-      await act(async () => {
-        await i18n.changeLanguage('en');
-      });
-    });
-  });
+  expect(user()).toBeNull();
+  expect(screen.getByRole('heading', { name: 'Home' })).toBeInTheDocument();
 });

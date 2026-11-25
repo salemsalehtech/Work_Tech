@@ -1,113 +1,52 @@
-import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
-import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { Navigate, useLocation, useSearchParams } from 'react-router-dom';
 
-import { clearAuthError, selectCurrentUser } from '@features/auth';
-import { Container } from '@shared/components/ui';
+import { CreateAccountForm, selectCurrentUser, SignInForm, WelcomePanel } from '@features/auth';
+import { SegmentedControl } from '@shared/components/ui';
 
 import styles from './Auth.module.css';
-import CreateAccount from './CreateAccount';
-import DemoCredentials from './DemoCredentials';
-import PasswordInput from './PasswordInput';
-import { getRedirectPath } from './redirectUtils';
-import SignIn from './SignIn';
+import { redirectPath } from './redirectPath';
 
-/**
- * Auth Page: Provides Sign In and Create Account experiences.
- * Supports URL parameter `?mode=register` or tabs to switch between modes,
- * validates user inputs, integrates with AB-01 authentication, displays demo
- * credentials, and safely redirects to `location.state.from` (or Account page)
- * upon successful authentication.
- */
+/** Sign in and Create account (/auth?mode=register). Signed-in users go back to where they came from. */
 function Auth() {
   const { t } = useTranslation('account');
-  const dispatch = useDispatch();
   const location = useLocation();
-  const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
-  const currentUser = useSelector(selectCurrentUser);
+  const user = useSelector(selectCurrentUser);
+  const mode = searchParams.get('mode') === 'register' ? 'register' : 'signIn';
 
-  const mode = searchParams.get('mode') === 'register' ? 'register' : 'signin';
-
-  // Redirect if already authenticated
-  useEffect(() => {
-    if (currentUser) {
-      const destination = getRedirectPath(location.state);
-      navigate(destination, { replace: true });
-    }
-  }, [currentUser, location.state, navigate]);
-
-  const handleSwitchMode = (nextMode) => {
-    dispatch(clearAuthError());
-    const nextParams = new URLSearchParams(searchParams);
-    if (nextMode === 'register') {
-      nextParams.set('mode', 'register');
-    } else {
-      nextParams.delete('mode');
-    }
-    setSearchParams(nextParams, { state: location.state });
-  };
-
-  const handleAuthSuccess = () => {
-    const destination = getRedirectPath(location.state);
-    navigate(destination, { replace: true });
-  };
+  if (user) return <Navigate to={redirectPath(location.state)} replace />;
 
   return (
-    <div className={styles.page}>
-      <Container width="narrow">
-        <div className={styles.card}>
-          <div className={styles.header}>
-            <h1 className={styles.title}>
-              {mode === 'signin' ? t('auth.signInTitle') : t('auth.createAccountTitle')}
-            </h1>
-            <p className={styles.subtitle}>
-              {mode === 'signin' ? t('auth.signInSubtitle') : t('auth.createAccountSubtitle')}
-            </p>
+    <div className={styles.split}>
+      <WelcomePanel />
+      <div className={styles.side}>
+        <div className={styles.column}>
+          <SegmentedControl
+            fullWidth
+            ariaLabel={t('mode.label')}
+            options={[
+              { value: 'signIn', label: t('mode.signIn') },
+              { value: 'register', label: t('mode.register') },
+            ]}
+            value={mode}
+            onChange={(next) =>
+              setSearchParams(next === 'register' ? { mode: next } : {}, {
+                state: location.state,
+                replace: true,
+              })
+            }
+          />
+          <div>
+            <h1 className={styles.title}>{t(`${mode}.title`)}</h1>
+            <p className={styles.text}>{t(`${mode}.text`)}</p>
           </div>
-
-          <div className={styles.tabs} role="tablist" aria-label={t('auth.title')}>
-            <button
-              type="button"
-              role="tab"
-              aria-selected={mode === 'signin'}
-              className={[styles.tab, mode === 'signin' && styles.tabActive]
-                .filter(Boolean)
-                .join(' ')}
-              onClick={() => handleSwitchMode('signin')}
-            >
-              {t('auth.signInTab')}
-            </button>
-            <button
-              type="button"
-              role="tab"
-              aria-selected={mode === 'register'}
-              className={[styles.tab, mode === 'register' && styles.tabActive]
-                .filter(Boolean)
-                .join(' ')}
-              onClick={() => handleSwitchMode('register')}
-            >
-              {t('auth.createAccountTab')}
-            </button>
-          </div>
-
-          {mode === 'signin' ? (
-            <SignIn
-              onSwitchToRegister={() => handleSwitchMode('register')}
-              onSignInSuccess={handleAuthSuccess}
-            />
-          ) : (
-            <CreateAccount
-              onSwitchToSignIn={() => handleSwitchMode('signin')}
-              onRegisterSuccess={handleAuthSuccess}
-            />
-          )}
+          {mode === 'register' ? <CreateAccountForm /> : <SignInForm />}
         </div>
-      </Container>
+      </div>
     </div>
   );
 }
 
-export { CreateAccount, DemoCredentials, PasswordInput, SignIn };
 export default Auth;
