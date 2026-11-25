@@ -101,7 +101,7 @@ function renderProductRoute(initialEntry = '/products/asus-zenbook-14') {
   return { store };
 }
 
-describe('ProductDetails page (WS-07 & WS-08)', () => {
+describe('ProductDetails page', () => {
   beforeEach(() => {
     vi.mocked(useGetProductQuery).mockReset();
     vi.mocked(useGetReviewsQuery).mockReturnValue({
