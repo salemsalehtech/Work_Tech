@@ -1,27 +1,36 @@
+import { useTranslation } from 'react-i18next';
+
+import Icon from '../Icon';
+
 import styles from './CheckoutStepper.module.css';
 
-export default function CheckoutStepper({ steps, current = 0, ariaLabel = 'خطوات إتمام الطلب' }) {
-  return (
-    <nav aria-label={ariaLabel}>
-      <ol className={styles.stepper}>
-        {steps.map((label, index) => {
-          const status = index < current ? 'done' : index === current ? 'current' : 'upcoming';
+/** Checkout progress. steps: translated labels; current is 0-based. */
+function CheckoutStepper({ steps, current = 0, label }) {
+  const { t } = useTranslation();
 
-          return (
-            <li
-              key={label}
-              className={`${styles.step} ${styles[status]}`}
-              aria-current={status === 'current' ? 'step' : undefined}
-            >
-              <span className={styles.circle} aria-hidden="true">
-                {status === 'done' ? '✓' : index + 1}
-              </span>
-              <span className={styles.label}>{label}</span>
-              {status === 'done' && <span className={styles.srOnly}>Completed</span>}
-            </li>
-          );
-        })}
-      </ol>
-    </nav>
+  return (
+    <ol className={styles.stepper} aria-label={label ?? t('checkoutSteps')}>
+      {steps.map((step, index) => {
+        const isDone = index < current;
+        return (
+          <li
+            key={step}
+            className={[styles.step, isDone && styles.done].filter(Boolean).join(' ')}
+            aria-current={index === current ? 'step' : undefined}
+          >
+            <span className={styles.number}>
+              {isDone ? (
+                <Icon name="check" size={14} strokeWidth={2.4} label={t('status.done')} />
+              ) : (
+                index + 1
+              )}
+            </span>
+            <span className={styles.label}>{step}</span>
+          </li>
+        );
+      })}
+    </ol>
   );
 }
+
+export default CheckoutStepper;

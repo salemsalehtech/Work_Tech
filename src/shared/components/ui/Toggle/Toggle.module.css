@@ -1,11 +1,39 @@
-@import 'tailwindcss';
-@plugin "daisyui";
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  font-size: var(--text-ui-size);
+  cursor: pointer;
+}
+
 .toggle {
-  background: var(--color-toggle-off);
-  color: white;
+  display: inline-flex;
+  flex: none;
+  width: 44px;
+  height: 26px;
+  margin: 0;
+  padding: 3px;
+  border-radius: var(--radius-full);
+  background: var(--color-line-strong);
+  appearance: none;
+  cursor: pointer;
+}
+
+.toggle::before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  border-radius: var(--radius-full);
+  background: var(--color-surface);
 }
 
 .toggle:checked {
-  background: white;
-  color: var(--color-blue);
+  justify-content: flex-end;
+  background: var(--color-ink);
+}
+
+.toggle:disabled {
+  background: var(--color-line);
+  cursor: not-allowed;
 }

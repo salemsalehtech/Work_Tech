@@ -1,21 +1,28 @@
-@import 'tailwindcss';
-
-.breadcrumbs-app {
-  font: var(--font-mono);
-  font-size: var(--text-caption-size);
+.breadcrumbs {
+  font-family: var(--font-mono);
+  font-size: var(--text-mono-label-size);
+  color: var(--color-text-muted);
   text-transform: uppercase;
 }
-.breadcrumbs-app ol {
+
+.list {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
   list-style: none;
 }
-.breadcrumbs-app li {
-  display: flex;
-  align-items: center;
+
+.list li + li::before {
+  content: '/';
+  margin-inline-end: 6px;
 }
-.breadcrumbs-app a {
-  text-decoration: none;
+
+.list a {
   color: var(--color-text-muted);
+}
+
+.list [aria-current] {
+  color: var(--color-ink);
 }

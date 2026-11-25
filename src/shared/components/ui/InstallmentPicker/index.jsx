@@ -1,40 +1,40 @@
-import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
-import { CURRENCY, INSTALLMENT_PLANS, DEFAULT_INSTALLMENT_MONTHS } from '@/shared/constants';
-import { monthlyInstallment } from '@/shared/utils';
+import { INSTALLMENT_PLANS } from '@shared/constants';
+import { formatPrice, monthlyInstallment } from '@shared/utils';
 
-export default function InstallmentPicker({
-  price,
-  plans = INSTALLMENT_PLANS,
-  currency = CURRENCY,
-  defaultMonths = DEFAULT_INSTALLMENT_MONTHS,
-  onChange,
-}) {
-  const [months, setMonths] = useState(defaultMonths);
-  const handleSelect = (m) => {
-    setMonths(m);
-    onChange?.({ months: m, monthly: monthlyInstallment(price, m) });
-  };
+import styles from './InstallmentPicker.module.css';
+
+/** Installment plans of a price. value and onChange hold the number of months. */
+function InstallmentPicker({ price, value, onChange, plans = INSTALLMENT_PLANS }) {
+  const { t, i18n } = useTranslation();
+
   return (
-    <div className="installment-picker" role="radiogroup" aria-label="Imstallment Plans">
-      {plans.map((m) => {
-        return (
+    <div>
+      <div className={styles.head}>
+        <span className={styles.title}>{t('installments.title')}</span>
+        <span>{t('installments.note')}</span>
+      </div>
+      <div className={styles.plans} role="group" aria-label={t('installments.title')}>
+        {plans.map((months) => (
           <button
-            key={m}
+            key={months}
             type="button"
-            role="radio"
-            aria-checked={months === m}
-            className={`installment-card ${months === m ? 'active' : ''}`}
-            onClick={() => handleSelect(m)}
+            className={styles.plan}
+            aria-pressed={months === value}
+            onClick={() => onChange?.(months)}
           >
-            {' '}
-            <span>{m} Month</span>
-            <strong>
-              {monthlyInstallment(price, m).toLocaleString()} {currency} / month
-            </strong>
+            <span className={styles.months}>
+              {months} {t('price.months')}
+            </span>
+            <span className={styles.amount}>
+              {formatPrice(monthlyInstallment(price, months), i18n.language)}
+            </span>
           </button>
-        );
-      })}
+        ))}
+      </div>
     </div>
   );
 }
+
+export default InstallmentPicker;

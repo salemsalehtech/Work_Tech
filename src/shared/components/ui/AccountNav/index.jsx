@@ -1,23 +1,21 @@
+import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
 
 import styles from './AccountNav.module.css';
 
-export default function AccountNav({ links, ariaLabel = 'Account List' }) {
+/** Side navigation of the account pages. links: [{ to, label, end? }] */
+function AccountNav({ links, label }) {
+  const { t } = useTranslation();
+
   return (
-    <nav aria-label={ariaLabel} className={styles.nav}>
-      <ul className={styles.list}>
-        {links.map(({ to, label, end }) => (
-          <li key={to}>
-            <NavLink
-              to={to}
-              end={end}
-              className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ''}`}
-            >
-              {label}
-            </NavLink>
-          </li>
-        ))}
-      </ul>
+    <nav className={styles.nav} aria-label={label ?? t('accountNav')}>
+      {links.map((link) => (
+        <NavLink key={link.to} to={link.to} end={link.end} className={styles.link}>
+          {link.label}
+        </NavLink>
+      ))}
     </nav>
   );
 }
+
+export default AccountNav;
