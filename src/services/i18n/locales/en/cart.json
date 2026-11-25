@@ -4,11 +4,10 @@
     "cart": "Shopping Cart"
   },
   "title": "Shopping Cart",
-  "itemCount": "{{count}} items in your cart",
+  "itemCount_one": "{{count}} item in your cart",
+  "itemCount_other": "{{count}} items in your cart",
   "clearCart": "Clear cart",
-  "itemsTitle": "Your Items",
-  "products": "products",
-  "removeItem": "Remove item",
+  "removeItem": "Remove {{name}}",
   "continueShopping": "Continue shopping",
   "options": {
     "memory": "Memory",
@@ -22,15 +21,15 @@
   },
   "shipping": {
     "remaining": "You're {{amount}} away from free shipping!",
-    "unlocked": "You've unlocked free shipping!"
+    "unlocked": "You've unlocked free shipping!",
+    "label": "Progress to free shipping"
   },
   "promo": {
     "label": "Promo Code",
     "placeholder": "Enter promo code",
     "apply": "Apply",
     "invalid": "Invalid promo code. Please try again.",
-    "applied": "applied",
-    "remove": "Remove"
+    "applied": "{{code}} applied"
   },
   "summary": {
     "title": "Order Summary",
@@ -45,7 +44,15 @@
   },
   "accessories": {
     "title": "Complete your setup",
-    "description": "Recommended accessories for your device.",
-    "add": "Add to cart"
+    "add": "Add to cart",
+    "category": {
+      "mouse": "Mouse",
+      "sleeve": "Sleeve",
+      "backpack": "Backpack",
+      "cooling": "Cooling",
+      "audio": "Audio",
+      "hub": "Hub",
+      "charger": "Charger"
+    }
   }
 }

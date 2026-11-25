@@ -42,6 +42,11 @@
   color: var(--color-text);
 }
 
+/* Browsers keep phone fields left to right, even on an Arabic page. */
+.control[type='tel'] {
+  direction: inherit;
+}
+
 .control::placeholder {
   color: var(--color-text-muted);
 }

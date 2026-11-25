@@ -27,7 +27,8 @@
     "tabs": {
       "specs": "Specifications",
       "inTheBox": "In the box",
-      "reviews": "Reviews ({{count}})"
+      "reviews": "Reviews ({{total}})",
+      "label": "Product details"
     }
   },
   "specs": {
@@ -59,13 +60,11 @@
     "units": {
       "gb": "{{value}} GB",
       "tb": "{{value}} TB",
-      "inch": "{{value}}\"",
+      "inch": "{{value}}″",
       "hz": "{{value}} Hz",
       "watt": "{{value}} W",
       "kg": "{{value}} kg",
-      "mm": "{{value}} mm",
-      "cores": "{{value}} cores",
-      "threads": "{{value}} threads"
+      "mm": "{{value}} mm"
     }
   },
   "search": {
@@ -93,12 +92,17 @@
     "price": "Price (EGP)",
     "minPrice": "Min",
     "maxPrice": "Max",
-    "memory": "Memory",
     "ramOption": "{{ram}} GB",
     "rating": "Customer rating",
     "ratingUp": "{{rating}} & up",
     "anyRating": "Any rating",
-    "inStockOnly": "In stock only"
+    "inStockOnly": "In stock only",
+    "ram": "Memory",
+    "cpu": "Processor",
+    "gpu": "Graphics",
+    "screen": "Screen size",
+    "integrated": "Integrated",
+    "rtxSeries": "RTX {{series}} series"
   },
   "sort": {
     "label": "Sort products",
@@ -107,5 +111,22 @@
     "price-desc": "Price: High to low",
     "rating": "Highest rated",
     "newest": "Newest arrivals"
+  },
+  "options": {
+    "memory": "Memory",
+    "storage": "Storage",
+    "warranty": "Warranty",
+    "included": "Included"
+  },
+  "categories": {
+    "label": "Categories",
+    "all": "All laptops",
+    "gaming": "Gaming",
+    "business": "Business",
+    "ultrabooks": "Ultrabooks",
+    "two-in-one": "2-in-1",
+    "under-30000": "Under 30,000 EGP",
+    "deals": "Deals",
+    "finder": "Laptop Finder"
   }
 }

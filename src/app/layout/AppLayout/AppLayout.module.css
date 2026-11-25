@@ -1,3 +1,9 @@
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 .skipLink {
   position: absolute;
   inset-inline-start: var(--space-4);
@@ -15,7 +21,7 @@
 }
 
 .main {
-  min-height: 60vh;
+  flex: 1;
 }
 
 .pageLoading {

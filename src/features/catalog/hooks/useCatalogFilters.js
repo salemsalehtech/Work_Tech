@@ -1,13 +1,14 @@
 import { useSearchParams } from 'react-router-dom';
 
-import { FILTER_KEYS } from '../model/filterOptions';
+import { currentPage } from '../model/catalogParams';
+import { FILTER_KEYS, MULTI_FILTERS } from '../model/filterOptions';
 
+/** Reads and writes the catalog filters, sort and page in the URL. */
 export function useCatalogFilters() {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const filters = {
-    brands: searchParams.getAll('brand'),
-    rams: searchParams.getAll('ram'),
+    ...Object.fromEntries(MULTI_FILTERS.map(({ key }) => [key, searchParams.getAll(key)])),
     min: searchParams.get('min') ?? '',
     max: searchParams.get('max') ?? '',
     rating: searchParams.get('rating') ?? '',
@@ -15,65 +16,39 @@ export function useCatalogFilters() {
     sort: searchParams.get('sort') ?? 'featured',
   };
 
-  const updateParams = (mutate) => {
+  const updateParams = (mutate, page = 1) => {
     const next = new URLSearchParams(searchParams);
     mutate(next);
-    next.set('page', '1');
-    setSearchParams(next);
+    next.set('page', String(page));
+    setSearchParams(next, { preventScrollReset: true });
   };
 
-  const setMultiFilter = (key, values) => {
-    updateParams((next) => {
-      next.delete(key);
-      values.forEach((val) => next.append(key, val));
-    });
+  const setParam = (params, key, value) => {
+    if (value) params.set(key, value);
+    else params.delete(key);
   };
-
-  const setSingleFilter = (key, value) => {
-    updateParams((next) => {
-      if (value) next.set(key, value);
-      else next.delete(key);
-    });
-  };
-
-  const setPriceRange = (min, max) => {
-    updateParams((next) => {
-      if (min.trim()) next.set('min', min.trim());
-      else next.delete('min');
-
-      if (max.trim()) next.set('max', max.trim());
-      else next.delete('max');
-    });
-  };
-
-  const setSort = (sortValue) => {
-    updateParams((next) => {
-      if (sortValue && sortValue !== 'featured') next.set('sort', sortValue);
-      else next.delete('sort');
-    });
-  };
-
-  const clearFilters = () => {
-    updateParams((next) => {
-      FILTER_KEYS.forEach((key) => next.delete(key));
-    });
-  };
-
-  const activeCount =
-    filters.brands.length +
-    filters.rams.length +
-    (filters.min ? 1 : 0) +
-    (filters.max ? 1 : 0) +
-    (filters.rating ? 1 : 0) +
-    (filters.inStock ? 1 : 0);
 
   return {
     filters,
-    activeCount,
-    setMultiFilter,
-    setSingleFilter,
-    setPriceRange,
-    setSort,
-    clearFilters,
+    activeCount: FILTER_KEYS.reduce(
+      (count, key) =>
+        count + (Array.isArray(filters[key]) ? filters[key].length : Number(Boolean(filters[key]))),
+      0,
+    ),
+    setMultiFilter: (key, values) =>
+      updateParams((params) => {
+        params.delete(key);
+        values.forEach((value) => params.append(key, value));
+      }),
+    setSingleFilter: (key, value) => updateParams((params) => setParam(params, key, value)),
+    setPriceRange: (min, max) =>
+      updateParams((params) => {
+        setParam(params, 'min', min.trim());
+        setParam(params, 'max', max.trim());
+      }),
+    setSort: (sort) =>
+      updateParams((params) => setParam(params, 'sort', sort === 'featured' ? '' : sort)),
+    clearFilters: () => updateParams((params) => FILTER_KEYS.forEach((key) => params.delete(key))),
+    loadMore: () => updateParams(() => {}, currentPage(searchParams) + 1),
   };
 }

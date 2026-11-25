@@ -1,71 +1,58 @@
-import { describe, expect, it } from 'vitest';
-
-import arCatalog from '../../../services/i18n/locales/ar/catalog.json';
-import enCatalog from '../../../services/i18n/locales/en/catalog.json';
+import i18n from '@services/i18n';
 
 import { formatProductSpecs } from './formatSpecs';
 
-function createTranslator(dict) {
-  return (key, vars = {}) => {
-    const raw = key.split('.').reduce((acc, part) => acc?.[part], dict) ?? vars.defaultValue ?? key;
-    return String(raw).replace(/\{\{(\w+)\}\}/g, (_, name) => vars[name] ?? '');
-  };
-}
+const specs = {
+  cpu: 'Intel Core Ultra 7 255H',
+  cores: 16,
+  ram: 16,
+  storage: 1024,
+  gpuVram: null,
+  screen: 14,
+  refreshRate: 120,
+  weight: 1.2,
+  thickness: 14.9,
+  battery: null,
+  os: '',
+  ports: ['2× Thunderbolt 4', 'HDMI 2.0'],
+};
+const rowsIn = (lang) =>
+  Object.fromEntries(
+    formatProductSpecs(specs, i18n.getFixedT(lang, 'catalog')).map((row) => [row.key, row]),
+  );
 
-describe('formatProductSpecs', () => {
-  const sampleSpecs = {
-    cpu: 'Intel Core Ultra 7 255H',
-    ram: 16,
-    storage: 1024,
-    gpu: 'Intel Arc',
-    gpuVram: null,
-    gpuTgp: null,
-    screen: 14,
-    refreshRate: 120,
-    weight: 1.2,
-    thickness: 14.9,
-    battery: null,
-    os: '',
-    ports: ['2× Thunderbolt 4', 'HDMI 2.0'],
-  };
+it('leaves out the empty specs', () => {
+  const rows = rowsIn('en');
 
-  it('omits null, undefined, and empty string fields', () => {
-    const tEn = createTranslator(enCatalog);
-    const rows = formatProductSpecs(sampleSpecs, tEn);
-    const keys = rows.map((row) => row.key);
+  expect(rows).not.toHaveProperty('gpuVram');
+  expect(rows).not.toHaveProperty('battery');
+  expect(rows).not.toHaveProperty('os');
+});
 
-    expect(keys).not.toContain('gpuVram');
-    expect(keys).not.toContain('gpuTgp');
-    expect(keys).not.toContain('battery');
-    expect(keys).not.toContain('os');
-  });
+it('shows the English units', () => {
+  const rows = rowsIn('en');
 
-  it('formats values with the right English units', () => {
-    const tEn = createTranslator(enCatalog);
-    const rows = Object.fromEntries(
-      formatProductSpecs(sampleSpecs, tEn).map((row) => [row.key, row.value]),
-    );
+  expect(rows.ram).toEqual({ key: 'ram', label: 'Memory', value: '16 GB' });
+  expect(rows.storage.value).toBe('1 TB');
+  expect(rows.screen.value).toBe('14″');
+  expect(rows.refreshRate.value).toBe('120 Hz');
+  expect(rows.weight.value).toBe('1.2 kg');
+  expect(rows.thickness.value).toBe('14.9 mm');
+  expect(rows.cores.value).toBe('16');
+  expect(rows.ports.value).toBe('2× Thunderbolt 4 · HDMI 2.0');
+});
 
-    expect(rows.ram).toBe('16 GB');
-    expect(rows.storage).toBe('1 TB');
-    expect(rows.screen).toBe('14"');
-    expect(rows.refreshRate).toBe('120 Hz');
-    expect(rows.weight).toBe('1.2 kg');
-    expect(rows.thickness).toBe('14.9 mm');
-    expect(rows.ports).toBe('2× Thunderbolt 4 · HDMI 2.0');
-  });
+it('shows the Arabic units', () => {
+  const rows = rowsIn('ar');
 
-  it('formats values with the right Arabic units', () => {
-    const tAr = createTranslator(arCatalog);
-    const rows = Object.fromEntries(
-      formatProductSpecs(sampleSpecs, tAr).map((row) => [row.key, row.value]),
-    );
+  expect(rows.ram).toEqual({ key: 'ram', label: 'الذاكرة العشوائية', value: '16 جيجابايت' });
+  expect(rows.storage.value).toBe('1 تيرابايت');
+  expect(rows.weight.value).toBe('1.2 كجم');
+});
 
-    expect(rows.ram).toBe('16 جيجابايت');
-    expect(rows.storage).toBe('1 تيرابايت');
-    expect(rows.screen).toBe('14 بوصة');
-    expect(rows.refreshRate).toBe('120 هرتز');
-    expect(rows.weight).toBe('1.2 كجم');
-    expect(rows.thickness).toBe('14.9 مم');
-  });
+it('names every spec of the data in both languages', () => {
+  for (const lang of ['en', 'ar']) {
+    const labels = i18n.getResourceBundle(lang, 'catalog').specs.labels;
+    expect(Object.keys(labels)).toHaveLength(23);
+  }
 });

@@ -3,9 +3,9 @@ import { act, renderHook } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { describe, expect, it } from 'vitest';
 
-import { cartReducer, selectCartCount } from '@features/cart';
+import { cartReducer, selectCartCount, selectCartItems } from '@features/cart';
 import { compareReducer, selectCompareIds } from '@features/compare';
-import { wishlistReducer } from '@features/wishlist';
+import { selectWishlistItems, wishlistReducer } from '@features/wishlist';
 
 import { useProductCardActions } from './useProductCardActions';
 
@@ -22,6 +22,14 @@ const sampleProduct = {
     ram: 16,
     storage: 1024,
     gpu: 'NVIDIA GeForce RTX 4060',
+  },
+  options: {
+    memory: [
+      { label: '16 GB', delta: 0 },
+      { label: '32 GB', delta: 5500 },
+    ],
+    storage: [{ label: '1 TB', delta: 0 }],
+    warranty: [{ label: '1 year', delta: 0 }],
   },
 };
 
@@ -77,6 +85,37 @@ describe('useProductCardActions', () => {
     });
 
     expect(selectCartCount(store.getState())).toBe(1);
+  });
+
+  it('uses one line for a card and for its default options on the product page', () => {
+    const { store, Wrapper } = createWrapper();
+    const { result } = renderHook(() => useProductCardActions(), { wrapper: Wrapper });
+
+    act(() => {
+      result.current(sampleProduct).onAddToCart();
+      result
+        .current(sampleProduct, {
+          selection: { memory: '16 GB', storage: '1 TB', warranty: '1 year' },
+        })
+        .onAddToCart();
+    });
+
+    expect(selectCartItems(store.getState())).toHaveLength(1);
+    expect(selectCartItems(store.getState())[0]).toMatchObject({ kind: 'laptop', quantity: 2 });
+  });
+
+  it('saves the product to the wishlist with its base price', () => {
+    const { store, Wrapper } = createWrapper();
+    const { result } = renderHook(() => useProductCardActions(), { wrapper: Wrapper });
+
+    act(() => {
+      result.current(sampleProduct, { selection: { memory: '32 GB' } }).onToggleWishlist();
+    });
+
+    expect(selectWishlistItems(store.getState())[0]).toMatchObject({
+      productId: 'laptop-1',
+      savedPrice: 45990,
+    });
   });
 
   it('toggles the product id in the compare store on onToggleCompare', () => {

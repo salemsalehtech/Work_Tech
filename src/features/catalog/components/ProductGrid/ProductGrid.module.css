@@ -36,20 +36,25 @@
   font-weight: var(--text-mono-label-weight);
   color: var(--color-text-muted);
   text-transform: uppercase;
-  margin: 0;
 }
 
-.progressTrack {
-  width: 200px;
-  height: 2px;
-  background-color: var(--color-line);
-  border-radius: var(--radius-full);
+.progress {
+  width: 240px;
+  height: 4px;
   overflow: hidden;
-  margin-block-end: var(--space-2);
+  border: 0;
+  background: var(--color-line);
+  appearance: none;
 }
 
-.progressFill {
-  height: 100%;
-  background-color: var(--color-ink);
-  transition: width 0.2s ease;
+.progress::-webkit-progress-bar {
+  background: var(--color-line);
+}
+
+.progress::-webkit-progress-value {
+  background: var(--color-ink);
+}
+
+.progress::-moz-progress-bar {
+  background: var(--color-ink);
 }

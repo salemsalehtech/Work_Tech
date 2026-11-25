@@ -4,11 +4,14 @@
     "cart": "سلة التسوق"
   },
   "title": "سلة التسوق",
-  "itemCount": "{{count}} منتجات في سلتك",
+  "itemCount_zero": "لا توجد منتجات في سلتك",
+  "itemCount_one": "منتج واحد في سلتك",
+  "itemCount_two": "منتجان في سلتك",
+  "itemCount_few": "{{count}} منتجات في سلتك",
+  "itemCount_many": "{{count}} منتجًا في سلتك",
+  "itemCount_other": "{{count}} منتج في سلتك",
   "clearCart": "إفراغ السلة",
-  "itemsTitle": "منتجاتك",
-  "products": "منتجات",
-  "removeItem": "حذف المنتج",
+  "removeItem": "حذف {{name}}",
   "continueShopping": "متابعة التسوق",
   "options": {
     "memory": "الذاكرة",
@@ -22,15 +25,15 @@
   },
   "shipping": {
     "remaining": "أضف منتجات بقيمة {{amount}} لتحصل على شحن مجاني!",
-    "unlocked": "مبروك! حصلت على شحن مجاني."
+    "unlocked": "مبروك! حصلت على شحن مجاني.",
+    "label": "التقدم نحو الشحن المجاني"
   },
   "promo": {
     "label": "كود الخصم",
     "placeholder": "أدخل كود الخصم",
     "apply": "تطبيق",
     "invalid": "كود الخصم غير صحيح. حاول مرة أخرى.",
-    "applied": "تم تطبيقه",
-    "remove": "إزالة"
+    "applied": "تم تطبيق {{code}}"
   },
   "summary": {
     "title": "ملخص الطلب",
@@ -45,7 +48,15 @@
   },
   "accessories": {
     "title": "أكمل تجهيزاتك",
-    "description": "إكسسوارات مقترحة لجهازك.",
-    "add": "أضف إلى السلة"
+    "add": "أضف إلى السلة",
+    "category": {
+      "mouse": "ماوس",
+      "sleeve": "حافظة",
+      "backpack": "حقيبة ظهر",
+      "cooling": "تبريد",
+      "audio": "صوتيات",
+      "hub": "موزع منافذ",
+      "charger": "شاحن"
+    }
   }
 }

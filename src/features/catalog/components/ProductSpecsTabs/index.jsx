@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { DataState, EmptyState, Rating, Skeleton, Tabs } from '@shared/components/ui';
@@ -7,13 +8,42 @@ import { formatProductSpecs } from '../../model/formatSpecs';
 
 import styles from './ProductSpecsTabs.module.css';
 
+function SpecsPanel({ specs }) {
+  const { t } = useTranslation('catalog');
+
+  return (
+    <dl className={styles.specsGrid}>
+      {formatProductSpecs(specs, t).map(({ key, label, value }) => (
+        <div key={key} className={styles.specRow}>
+          <dt className={styles.specLabel}>{label}</dt>
+          <dd className={styles.specValue}>
+            <bdi>{value}</bdi>
+          </dd>
+        </div>
+      ))}
+    </dl>
+  );
+}
+
+function BoxPanel({ items }) {
+  return (
+    <ul className={styles.boxList}>
+      {items.map((item) => (
+        <li key={item}>
+          <bdi>{item}</bdi>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 function ReviewsPanel({ productId }) {
   const { t } = useTranslation('catalog');
-  const reviewsResult = useGetReviewsQuery(productId);
+  const result = useGetReviewsQuery(productId);
 
   return (
     <DataState
-      result={reviewsResult}
+      result={result}
       loading={<Skeleton height={140} />}
       empty={
         <EmptyState
@@ -35,7 +65,7 @@ function ReviewsPanel({ productId }) {
                 </div>
                 <Rating value={review.rating} />
               </div>
-              <p className={styles.reviewBody}>{review.body}</p>
+              <p>{review.body}</p>
             </li>
           ))}
         </ul>
@@ -44,54 +74,32 @@ function ReviewsPanel({ productId }) {
   );
 }
 
-export function ProductSpecsTabs({ product }) {
+/** Specifications, In the box and Reviews of a laptop. The reviews load when their tab opens. */
+function ProductSpecsTabs({ product }) {
   const { t } = useTranslation('catalog');
-  const specRows = formatProductSpecs(product.specs, t);
-  const boxItems = product.inTheBox ?? [];
-
-  const tabs = [
-    {
-      label: t('productDetails.tabs.specs'),
-      content: (
-        <dl className={styles.specsGrid}>
-          {specRows.map(({ key, label, value }) => (
-            <div key={key} className={styles.specRow}>
-              <dt className={styles.specLabel}>{label}</dt>
-              <dd className={styles.specValue}>
-                <bdi>{value}</bdi>
-              </dd>
-            </div>
-          ))}
-        </dl>
-      ),
-    },
-    {
-      label: t('productDetails.tabs.inTheBox'),
-      content: (
-        <ul className={styles.boxList}>
-          {boxItems.map((item) => (
-            <li key={item} className={styles.boxItem}>
-              {item}
-            </li>
-          ))}
-        </ul>
-      ),
-    },
-    {
-      label: t('productDetails.tabs.reviews', { count: product.reviewsCount ?? 0 }),
-      content: <ReviewsPanel productId={product.id} />,
-    },
-  ];
+  const [tab, setTab] = useState('specs');
 
   return (
     <section className={styles.section}>
       <Tabs
-        id="product-details-tabs"
-        tabs={tabs}
-        navClassName={styles.tabList}
-        tabClassName={styles.tabButton}
-        activeTab={styles.activeTab}
-      />
+        label={t('productDetails.tabs.label')}
+        items={[
+          { id: 'specs', label: t('productDetails.tabs.specs') },
+          { id: 'inTheBox', label: t('productDetails.tabs.inTheBox') },
+          {
+            id: 'reviews',
+            label: t('productDetails.tabs.reviews', { total: product.reviewsCount }),
+          },
+        ]}
+        value={tab}
+        onChange={setTab}
+      >
+        <div className={styles.panel}>
+          {tab === 'specs' && <SpecsPanel specs={product.specs} />}
+          {tab === 'inTheBox' && <BoxPanel items={product.inTheBox} />}
+          {tab === 'reviews' && <ReviewsPanel productId={product.id} />}
+        </div>
+      </Tabs>
     </section>
   );
 }

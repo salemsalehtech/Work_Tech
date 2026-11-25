@@ -9,7 +9,8 @@
     "errorTitle": "تعذّر تحميل المحتوى",
     "errorText": "تحقق من الاتصال وحاول مرة أخرى.",
     "retry": "حاول مرة أخرى",
-    "errorEyebrow": "خطأ"
+    "errorEyebrow": "خطأ",
+    "done": "مكتملة"
   },
   "actions": {
     "close": "إغلاق",
@@ -19,12 +20,33 @@
     "remove": "حذف",
     "backHome": "العودة إلى المتجر",
     "decrease": "تقليل الكمية",
-    "increase": "زيادة الكمية"
+    "increase": "زيادة الكمية",
+    "keep": "تراجع"
   },
   "price": {
     "or": "أو",
     "months": "شهرًا",
     "vat": "شامل الضريبة"
   },
-  "quantity": "الكمية"
+  "quantity": "الكمية",
+  "breadcrumbs": "مسار الصفحة",
+  "checkoutSteps": "خطوات إتمام الطلب",
+  "orderProgress": "حالة الطلب",
+  "accountNav": "صفحات الحساب",
+  "installments": {
+    "title": "خطة التقسيط",
+    "note": "تقديرية، والشروط النهائية من جهة التقسيط.",
+    "plan_zero": "{{count}} شهر",
+    "plan_one": "شهر واحد",
+    "plan_two": "شهران",
+    "plan_few": "{{count}} أشهر",
+    "plan_many": "{{count}} شهرًا",
+    "plan_other": "{{count}} شهر"
+  },
+  "password": {
+    "show": "إظهار",
+    "hide": "إخفاء",
+    "showLabel": "إظهار كلمة المرور",
+    "hideLabel": "إخفاء كلمة المرور"
+  }
 }

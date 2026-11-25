@@ -1,17 +1,28 @@
 import styles from './Toggle.module.css';
-function Toggle({ id, label, onChange, checked, disabled = false }) {
+
+/** On and off switch with its label, for example "In stock only", and an optional description. */
+function Toggle({ id, label, description, checked, onChange, disabled = false }) {
   return (
-    <label htmlFor={id}>
+    <label className={styles.row} htmlFor={id}>
+      <span>
+        {label}
+        {description && (
+          <span id={`${id}-description`} className={styles.description}>
+            {description}
+          </span>
+        )}
+      </span>
       <input
-        className={`toggle ${styles.toggle}`}
         id={id}
         type="checkbox"
         role="switch"
+        className={styles.toggle}
+        aria-label={label}
+        aria-describedby={description ? `${id}-description` : undefined}
         checked={checked}
         disabled={disabled}
-        onChange={(e) => onChange(e.target.checked)}
+        onChange={(event) => onChange?.(event.target.checked)}
       />
-      <span>{label}</span>
     </label>
   );
 }

@@ -1,5 +1,12 @@
 import { useId } from 'react';
 
+import styles from './ChoiceList.module.css';
+
+/**
+ * Radios, or checkboxes with `multiple`, where the whole row is the target.
+ * options: [{ value, label, description?, aside?, disabled? }]. variant: stacked | cards
+ * Leave `legend` out inside a FilterGroup, which already names the group.
+ */
 function ChoiceList({
   legend,
   options = [],
@@ -7,44 +14,42 @@ function ChoiceList({
   onChange,
   multiple = false,
   name,
-  variant = 'list',
+  variant = 'stacked',
 }) {
   const autoName = useId();
-  const groupName = name || autoName;
-  const type = multiple ? 'checkbox' : 'radio';
-  const isChecked = (v) => (multiple ? (value || []).includes(v) : value === v);
-  const handleChange = (v) => {
-    if (!multiple) return onChange(v);
-    const current = value || [];
-    onChange(current.includes(v) ? current.filter((x) => x !== v) : [...current, v]);
+  const isChecked = (option) => (multiple ? value.includes(option) : value === option);
+
+  const handleChange = (option) => {
+    if (!multiple) onChange?.(option);
+    else if (value.includes(option)) onChange?.(value.filter((item) => item !== option));
+    else onChange?.([...value, option]);
   };
+
   return (
-    <fieldset className={`choiceList ${variant}`}>
-      <legend>{legend}</legend>
-      <div className="choiceList-options">
-        {options.map((option) => {
-          const id = `${groupName}-${option.value}`;
-          return (
-            <div className="choiceList_item" key={option.value}>
-              <input
-                id={id}
-                className="choiceList_input"
-                type={type}
-                name={groupName}
-                value={option.value}
-                checked={isChecked(option.value)}
-                disabled={option.disabled}
-                onChange={() => handleChange(option.value)}
-              />
-              <label htmlFor={id} className="choiceList_label">
-                <span className="choiceList_title">{option.label}</span>
-                {option.description && (
-                  <span className="choiceList_desc">{option.description}</span>
-                )}
-              </label>
-            </div>
-          );
-        })}
+    <fieldset className={styles.fieldset}>
+      {legend && <legend className={styles.legend}>{legend}</legend>}
+      <div className={styles[variant]}>
+        {options.map((option) => (
+          <label key={option.value} className={styles.choice}>
+            <input
+              type={multiple ? 'checkbox' : 'radio'}
+              name={name ?? autoName}
+              value={option.value}
+              checked={isChecked(option.value)}
+              disabled={option.disabled}
+              onChange={() => handleChange(option.value)}
+            />
+            <span className={styles.text}>
+              <span className={styles.title}>
+                <bdi>{option.label}</bdi>
+              </span>
+              {option.description && (
+                <span className={styles.description}>{option.description}</span>
+              )}
+            </span>
+            {option.aside && <span className={styles.aside}>{option.aside}</span>}
+          </label>
+        ))}
       </div>
     </fieldset>
   );

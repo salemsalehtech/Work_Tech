@@ -2,7 +2,15 @@ import { useRef } from 'react';
 
 import styles from './SegmentedControl.module.css';
 
-export default function SegmentedControl({ options, value, onChange, ariaLabel }) {
+/** One choice from two to five short options. options: [{ value, label, count? }]. variant: joined | chips */
+function SegmentedControl({
+  options,
+  value,
+  onChange,
+  ariaLabel,
+  fullWidth = false,
+  variant = 'joined',
+}) {
   const buttonsRef = useRef([]);
 
   const handleKeyDown = (e, index) => {
@@ -20,7 +28,11 @@ export default function SegmentedControl({ options, value, onChange, ariaLabel }
   };
 
   return (
-    <div role="radiogroup" aria-label={ariaLabel} className={styles.group}>
+    <div
+      role="radiogroup"
+      aria-label={ariaLabel}
+      className={[styles[variant], fullWidth && styles.fullWidth].filter(Boolean).join(' ')}
+    >
       {options.map((opt, idx) => {
         const active = opt.value === value;
 
@@ -37,9 +49,12 @@ export default function SegmentedControl({ options, value, onChange, ariaLabel }
             onKeyDown={(e) => handleKeyDown(e, idx)}
           >
             {opt.label}
+            {opt.count !== undefined && <span className={styles.count}>{opt.count}</span>}
           </button>
         );
       })}
     </div>
   );
 }
+
+export default SegmentedControl;

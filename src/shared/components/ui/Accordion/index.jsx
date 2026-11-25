@@ -1,46 +1,50 @@
 import { useId, useState } from 'react';
 
-function Accordion({ items = [], allowMultiple = false, defaultOpenIds = [], className = '' }) {
-  const [open, setOpen] = useState(allowMultiple ? defaultOpenIds : defaultOpenIds.slice(0, 1));
+import styles from './Accordion.module.css';
+
+/** Questions that open their answers. items: [{ id, title, content, category? }] */
+function Accordion({ items = [], allowMultiple = false, defaultOpenIds = [] }) {
+  const [openIds, setOpenIds] = useState(
+    allowMultiple ? defaultOpenIds : defaultOpenIds.slice(0, 1),
+  );
   const baseId = useId();
-  const handleAccordion = (id) => {
-    setOpen((prev) => {
-      if (prev.includes(id)) {
-        return prev.filter((opened) => opened !== id);
-      }
-      return allowMultiple ? [...prev, id] : [id];
+
+  const toggle = (id) =>
+    setOpenIds((current) => {
+      if (current.includes(id)) return current.filter((openId) => openId !== id);
+      return allowMultiple ? [...current, id] : [id];
     });
-  };
-  if (!items.length) return null;
 
   return (
-    <div className={`accordion ${className}`}>
-      {items.map(({ id, title, content }) => {
-        const isOpen = open.includes(id);
-        const headerId = `${baseId}-header-${id}`;
+    <div>
+      {items.map(({ id, title, content, category }) => {
+        const isOpen = openIds.includes(id);
+        const buttonId = `${baseId}-button-${id}`;
         const panelId = `${baseId}-panel-${id}`;
 
         return (
-          <div key={id} className={`accordion_item ${isOpen ? 'is-open' : ''}`}>
+          <div key={id} className={styles.item}>
             <button
-              id={headerId}
+              id={buttonId}
               type="button"
-              className="accordion_button"
+              className={styles.button}
               aria-expanded={isOpen}
               aria-controls={panelId}
-              onClick={() => handleAccordion(id)}
+              onClick={() => toggle(id)}
             >
-              <span className="accordion_title">{title}</span>
-              <span className="accordion_mark" aria-hidden="true">
-                {isOpen ? '-' : '+'}
+              <span className={styles.question}>
+                {category && <span className={styles.category}>{category}</span>}
+                <span className={styles.title}>{title}</span>
+              </span>
+              <span className={styles.sign} aria-hidden="true">
+                {isOpen ? '−' : '+'}
               </span>
             </button>
-
             <div
               id={panelId}
               role="region"
-              aria-labelledby={headerId}
-              className="accordion_panel"
+              aria-labelledby={buttonId}
+              className={[styles.answer, category && styles.indented].filter(Boolean).join(' ')}
               hidden={!isOpen}
             >
               {content}

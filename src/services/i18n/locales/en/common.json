@@ -9,7 +9,8 @@
     "errorTitle": "We could not load this",
     "errorText": "Check your connection and try again.",
     "retry": "Try again",
-    "errorEyebrow": "Error"
+    "errorEyebrow": "Error",
+    "done": "Completed"
   },
   "actions": {
     "close": "Close",
@@ -19,12 +20,29 @@
     "remove": "Remove",
     "backHome": "Back to the store",
     "decrease": "Decrease quantity",
-    "increase": "Increase quantity"
+    "increase": "Increase quantity",
+    "keep": "Keep it"
   },
   "price": {
     "or": "or",
     "months": "months",
     "vat": "VAT included"
   },
-  "quantity": "Quantity"
+  "quantity": "Quantity",
+  "breadcrumbs": "Breadcrumbs",
+  "checkoutSteps": "Checkout steps",
+  "orderProgress": "Order progress",
+  "accountNav": "Account pages",
+  "installments": {
+    "title": "Installment plan",
+    "note": "Indicative. Final terms by the provider.",
+    "plan_one": "{{count}} month",
+    "plan_other": "{{count}} months"
+  },
+  "password": {
+    "show": "Show",
+    "hide": "Hide",
+    "showLabel": "Show password",
+    "hideLabel": "Hide password"
+  }
 }

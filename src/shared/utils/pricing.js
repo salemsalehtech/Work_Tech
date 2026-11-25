@@ -13,6 +13,19 @@ export function discountPercent(price, oldPrice) {
 }
 
 /**
+ * The chosen label of every option group: the requested one when it exists, else the first (delta 0).
+ * resolveSelection(options, { memory: '32 GB' }) → { memory: '32 GB', storage: '512 GB', warranty: '1 year' }
+ */
+export function resolveSelection(options = {}, requested = {}) {
+  return Object.fromEntries(
+    Object.entries(options).map(([group, items]) => {
+      const chosen = items.find((item) => item.label === requested[group]) ?? items[0];
+      return [group, chosen.label];
+    }),
+  );
+}
+
+/**
  * Unit price of a laptop with the chosen options.
  * selection = { memory: '32 GB', storage: '1 TB', warranty: '2 years' }; unknown labels add 0.
  */

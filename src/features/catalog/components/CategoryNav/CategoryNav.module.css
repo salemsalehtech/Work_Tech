@@ -1,0 +1,40 @@
+.nav {
+  border-bottom: 1px solid var(--color-line);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-7);
+  height: var(--control-lg);
+  overflow-x: auto;
+  font-size: var(--text-ui-size);
+  font-weight: var(--text-ui-weight);
+  white-space: nowrap;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  color: var(--color-ink);
+}
+
+.link[aria-current='page'] {
+  box-shadow: var(--ring-nav);
+}
+
+.row .deals {
+  color: var(--color-sale);
+}
+
+.finder {
+  gap: var(--space-2);
+  margin-inline-start: auto;
+}
+
+.mark {
+  width: 8px;
+  height: 8px;
+  background: var(--color-gold);
+}

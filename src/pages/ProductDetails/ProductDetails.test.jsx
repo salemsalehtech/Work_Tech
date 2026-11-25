@@ -133,7 +133,7 @@ describe('ProductDetails page', () => {
     expect(screen.getByRole('heading', { name: 'Product not found' })).toBeInTheDocument();
   });
 
-  it('updates price, installment plans, URL params, and creates separate cart lines', async () => {
+  it('updates price, installment, URL params, and creates separate cart lines for different options', async () => {
     vi.mocked(useGetProductQuery).mockReturnValue({
       data: sampleLaptop,
       isLoading: false,
@@ -142,20 +142,86 @@ describe('ProductDetails page', () => {
 
     const { store } = renderProductRoute('/products/asus-zenbook-14');
 
+    // Add default 16 GB configuration
     await userEvent.click(screen.getByRole('button', { name: 'Add to cart' }));
-    await userEvent.click(screen.getByRole('button', { name: /32 GB/i }));
+
+    // Select 32 GB (+5,500 EGP -> 82,499 EGP)
+    await userEvent.click(screen.getByRole('radio', { name: /32 GB/ }));
 
     expect(screen.getAllByText('82,499 EGP').length).toBeGreaterThan(0);
-    // 82499 / 24 = 3,437 EGP / month in InstallmentPicker
-    expect(screen.getByText(/3,437 EGP \/ month/i)).toBeInTheDocument();
     expect(screen.getByTestId('location').textContent).toContain('memory=32+GB');
 
+    // Add 32 GB configuration -> creates a second line in cart
     await userEvent.click(screen.getByRole('button', { name: 'Add to cart' }));
 
     const cartItems = selectCartItems(store.getState());
     expect(cartItems).toHaveLength(2);
     expect(cartItems[0].options.memory).toBe('16 GB');
     expect(cartItems[1].options.memory).toBe('32 GB');
+  });
+
+  it('opens a shared link with its options and keeps them when another one changes', async () => {
+    vi.mocked(useGetProductQuery).mockReturnValue({
+      data: sampleLaptop,
+      isLoading: false,
+      isError: false,
+    });
+
+    const { store } = renderProductRoute(
+      '/products/asus-zenbook-14?memory=32%20GB&warranty=2%20years',
+    );
+
+    expect(screen.getByRole('radio', { name: /32 GB/ })).toBeChecked();
+    expect(screen.getByRole('radio', { name: /2 years/ })).toBeChecked();
+    expect(screen.getByText('85,599 EGP')).toBeInTheDocument();
+
+    await userEvent.click(screen.getByRole('radio', { name: /1 TB/ }));
+    await userEvent.click(screen.getByRole('button', { name: 'Add to cart' }));
+
+    expect(selectCartItems(store.getState())[0]).toMatchObject({
+      options: { memory: '32 GB', storage: '1 TB', warranty: '2 years' },
+      price: 89599,
+      warrantyDelta: 3100,
+    });
+  });
+
+  it('follows the chosen options and plan in the monthly price', async () => {
+    vi.mocked(useGetProductQuery).mockReturnValue({
+      data: sampleLaptop,
+      isLoading: false,
+      isError: false,
+    });
+
+    renderProductRoute('/products/asus-zenbook-14?memory=32%20GB');
+    expect(screen.getByRole('button', { name: /^24/, pressed: true })).toHaveTextContent(
+      '3,437 EGP',
+    );
+
+    await userEvent.click(screen.getByRole('button', { name: /^12/ }));
+
+    expect(screen.getByRole('button', { name: /^12/, pressed: true })).toHaveTextContent(
+      '6,875 EGP',
+    );
+    expect(screen.getAllByText('6,875 EGP')).toHaveLength(2);
+  });
+
+  it('switches between the specifications, the box and the reviews', async () => {
+    vi.mocked(useGetProductQuery).mockReturnValue({
+      data: sampleLaptop,
+      isLoading: false,
+      isError: false,
+    });
+
+    renderProductRoute('/products/asus-zenbook-14');
+    expect(screen.getByText('1.2 kg')).toBeInTheDocument();
+    expect(screen.queryByText('GPU VRAM')).not.toBeInTheDocument();
+    expect(useGetReviewsQuery).not.toHaveBeenCalled();
+
+    await userEvent.click(screen.getByRole('tab', { name: 'In the box' }));
+    expect(screen.getByText('65 W power adapter')).toBeInTheDocument();
+
+    await userEvent.click(screen.getByRole('tab', { name: 'Reviews (5)' }));
+    expect(screen.getByText('Great screen')).toBeInTheDocument();
   });
 
   it('adds configured item and navigates to checkout on Buy now', async () => {
@@ -171,24 +237,5 @@ describe('ProductDetails page', () => {
 
     expect(selectCartItems(store.getState())).toHaveLength(1);
     expect(screen.getByTestId('location').textContent).toBe('/checkout');
-  });
-
-  it('renders specs without null fields and switches between Specs, In the box, and Reviews tabs', async () => {
-    vi.mocked(useGetProductQuery).mockReturnValue({
-      data: sampleLaptop,
-      isLoading: false,
-      isError: false,
-    });
-
-    renderProductRoute('/products/asus-zenbook-14');
-
-    expect(screen.getByText('1.2 kg')).toBeInTheDocument();
-    expect(screen.queryByText('GPU VRAM')).not.toBeInTheDocument();
-
-    await userEvent.click(screen.getByRole('tab', { name: 'In the box' }));
-    expect(screen.getByText('65 W power adapter')).toBeInTheDocument();
-
-    await userEvent.click(screen.getByRole('tab', { name: /Reviews/i }));
-    expect(screen.getByText('Great screen')).toBeInTheDocument();
   });
 });
