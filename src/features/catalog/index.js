@@ -13,3 +13,4 @@ export { PRODUCT_TAGS, getProductTag } from './model/productTags';
 export { ProductFilters } from './components/ProductFilters';
 export { useCatalogFilters } from './hooks/useCatalogFilters';
 export { SORT_KEYS } from './model/filterOptions';
+export { ProductGallery } from './components/ProductGallery';
