@@ -35,7 +35,13 @@
   "accountNav": "صفحات الحساب",
   "installments": {
     "title": "خطة التقسيط",
-    "note": "تقديرية، والشروط النهائية من جهة التقسيط."
+    "note": "تقديرية، والشروط النهائية من جهة التقسيط.",
+    "plan_zero": "{{count}} شهر",
+    "plan_one": "شهر واحد",
+    "plan_two": "شهران",
+    "plan_few": "{{count}} أشهر",
+    "plan_many": "{{count}} شهرًا",
+    "plan_other": "{{count}} شهر"
   },
   "password": {
     "show": "إظهار",

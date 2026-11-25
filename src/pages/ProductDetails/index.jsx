@@ -1,29 +1,20 @@
+import { Fragment } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
+import { ProductGallery, ProductSpecsTabs, useGetProductQuery } from '@features/catalog';
 import {
-  ProductGallery,
-  ProductOptions,
-  useGetProductQuery,
-  useProductCardActions,
-} from '@features/catalog';
-import {
-  Badge,
   Breadcrumbs,
   Button,
   Container,
   DataState,
   EmptyState,
-  IconButton,
-  Price,
-  Rating,
   Skeleton,
-  ValueScore,
 } from '@shared/components/ui';
-import { DEFAULT_INSTALLMENT_MONTHS, LOW_STOCK_AT, PATHS } from '@shared/constants';
-import { priceWithOptions, resolveSelection } from '@shared/utils';
+import { PATHS } from '@shared/constants';
 
 import styles from './ProductDetails.module.css';
+import ProductInfo from './ProductInfo';
 
 function ProductDetailsSkeleton() {
   return (
@@ -33,91 +24,6 @@ function ProductDetailsSkeleton() {
         <Skeleton height={36} />
         <Skeleton height={48} />
         <Skeleton height={220} />
-      </div>
-    </div>
-  );
-}
-
-function StockBadge({ stock }) {
-  const { t } = useTranslation('catalog');
-  if (stock === 0) return <Badge tone="sale">{t('productCard.outOfStock')}</Badge>;
-  return (
-    <Badge tone="success">
-      {stock <= LOW_STOCK_AT
-        ? t('productCard.onlyLeft', { count: stock })
-        : t('productDetails.inStock')}
-    </Badge>
-  );
-}
-
-/** The chosen options live in the URL, so a configured laptop can be shared and survives a reload. */
-function ProductInfo({ product }) {
-  const { t } = useTranslation('catalog');
-  const navigate = useNavigate();
-  const [searchParams, setSearchParams] = useSearchParams();
-  const actionsOf = useProductCardActions();
-
-  const selection = resolveSelection(product.options, Object.fromEntries(searchParams));
-  const actions = actionsOf(product, { selection });
-  const outOfStock = product.stock === 0;
-
-  const handleOptionChange = (group, label) => {
-    const next = new URLSearchParams(searchParams);
-    next.set(group, label);
-    setSearchParams(next, { replace: true, preventScrollReset: true });
-  };
-
-  const handleBuyNow = () => {
-    actions.onAddToCart();
-    navigate(PATHS.CHECKOUT);
-  };
-
-  return (
-    <div className={styles.info}>
-      <p className={styles.brand}>{product.brand}</p>
-      <h1 className={styles.title}>{product.name}</h1>
-
-      <div className={styles.meta}>
-        <Rating value={product.rating} count={product.reviewsCount} />
-        <ValueScore score={product.valueScore} />
-        <StockBadge stock={product.stock} />
-      </div>
-
-      <div className={styles.priceBox}>
-        <Price
-          value={priceWithOptions(product.price, product.options, selection)}
-          oldPrice={product.oldPrice}
-          months={DEFAULT_INSTALLMENT_MONTHS}
-          size="xl"
-          showVat
-        />
-      </div>
-
-      <ProductOptions
-        options={product.options}
-        selection={selection}
-        onChange={handleOptionChange}
-      />
-
-      <div className={styles.actions}>
-        <Button size="xl" onClick={actions.onAddToCart} disabled={outOfStock}>
-          {outOfStock ? t('productCard.outOfStock') : t('productCard.addToCart')}
-        </Button>
-        <Button variant="dark" size="xl" onClick={handleBuyNow} disabled={outOfStock}>
-          {t('productDetails.buyNow')}
-        </Button>
-        <IconButton
-          icon="compare"
-          label={t('productCard.addToCompare')}
-          pressed={actions.inCompare}
-          onClick={actions.onToggleCompare}
-        />
-        <IconButton
-          icon="heart"
-          label={t('productCard.saveToWishlist')}
-          pressed={actions.inWishlist}
-          onClick={actions.onToggleWishlist}
-        />
       </div>
     </div>
   );
@@ -149,7 +55,7 @@ function ProductDetails() {
         error={result.error?.status === 404 ? notFound : undefined}
       >
         {(product) => (
-          <>
+          <Fragment key={product.id}>
             <div className={styles.breadcrumbs}>
               <Breadcrumbs
                 items={[
@@ -160,10 +66,11 @@ function ProductDetails() {
               />
             </div>
             <div className={styles.grid}>
-              <ProductGallery key={product.id} images={product.images} name={product.name} />
+              <ProductGallery images={product.images} name={product.name} />
               <ProductInfo product={product} />
             </div>
-          </>
+            <ProductSpecsTabs product={product} />
+          </Fragment>
         )}
       </DataState>
     </Container>

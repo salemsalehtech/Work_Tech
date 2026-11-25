@@ -35,7 +35,9 @@
   "accountNav": "Account pages",
   "installments": {
     "title": "Installment plan",
-    "note": "Indicative. Final terms by the provider."
+    "note": "Indicative. Final terms by the provider.",
+    "plan_one": "{{count}} month",
+    "plan_other": "{{count}} months"
   },
   "password": {
     "show": "Show",
