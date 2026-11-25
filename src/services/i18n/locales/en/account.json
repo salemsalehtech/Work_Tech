@@ -1,1 +1,158 @@
-{}
+{
+  "auth": {
+    "title": "Welcome to WorkTech",
+    "signInTab": "Sign In",
+    "createAccountTab": "Create Account",
+    "signInTitle": "Sign in to your account",
+    "signInSubtitle": "Enter your email and password to access your account.",
+    "createAccountTitle": "Create your account",
+    "createAccountSubtitle": "Join WorkTech to track orders, save wishlist items, and checkout faster.",
+    "fields": {
+      "fullName": "Full Name",
+      "fullNamePlaceholder": "e.g. Marwan Tarek",
+      "email": "Email Address",
+      "emailPlaceholder": "name@example.com",
+      "phone": "Mobile Number",
+      "phonePlaceholder": "01012345678",
+      "password": "Password",
+      "passwordPlaceholder": "At least 8 characters",
+      "confirmPassword": "Confirm Password",
+      "confirmPasswordPlaceholder": "Re-enter your password",
+      "showPassword": "Show password",
+      "hidePassword": "Hide password"
+    },
+    "actions": {
+      "signIn": "Sign In",
+      "signingIn": "Signing in...",
+      "createAccount": "Create Account",
+      "creatingAccount": "Creating account...",
+      "useDemoAccount": "Use Demo Account",
+      "dontHaveAccount": "Don't have an account?",
+      "alreadyHaveAccount": "Already have an account?",
+      "goToSignUp": "Create one",
+      "goToSignIn": "Sign in"
+    },
+    "demo": {
+      "title": "Demo Account Credentials",
+      "subtitle": "Use these credentials to test the storefront and review sample orders.",
+      "badge": "Demo Account",
+      "email": "Email",
+      "password": "Password",
+      "fillButton": "Use Demo Credentials"
+    },
+    "validation": {
+      "fullNameRequired": "Full name is required",
+      "emailRequired": "Email address is required",
+      "emailInvalid": "Please enter a valid email address",
+      "phoneRequired": "Mobile number is required",
+      "phoneInvalid": "Please enter a valid Egyptian mobile number (e.g. 01012345678)",
+      "passwordRequired": "Password is required",
+      "passwordMinLength": "Password must be at least 8 characters",
+      "confirmPasswordRequired": "Please confirm your password",
+      "passwordsMismatch": "Passwords do not match"
+    },
+    "errors": {
+      "default": "An unexpected error occurred. Please try again.",
+      "invalidCredentials": "The email or password you entered is incorrect.",
+      "accountNotFound": "No account found with this email address.",
+      "incorrectPassword": "The password you entered is incorrect.",
+      "emailExists": "An account with this email already exists."
+    },
+    "success": {
+      "registered": "Account created successfully! Redirecting..."
+    }
+  },
+  "page": {
+    "title": "My Account",
+    "subtitle": "Manage your profile, shipping addresses, and notification preferences."
+  },
+  "nav": {
+    "ariaLabel": "Account Navigation",
+    "overview": "Account Details",
+    "orders": "My Orders",
+    "wishlist": "My Wishlist",
+    "signOut": "Sign Out"
+  },
+  "profile": {
+    "title": "Personal Information",
+    "subtitle": "Update your personal details and contact information.",
+    "fullName": "Full Name",
+    "fullNamePlaceholder": "Enter your full name",
+    "email": "Email Address",
+    "emailNote": "Email address cannot be changed.",
+    "phone": "Mobile Number",
+    "phonePlaceholder": "01012345678",
+    "saveChanges": "Save Changes",
+    "saving": "Saving...",
+    "successMessage": "Your personal information has been updated successfully.",
+    "validation": {
+      "nameRequired": "Full name is required",
+      "nameLength": "Full name must be between 3 and 60 characters",
+      "phoneRequired": "Mobile number is required",
+      "phoneInvalid": "Please enter a valid Egyptian mobile number (e.g. 01012345678)"
+    }
+  },
+  "addresses": {
+    "title": "Saved Addresses",
+    "subtitle": "Manage your shipping and delivery destinations.",
+    "addNew": "Add New Address",
+    "cancel": "Cancel",
+    "saveAddress": "Save Address",
+    "saving": "Saving...",
+    "defaultBadge": "Default",
+    "setDefault": "Set as default",
+    "delete": "Delete",
+    "deleteConfirm": "Are you sure you want to delete this address?",
+    "successAdd": "New address added successfully.",
+    "successDelete": "Address deleted successfully.",
+    "successDefault": "Default address updated.",
+    "emptyTitle": "No saved addresses",
+    "emptyText": "You have not saved any addresses yet. Add an address for faster checkout.",
+    "form": {
+      "title": "Add a new address",
+      "fullName": "Recipient Name",
+      "fullNamePlaceholder": "Enter recipient's full name",
+      "phone": "Mobile Number",
+      "phonePlaceholder": "01012345678",
+      "city": "City / Governorate",
+      "cityPlaceholder": "e.g. Cairo",
+      "address": "Street Address",
+      "addressPlaceholder": "Building number, street, apartment...",
+      "setAsDefault": "Set as default delivery address"
+    },
+    "validation": {
+      "fullNameRequired": "Recipient name is required",
+      "phoneRequired": "Mobile number is required",
+      "phoneInvalid": "Please enter a valid Egyptian mobile number",
+      "cityRequired": "City is required",
+      "addressRequired": "Street address is required",
+      "addressMinLength": "Street address must be at least 10 characters"
+    }
+  },
+  "notifications": {
+    "title": "Notification Preferences",
+    "subtitle": "Choose what updates and communications you would like to receive.",
+    "savedFeedback": "Preferences updated successfully.",
+    "orderUpdates": {
+      "label": "Order status updates",
+      "description": "Receive SMS and email notifications regarding your order progress."
+    },
+    "promotions": {
+      "label": "Exclusive offers & promotions",
+      "description": "Get early access to sales, seasonal discounts, and deals."
+    },
+    "priceDrops": {
+      "label": "Price drop alerts",
+      "description": "Be notified when items in your wishlist drop in price."
+    },
+    "newsletter": {
+      "label": "Weekly tech digest",
+      "description": "Receive curated news, laptop reviews, and buying guides."
+    }
+  },
+  "logout": {
+    "button": "Sign Out",
+    "confirmTitle": "Sign out of WorkTech?",
+    "confirmMessage": "You will be redirected to the home page."
+  }
+}

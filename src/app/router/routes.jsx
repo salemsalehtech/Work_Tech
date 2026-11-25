@@ -1,5 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 
+import { RequireAuth } from '@features/auth';
 import { PATHS } from '@shared/constants';
 
 import { AppLayout, RouteError } from '../layout';
@@ -35,12 +36,7 @@ export const router = createBrowserRouter([
       { path: PATHS.SEARCH, element: <SearchResults /> },
       { path: PATHS.PRODUCT_DETAILS, element: <ProductDetails /> },
       { path: PATHS.CART, element: <Cart /> },
-      { path: PATHS.CHECKOUT, element: <Checkout /> },
-      { path: PATHS.ORDER_SUCCESS, element: <OrderSuccess /> },
       { path: PATHS.AUTH, element: <Auth /> },
-      { path: PATHS.ACCOUNT, element: <Account /> },
-      { path: PATHS.ORDERS, element: <Orders /> },
-      { path: PATHS.ORDER_DETAILS, element: <OrderDetails /> },
       { path: PATHS.WISHLIST, element: <Wishlist /> },
       { path: PATHS.FINDER, element: <Finder /> },
       { path: PATHS.COMPARE, element: <Compare /> },
@@ -48,6 +44,16 @@ export const router = createBrowserRouter([
       { path: PATHS.CONTACT, element: <Contact /> },
       { path: PATHS.FAQ, element: <Faq /> },
       { path: PATHS.POLICIES, element: <Policies /> },
+      {
+        element: <RequireAuth />,
+        children: [
+          { path: PATHS.ACCOUNT, element: <Account /> },
+          { path: PATHS.ORDERS, element: <Orders /> },
+          { path: PATHS.ORDER_DETAILS, element: <OrderDetails /> },
+          { path: PATHS.CHECKOUT, element: <Checkout /> },
+          { path: PATHS.ORDER_SUCCESS, element: <OrderSuccess /> },
+        ],
+      },
       { path: '*', element: <NotFound /> },
     ],
   },
