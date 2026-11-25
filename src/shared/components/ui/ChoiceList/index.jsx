@@ -40,7 +40,9 @@ function ChoiceList({
               onChange={() => handleChange(option.value)}
             />
             <span className={styles.text}>
-              <span className={styles.title}>{option.label}</span>
+              <span className={styles.title}>
+                <bdi>{option.label}</bdi>
+              </span>
               {option.description && (
                 <span className={styles.description}>{option.description}</span>
               )}

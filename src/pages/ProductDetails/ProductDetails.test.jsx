@@ -6,7 +6,7 @@ import { MemoryRouter, Route, Routes, useLocation } from 'react-router-dom';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { cartReducer, selectCartItems } from '@features/cart';
-import { catalogApi, useGetProductQuery } from '@features/catalog';
+import { catalogApi, useGetProductQuery, useGetReviewsQuery } from '@features/catalog';
 import { compareReducer } from '@features/compare';
 import { wishlistReducer } from '@features/wishlist';
 
@@ -17,6 +17,7 @@ vi.mock('../../features/catalog/api/catalogApi', async (importOriginal) => {
   return {
     ...actual,
     useGetProductQuery: vi.fn(),
+    useGetReviewsQuery: vi.fn(),
   };
 });
 
@@ -32,7 +33,15 @@ const sampleLaptop = {
   reviewsCount: 5,
   stock: 10,
   valueScore: 86,
-  specs: { cpu: 'Intel Core Ultra 7 255H', ram: 16, storage: 512, gpu: 'Intel Arc' },
+  specs: {
+    cpu: 'Intel Core Ultra 7 255H',
+    ram: 16,
+    storage: 512,
+    gpu: 'Intel Arc',
+    gpuVram: null,
+    weight: 1.2,
+  },
+  inTheBox: ['Zenbook 14 OLED', '65 W power adapter'],
   options: {
     memory: [
       { label: '16 GB', delta: 0 },
@@ -95,6 +104,20 @@ function renderProductRoute(initialEntry = '/products/asus-zenbook-14') {
 describe('ProductDetails page', () => {
   beforeEach(() => {
     vi.mocked(useGetProductQuery).mockReset();
+    vi.mocked(useGetReviewsQuery).mockReturnValue({
+      data: [
+        {
+          id: 'r-001',
+          userName: 'Ahmed M.',
+          city: 'Nasr City',
+          rating: 5,
+          title: 'Great screen',
+          body: 'The OLED screen is amazing.',
+        },
+      ],
+      isLoading: false,
+      isError: false,
+    });
   });
 
   it('shows EmptyState when the product is not found (404)', () => {
@@ -160,6 +183,45 @@ describe('ProductDetails page', () => {
       price: 89599,
       warrantyDelta: 3100,
     });
+  });
+
+  it('follows the chosen options and plan in the monthly price', async () => {
+    vi.mocked(useGetProductQuery).mockReturnValue({
+      data: sampleLaptop,
+      isLoading: false,
+      isError: false,
+    });
+
+    renderProductRoute('/products/asus-zenbook-14?memory=32%20GB');
+    expect(screen.getByRole('button', { name: /^24/, pressed: true })).toHaveTextContent(
+      '3,437 EGP',
+    );
+
+    await userEvent.click(screen.getByRole('button', { name: /^12/ }));
+
+    expect(screen.getByRole('button', { name: /^12/, pressed: true })).toHaveTextContent(
+      '6,875 EGP',
+    );
+    expect(screen.getAllByText('6,875 EGP')).toHaveLength(2);
+  });
+
+  it('switches between the specifications, the box and the reviews', async () => {
+    vi.mocked(useGetProductQuery).mockReturnValue({
+      data: sampleLaptop,
+      isLoading: false,
+      isError: false,
+    });
+
+    renderProductRoute('/products/asus-zenbook-14');
+    expect(screen.getByText('1.2 kg')).toBeInTheDocument();
+    expect(screen.queryByText('GPU VRAM')).not.toBeInTheDocument();
+    expect(useGetReviewsQuery).not.toHaveBeenCalled();
+
+    await userEvent.click(screen.getByRole('tab', { name: 'In the box' }));
+    expect(screen.getByText('65 W power adapter')).toBeInTheDocument();
+
+    await userEvent.click(screen.getByRole('tab', { name: 'Reviews (5)' }));
+    expect(screen.getByText('Great screen')).toBeInTheDocument();
   });
 
   it('adds configured item and navigates to checkout on Buy now', async () => {
