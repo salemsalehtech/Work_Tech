@@ -2,45 +2,27 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import { MAX_COMPARE_ITEMS } from '@shared/constants';
 
+// items: product ids, at most MAX_COMPARE_ITEMS.
 const initialState = { items: [] };
 
 const compareSlice = createSlice({
   name: 'compare',
   initialState,
   reducers: {
-    addToCompare: (state, action) => {
-      const productId = action.payload;
-
-      if (state.items.includes(productId) || state.items.length >= MAX_COMPARE_ITEMS) {
-        return;
-      }
-
-      state.items.push(productId);
+    toggleCompare(state, { payload: id }) {
+      if (state.items.includes(id)) state.items = state.items.filter((item) => item !== id);
+      else if (state.items.length < MAX_COMPARE_ITEMS) state.items.push(id);
     },
-
-    removeFromCompare: (state, action) => {
-      state.items = state.items.filter((id) => id !== action.payload);
+    removeFromCompare(state, { payload: id }) {
+      state.items = state.items.filter((item) => item !== id);
     },
-
-    toggleCompare: (state, action) => {
-      const productId = action.payload;
-      const index = state.items.indexOf(productId);
-
-      if (index !== -1) {
-        state.items.splice(index, 1);
-      } else if (state.items.length < MAX_COMPARE_ITEMS) {
-        state.items.push(productId);
-      }
-    },
-
-    clearCompare: (state) => {
+    clearCompare(state) {
       state.items = [];
     },
   },
 });
 
-export const { addToCompare, removeFromCompare, toggleCompare, clearCompare } =
-  compareSlice.actions;
+export const { toggleCompare, removeFromCompare, clearCompare } = compareSlice.actions;
 
 export const selectCompareIds = (state) => state.compare.items;
 export const selectCompareCount = (state) => state.compare.items.length;
