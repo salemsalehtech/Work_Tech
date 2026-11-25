@@ -40,6 +40,8 @@ function ProductInfo({ product }) {
   const selection = resolveSelection(product.options, Object.fromEntries(searchParams));
   const actions = actionsOf(product, { selection });
   const price = priceWithOptions(product.price, product.options, selection);
+  const oldPrice =
+    product.oldPrice && priceWithOptions(product.oldPrice, product.options, selection);
   const outOfStock = product.stock === 0;
 
   const handleOptionChange = (group, label) => {
@@ -65,7 +67,7 @@ function ProductInfo({ product }) {
       </div>
 
       <div className={styles.priceBox}>
-        <Price value={price} oldPrice={product.oldPrice} months={months} size="xl" showVat />
+        <Price value={price} oldPrice={oldPrice} months={months} size="xl" showVat />
       </div>
 
       <ProductOptions
