@@ -39,6 +39,8 @@ describe('orderDetailsUtils', () => {
       const result = formatOrderDate('2026-11-08T16:20:00Z', 'ar');
       expect(result).toBeTruthy();
       expect(typeof result).toBe('string');
+      expect(result).toContain('نوفمبر');
+      expect(result).toContain('٢٠٢٦');
     });
 
     it('returns empty string for invalid dates', () => {

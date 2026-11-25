@@ -163,6 +163,7 @@
   border-block-start: 1px solid var(--color-line-soft);
   font-size: var(--text-small-size);
   color: var(--color-text-muted);
+  flex-wrap: wrap;
 }
 
 .resetBtn {
@@ -303,6 +304,35 @@
 
 .detailsBtn {
   margin-inline-start: auto;
+}
+
+@media (max-width: 639px) {
+  .orderCard {
+    padding: var(--space-4);
+  }
+
+  .cardHeader {
+    gap: var(--space-2);
+  }
+
+  .cardFooter {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-3);
+  }
+
+  .totalGroup {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    width: 100%;
+  }
+
+  .detailsBtn {
+    width: 100%;
+    margin-inline-start: 0;
+    text-align: center;
+  }
 }
 
 /* Skeletons */

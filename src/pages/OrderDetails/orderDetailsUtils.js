@@ -25,12 +25,12 @@ export function formatOrderDate(dateString, lang = 'en') {
   try {
     const date = new Date(dateString);
     if (Number.isNaN(date.getTime())) return '';
-    const locale = lang === 'ar' ? 'ar-EG' : 'en-US';
-    return new Intl.DateTimeFormat(locale, {
+    const locale = lang === 'ar' ? 'ar-EG' : lang || 'en-US';
+    return date.toLocaleDateString(locale, {
       year: 'numeric',
       month: 'short',
       day: 'numeric',
-    }).format(date);
+    });
   } catch {
     return '';
   }

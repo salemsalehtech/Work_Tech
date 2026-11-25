@@ -82,3 +82,18 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
+
+@media (max-width: 480px) {
+  .page {
+    padding-block: var(--space-6) var(--space-10);
+  }
+
+  .title {
+    font-size: 26px;
+  }
+
+  .headerMeta {
+    justify-content: space-between;
+    width: 100%;
+  }
+}

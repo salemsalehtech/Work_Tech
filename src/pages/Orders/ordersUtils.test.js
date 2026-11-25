@@ -35,6 +35,8 @@ describe('ordersUtils', () => {
     it('formats ISO dates correctly in Arabic', () => {
       const formatted = formatOrderDate('2026-10-14T10:20:00Z', 'ar');
       expect(formatted).toBeTruthy();
+      expect(formatted).toContain('أكتوبر');
+      expect(formatted).toContain('٢٠٢٦');
     });
 
     it('handles empty or invalid date safely', () => {

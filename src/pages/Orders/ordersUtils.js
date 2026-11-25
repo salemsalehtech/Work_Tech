@@ -28,7 +28,8 @@ export function formatOrderDate(isoDate, lang = 'en') {
   const date = new Date(isoDate);
   if (Number.isNaN(date.getTime())) return String(isoDate);
 
-  return date.toLocaleDateString(lang === 'ar' ? 'ar-EG' : 'en-US', {
+  const locale = lang === 'ar' ? 'ar-EG' : lang || 'en-US';
+  return date.toLocaleDateString(locale, {
     year: 'numeric',
     month: 'short',
     day: 'numeric',
