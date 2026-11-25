@@ -21,7 +21,52 @@
     "thumbnailAlt": "{{name}} view {{index}}",
     "notFoundTitle": "Product not found",
     "notFoundText": "The laptop you are looking for does not exist or is no longer available.",
-    "backToProducts": "Back to laptops"
+    "backToProducts": "Back to laptops",
+    "reviewsEmptyTitle": "No reviews yet",
+    "reviewsEmptyText": "Customer feedback for this laptop will appear here.",
+    "tabs": {
+      "specs": "Specifications",
+      "inTheBox": "In the box",
+      "reviews": "Reviews ({{count}})"
+    }
+  },
+  "specs": {
+    "labels": {
+      "cpu": "Processor",
+      "cores": "CPU cores",
+      "threads": "CPU threads",
+      "gpu": "Graphics",
+      "gpuVram": "GPU VRAM",
+      "gpuTgp": "Graphics power (TGP)",
+      "ram": "Memory",
+      "storage": "Storage",
+      "screen": "Display size",
+      "resolution": "Resolution",
+      "panel": "Panel type",
+      "refreshRate": "Refresh rate",
+      "battery": "Battery",
+      "weight": "Weight",
+      "thickness": "Thickness",
+      "os": "Operating system",
+      "thunderbolt": "Thunderbolt / USB4",
+      "videoOut": "Video output",
+      "wifi": "Wi-Fi",
+      "bluetooth": "Bluetooth",
+      "ports": "Ports",
+      "webcam": "Webcam",
+      "keyboard": "Keyboard"
+    },
+    "units": {
+      "gb": "{{value}} GB",
+      "tb": "{{value}} TB",
+      "inch": "{{value}}\"",
+      "hz": "{{value}} Hz",
+      "watt": "{{value}} W",
+      "kg": "{{value}} kg",
+      "mm": "{{value}} mm",
+      "cores": "{{value}} cores",
+      "threads": "{{value}} threads"
+    }
   },
   "search": {
     "titleWithQuery": "Results for “{{query}}”",

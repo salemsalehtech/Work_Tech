@@ -6,7 +6,7 @@ import { MemoryRouter, Route, Routes, useLocation } from 'react-router-dom';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { cartReducer, selectCartItems } from '@features/cart';
-import { catalogApi, useGetProductQuery } from '@features/catalog';
+import { catalogApi, useGetProductQuery, useGetReviewsQuery } from '@features/catalog';
 import { compareReducer } from '@features/compare';
 import { wishlistReducer } from '@features/wishlist';
 
@@ -17,6 +17,7 @@ vi.mock('../../features/catalog/api/catalogApi', async (importOriginal) => {
   return {
     ...actual,
     useGetProductQuery: vi.fn(),
+    useGetReviewsQuery: vi.fn(),
   };
 });
 
@@ -32,7 +33,15 @@ const sampleLaptop = {
   reviewsCount: 5,
   stock: 10,
   valueScore: 86,
-  specs: { cpu: 'Intel Core Ultra 7 255H', ram: 16, storage: 512, gpu: 'Intel Arc' },
+  specs: {
+    cpu: 'Intel Core Ultra 7 255H',
+    ram: 16,
+    storage: 512,
+    gpu: 'Intel Arc',
+    gpuVram: null,
+    weight: 1.2,
+  },
+  inTheBox: ['Zenbook 14 OLED', '65 W power adapter'],
   options: {
     memory: [
       { label: '16 GB', delta: 0 },
@@ -92,9 +101,23 @@ function renderProductRoute(initialEntry = '/products/asus-zenbook-14') {
   return { store };
 }
 
-describe('ProductDetails page (WS-07)', () => {
+describe('ProductDetails page (WS-07 & WS-08)', () => {
   beforeEach(() => {
     vi.mocked(useGetProductQuery).mockReset();
+    vi.mocked(useGetReviewsQuery).mockReturnValue({
+      data: [
+        {
+          id: 'r-001',
+          userName: 'Ahmed M.',
+          city: 'Nasr City',
+          rating: 5,
+          title: 'Great screen',
+          body: 'The OLED screen is amazing.',
+        },
+      ],
+      isLoading: false,
+      isError: false,
+    });
   });
 
   it('shows EmptyState when the product is not found (404)', () => {
@@ -110,7 +133,7 @@ describe('ProductDetails page (WS-07)', () => {
     expect(screen.getByRole('heading', { name: 'Product not found' })).toBeInTheDocument();
   });
 
-  it('updates price, installment, URL params, and creates separate cart lines for different options', async () => {
+  it('updates price, installment plans, URL params, and creates separate cart lines', async () => {
     vi.mocked(useGetProductQuery).mockReturnValue({
       data: sampleLaptop,
       isLoading: false,
@@ -119,16 +142,14 @@ describe('ProductDetails page (WS-07)', () => {
 
     const { store } = renderProductRoute('/products/asus-zenbook-14');
 
-    // Add default 16 GB configuration
     await userEvent.click(screen.getByRole('button', { name: 'Add to cart' }));
-
-    // Select 32 GB (+5,500 EGP -> 82,499 EGP)
     await userEvent.click(screen.getByRole('button', { name: /32 GB/i }));
 
     expect(screen.getAllByText('82,499 EGP').length).toBeGreaterThan(0);
+    // 82499 / 24 = 3,437 EGP / month in InstallmentPicker
+    expect(screen.getByText(/3,437 EGP \/ month/i)).toBeInTheDocument();
     expect(screen.getByTestId('location').textContent).toContain('memory=32+GB');
 
-    // Add 32 GB configuration -> creates a second line in cart
     await userEvent.click(screen.getByRole('button', { name: 'Add to cart' }));
 
     const cartItems = selectCartItems(store.getState());
@@ -150,5 +171,24 @@ describe('ProductDetails page (WS-07)', () => {
 
     expect(selectCartItems(store.getState())).toHaveLength(1);
     expect(screen.getByTestId('location').textContent).toBe('/checkout');
+  });
+
+  it('renders specs without null fields and switches between Specs, In the box, and Reviews tabs', async () => {
+    vi.mocked(useGetProductQuery).mockReturnValue({
+      data: sampleLaptop,
+      isLoading: false,
+      isError: false,
+    });
+
+    renderProductRoute('/products/asus-zenbook-14');
+
+    expect(screen.getByText('1.2 kg')).toBeInTheDocument();
+    expect(screen.queryByText('GPU VRAM')).not.toBeInTheDocument();
+
+    await userEvent.click(screen.getByRole('tab', { name: 'In the box' }));
+    expect(screen.getByText('65 W power adapter')).toBeInTheDocument();
+
+    await userEvent.click(screen.getByRole('tab', { name: /Reviews/i }));
+    expect(screen.getByText('Great screen')).toBeInTheDocument();
   });
 });

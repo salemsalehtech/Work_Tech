@@ -14,3 +14,5 @@ export { ProductFilters } from './components/ProductFilters';
 export { useCatalogFilters } from './hooks/useCatalogFilters';
 export { SORT_KEYS } from './model/filterOptions';
 export { ProductGallery } from './components/ProductGallery';
+export { formatProductSpecs } from './model/formatSpecs';
+export { ProductSpecsTabs } from './components/ProductSpecsTabs';

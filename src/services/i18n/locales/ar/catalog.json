@@ -21,7 +21,52 @@
     "thumbnailAlt": "{{name}} صورة {{index}}",
     "notFoundTitle": "المنتج غير موجود",
     "notFoundText": "الجهاز الذي تبحث عنه غير متوفر أو تم حذفه.",
-    "backToProducts": "العودة إلى اللابتوبات"
+    "backToProducts": "العودة إلى اللابتوبات",
+    "reviewsEmptyTitle": "لا توجد تقييمات بعد",
+    "reviewsEmptyText": "ستظهر آراء العملاء حول هذا الجهاز هنا.",
+    "tabs": {
+      "specs": "المواصفات",
+      "inTheBox": "في العلبة",
+      "reviews": "التقييمات ({{count}})"
+    }
+  },
+  "specs": {
+    "labels": {
+      "cpu": "المعالج",
+      "cores": "عدد الأنوية",
+      "threads": "خيوط المعالجة",
+      "gpu": "كرت الشاشة",
+      "gpuVram": "ذاكرة كرت الشاشة",
+      "gpuTgp": "طاقة كرت الشاشة (TGP)",
+      "ram": "الذاكرة العشوائية",
+      "storage": "التخزين",
+      "screen": "حجم الشاشة",
+      "resolution": "الدقة",
+      "panel": "نوع الشاشة",
+      "refreshRate": "معدل التحديث",
+      "battery": "البطارية",
+      "weight": "الوزن",
+      "thickness": "السُمك",
+      "os": "نظام التشغيل",
+      "thunderbolt": "منفذ Thunderbolt / USB4",
+      "videoOut": "مخرج الفيديو",
+      "wifi": "الواي فاي",
+      "bluetooth": "البلوتوث",
+      "ports": "المنافذ",
+      "webcam": "الكاميرا",
+      "keyboard": "لوحة المفاتيح"
+    },
+    "units": {
+      "gb": "{{value}} جيجابايت",
+      "tb": "{{value}} تيرابايت",
+      "inch": "{{value}} بوصة",
+      "hz": "{{value}} هرتز",
+      "watt": "{{value}} واط",
+      "kg": "{{value}} كجم",
+      "mm": "{{value}} مم",
+      "cores": "{{value}} أنوية",
+      "threads": "{{value}} خيوط معالجة"
+    }
   },
   "search": {
     "titleWithQuery": "نتائج «{{query}}»",

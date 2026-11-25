@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 
 import { addItem } from '@features/cart';
-import { ProductGallery, useGetProductQuery } from '@features/catalog';
+import { ProductGallery, ProductSpecsTabs, useGetProductQuery } from '@features/catalog';
 import { selectCompareIds } from '@features/compare';
 import { selectWishlistItems } from '@features/wishlist';
 import {
@@ -15,6 +15,7 @@ import {
   DataState,
   EmptyState,
   IconButton,
+  InstallmentPicker,
   OptionCards,
   Price,
   Rating,
@@ -139,28 +140,18 @@ function ProductDetails() {
             stock: product.stock,
           });
 
-          const handleAddToCart = () => {
-            dispatch(addItem(buildCartPayload()));
-          };
-
+          const handleAddToCart = () => dispatch(addItem(buildCartPayload()));
           const handleBuyNow = () => {
             dispatch(addItem(buildCartPayload()));
             navigate(PATHS.CHECKOUT);
           };
-
-          const handleToggleWishlist = () => {
+          const handleToggleWishlist = () =>
             dispatch({
               type: 'wishlist/toggleWishlist',
               payload: { productId: product.id, savedPrice: finalPrice },
             });
-          };
-
-          const handleToggleCompare = () => {
-            dispatch({
-              type: 'compare/toggleCompare',
-              payload: product.id,
-            });
-          };
+          const handleToggleCompare = () =>
+            dispatch({ type: 'compare/toggleCompare', payload: product.id });
 
           const breadcrumbItems = [
             { label: t('productDetails.breadcrumbHome'), to: PATHS.HOME },
@@ -208,6 +199,8 @@ function ProductDetails() {
                     onChange={handleOptionCardsChange}
                   />
 
+                  <InstallmentPicker price={finalPrice} />
+
                   <div className={styles.actions}>
                     <Button onClick={handleAddToCart} disabled={outOfStock}>
                       {outOfStock ? t('productCard.outOfStock') : t('productCard.addToCart')}
@@ -233,6 +226,8 @@ function ProductDetails() {
                   </div>
                 </div>
               </div>
+
+              <ProductSpecsTabs product={product} />
             </>
           );
         }}
