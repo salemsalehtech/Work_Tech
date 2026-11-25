@@ -44,6 +44,24 @@ describe('toApiParams', () => {
     });
   });
 
+  it.each([
+    ['gaming', { tags_like: 'gaming' }],
+    ['two-in-one', { tags_like: '2-in-1' }],
+    ['deals', { oldPrice_gte: 1 }],
+  ])('maps the %s category', (category, expected) => {
+    expect(toApiParams(`category=${category}`)).toMatchObject(expected);
+  });
+
+  it('keeps the lower of the category price limit and the chosen one', () => {
+    expect(toApiParams('category=under-30000').price_lte).toBe(30000);
+    expect(toApiParams('category=under-30000&max=25000').price_lte).toBe(25000);
+    expect(toApiParams('category=under-30000&max=90000').price_lte).toBe(30000);
+  });
+
+  it('ignores a category that does not exist', () => {
+    expect(toApiParams('category=phones')).toEqual(toApiParams(''));
+  });
+
   it('maps sort options to json-server _sort and _order parameters', () => {
     expect(toApiParams(new URLSearchParams('sort=price-asc'))).toMatchObject({
       _sort: 'price',

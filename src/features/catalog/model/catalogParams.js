@@ -1,3 +1,4 @@
+import { findCategory } from './categories';
 import { MULTI_FILTERS } from './filterOptions';
 
 export const PAGE_SIZE = 9;
@@ -39,14 +40,20 @@ function matchesOf({ key, options }, searchParams) {
 export function toApiParams(input) {
   const searchParams = input instanceof URLSearchParams ? input : new URLSearchParams(input);
   const inStock = searchParams.get('inStock');
+  const category = findCategory(searchParams.get('category'))?.params ?? {};
+  // A price limit of the category and of the visitor: the lower one counts.
+  const maxPrices = [parseNonNegativeNumber(searchParams.get('max')), category.price_lte].filter(
+    (price) => price !== undefined,
+  );
 
   return {
+    ...category,
     q: searchParams.get('q')?.trim() || undefined,
     ...Object.fromEntries(
       MULTI_FILTERS.map((filter) => [filter.param, matchesOf(filter, searchParams)]),
     ),
     price_gte: parseNonNegativeNumber(searchParams.get('min')),
-    price_lte: parseNonNegativeNumber(searchParams.get('max')),
+    price_lte: maxPrices.length > 0 ? Math.min(...maxPrices) : undefined,
     rating_gte: parseNonNegativeNumber(searchParams.get('rating')),
     stock_gte: inStock === 'true' || inStock === '1' ? 1 : undefined,
     ...SORTS[searchParams.get('sort')],
