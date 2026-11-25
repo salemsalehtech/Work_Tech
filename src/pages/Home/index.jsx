@@ -1,5 +1,11 @@
+import { Navbar } from '@/shared/components/ui';
+
 function Home() {
-  return <h1>HOME</h1>;
+  return (
+    <section>
+      <Navbar />
+    </section>
+  );
 }
 
 export default Home;

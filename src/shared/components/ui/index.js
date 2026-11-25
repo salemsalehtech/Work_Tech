@@ -31,3 +31,4 @@ export { default as AccountNav } from './AccountNav';
 export { default as InstallmentPicker } from './InstallmentPicker';
 export { default as ToastProvider } from './Toast/ToastProvider';
 export { useToastContext } from './Toast/useToastContext';
+export { default as Navbar } from './Navbar';

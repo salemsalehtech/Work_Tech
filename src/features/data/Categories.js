@@ -1,9 +1,9 @@
 export const CATEGORIES = [
-  { key: 'all' },
-  { key: 'gaming', params: { tags_like: 'gaming' } },
-  { key: 'business', params: { tags_like: 'business' } },
-  { key: 'ultrabooks', params: { tags_like: 'ultrabook' } },
-  { key: 'two-in-one', params: { tags_like: '2-in-1' } },
-  { key: 'under-30000', params: { price_lte: 30000 } },
-  { key: 'deals', params: { deal: true }, highlight: true },
+  { key: 'All Laptops' },
+  { key: 'Gaming', params: { tags_like: 'gaming' } },
+  { key: 'Business', params: { tags_like: 'business' } },
+  { key: 'Ultrabooks', params: { tags_like: 'ultrabook' } },
+  { key: '2-in-1', params: { tags_like: '2-in-1' } },
+  { key: 'Under 30,000 EGP', params: { price_lte: 30000 } },
+  { key: 'Deals', params: { deal: true }, highlight: true },
 ];
