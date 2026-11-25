@@ -3,7 +3,7 @@ import { useRef } from 'react';
 import styles from './SegmentedControl.module.css';
 
 /** One choice from two to five short options. options: [{ value, label }] */
-function SegmentedControl({ options, value, onChange, ariaLabel }) {
+function SegmentedControl({ options, value, onChange, ariaLabel, fullWidth = false }) {
   const buttonsRef = useRef([]);
 
   const handleKeyDown = (e, index) => {
@@ -21,7 +21,11 @@ function SegmentedControl({ options, value, onChange, ariaLabel }) {
   };
 
   return (
-    <div role="radiogroup" aria-label={ariaLabel} className={styles.group}>
+    <div
+      role="radiogroup"
+      aria-label={ariaLabel}
+      className={[styles.group, fullWidth && styles.fullWidth].filter(Boolean).join(' ')}
+    >
       {options.map((opt, idx) => {
         const active = opt.value === value;
 
