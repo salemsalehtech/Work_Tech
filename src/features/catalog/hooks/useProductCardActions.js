@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { addItem, toCartItem } from '@features/cart';
 import { selectCompareIds, toggleCompare } from '@features/compare';
-import { selectWishlistItems } from '@features/wishlist';
+import { selectWishlistItems, toggleWishlist } from '@features/wishlist';
 
 import { specsLine } from '../components/ProductCard/specsLine';
 
@@ -22,12 +22,8 @@ export function useProductCardActions() {
     inCompare: compareIds.includes(product.id),
     onAddToCart: () =>
       dispatch(addItem(toCartItem(product, { selection, specsLine: specsLine(product.specs) }))),
-    // TODO(abdelrahman): dispatch toggleWishlist from @features/wishlist once it is exported.
     onToggleWishlist: () =>
-      dispatch({
-        type: 'wishlist/toggleWishlist',
-        payload: { productId: product.id, price: product.price },
-      }),
+      dispatch(toggleWishlist({ productId: product.id, price: product.price })),
     onToggleCompare: () => dispatch(toggleCompare(product.id)),
   });
 }
