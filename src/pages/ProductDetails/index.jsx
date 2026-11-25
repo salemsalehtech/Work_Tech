@@ -1,246 +1,243 @@
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
+import { useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 
 import { addItem } from '@features/cart';
-import { useGetProductQuery } from '@features/catalog';
+import { ProductGallery, useGetProductQuery } from '@features/catalog';
+import { selectCompareIds } from '@features/compare';
+import { selectWishlistItems } from '@features/wishlist';
+import {
+  Badge,
+  Breadcrumbs,
+  Button,
+  Container,
+  DataState,
+  EmptyState,
+  IconButton,
+  OptionCards,
+  Price,
+  Rating,
+  Skeleton,
+  ValueScore,
+} from '@shared/components/ui';
+import { DEFAULT_INSTALLMENT_MONTHS, LOW_STOCK_AT, PATHS } from '@shared/constants';
 import { priceWithOptions } from '@shared/utils';
-import { formatPrice } from '@shared/utils/formatPrice';
+
+import { specsLine } from '../../features/catalog/components/ProductCard/specsLine';
+
+import styles from './ProductDetails.module.css';
+
+const OPTION_KEYS = ['memory', 'storage', 'warranty'];
+
+function resolveSelection(options = {}, searchParams, userSelection) {
+  const result = {};
+  for (const key of OPTION_KEYS) {
+    const list = options[key] ?? [];
+    if (!list.length) continue;
+
+    const fromUser = userSelection?.[key];
+    const fromUrl = searchParams.get(key);
+    const validUrl = list.some((opt) => opt.label === fromUrl) ? fromUrl : '';
+
+    result[key] = fromUser || validUrl || list[0].label;
+  }
+  return result;
+}
+
+function ProductDetailsSkeleton() {
+  return (
+    <div className={styles.grid} aria-busy="true">
+      <Skeleton height={420} />
+      <div className={styles.info}>
+        <Skeleton height={36} />
+        <Skeleton height={48} />
+        <Skeleton height={220} />
+      </div>
+    </div>
+  );
+}
+
 function ProductDetails() {
   const { id } = useParams();
+  const { t } = useTranslation('catalog');
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [userSelection, setUserSelection] = useState(null);
+  const mountedProductRef = useRef(null);
 
-  const { data: product, isLoading, isError } = useGetProductQuery(id);
+  const rawResult = useGetProductQuery(id);
+  const wishlist = useSelector(selectWishlistItems);
+  const compareIds = useSelector(selectCompareIds);
 
-  const [selectedOptions, setSelectedOptions] = useState(null);
-  const [quantity, setQuantity] = useState(1);
-  const [added, setAdded] = useState(false);
-
-  const defaultSelection = {
-    memory: product?.options?.memory?.[0]?.label ?? '',
-    storage: product?.options?.storage?.[0]?.label ?? '',
-    warranty: product?.options?.warranty?.[0]?.label ?? '',
+  const isNotFound = rawResult.error?.status === 404;
+  const result = {
+    ...rawResult,
+    isError: rawResult.isError && !isNotFound,
+    data: isNotFound ? null : rawResult.data,
   };
 
-  const selection = {
-    ...defaultSelection,
-    ...selectedOptions,
-  };
+  const handleOptionCardsChange = ({ selectedOptions }) => {
+    if (mountedProductRef.current !== id) {
+      mountedProductRef.current = id;
+      return;
+    }
 
-  const handleOptionChange = (key, value) => {
-    setSelectedOptions((previous) => ({
-      ...defaultSelection,
-      ...previous,
-      [key]: value,
-    }));
-  };
+    const nextSelection = {};
+    for (const key of OPTION_KEYS) {
+      if (selectedOptions[key]?.label) {
+        nextSelection[key] = selectedOptions[key].label;
+      }
+    }
 
-  if (isLoading) {
-    return <main style={{ padding: 40 }}>Loading product...</main>;
-  }
-
-  if (isError || !product) {
-    return (
-      <main style={{ padding: 40 }}>
-        <h1>Product not found</h1>
-        <Link to="/products">Back to products</Link>
-      </main>
-    );
-  }
-
-  const finalPrice = priceWithOptions(product.price, product.options, selection);
-
-  const warrantyDelta =
-    product.options?.warranty?.find((option) => option.label === selection.warranty)?.delta ?? 0;
-
-  const specsLine = [
-    product.specs?.cpu,
-    product.specs?.ram ? `${product.specs.ram} GB RAM` : null,
-    product.specs?.storage ? `${product.specs.storage} GB Storage` : null,
-    product.specs?.gpu,
-  ]
-    .filter(Boolean)
-    .join(' · ');
-
-  const handleAddToCart = () => {
-    dispatch(
-      addItem({
-        productId: product.id,
-        kind: 'laptop',
-        name: product.name,
-        brand: product.brand,
-        image: product.images?.[0] ?? '',
-        specsLine,
-        price: finalPrice,
-        warrantyDelta,
-        options: selection,
-        quantity,
-        stock: product.stock,
-      }),
-    );
-
-    setAdded(true);
-    setTimeout(() => setAdded(false), 2000);
-  };
-
-  const renderOption = (key, label) => {
-    const options = product.options?.[key];
-
-    if (!options?.length) return null;
-
-    return (
-      <div style={{ marginBottom: 20 }}>
-        <label htmlFor={key} style={{ display: 'block', marginBottom: 8, fontWeight: 600 }}>
-          {label}
-        </label>
-
-        <select
-          id={key}
-          value={selection[key]}
-          onChange={(event) => handleOptionChange(key, event.target.value)}
-          style={{
-            width: '100%',
-            maxWidth: 350,
-            padding: 12,
-            border: '1px solid #ccc',
-            borderRadius: 8,
-          }}
-        >
-          {options.map((option) => (
-            <option key={option.label} value={option.label}>
-              {option.label}
-              {option.delta > 0 ? ` (+${formatPrice(option.delta)})` : ''}
-            </option>
-          ))}
-        </select>
-      </div>
-    );
+    setUserSelection(nextSelection);
+    const nextParams = new URLSearchParams(searchParams);
+    for (const [key, label] of Object.entries(nextSelection)) {
+      nextParams.set(key, label);
+    }
+    setSearchParams(nextParams, { replace: true });
   };
 
   return (
-    <main style={{ padding: '30px 0' }}>
-      <div
-        style={{
-          maxWidth: 1100,
-          margin: '0 auto',
-          padding: '0 20px',
-        }}
+    <Container className={styles.page}>
+      <DataState
+        result={result}
+        loading={<ProductDetailsSkeleton />}
+        empty={
+          <EmptyState
+            title={t('productDetails.notFoundTitle')}
+            text={t('productDetails.notFoundText')}
+            action={
+              <Button to={PATHS.PRODUCTS} variant="secondary">
+                {t('productDetails.backToProducts')}
+              </Button>
+            }
+          />
+        }
       >
-        <div style={{ marginBottom: 25 }}>
-          <Link to="/">Home</Link>
-          {' / '}
-          <Link to="/products">Products</Link>
-          {' / '}
-          {product.name}
-        </div>
+        {(product) => {
+          const selection = resolveSelection(product.options, searchParams, userSelection);
+          const finalPrice = priceWithOptions(product.price, product.options, selection);
+          const warrantyDelta =
+            product.options?.warranty?.find((opt) => opt.label === selection.warranty)?.delta ?? 0;
+          const outOfStock = product.stock === 0;
+          const inWishlist = wishlist.some((item) => item.productId === product.id);
+          const inCompare = compareIds.includes(product.id);
 
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: 40,
-            alignItems: 'start',
-          }}
-        >
-          <div>
-            <img
-              src={product.images?.[0]}
-              alt={product.name}
-              style={{
-                width: '100%',
-                maxHeight: 450,
-                objectFit: 'contain',
-                borderRadius: 12,
-              }}
-            />
-          </div>
+          const buildCartPayload = () => ({
+            productId: product.id,
+            kind: 'laptop',
+            name: product.name,
+            brand: product.brand,
+            image: product.images?.[0] ?? '',
+            specsLine: product.specs ? specsLine(product.specs) : '',
+            price: finalPrice,
+            warrantyDelta,
+            options: selection,
+            quantity: 1,
+            stock: product.stock,
+          });
 
-          <div>
-            <p style={{ color: '#777', marginBottom: 8 }}>{product.brand}</p>
+          const handleAddToCart = () => {
+            dispatch(addItem(buildCartPayload()));
+          };
 
-            <h1 style={{ marginBottom: 15 }}>{product.name}</h1>
+          const handleBuyNow = () => {
+            dispatch(addItem(buildCartPayload()));
+            navigate(PATHS.CHECKOUT);
+          };
 
-            {product.rating && (
-              <p style={{ marginBottom: 15 }}>
-                ⭐ {product.rating} ({product.reviewsCount ?? 0} reviews)
-              </p>
-            )}
+          const handleToggleWishlist = () => {
+            dispatch({
+              type: 'wishlist/toggleWishlist',
+              payload: { productId: product.id, savedPrice: finalPrice },
+            });
+          };
 
-            <h2 style={{ marginBottom: 25 }}>{formatPrice(finalPrice)}</h2>
+          const handleToggleCompare = () => {
+            dispatch({
+              type: 'compare/toggleCompare',
+              payload: product.id,
+            });
+          };
 
-            {product.stock > 0 ? (
-              <p style={{ color: 'green', marginBottom: 20 }}>
-                In Stock ({product.stock} available)
-              </p>
-            ) : (
-              <p style={{ color: 'red', marginBottom: 20 }}>Out of Stock</p>
-            )}
+          const breadcrumbItems = [
+            { label: t('productDetails.breadcrumbHome'), to: PATHS.HOME },
+            { label: t('products.title'), to: PATHS.PRODUCTS },
+            { label: product.name },
+          ];
 
-            {renderOption('memory', 'Memory')}
-            {renderOption('storage', 'Storage')}
-            {renderOption('warranty', 'Warranty')}
-
-            <div style={{ marginBottom: 20 }}>
-              <label
-                htmlFor="quantity"
-                style={{ display: 'block', marginBottom: 8, fontWeight: 600 }}
-              >
-                Quantity
-              </label>
-
-              <input
-                id="quantity"
-                type="number"
-                min="1"
-                max={Math.min(product.stock, 5)}
-                value={quantity}
-                onChange={(event) => {
-                  const value = Number(event.target.value);
-
-                  setQuantity(Math.max(1, Math.min(value || 1, product.stock, 5)));
-                }}
-                style={{
-                  width: 90,
-                  padding: 10,
-                  border: '1px solid #ccc',
-                  borderRadius: 8,
-                }}
-              />
-            </div>
-
-            <button
-              type="button"
-              onClick={handleAddToCart}
-              disabled={product.stock <= 0}
-              style={{
-                padding: '14px 28px',
-                border: 0,
-                borderRadius: 8,
-                background: product.stock > 0 ? '#2563eb' : '#999',
-                color: '#fff',
-                cursor: product.stock > 0 ? 'pointer' : 'not-allowed',
-                fontSize: 16,
-                fontWeight: 600,
-              }}
-            >
-              {added ? 'Added to Cart ✓' : 'Add to Cart'}
-            </button>
-
-            {product.inTheBox?.length > 0 && (
-              <div style={{ marginTop: 30 }}>
-                <h3>What&apos;s in the box?</h3>
-
-                <ul>
-                  {product.inTheBox.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
+          return (
+            <>
+              <div className={styles.breadcrumbs}>
+                <Breadcrumbs items={breadcrumbItems} />
               </div>
-            )}
-          </div>
-        </div>
-      </div>
-    </main>
+
+              <div className={styles.grid}>
+                <ProductGallery key={product.id} images={product.images} name={product.name} />
+
+                <div className={styles.info}>
+                  <p className={styles.brand}>{product.brand}</p>
+                  <h1 className={styles.title}>{product.name}</h1>
+
+                  <div className={styles.meta}>
+                    <Rating value={product.rating} count={product.reviewsCount} />
+                    <ValueScore score={product.valueScore} />
+                    <Badge tone={outOfStock ? 'sale' : 'success'}>
+                      {outOfStock
+                        ? t('productCard.outOfStock')
+                        : product.stock <= LOW_STOCK_AT
+                          ? t('productCard.onlyLeft', { count: product.stock })
+                          : t('productDetails.inStock')}
+                    </Badge>
+                  </div>
+
+                  <div className={styles.priceBox}>
+                    <Price
+                      value={finalPrice}
+                      oldPrice={product.oldPrice}
+                      months={DEFAULT_INSTALLMENT_MONTHS}
+                      size="lg"
+                    />
+                  </div>
+
+                  <OptionCards
+                    key={product.id}
+                    productId={product.id}
+                    onChange={handleOptionCardsChange}
+                  />
+
+                  <div className={styles.actions}>
+                    <Button onClick={handleAddToCart} disabled={outOfStock}>
+                      {outOfStock ? t('productCard.outOfStock') : t('productCard.addToCart')}
+                    </Button>
+
+                    <Button variant="secondary" onClick={handleBuyNow} disabled={outOfStock}>
+                      {t('productDetails.buyNow')}
+                    </Button>
+
+                    <IconButton
+                      icon="compare"
+                      label={t('productCard.addToCompare')}
+                      pressed={inCompare}
+                      onClick={handleToggleCompare}
+                    />
+
+                    <IconButton
+                      icon="heart"
+                      label={t('productCard.saveToWishlist')}
+                      pressed={inWishlist}
+                      onClick={handleToggleWishlist}
+                    />
+                  </div>
+                </div>
+              </div>
+            </>
+          );
+        }}
+      </DataState>
+    </Container>
   );
 }
 
