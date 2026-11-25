@@ -21,5 +21,6 @@ export const PATHS = {
 };
 
 export const productPath = (id) => `/products/${encodeURIComponent(id)}`;
+export const categoryPath = (category) => `/products?category=${encodeURIComponent(category)}`;
 export const orderPath = (id) => `/orders/${encodeURIComponent(id)}`;
 export const searchPath = (query) => `/search?q=${encodeURIComponent(query)}`;
