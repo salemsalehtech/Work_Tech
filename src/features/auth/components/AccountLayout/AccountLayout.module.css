@@ -2,8 +2,21 @@
   padding-block: var(--space-8) var(--space-16);
 }
 
-.title {
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
   margin-block-end: var(--space-6);
+}
+
+.meta {
+  font-family: var(--font-mono);
+  font-size: var(--text-mono-label-size);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+}
+
+.title {
   font-size: var(--text-title-account-size);
   line-height: var(--text-title-account-line);
   font-weight: var(--text-title-account-weight);

@@ -20,7 +20,8 @@
     "remove": "Remove",
     "backHome": "Back to the store",
     "decrease": "Decrease quantity",
-    "increase": "Increase quantity"
+    "increase": "Increase quantity",
+    "keep": "Keep it"
   },
   "price": {
     "or": "or",

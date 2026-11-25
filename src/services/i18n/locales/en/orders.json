@@ -5,5 +5,54 @@
     "shipped": "With courier",
     "delivered": "Delivered",
     "cancelled": "Cancelled"
+  },
+  "tracker": {
+    "done": "Done",
+    "current": "In progress",
+    "next": "Next"
+  },
+  "title": "My orders",
+  "number": "Order {{id}}",
+  "search": "Order number or product",
+  "filter": {
+    "label": "Order status",
+    "all": "All",
+    "inProgress": "In progress",
+    "delivered": "Delivered",
+    "cancelled": "Cancelled"
+  },
+  "shown": "{{shown}} of {{total}} orders",
+  "details": "Details",
+  "viewOrder": "View order {{id}}",
+  "allOrders": "All orders",
+  "items": "Items",
+  "quantity": "Quantity: {{count}}",
+  "each": "{{price}} each",
+  "address": "Delivery address",
+  "payment": {
+    "label": "Payment",
+    "card": "Card",
+    "cod": "Cash on delivery"
+  },
+  "cancel": {
+    "action": "Cancel order",
+    "question": "Cancel this order?",
+    "confirm": "Yes, cancel it",
+    "error": "The order was not cancelled. Try again."
+  },
+  "empty": {
+    "title": "No orders yet",
+    "text": "Your orders will appear here.",
+    "action": "Browse laptops"
+  },
+  "noResults": {
+    "title": "No matching orders",
+    "text": "Try another number, product or status.",
+    "action": "Clear filters"
+  },
+  "notFound": {
+    "title": "Order not found",
+    "text": "This order does not exist or is not yours.",
+    "action": "Back to my orders"
   }
 }
