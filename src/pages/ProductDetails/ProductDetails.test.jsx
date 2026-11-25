@@ -92,7 +92,7 @@ function renderProductRoute(initialEntry = '/products/asus-zenbook-14') {
   return { store };
 }
 
-describe('ProductDetails page (WS-07)', () => {
+describe('ProductDetails page', () => {
   beforeEach(() => {
     vi.mocked(useGetProductQuery).mockReset();
   });
@@ -123,7 +123,7 @@ describe('ProductDetails page (WS-07)', () => {
     await userEvent.click(screen.getByRole('button', { name: 'Add to cart' }));
 
     // Select 32 GB (+5,500 EGP -> 82,499 EGP)
-    await userEvent.click(screen.getByRole('button', { name: /32 GB/i }));
+    await userEvent.click(screen.getByRole('radio', { name: /32 GB/ }));
 
     expect(screen.getAllByText('82,499 EGP').length).toBeGreaterThan(0);
     expect(screen.getByTestId('location').textContent).toContain('memory=32+GB');
@@ -135,6 +135,31 @@ describe('ProductDetails page (WS-07)', () => {
     expect(cartItems).toHaveLength(2);
     expect(cartItems[0].options.memory).toBe('16 GB');
     expect(cartItems[1].options.memory).toBe('32 GB');
+  });
+
+  it('opens a shared link with its options and keeps them when another one changes', async () => {
+    vi.mocked(useGetProductQuery).mockReturnValue({
+      data: sampleLaptop,
+      isLoading: false,
+      isError: false,
+    });
+
+    const { store } = renderProductRoute(
+      '/products/asus-zenbook-14?memory=32%20GB&warranty=2%20years',
+    );
+
+    expect(screen.getByRole('radio', { name: /32 GB/ })).toBeChecked();
+    expect(screen.getByRole('radio', { name: /2 years/ })).toBeChecked();
+    expect(screen.getByText('85,599 EGP')).toBeInTheDocument();
+
+    await userEvent.click(screen.getByRole('radio', { name: /1 TB/ }));
+    await userEvent.click(screen.getByRole('button', { name: 'Add to cart' }));
+
+    expect(selectCartItems(store.getState())[0]).toMatchObject({
+      options: { memory: '32 GB', storage: '1 TB', warranty: '2 years' },
+      price: 89599,
+      warrantyDelta: 3100,
+    });
   });
 
   it('adds configured item and navigates to checkout on Buy now', async () => {

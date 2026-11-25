@@ -5,7 +5,8 @@ import { ProductImage } from '@shared/components/ui';
 
 import styles from './ProductGallery.module.css';
 
-export function ProductGallery({ images = [], name = '' }) {
+/** Main photo with thumbnails. Without photos it shows the laptop drawing. */
+function ProductGallery({ images = [], name = '' }) {
   const { t } = useTranslation('catalog');
   const [selectedIndex, setSelectedIndex] = useState(0);
 

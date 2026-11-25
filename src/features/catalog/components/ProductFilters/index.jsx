@@ -1,26 +1,18 @@
 import { useId, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Button, ChoiceList, FilterGroup, Input, Toggle } from '@shared/components/ui';
+import { Button, Checkbox, ChoiceList, FilterGroup, Input, Toggle } from '@shared/components/ui';
 
-import { BRAND_OPTIONS, RAM_OPTIONS, RATING_VALUES } from '../../model/filterOptions';
+import { MULTI_FILTERS, RATING_VALUES } from '../../model/filterOptions';
 
 import styles from './ProductFilters.module.css';
 
+/** Keeps the typed price local, and writes it to the URL on blur or Enter. */
 function PriceInput({ id, label, placeholder, value, onCommit }) {
   const [draft, setDraft] = useState(value);
 
   const commit = () => {
-    if (draft !== value) {
-      onCommit(draft);
-    }
-  };
-
-  const handleKeyDown = (event) => {
-    if (event.key === 'Enter') {
-      event.preventDefault();
-      commit();
-    }
+    if (draft !== value) onCommit(draft);
   };
 
   return (
@@ -32,14 +24,36 @@ function PriceInput({ id, label, placeholder, value, onCommit }) {
       inputMode="numeric"
       placeholder={placeholder}
       value={draft}
-      onChange={(e) => setDraft(e.target.value)}
+      onChange={(event) => setDraft(event.target.value)}
       onBlur={commit}
-      onKeyDown={handleKeyDown}
+      onKeyDown={(event) => {
+        if (event.key === 'Enter') commit();
+      }}
     />
   );
 }
 
-export function ProductFilters({
+function MultiFilter({ filter, values, onChange }) {
+  const { t } = useTranslation('catalog');
+  const toggle = (value) =>
+    onChange(values.includes(value) ? values.filter((item) => item !== value) : [...values, value]);
+
+  return (
+    <FilterGroup title={t(`filters.${filter.key}`)}>
+      {filter.options.map((option) => (
+        <Checkbox
+          key={option.value}
+          label={option.label ?? t(option.labelKey, option.labelValues)}
+          checked={values.includes(option.value)}
+          onChange={() => toggle(option.value)}
+        />
+      ))}
+    </FilterGroup>
+  );
+}
+
+/** The catalog filters: the sidebar on desktop, inside a Drawer below 1200px, which name them. */
+function ProductFilters({
   filters,
   activeCount,
   onMultiChange,
@@ -48,84 +62,65 @@ export function ProductFilters({
   onClearAll,
 }) {
   const { t } = useTranslation('catalog');
-  const stockId = useId();
-  const minId = useId();
-  const maxId = useId();
+  const baseId = useId();
+  const [brand, ...specFilters] = MULTI_FILTERS;
 
-  const ramOptions = RAM_OPTIONS.map((ram) => ({
-    value: ram,
-    label: t('filters.ramOption', { ram }),
-  }));
-
-  const ratingOptions = RATING_VALUES.map((val) => ({
-    value: val,
-    label: val ? t('filters.ratingUp', { rating: val }) : t('filters.anyRating'),
-  }));
+  const multiFilter = (filter) => (
+    <MultiFilter
+      key={filter.key}
+      filter={filter}
+      values={filters[filter.key]}
+      onChange={(values) => onMultiChange(filter.key, values)}
+    />
+  );
 
   return (
-    <div className={styles.panel}>
-      <div className={styles.header}>
-        <h2 className={styles.heading}>{t('filters.title')}</h2>
-        {activeCount > 0 && (
-          <Button variant="ghost" size="sm" onClick={onClearAll}>
-            {t('filters.clearAll')}
-          </Button>
-        )}
-      </div>
+    <div>
+      {activeCount > 0 && (
+        <Button variant="link" onClick={onClearAll}>
+          {t('filters.clearAll')}
+        </Button>
+      )}
 
-      <FilterGroup title={t('filters.brand')}>
-        <ChoiceList
-          legend={t('filters.brand')}
-          options={BRAND_OPTIONS}
-          value={filters.brands}
-          onChange={(vals) => onMultiChange('brand', vals)}
-          multiple
-        />
-      </FilterGroup>
+      {multiFilter(brand)}
 
       <FilterGroup title={t('filters.price')}>
         <div className={styles.priceRow}>
           <PriceInput
             key={`min-${filters.min}`}
-            id={minId}
+            id={`${baseId}-min`}
             label={t('filters.minPrice')}
             placeholder="0"
             value={filters.min}
-            onCommit={(nextMin) => onPriceChange(nextMin, filters.max)}
+            onCommit={(min) => onPriceChange(min, filters.max)}
           />
           <PriceInput
             key={`max-${filters.max}`}
-            id={maxId}
+            id={`${baseId}-max`}
             label={t('filters.maxPrice')}
             placeholder="150000"
             value={filters.max}
-            onCommit={(nextMax) => onPriceChange(filters.min, nextMax)}
+            onCommit={(max) => onPriceChange(filters.min, max)}
           />
         </div>
       </FilterGroup>
 
-      <FilterGroup title={t('filters.memory')}>
-        <ChoiceList
-          legend={t('filters.memory')}
-          options={ramOptions}
-          value={filters.rams}
-          onChange={(vals) => onMultiChange('ram', vals)}
-          multiple
-        />
-      </FilterGroup>
+      {specFilters.map(multiFilter)}
 
       <FilterGroup title={t('filters.rating')}>
         <ChoiceList
-          legend={t('filters.rating')}
-          options={ratingOptions}
+          options={RATING_VALUES.map((rating) => ({
+            value: rating,
+            label: rating ? t('filters.ratingUp', { rating }) : t('filters.anyRating'),
+          }))}
           value={filters.rating}
-          onChange={(val) => onSingleChange('rating', val)}
+          onChange={(rating) => onSingleChange('rating', rating)}
         />
       </FilterGroup>
 
       <div className={styles.stockRow}>
         <Toggle
-          id={stockId}
+          id={`${baseId}-stock`}
           label={t('filters.inStockOnly')}
           checked={filters.inStock}
           onChange={(checked) => onSingleChange('inStock', checked ? '1' : '')}

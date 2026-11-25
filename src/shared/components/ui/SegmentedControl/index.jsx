@@ -2,7 +2,8 @@ import { useRef } from 'react';
 
 import styles from './SegmentedControl.module.css';
 
-export default function SegmentedControl({ options, value, onChange, ariaLabel }) {
+/** One choice from two to five short options. options: [{ value, label }] */
+function SegmentedControl({ options, value, onChange, ariaLabel }) {
   const buttonsRef = useRef([]);
 
   const handleKeyDown = (e, index) => {
@@ -43,3 +44,5 @@ export default function SegmentedControl({ options, value, onChange, ariaLabel }
     </div>
   );
 }
+
+export default SegmentedControl;

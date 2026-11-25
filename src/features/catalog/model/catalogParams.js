@@ -1,6 +1,8 @@
+import { MULTI_FILTERS } from './filterOptions';
+
 export const PAGE_SIZE = 9;
 
-export const SORTS = {
+const SORTS = {
   featured: {},
   'price-asc': { _sort: 'price', _order: 'asc' },
   'price-desc': { _sort: 'price', _order: 'desc' },
@@ -8,48 +10,47 @@ export const SORTS = {
   newest: { _sort: 'createdAt', _order: 'desc' },
 };
 
-/**
- * @param {string | null} value
- * @returns {number | undefined}
- */
 function parseNonNegativeNumber(value) {
   if (value === null || value.trim() === '') return undefined;
-  const num = Number(value);
-  return Number.isFinite(num) && num >= 0 ? num : undefined;
+  const number = Number(value);
+  return Number.isFinite(number) && number >= 0 ? number : undefined;
+}
+
+/** The page in the URL, or 1 when it is missing or not a positive number. */
+export function currentPage(searchParams) {
+  const page = Math.floor(Number(searchParams.get('page') ?? 1));
+  return Number.isFinite(page) && page > 0 ? page : 1;
+}
+
+/** What json-server should match for one filter; values that are not an option are dropped. */
+function matchesOf({ key, options }, searchParams) {
+  const values = searchParams.getAll(key).map((value) => value.trim());
+  const matches = options
+    .filter((option) => values.includes(option.value))
+    .map((option) => option.match ?? option.value);
+  return matches.length > 0 ? matches : undefined;
 }
 
 /**
+ * Turns the catalog URL into json-server params.
+ * "Load more" keeps _page at 1 and grows _limit, so the list stays whole.
  * @param {URLSearchParams | string} input
  */
 export function toApiParams(input) {
   const searchParams = input instanceof URLSearchParams ? input : new URLSearchParams(input);
-
-  const rawPage = Math.floor(Number(searchParams.get('page') ?? 1));
-  const page = Number.isFinite(rawPage) && rawPage > 0 ? rawPage : 1;
-
-  const brands = searchParams
-    .getAll('brand')
-    .map((b) => b.trim())
-    .filter(Boolean);
-
-  const rams = searchParams
-    .getAll('ram')
-    .map((r) => (r.trim() === '' ? NaN : Number(r)))
-    .filter((n) => Number.isFinite(n) && n > 0);
-
   const inStock = searchParams.get('inStock');
-  const sortKey = searchParams.get('sort') ?? 'featured';
 
   return {
     q: searchParams.get('q')?.trim() || undefined,
-    brand: brands.length > 0 ? brands : undefined,
-    'specs.ram': rams.length > 0 ? rams : undefined,
+    ...Object.fromEntries(
+      MULTI_FILTERS.map((filter) => [filter.param, matchesOf(filter, searchParams)]),
+    ),
     price_gte: parseNonNegativeNumber(searchParams.get('min')),
     price_lte: parseNonNegativeNumber(searchParams.get('max')),
     rating_gte: parseNonNegativeNumber(searchParams.get('rating')),
     stock_gte: inStock === 'true' || inStock === '1' ? 1 : undefined,
-    ...(SORTS[sortKey] ?? SORTS.featured),
+    ...SORTS[searchParams.get('sort')],
     _page: 1,
-    _limit: PAGE_SIZE * page,
+    _limit: PAGE_SIZE * currentPage(searchParams),
   };
 }

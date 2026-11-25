@@ -1,9 +1,5 @@
 .group {
-  border-block-end: 1px solid #ddd;
-}
-
-.heading {
-  margin: 0;
+  border-bottom: 1px solid var(--color-line);
 }
 
 .toggle {
@@ -11,36 +7,27 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 14px 0;
-  font: inherit;
-  font-weight: bold;
-  color: #111;
-  background: none;
+  padding: 18px 0;
   border: 0;
+  background: transparent;
+  font-family: var(--font-mono);
+  font-size: var(--text-mono-label-size);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
   cursor: pointer;
 }
 
-.toggle:focus-visible {
-  outline: 2px solid #4c8bf5;
-  outline-offset: 2px;
-}
-
 .chevron {
-  transition: transform 0.2s;
+  transform: rotate(90deg);
 }
 
-.open {
-  transform: rotate(180deg);
+.toggle[aria-expanded='true'] .chevron {
+  transform: rotate(-90deg);
 }
 
-.panel {
+.panel:not([hidden]) {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  padding-block-end: 14px;
-}
-
-/* مهم: عشان display:flex ما تلغيش الـ hidden */
-.panel[hidden] {
-  display: none;
+  gap: 10px;
+  padding-block-end: 18px;
 }

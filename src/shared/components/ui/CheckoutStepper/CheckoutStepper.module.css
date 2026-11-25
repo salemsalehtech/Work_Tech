@@ -1,73 +1,79 @@
 .stepper {
   display: flex;
+  overflow: hidden;
   margin: 0;
   padding: 0;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
   list-style: none;
 }
 
 .step {
   position: relative;
-  flex: 1;
   display: flex;
-  flex-direction: column;
+  flex: 1;
   align-items: center;
-  gap: 8px;
-  text-align: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px var(--space-4);
+  color: var(--color-text-muted);
 }
 
-/* الخط الواصل بين الخطوات (logical properties عشان يشتغل RTL و LTR) */
-.step:not(:last-child)::after {
-  content: '';
-  position: absolute;
-  top: 16px;
-  inset-inline-start: calc(50% + 24px);
-  width: calc(100% - 48px);
-  height: 2px;
-  background: #ccc;
+.step + .step {
+  border-inline-start: 1px solid var(--color-line);
 }
 
-.done:not(:last-child)::after {
-  background: #111;
+.step[aria-current='step'] {
+  background: var(--color-ink);
+  color: var(--color-surface);
 }
 
-.circle {
-  display: grid;
-  place-items: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  border: 2px solid #ccc;
-  background: #fff;
-  color: #777;
-  font-weight: bold;
+.done {
+  color: var(--color-ink);
 }
 
+.number {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border: 1px solid currentColor;
+  border-radius: var(--radius-full);
+  font-family: var(--font-mono);
+  font-size: var(--text-mono-label-size);
+}
+
+.done .number {
+  border-color: var(--color-success);
+  background: var(--color-success);
+  color: var(--color-surface);
+}
+
+/* Small screens show the numbers; the labels stay for screen readers. */
 .label {
-  font-size: 14px;
-  color: #777;
-}
-
-.done .circle {
-  background: #111;
-  border-color: #111;
-  color: #fff;
-}
-
-.current .circle {
-  border-color: #111;
-  color: #111;
-}
-
-.current .label {
-  color: #111;
-  font-weight: bold;
-}
-
-.srOnly {
   position: absolute;
   width: 1px;
   height: 1px;
   overflow: hidden;
-  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  font-size: var(--text-ui-size);
+  font-weight: 600;
   white-space: nowrap;
+}
+
+@media (min-width: 834px) {
+  .step {
+    justify-content: flex-start;
+  }
+
+  .label {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip-path: none;
+  }
 }

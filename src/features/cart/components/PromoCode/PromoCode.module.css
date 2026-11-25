@@ -1,0 +1,20 @@
+.form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--space-2);
+}
+
+/* Lines the button up with the field, under the label. */
+.form button {
+  height: var(--field);
+  margin-block-start: calc(var(--text-small-size) * var(--text-body-line) + 6px);
+}
+
+.applied {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  font-size: var(--text-small-size);
+  color: var(--color-success);
+}

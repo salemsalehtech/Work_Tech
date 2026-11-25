@@ -1,5 +1,5 @@
 import { formatNumber, formatPrice } from './formatPrice';
-import { discountPercent, monthlyInstallment, priceWithOptions } from './pricing';
+import { discountPercent, monthlyInstallment, priceWithOptions, resolveSelection } from './pricing';
 
 describe('formatPrice', () => {
   it('formats English prices as number then EGP', () => {
@@ -30,6 +30,24 @@ describe('discountPercent', () => {
   it('returns 0 without a higher old price', () => {
     expect(discountPercent(45990, null)).toBe(0);
     expect(discountPercent(45990, 45990)).toBe(0);
+  });
+});
+
+describe('resolveSelection', () => {
+  const options = {
+    memory: [{ label: '16 GB' }, { label: '32 GB' }],
+    warranty: [{ label: '1 year' }, { label: '2 years' }],
+  };
+
+  it('uses the first option of every group by default', () => {
+    expect(resolveSelection(options)).toEqual({ memory: '16 GB', warranty: '1 year' });
+  });
+
+  it('keeps the requested options and replaces the ones that do not exist', () => {
+    expect(resolveSelection(options, { memory: '32 GB', warranty: '9 years' })).toEqual({
+      memory: '32 GB',
+      warranty: '1 year',
+    });
   });
 });
 

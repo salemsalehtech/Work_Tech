@@ -9,7 +9,8 @@
     "errorTitle": "We could not load this",
     "errorText": "Check your connection and try again.",
     "retry": "Try again",
-    "errorEyebrow": "Error"
+    "errorEyebrow": "Error",
+    "done": "Completed"
   },
   "actions": {
     "close": "Close",
@@ -26,5 +27,13 @@
     "months": "months",
     "vat": "VAT included"
   },
-  "quantity": "Quantity"
+  "quantity": "Quantity",
+  "breadcrumbs": "Breadcrumbs",
+  "checkoutSteps": "Checkout steps",
+  "orderProgress": "Order progress",
+  "accountNav": "Account pages",
+  "installments": {
+    "title": "Installment plan",
+    "note": "Indicative. Final terms by the provider."
+  }
 }

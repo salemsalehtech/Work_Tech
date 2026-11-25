@@ -36,6 +36,14 @@ describe('toApiParams', () => {
     });
   });
 
+  it('maps processor, graphics and screen to patterns json-server can match', () => {
+    expect(toApiParams('cpu=amd&gpu=rtx-40&gpu=rtx-50&screen=13&screen=99')).toMatchObject({
+      'specs.cpu_like': ['AMD|Ryzen'],
+      'specs.gpu_like': ['RTX 40', 'RTX 50'],
+      'specs.screen_like': ['^1[34]'],
+    });
+  });
+
   it('maps sort options to json-server _sort and _order parameters', () => {
     expect(toApiParams(new URLSearchParams('sort=price-asc'))).toMatchObject({
       _sort: 'price',

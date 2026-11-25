@@ -48,12 +48,17 @@
     "price": "السعر (جنيه)",
     "minPrice": "الحد الأدنى",
     "maxPrice": "الحد الأقصى",
-    "memory": "الذاكرة (RAM)",
     "ramOption": "{{ram}} جيجابايت",
     "rating": "تقييم العملاء",
     "ratingUp": "{{rating}} فأعلى",
     "anyRating": "كل التقييمات",
-    "inStockOnly": "المتوفر فقط"
+    "inStockOnly": "المتوفر فقط",
+    "ram": "الذاكرة (RAM)",
+    "cpu": "المعالج",
+    "gpu": "كارت الشاشة",
+    "screen": "مقاس الشاشة",
+    "integrated": "مدمج",
+    "rtxSeries": "سلسلة RTX {{series}}"
   },
   "sort": {
     "label": "ترتيب المنتجات",
@@ -62,5 +67,11 @@
     "price-desc": "السعر: من الأعلى للأقل",
     "rating": "الأعلى تقييماً",
     "newest": "الأحدث"
+  },
+  "options": {
+    "memory": "الذاكرة",
+    "storage": "التخزين",
+    "warranty": "الضمان",
+    "included": "ضمن السعر"
   }
 }

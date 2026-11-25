@@ -1,51 +1,65 @@
-import { useState, useRef } from 'react';
-function Tabs({ tabs, id, navClassName, tabClassName, activeTab }) {
-  const [isActive, setIsActive] = useState(0);
-  const tabRef = useRef([]);
-  const keyDown = (e, index) => {
-    let nextItem = null;
-    if (e.key === 'ArrowRight') nextItem = (index + 1) % tabs.length;
-    else if (e.key === 'ArrowLeft') nextItem = (index - 1 + tabs.length) % tabs.length;
-    else if (e.key === 'Home') nextItem = 0;
-    else if (e.key === 'End') nextItem = tabs.length - 1;
-    if (nextItem === null) return;
-    e.preventDefault();
-    setIsActive(nextItem);
-    tabRef.current[nextItem]?.focus();
-    console.log('key pressed:', e.key, 'index:', index);
+import { useId, useRef } from 'react';
+
+import styles from './Tabs.module.css';
+
+/**
+ * Underline tabs. Controlled, so the caller can keep the open tab in the URL.
+ * items: [{ id, label }]; children is the panel of the selected tab.
+ */
+function Tabs({ label, items, value, onChange, children }) {
+  const baseId = useId();
+  const tabRefs = useRef({});
+  const tabId = (id) => `${baseId}-tab-${id}`;
+  const panelId = `${baseId}-panel`;
+
+  const handleKeyDown = (event) => {
+    const last = items.length - 1;
+    const current = items.findIndex((item) => item.id === value);
+    const isRtl = document.documentElement.dir === 'rtl';
+    const target = {
+      [isRtl ? 'ArrowLeft' : 'ArrowRight']: current === last ? 0 : current + 1,
+      [isRtl ? 'ArrowRight' : 'ArrowLeft']: current === 0 ? last : current - 1,
+      Home: 0,
+      End: last,
+    }[event.key];
+    if (target === undefined) return;
+
+    event.preventDefault();
+    const { id } = items[target];
+    onChange?.(id);
+    tabRefs.current[id]?.focus();
   };
+
   return (
-    <div>
-      <div className={navClassName} role="tablist">
-        {tabs.map((tab, index) => {
+    <>
+      <div className={styles.tabs} role="tablist" aria-label={label}>
+        {items.map((item) => {
+          const selected = item.id === value;
           return (
             <button
-              key={tab.label}
-              className={`${tabClassName} ${isActive === index ? activeTab : ''}`}
-              ref={(element) => (tabRef.current[index] = element)}
-              id={`${id}-tab-${index}`}
-              role="tab"
+              key={item.id}
+              ref={(element) => {
+                tabRefs.current[item.id] = element;
+              }}
+              id={tabId(item.id)}
               type="button"
-              aria-selected={isActive === index}
-              aria-controls={`${id}-panel-${index}`}
-              tabIndex={isActive === index ? 0 : -1}
-              onClick={() => setIsActive(index)}
-              onKeyDown={(e) => keyDown(e, index)}
+              role="tab"
+              className={styles.tab}
+              aria-selected={selected}
+              aria-controls={selected ? panelId : undefined}
+              tabIndex={selected ? 0 : -1}
+              onClick={() => onChange?.(item.id)}
+              onKeyDown={handleKeyDown}
             >
-              {tab.label}
+              {item.label}
             </button>
           );
         })}
       </div>
-      <div
-        id={`${id}-panel-${isActive}`}
-        aria-labelledby={`${id}-tab-${isActive}`}
-        role="tabpanel"
-        tabIndex={0}
-      >
-        {tabs[isActive].content}
+      <div id={panelId} role="tabpanel" aria-labelledby={tabId(value)}>
+        {children}
       </div>
-    </div>
+    </>
   );
 }
 

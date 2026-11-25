@@ -9,7 +9,8 @@
     "errorTitle": "تعذّر تحميل المحتوى",
     "errorText": "تحقق من الاتصال وحاول مرة أخرى.",
     "retry": "حاول مرة أخرى",
-    "errorEyebrow": "خطأ"
+    "errorEyebrow": "خطأ",
+    "done": "مكتملة"
   },
   "actions": {
     "close": "إغلاق",
@@ -26,5 +27,13 @@
     "months": "شهرًا",
     "vat": "شامل الضريبة"
   },
-  "quantity": "الكمية"
+  "quantity": "الكمية",
+  "breadcrumbs": "مسار الصفحة",
+  "checkoutSteps": "خطوات إتمام الطلب",
+  "orderProgress": "حالة الطلب",
+  "accountNav": "صفحات الحساب",
+  "installments": {
+    "title": "خطة التقسيط",
+    "note": "تقديرية، والشروط النهائية من جهة التقسيط."
+  }
 }
