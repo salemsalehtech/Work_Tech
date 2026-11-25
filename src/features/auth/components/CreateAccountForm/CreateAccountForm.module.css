@@ -1,0 +1,10 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.note {
+  font-size: var(--text-caption-size);
+  color: var(--color-text-muted);
+}

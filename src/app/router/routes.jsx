@@ -26,7 +26,7 @@ import {
   SearchResults,
   Wishlist,
 } from './lazyPages';
-export const router = createBrowserRouter([
+export const routes = [
   {
     element: <AppLayout />,
     errorElement: <RouteError />,
@@ -57,4 +57,6 @@ export const router = createBrowserRouter([
       { path: '*', element: <NotFound /> },
     ],
   },
-]);
+];
+
+export const router = createBrowserRouter(routes);

@@ -3,23 +3,15 @@ import { Navigate, Outlet, useLocation } from 'react-router-dom';
 
 import { PATHS } from '@shared/constants';
 
-import { selectCurrentUser, selectIsAuthenticated } from '../../authSlice';
+import { selectCurrentUser } from '../../authSlice';
 
-/**
- * Sends guests to the sign in page and brings them back after it.
- * Preserves the requested location in React Router location state `from`.
- */
-function RequireAuth({ children, redirectTo = PATHS.AUTH }) {
-  const isAuthenticated = useSelector(
-    (state) => selectIsAuthenticated?.(state) ?? Boolean(selectCurrentUser(state)),
-  );
+/** Parent route of the account pages: sends guests to sign in, and brings them back after it. */
+function RequireAuth() {
+  const user = useSelector(selectCurrentUser);
   const location = useLocation();
 
-  if (!isAuthenticated) {
-    return <Navigate to={redirectTo} replace state={{ from: location }} />;
-  }
-
-  return children ? children : <Outlet />;
+  if (!user) return <Navigate to={PATHS.AUTH} replace state={{ from: location }} />;
+  return <Outlet />;
 }
 
 export default RequireAuth;
