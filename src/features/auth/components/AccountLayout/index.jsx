@@ -1,19 +1,20 @@
 import { useTranslation } from 'react-i18next';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import { AccountNav, Button, Container } from '@shared/components/ui';
 import { PATHS } from '@shared/constants';
 
-import { signOut } from '../../authSlice';
+import { selectCurrentUser, signOut } from '../../authSlice';
 
 import styles from './AccountLayout.module.css';
 
-/** Title, side navigation and content of Account, My orders, Order details and Wishlist. */
-function AccountLayout({ title, children }) {
+/** Title, side navigation and content of Account, My orders, Order details and Wishlist (open to guests). */
+function AccountLayout({ title, meta, children }) {
   const { t } = useTranslation('account');
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const user = useSelector(selectCurrentUser);
 
   // Leaves the page first: signing out on a protected page would send the guest to sign in.
   const handleSignOut = async () => {
@@ -23,7 +24,10 @@ function AccountLayout({ title, children }) {
 
   return (
     <Container className={styles.page}>
-      <h1 className={styles.title}>{title}</h1>
+      <header className={styles.header}>
+        <h1 className={styles.title}>{title}</h1>
+        {meta && <p className={styles.meta}>{meta}</p>}
+      </header>
       <div className={styles.layout}>
         <div className={styles.side}>
           <AccountNav
@@ -33,9 +37,11 @@ function AccountLayout({ title, children }) {
               { to: PATHS.WISHLIST, label: t('nav.wishlist') },
             ]}
           />
-          <Button variant="danger" className={styles.signOut} onClick={handleSignOut}>
-            {t('nav.signOut')}
-          </Button>
+          {user && (
+            <Button variant="danger" className={styles.signOut} onClick={handleSignOut}>
+              {t('nav.signOut')}
+            </Button>
+          )}
         </div>
         <div className={styles.content}>{children}</div>
       </div>

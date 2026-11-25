@@ -7,6 +7,7 @@ export { default as Button } from './Button';
 export { default as Checkbox } from './Checkbox';
 export { default as CheckoutStepper } from './CheckoutStepper';
 export { default as ChoiceList } from './ChoiceList';
+export { default as ConfirmButton } from './ConfirmButton';
 export { default as Container } from './Container';
 export { default as DataState } from './DataState';
 export { default as Drawer } from './Drawer';

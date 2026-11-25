@@ -1,0 +1,14 @@
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  font-size: var(--text-ui-size);
+}
+
+.info dt {
+  margin-block-end: var(--space-1);
+  font-family: var(--font-mono);
+  font-size: var(--text-mono-label-size);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+}

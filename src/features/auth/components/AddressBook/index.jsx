@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 
-import { Badge, Button } from '@shared/components/ui';
+import { Badge, Button, ConfirmButton } from '@shared/components/ui';
 
 import { updateProfile } from '../../authSlice';
 import { addAddress, removeAddress, setDefaultAddress } from '../../model/addresses';
@@ -14,7 +14,6 @@ import styles from './AddressBook.module.css';
 
 function AddressCard({ address, onMakeDefault, onRemove }) {
   const { t } = useTranslation('account');
-  const [confirming, setConfirming] = useState(false);
 
   return (
     <li className={[styles.card, address.isDefault && styles.default].filter(Boolean).join(' ')}>
@@ -28,32 +27,19 @@ function AddressCard({ address, onMakeDefault, onRemove }) {
         </span>
       ))}
 
-      {confirming ? (
-        <div className={styles.actions} role="group" aria-label={t('addresses.confirmRemove')}>
-          <span>{t('addresses.confirmRemove')}</span>
-          <Button variant="danger" onClick={onRemove}>
-            {t('common:actions.remove')}
+      <div className={styles.actions}>
+        {!address.isDefault && (
+          <Button variant="link" onClick={onMakeDefault}>
+            {t('addresses.makeDefault')}
           </Button>
-          <Button variant="link" onClick={() => setConfirming(false)}>
-            {t('common:actions.cancel')}
-          </Button>
-        </div>
-      ) : (
-        <div className={styles.actions}>
-          {!address.isDefault && (
-            <Button variant="link" onClick={onMakeDefault}>
-              {t('addresses.makeDefault')}
-            </Button>
-          )}
-          <Button
-            variant="danger"
-            aria-label={t('addresses.remove', { address: address.address })}
-            onClick={() => setConfirming(true)}
-          >
-            {t('common:actions.remove')}
-          </Button>
-        </div>
-      )}
+        )}
+        <ConfirmButton
+          label={t('common:actions.remove')}
+          name={t('addresses.remove', { address: address.address })}
+          question={t('addresses.confirmRemove')}
+          onConfirm={onRemove}
+        />
+      </div>
     </li>
   );
 }
