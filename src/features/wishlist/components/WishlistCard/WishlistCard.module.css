@@ -1,0 +1,104 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+  min-width: 0;
+}
+
+.card:hover {
+  border-color: var(--color-line-strong);
+  box-shadow: 0 4px 12px rgba(11, 21, 38, 0.06);
+}
+
+.priceDropBanner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-success-50);
+  border-block-end: 1px solid rgba(20, 108, 58, 0.2);
+  color: var(--color-success);
+  font-size: var(--text-small-size);
+  font-weight: 600;
+  flex-wrap: wrap;
+}
+
+.priceDropContent {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.priceDropIcon {
+  font-weight: 700;
+  font-size: var(--text-body-size);
+  line-height: 1;
+}
+
+.priceDropMessage {
+  letter-spacing: -0.01em;
+}
+
+.savedPriceNote {
+  font-size: var(--text-mono-xs-size);
+  color: var(--color-text-muted);
+  font-weight: 400;
+  font-family: var(--font-mono);
+}
+
+.productCardWrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.productCardWrapper > article {
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+  flex: 1;
+}
+
+.alertToolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-block-start: 1px solid var(--color-line-soft);
+  background: var(--color-surface-subtle);
+}
+
+.alertControl {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.alertStatus {
+  font-size: var(--text-mono-xs-size);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-family: var(--font-mono);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+}
+
+.alertActive {
+  color: var(--color-blue);
+  background: var(--color-highlight);
+}
+
+.alertInactive {
+  color: var(--color-text-muted);
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+}

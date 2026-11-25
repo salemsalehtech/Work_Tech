@@ -5,11 +5,14 @@ import wishlistReducer, {
   clearWishlist,
   removeFromWishlist,
   selectIsInWishlist,
+  selectIsPriceAlertEnabled,
   selectWishlistCount,
   selectWishlistItemById,
   selectWishlistIds,
   selectWishlistItems,
   setPriceAlert,
+  setPriceAlertEnabled,
+  togglePriceAlert,
   toggleWishlist,
 } from './wishlistSlice';
 
@@ -472,6 +475,68 @@ describe('Wishlist Slice (AB-02)', () => {
 
       store.dispatch(removeFromWishlist('laptop-10'));
       expect(selectWishlistCount(store.getState())).toBe(0);
+    });
+  });
+
+  describe('Price Alert Toggle & Enabled Actions (AB-07)', () => {
+    const stateWithItem = {
+      items: [
+        {
+          productId: 'laptop-1',
+          savedPrice: 45000,
+          savedAt: '2026-10-01T10:00:00.000Z',
+          priceAlert: null,
+          targetPrice: null,
+        },
+        {
+          productId: 'laptop-2',
+          savedPrice: 60000,
+          savedAt: '2026-10-02T10:00:00.000Z',
+          priceAlert: 55000,
+          targetPrice: 55000,
+        },
+      ],
+    };
+
+    it('togglePriceAlert enables price alert when currently null', () => {
+      const result = wishlistReducer(stateWithItem, togglePriceAlert('laptop-1'));
+      expect(result.items[0].priceAlert).toBe(45000);
+      expect(result.items[1].priceAlert).toBe(55000); // other items unchanged
+    });
+
+    it('togglePriceAlert disables price alert when currently active', () => {
+      const result = wishlistReducer(stateWithItem, togglePriceAlert('laptop-2'));
+      expect(result.items[1].priceAlert).toBeNull();
+      expect(result.items[1].targetPrice).toBeNull();
+    });
+
+    it('togglePriceAlert accepts object payload with price', () => {
+      const result = wishlistReducer(
+        stateWithItem,
+        togglePriceAlert({ productId: 'laptop-1', price: 40000 }),
+      );
+      expect(result.items[0].priceAlert).toBe(40000);
+    });
+
+    it('setPriceAlertEnabled sets enabled state explicitly', () => {
+      const enabledResult = wishlistReducer(
+        stateWithItem,
+        setPriceAlertEnabled({ productId: 'laptop-1', enabled: true, targetPrice: 42000 }),
+      );
+      expect(enabledResult.items[0].priceAlert).toBe(42000);
+
+      const disabledResult = wishlistReducer(
+        enabledResult,
+        setPriceAlertEnabled({ productId: 'laptop-1', enabled: false }),
+      );
+      expect(disabledResult.items[0].priceAlert).toBeNull();
+    });
+
+    it('selectIsPriceAlertEnabled returns correct boolean state', () => {
+      const testState = { wishlist: stateWithItem };
+      expect(selectIsPriceAlertEnabled(testState, 'laptop-1')).toBe(false);
+      expect(selectIsPriceAlertEnabled(testState, 'laptop-2')).toBe(true);
+      expect(selectIsPriceAlertEnabled(testState, 'nonexistent')).toBe(false);
     });
   });
 });

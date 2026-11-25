@@ -2,6 +2,8 @@ export {
   default as wishlistReducer,
   toggleWishlist,
   setPriceAlert,
+  togglePriceAlert,
+  setPriceAlertEnabled,
   removeFromWishlist,
   clearWishlist,
   selectWishlistCount,
@@ -9,4 +11,6 @@ export {
   selectIsInWishlist,
   selectWishlistItemById,
   selectWishlistItems,
+  selectIsPriceAlertEnabled,
 } from './wishlistSlice';
+export { default as WishlistCard } from './components/WishlistCard';

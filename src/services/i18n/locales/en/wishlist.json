@@ -1,1 +1,35 @@
-{}
+{
+  "breadcrumbs": {
+    "home": "Home",
+    "wishlist": "Wishlist"
+  },
+  "page": {
+    "title": "My Wishlist",
+    "subtitle": "Track your favorite laptops, monitor price drops, and get notified when prices change.",
+    "itemCount_one": "1 product saved",
+    "itemCount_other": "{{count}} products saved",
+    "clearAll": "Clear Wishlist"
+  },
+  "empty": {
+    "title": "Your wishlist is empty",
+    "text": "You haven't saved any laptops to your wishlist yet. Explore our laptops catalog and save your favorites to track price drops.",
+    "action": "Explore Laptops"
+  },
+  "priceDrop": {
+    "message": "Price dropped by {{amount}}",
+    "wasPrice": "Saved at {{price}}"
+  },
+  "alerts": {
+    "toggleLabel": "Price alert",
+    "enabled": "Alert active",
+    "disabled": "Alert off"
+  },
+  "card": {
+    "remove": "Remove from wishlist"
+  },
+  "error": {
+    "title": "Unable to load wishlist",
+    "text": "An error occurred while loading your saved laptops. Please try again.",
+    "retry": "Try Again"
+  }
+}

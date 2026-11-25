@@ -5,5 +5,79 @@
     "shipped": "With courier",
     "delivered": "Delivered",
     "cancelled": "Cancelled"
+  },
+  "page": {
+    "title": "My Orders",
+    "subtitle": "Track, view, and manage your recent purchases and delivery progress.",
+    "count_one": "{{count}} order found",
+    "count_other": "{{count}} orders found"
+  },
+  "filters": {
+    "all": "All statuses",
+    "statusLabel": "Filter by status",
+    "searchPlaceholder": "Search by order number (e.g. WT-10001)...",
+    "searchLabel": "Search by order number",
+    "clearSearch": "Clear search",
+    "resetFilters": "Reset all filters"
+  },
+  "card": {
+    "orderNumber": "Order",
+    "placedOn": "Placed on",
+    "total": "Total",
+    "itemsCount_one": "{{count}} item",
+    "itemsCount_other": "{{count}} items",
+    "viewDetails": "View order details"
+  },
+  "empty": {
+    "title": "No orders yet",
+    "text": "You haven't placed any orders yet. Discover our latest high-performance laptops and start shopping.",
+    "action": "Browse Laptops"
+  },
+  "noResults": {
+    "title": "No matching orders found",
+    "text": "No orders match your current search or filter criteria. Try adjusting your query or resetting the filters.",
+    "action": "Clear Filters"
+  },
+  "orderDetails": {
+    "backToOrders": "Back to all orders",
+    "orderNumber": "Order #{{id}}",
+    "placedOn": "Placed on {{date}}",
+    "trackingLabel": "Order tracking progress",
+    "cancelOrder": "Cancel order",
+    "cancelSuccess": "Order {{id}} has been cancelled successfully.",
+    "cancelError": "Failed to cancel order. Please try again.",
+    "itemsTitle": "Order Items ({{count}})",
+    "product": "Product",
+    "price": "Price",
+    "quantity": "Quantity",
+    "total": "Total",
+    "shippingAddress": "Delivery Address",
+    "recipient": "Recipient",
+    "phone": "Phone",
+    "address": "Address",
+    "city": "City",
+    "paymentMethod": "Payment Method",
+    "payment": {
+      "card": "Credit / Debit Card",
+      "cod": "Cash on Delivery"
+    },
+    "summary": "Financial Summary",
+    "subtotal": "Subtotal",
+    "shipping": "Shipping Fee",
+    "freeShipping": "Free",
+    "discount": "Discount",
+    "grandTotal": "Total",
+    "cancelModal": {
+      "title": "Cancel Order",
+      "description": "Are you sure you want to cancel order {{id}}? This action cannot be undone and will stop processing of all items in this order.",
+      "confirm": "Yes, cancel order",
+      "keep": "Keep order",
+      "cancelling": "Cancelling..."
+    },
+    "notFound": {
+      "title": "Order not found",
+      "text": "We could not find the requested order, or you do not have permission to view it.",
+      "action": "Back to orders"
+    }
   }
 }
