@@ -22,7 +22,7 @@
 }
 
 .total {
-  margin-inline-start: auto;
+  flex-basis: 100%;
   color: var(--color-ink);
 }
 
@@ -44,4 +44,19 @@
   padding: 0;
   list-style: none;
   font-size: var(--text-ui-size);
+}
+
+.details {
+  width: 100%;
+}
+
+@media (min-width: 834px) {
+  .total {
+    flex-basis: auto;
+    margin-inline-start: auto;
+  }
+
+  .details {
+    width: auto;
+  }
 }
