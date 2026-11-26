@@ -1,4 +1,4 @@
-import { Navbar } from '@/shared/components/ui';
+import { Navbar } from '@shared/components/ui';
 
 function Home() {
   return (

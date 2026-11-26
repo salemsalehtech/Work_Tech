@@ -1,45 +1,37 @@
+import { useTranslation } from 'react-i18next';
+
 import styles from './OrderTracker.module.css';
 
-const CANCELLED = -1;
-
-export default function OrderTracker({
-  steps,
-  current = 0, // index الحالة الحالية، أو -1 لو الطلب ملغي
-  cancelledLabel = 'Order Cancelled',
-  ariaLabel = 'Order Status',
-}) {
-  if (current === CANCELLED) {
-    return (
-      <div role="status" className={styles.cancelled}>
-        <span className={styles.cancelIcon} aria-hidden="true">
-          ✕
-        </span>
-        {cancelledLabel}
-      </div>
-    );
-  }
+/**
+ * Delivery steps of an order. steps: [{ status, title, note? }], translated by the caller.
+ * current is ORDER_STEP_INDEX[status]; `complete` marks the last step as done.
+ * A cancelled order (current -1) has no tracker: show its Badge instead.
+ */
+function OrderTracker({ steps, current = 0, complete = false, label }) {
+  const { t } = useTranslation();
+  if (current < 0) return null;
 
   return (
-    <nav aria-label={ariaLabel}>
-      <ol className={styles.tracker}>
-        {steps.map((label, idx) => {
-          const status = idx < current ? 'done' : idx === current ? 'current' : 'upcoming';
-
-          return (
-            <li
-              key={label}
-              className={`${styles.step} ${styles[status]}`}
-              aria-current={status === 'current' ? 'step' : undefined}
-            >
-              <span className={styles.dot} aria-hidden="true">
-                {status === 'done' ? '✓' : ''}
-              </span>
-              <span>{label}</span>
-              {status === 'done' && <span className={styles.srOnly}> Completed</span>}
-            </li>
-          );
-        })}
-      </ol>
-    </nav>
+    <ol className={styles.tracker} aria-label={label ?? t('orderProgress')}>
+      {steps.map((step, index) => {
+        const isDone = index < current || (complete && index === current);
+        const isCurrent = index === current && !isDone;
+        return (
+          <li
+            key={step.title}
+            className={[styles.step, isDone && styles.done, isCurrent && styles.current]
+              .filter(Boolean)
+              .join(' ')}
+            aria-current={isCurrent ? 'step' : undefined}
+          >
+            <span className={styles.status}>{step.status}</span>
+            <span className={styles.title}>{step.title}</span>
+            {step.note && <span className={styles.note}>{step.note}</span>}
+          </li>
+        );
+      })}
+    </ol>
   );
 }
+
+export default OrderTracker;

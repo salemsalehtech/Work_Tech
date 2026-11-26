@@ -48,12 +48,17 @@
     "price": "Price (EGP)",
     "minPrice": "Min",
     "maxPrice": "Max",
-    "memory": "Memory",
     "ramOption": "{{ram}} GB",
     "rating": "Customer rating",
     "ratingUp": "{{rating}} & up",
     "anyRating": "Any rating",
-    "inStockOnly": "In stock only"
+    "inStockOnly": "In stock only",
+    "ram": "Memory",
+    "cpu": "Processor",
+    "gpu": "Graphics",
+    "screen": "Screen size",
+    "integrated": "Integrated",
+    "rtxSeries": "RTX {{series}} series"
   },
   "sort": {
     "label": "Sort products",
@@ -62,5 +67,11 @@
     "price-desc": "Price: High to low",
     "rating": "Highest rated",
     "newest": "Newest arrivals"
+  },
+  "options": {
+    "memory": "Memory",
+    "storage": "Storage",
+    "warranty": "Warranty",
+    "included": "Included"
   }
 }

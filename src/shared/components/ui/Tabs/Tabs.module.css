@@ -1,0 +1,22 @@
+.tabs {
+  display: flex;
+  gap: var(--space-7);
+  overflow-x: auto;
+  border-bottom: 1px solid var(--color-ink);
+}
+
+.tab {
+  height: var(--control-lg);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-size: var(--text-body-size);
+  color: var(--color-ink);
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.tab[aria-selected='true'] {
+  font-weight: 600;
+  box-shadow: var(--ring-tab);
+}

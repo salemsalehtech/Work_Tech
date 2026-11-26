@@ -1,59 +1,42 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { MAX_QTY_PER_ITEM } from '@shared/constants';
-
+import { quantityLimit } from './model/cartItem';
 import { cartItemKey } from './model/cartTotals';
 
+// Item shape: see model/cartTotals.js. Build items with toCartItem.
 const initialState = { items: [], promoCode: null };
 
 const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    addItem: (state, action) => {
-      const item = action.payload;
-      const key = cartItemKey(item.productId, item.options);
+    addItem(state, { payload }) {
+      const key = cartItemKey(payload.productId, payload.options);
+      const line = state.items.find((item) => item.key === key);
+      const quantity = (line?.quantity ?? 0) + (payload.quantity ?? 1);
 
-      const existingItem = state.items.find((item) => item.key === key);
-
-      if (existingItem) {
-        existingItem.quantity = Math.min(
-          existingItem.quantity + item.quantity,
-          item.stock,
-          MAX_QTY_PER_ITEM,
-        );
-      } else {
+      if (line) line.quantity = Math.min(quantity, quantityLimit(line.stock));
+      else
         state.items.push({
-          ...item,
+          ...payload,
           key,
-          quantity: Math.min(item.quantity, item.stock, MAX_QTY_PER_ITEM),
+          quantity: Math.min(quantity, quantityLimit(payload.stock)),
         });
-      }
     },
-
-    setQuantity: (state, action) => {
-      const { key, quantity } = action.payload;
-      const item = state.items.find((item) => item.key === key);
-
-      if (item) {
-        item.quantity = Math.min(Math.max(1, quantity), item.stock, MAX_QTY_PER_ITEM);
-      }
+    setQuantity(state, { payload: { key, quantity } }) {
+      const line = state.items.find((item) => item.key === key);
+      if (line) line.quantity = Math.min(Math.max(1, quantity), quantityLimit(line.stock));
     },
-
-    removeItem: (state, action) => {
-      state.items = state.items.filter((item) => item.key !== action.payload);
+    removeItem(state, { payload: key }) {
+      state.items = state.items.filter((item) => item.key !== key);
     },
-
-    clearCart: (state) => {
-      state.items = [];
-      state.promoCode = null;
+    clearCart() {
+      return initialState;
     },
-
-    applyPromo: (state, action) => {
-      state.promoCode = action.payload;
+    applyPromo(state, { payload: code }) {
+      state.promoCode = code;
     },
-
-    removePromo: (state) => {
+    removePromo(state) {
       state.promoCode = null;
     },
   },
@@ -63,8 +46,8 @@ export const { addItem, setQuantity, removeItem, clearCart, applyPromo, removePr
   cartSlice.actions;
 
 export const selectCartItems = (state) => state.cart.items;
-
 export const selectCartCount = (state) =>
   state.cart.items.reduce((count, item) => count + item.quantity, 0);
+export const selectPromoCode = (state) => state.cart.promoCode;
 
 export default cartSlice.reducer;

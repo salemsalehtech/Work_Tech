@@ -25,7 +25,7 @@ function AppLayout() {
   const { t } = useTranslation('layout');
 
   return (
-    <>
+    <div className={styles.layout}>
       <a href="#main" className={styles.skipLink}>
         {t('skipToContent')}
       </a>
@@ -37,7 +37,7 @@ function AppLayout() {
       </main>
       <SiteFooter />
       <ScrollRestoration />
-    </>
+    </div>
   );
 }
 

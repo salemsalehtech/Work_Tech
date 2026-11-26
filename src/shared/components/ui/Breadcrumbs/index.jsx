@@ -1,27 +1,23 @@
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
 import styles from './Breadcrumbs.module.css';
+
 function Breadcrumbs({ items }) {
+  const { t } = useTranslation();
+
   return (
-    <nav className={`breadcrumbs-app ${styles['breadcrumbs-app']}`}>
-      <ol className="flex items-center gap-3">
-        {items.map((item, index) => {
-          const isLast = index === items.length - 1;
-          return (
-            <li className="flex justify-between" key={item.label}>
-              {isLast ? (
-                <span className="text-(--color-ink)" aria-current="page">
-                  {item.label}
-                </span>
-              ) : (
-                <div className="flex gap-3">
-                  <Link to={item.to}>{item.label}</Link>
-                  <span className="text-(--color-text-muted)">/</span>
-                </div>
-              )}
-            </li>
-          );
-        })}
+    <nav className={styles.breadcrumbs} aria-label={t('breadcrumbs')}>
+      <ol className={styles.list}>
+        {items.map((item, index) => (
+          <li key={item.label}>
+            {index === items.length - 1 ? (
+              <span aria-current="page">{item.label}</span>
+            ) : (
+              <Link to={item.to}>{item.label}</Link>
+            )}
+          </li>
+        ))}
       </ol>
     </nav>
   );

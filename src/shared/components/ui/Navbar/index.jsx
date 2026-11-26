@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { useSearchParams } from 'react-router-dom';
 
-import { CATEGORIES } from '@/features/data/Categories';
+import { CATEGORIES } from '@shared/data/Categories';
 
 function Navbar() {
   const [searchParams, setSearchParams] = useSearchParams();
