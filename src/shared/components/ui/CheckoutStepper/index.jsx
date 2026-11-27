@@ -4,6 +4,7 @@ import Icon from '../Icon';
 
 import styles from './CheckoutStepper.module.css';
 
+/** Checkout progress. steps: translated labels; current is 0-based. */
 function CheckoutStepper({ steps, current = 0, label }) {
   const { t } = useTranslation();
 

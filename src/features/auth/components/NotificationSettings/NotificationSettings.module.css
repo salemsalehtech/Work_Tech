@@ -1,0 +1,8 @@
+.row {
+  padding-block: var(--space-4);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.row:first-child {
+  padding-block-start: 0;
+}

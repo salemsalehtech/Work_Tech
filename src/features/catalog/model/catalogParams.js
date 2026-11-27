@@ -1,5 +1,4 @@
-import { CATEGORIES } from '@shared/data/Categories';
-
+import { findCategory } from './categories';
 import { MULTI_FILTERS } from './filterOptions';
 
 export const PAGE_SIZE = 9;
@@ -13,12 +12,8 @@ const SORTS = {
 };
 
 function parseNonNegativeNumber(value) {
-  if (value === null || value === undefined || String(value).trim() === '') {
-    return undefined;
-  }
-
+  if (value === null || value.trim() === '') return undefined;
   const number = Number(value);
-
   return Number.isFinite(number) && number >= 0 ? number : undefined;
 }
 
@@ -45,39 +40,23 @@ function matchesOf({ key, options }, searchParams) {
 export function toApiParams(input) {
   const searchParams = input instanceof URLSearchParams ? input : new URLSearchParams(input);
   const inStock = searchParams.get('inStock');
-
-  const sortKey = searchParams.get('sort') ?? 'featured';
-  const categoryKey = searchParams.get('category') ?? 'all';
-
-  const categoryParams = CATEGORIES.find((category) => category.key === categoryKey)?.params ?? {};
-
-  // 8. Read the user's minimum and maximum price.
-  const requestedMin = parseNonNegativeNumber(searchParams.get('min'));
-  const requestedMax = parseNonNegativeNumber(searchParams.get('max'));
-
-  // 9. Get the maximum price imposed by the selected category.
-  const categoryMax = categoryParams.price_lte;
-
-  // 10. Combine the user's maximum price with the category maximum.
-  const priceLte =
-    requestedMax !== undefined && categoryMax !== undefined
-      ? Math.min(requestedMax, categoryMax)
-      : (requestedMax ?? categoryMax);
+  const category = findCategory(searchParams.get('category'))?.params ?? {};
+  // A price limit of the category and of the visitor: the lower one counts.
+  const maxPrices = [parseNonNegativeNumber(searchParams.get('max')), category.price_lte].filter(
+    (price) => price !== undefined,
+  );
 
   return {
-    ...categoryParams,
+    ...category,
     q: searchParams.get('q')?.trim() || undefined,
-
-    price_gte: requestedMin,
-    price_lte: priceLte,
-
     ...Object.fromEntries(
       MULTI_FILTERS.map((filter) => [filter.param, matchesOf(filter, searchParams)]),
     ),
-
+    price_gte: parseNonNegativeNumber(searchParams.get('min')),
+    price_lte: maxPrices.length > 0 ? Math.min(...maxPrices) : undefined,
     rating_gte: parseNonNegativeNumber(searchParams.get('rating')),
     stock_gte: inStock === 'true' || inStock === '1' ? 1 : undefined,
-    ...(SORTS[sortKey] ?? SORTS.featured),
+    ...SORTS[searchParams.get('sort')],
     _page: 1,
     _limit: PAGE_SIZE * currentPage(searchParams),
   };

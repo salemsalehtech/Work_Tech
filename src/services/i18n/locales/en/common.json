@@ -20,7 +20,8 @@
     "remove": "Remove",
     "backHome": "Back to the store",
     "decrease": "Decrease quantity",
-    "increase": "Increase quantity"
+    "increase": "Increase quantity",
+    "keep": "Keep it"
   },
   "price": {
     "or": "or",
@@ -34,6 +35,14 @@
   "accountNav": "Account pages",
   "installments": {
     "title": "Installment plan",
-    "note": "Indicative. Final terms by the provider."
+    "note": "Indicative. Final terms by the provider.",
+    "plan_one": "{{count}} month",
+    "plan_other": "{{count}} months"
+  },
+  "password": {
+    "show": "Show",
+    "hide": "Hide",
+    "showLabel": "Show password",
+    "hideLabel": "Hide password"
   }
 }

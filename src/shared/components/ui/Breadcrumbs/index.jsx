@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import styles from './Breadcrumbs.module.css';
 
+/** Trail above the page title. items: [{ label, to }], the last one is the current page. */
 function Breadcrumbs({ items }) {
   const { t } = useTranslation();
 

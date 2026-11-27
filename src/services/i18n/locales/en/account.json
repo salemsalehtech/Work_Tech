@@ -1,1 +1,102 @@
-{}
+{
+  "mode": {
+    "label": "Account",
+    "signIn": "Sign in",
+    "register": "Create account"
+  },
+  "signIn": {
+    "title": "Welcome back",
+    "text": "Sign in to see your orders and saved laptops.",
+    "submit": "Sign in"
+  },
+  "register": {
+    "title": "Create your account",
+    "text": "Track orders, save laptops and keep your comparisons.",
+    "submit": "Create account",
+    "priceDrops": "Email me when a saved laptop drops in price",
+    "note": "Demo store: accounts are saved in this browser only."
+  },
+  "welcome": {
+    "title": "One account for every laptop you are considering.",
+    "track": "Track every order until it is delivered",
+    "alerts": "Save laptops and hear when their price drops",
+    "compare": "Keep your comparisons for later"
+  },
+  "demo": {
+    "title": "Demo account",
+    "use": "Use the demo account"
+  },
+  "fields": {
+    "fullName": "Full name",
+    "email": "Email",
+    "emailPlaceholder": "you@example.com",
+    "phone": "Mobile number",
+    "phonePlaceholder": "01XXXXXXXXX",
+    "password": "Password",
+    "passwordHint": "At least 8 characters, with a letter and a number.",
+    "confirmPassword": "Confirm password",
+    "city": "City",
+    "address": "Address"
+  },
+  "errors": {
+    "invalidCredentials": "The email or password is incorrect.",
+    "fullNameRequired": "Full name is required",
+    "fullNameLength": "Use 3 to 60 characters",
+    "emailRequired": "Email is required",
+    "emailInvalid": "Enter a valid email",
+    "emailTaken": "An account with this email already exists",
+    "phoneRequired": "Mobile number is required",
+    "phoneInvalid": "Enter an Egyptian mobile number, 11 digits starting with 01",
+    "passwordRequired": "Password is required",
+    "passwordWeak": "Use at least 8 characters, with a letter and a number",
+    "passwordMismatch": "The passwords do not match",
+    "cityRequired": "City is required",
+    "addressLength": "Write the full address, at least 10 characters"
+  },
+  "page": {
+    "greeting": "Hi, {{name}}"
+  },
+  "nav": {
+    "account": "My account",
+    "orders": "My orders",
+    "wishlist": "Wishlist",
+    "signOut": "Sign out"
+  },
+  "profile": {
+    "title": "Account details",
+    "emailHint": "Your email is your sign in name and cannot change.",
+    "saved": "Your details were saved."
+  },
+  "addresses": {
+    "title": "Addresses",
+    "default": "Default",
+    "add": "+ Add an address",
+    "save": "Save address",
+    "makeDefault": "Make it the default address",
+    "remove": "Remove {{address}}",
+    "confirmRemove": "Remove this address?",
+    "added": "The address was added.",
+    "removed": "The address was removed.",
+    "defaultChanged": "The default address was changed."
+  },
+  "notifications": {
+    "title": "Notifications",
+    "saved": "Your choice was saved.",
+    "orderUpdates": {
+      "label": "Order updates",
+      "description": "Every step of your order, by SMS and email."
+    },
+    "priceDrops": {
+      "label": "Price drops",
+      "description": "When a saved laptop gets cheaper."
+    },
+    "promotions": {
+      "label": "Offers",
+      "description": "Sales and seasonal discounts."
+    },
+    "newsletter": {
+      "label": "Weekly newsletter",
+      "description": "New laptops and buying guides."
+    }
+  }
+}

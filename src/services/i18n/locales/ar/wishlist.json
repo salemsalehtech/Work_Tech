@@ -1,1 +1,17 @@
-{}
+{
+  "title": "المفضلة",
+  "count_zero": "لا توجد أجهزة محفوظة",
+  "count_one": "جهاز واحد محفوظ",
+  "count_two": "جهازان محفوظان",
+  "count_few": "{{count}} أجهزة محفوظة",
+  "count_many": "{{count}} جهازًا محفوظًا",
+  "count_other": "{{count}} جهاز محفوظ",
+  "savedOn": "حُفظ {{date}}",
+  "priceDrop": "نزل السعر {{amount}}",
+  "priceAlert": "تنبيه السعر",
+  "empty": {
+    "title": "لم تحفظ شيئًا بعد",
+    "text": "احفظ جهازًا لتتابع سعره.",
+    "action": "تصفح اللابتوبات"
+  }
+}

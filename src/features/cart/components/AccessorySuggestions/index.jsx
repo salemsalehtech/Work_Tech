@@ -33,7 +33,9 @@ function AccessorySuggestions({ excludeIds, onAdd }) {
                 <span className={styles.category}>
                   {t(`accessories.category.${accessory.category}`)}
                 </span>
-                <bdi className={styles.name}>{accessory.name}</bdi>
+                <span className={styles.name}>
+                  <bdi>{accessory.name}</bdi>
+                </span>
                 <span className={styles.price}>{formatPrice(accessory.price, i18n.language)}</span>
                 <Button variant="outline" size="sm" onClick={() => onAdd(accessory)}>
                   {t('accessories.add')}

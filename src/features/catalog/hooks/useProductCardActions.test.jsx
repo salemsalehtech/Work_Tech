@@ -5,7 +5,7 @@ import { describe, expect, it } from 'vitest';
 
 import { cartReducer, selectCartCount, selectCartItems } from '@features/cart';
 import { compareReducer, selectCompareIds } from '@features/compare';
-import { wishlistReducer } from '@features/wishlist';
+import { selectWishlistItems, wishlistReducer } from '@features/wishlist';
 
 import { useProductCardActions } from './useProductCardActions';
 
@@ -102,6 +102,20 @@ describe('useProductCardActions', () => {
 
     expect(selectCartItems(store.getState())).toHaveLength(1);
     expect(selectCartItems(store.getState())[0]).toMatchObject({ kind: 'laptop', quantity: 2 });
+  });
+
+  it('saves the product to the wishlist with its base price', () => {
+    const { store, Wrapper } = createWrapper();
+    const { result } = renderHook(() => useProductCardActions(), { wrapper: Wrapper });
+
+    act(() => {
+      result.current(sampleProduct, { selection: { memory: '32 GB' } }).onToggleWishlist();
+    });
+
+    expect(selectWishlistItems(store.getState())[0]).toMatchObject({
+      productId: 'laptop-1',
+      savedPrice: 45990,
+    });
   });
 
   it('toggles the product id in the compare store on onToggleCompare', () => {

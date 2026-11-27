@@ -7,6 +7,12 @@
   cursor: pointer;
 }
 
+.description {
+  display: block;
+  font-size: var(--text-caption-size);
+  color: var(--color-text-muted);
+}
+
 .toggle {
   display: inline-flex;
   flex: none;

@@ -21,7 +21,51 @@
     "thumbnailAlt": "{{name}} view {{index}}",
     "notFoundTitle": "Product not found",
     "notFoundText": "The laptop you are looking for does not exist or is no longer available.",
-    "backToProducts": "Back to laptops"
+    "backToProducts": "Back to laptops",
+    "reviewsEmptyTitle": "No reviews yet",
+    "reviewsEmptyText": "Customer feedback for this laptop will appear here.",
+    "tabs": {
+      "specs": "Specifications",
+      "inTheBox": "In the box",
+      "reviews": "Reviews ({{total}})",
+      "label": "Product details"
+    }
+  },
+  "specs": {
+    "labels": {
+      "cpu": "Processor",
+      "cores": "CPU cores",
+      "threads": "CPU threads",
+      "gpu": "Graphics",
+      "gpuVram": "GPU VRAM",
+      "gpuTgp": "Graphics power (TGP)",
+      "ram": "Memory",
+      "storage": "Storage",
+      "screen": "Display size",
+      "resolution": "Resolution",
+      "panel": "Panel type",
+      "refreshRate": "Refresh rate",
+      "battery": "Battery",
+      "weight": "Weight",
+      "thickness": "Thickness",
+      "os": "Operating system",
+      "thunderbolt": "Thunderbolt / USB4",
+      "videoOut": "Video output",
+      "wifi": "Wi-Fi",
+      "bluetooth": "Bluetooth",
+      "ports": "Ports",
+      "webcam": "Webcam",
+      "keyboard": "Keyboard"
+    },
+    "units": {
+      "gb": "{{value}} GB",
+      "tb": "{{value}} TB",
+      "inch": "{{value}}″",
+      "hz": "{{value}} Hz",
+      "watt": "{{value}} W",
+      "kg": "{{value}} kg",
+      "mm": "{{value}} mm"
+    }
   },
   "search": {
     "titleWithQuery": "Results for “{{query}}”",
@@ -73,5 +117,16 @@
     "storage": "Storage",
     "warranty": "Warranty",
     "included": "Included"
+  },
+  "categories": {
+    "label": "Categories",
+    "all": "All laptops",
+    "gaming": "Gaming",
+    "business": "Business",
+    "ultrabooks": "Ultrabooks",
+    "two-in-one": "2-in-1",
+    "under-30000": "Under 30,000 EGP",
+    "deals": "Deals",
+    "finder": "Laptop Finder"
   }
 }

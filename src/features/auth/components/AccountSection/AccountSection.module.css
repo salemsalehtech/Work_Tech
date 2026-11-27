@@ -1,0 +1,15 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.message {
+  font-size: var(--text-small-size);
+  font-weight: 500;
+  color: var(--color-success);
+}
+
+.message:empty {
+  display: none;
+}

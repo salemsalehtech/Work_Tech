@@ -1,0 +1,4 @@
+.error {
+  font-size: var(--text-small-size);
+  color: var(--color-sale);
+}

@@ -5,6 +5,7 @@ import { formatPrice, monthlyInstallment } from '@shared/utils';
 
 import styles from './InstallmentPicker.module.css';
 
+/** Installment plans of a price. value and onChange hold the number of months. */
 function InstallmentPicker({ price, value, onChange, plans = INSTALLMENT_PLANS }) {
   const { t, i18n } = useTranslation();
 
@@ -23,9 +24,7 @@ function InstallmentPicker({ price, value, onChange, plans = INSTALLMENT_PLANS }
             aria-pressed={months === value}
             onClick={() => onChange?.(months)}
           >
-            <span className={styles.months}>
-              {months} {t('price.months')}
-            </span>
+            <span className={styles.months}>{t('installments.plan', { count: months })}</span>
             <span className={styles.amount}>
               {formatPrice(monthlyInstallment(price, months), i18n.language)}
             </span>

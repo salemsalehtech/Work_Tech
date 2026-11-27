@@ -1,11 +1,11 @@
-import { Navbar } from '@shared/components/ui';
+import { CategoryNav } from '@features/catalog';
 
 function Home() {
   return (
-    <section>
-      <Navbar />
-      <h1>HOME</h1>
-    </section>
+    <>
+      <CategoryNav />
+      <h1>Home</h1>
+    </>
   );
 }
 

@@ -1,0 +1,15 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.refused {
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-sale);
+  border-radius: var(--radius-md);
+  background: var(--color-sale-50);
+  font-size: var(--text-small-size);
+  font-weight: 500;
+  color: var(--color-sale);
+}

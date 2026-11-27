@@ -4,10 +4,10 @@ import { useSearchParams } from 'react-router-dom';
 
 import { Button, DataState, Drawer, EmptyState, Select } from '@shared/components/ui';
 
-import { toApiParams } from '../../../catalog/model/catalogParams';
 import { useGetProductsQuery } from '../../api/catalogApi';
 import { useCatalogFilters } from '../../hooks/useCatalogFilters';
 import { useProductCardActions } from '../../hooks/useProductCardActions';
+import { toApiParams } from '../../model/catalogParams';
 import { SORT_KEYS } from '../../model/filterOptions';
 import ProductCard from '../ProductCard';
 import ProductFilters from '../ProductFilters';

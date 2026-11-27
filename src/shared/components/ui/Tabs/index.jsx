@@ -2,6 +2,10 @@ import { useId, useRef } from 'react';
 
 import styles from './Tabs.module.css';
 
+/**
+ * Underline tabs. Controlled, so the caller can keep the open tab in the URL.
+ * items: [{ id, label }]; children is the panel of the selected tab.
+ */
 function Tabs({ label, items, value, onChange, children }) {
   const baseId = useId();
   const tabRefs = useRef({});

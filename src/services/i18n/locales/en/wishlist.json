@@ -1,1 +1,13 @@
-{}
+{
+  "title": "Wishlist",
+  "count_one": "{{count}} saved",
+  "count_other": "{{count}} saved",
+  "savedOn": "Saved {{date}}",
+  "priceDrop": "Price dropped {{amount}}",
+  "priceAlert": "Price alert",
+  "empty": {
+    "title": "Nothing saved yet",
+    "text": "Save a laptop to follow its price.",
+    "action": "Browse laptops"
+  }
+}

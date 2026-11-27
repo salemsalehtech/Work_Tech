@@ -2,6 +2,7 @@ import { useId, useState } from 'react';
 
 import styles from './Accordion.module.css';
 
+/** Questions that open their answers. items: [{ id, title, content, category? }] */
 function Accordion({ items = [], allowMultiple = false, defaultOpenIds = [] }) {
   const [openIds, setOpenIds] = useState(
     allowMultiple ? defaultOpenIds : defaultOpenIds.slice(0, 1),

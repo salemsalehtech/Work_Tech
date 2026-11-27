@@ -2,6 +2,7 @@ import { useId } from 'react';
 
 import styles from './OptionCards.module.css';
 
+/** Two-column option tiles (memory, storage). options: [{ value, label, aside? }] */
 function OptionCards({ legend, options = [], value, onChange, name }) {
   const autoName = useId();
 
@@ -19,7 +20,9 @@ function OptionCards({ legend, options = [], value, onChange, name }) {
               checked={option.value === value}
               onChange={() => onChange?.(option.value)}
             />
-            <span className={styles.label}>{option.label}</span>
+            <span className={styles.label}>
+              <bdi>{option.label}</bdi>
+            </span>
             {option.aside && <span className={styles.aside}>{option.aside}</span>}
           </label>
         ))}
