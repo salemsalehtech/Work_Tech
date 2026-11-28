@@ -1,1 +1,43 @@
-{}
+{
+  "breadcrumb": {
+    "home": "Home",
+    "cart": "Cart",
+    "checkout": "Checkout"
+  },
+  "title": "Checkout",
+  "empty": {
+    "title": "Your cart is empty",
+    "description": "Add products to your cart before checkout.",
+    "button": "Browse products"
+  },
+  "shipping": {
+    "title": "Shipping information",
+    "fullName": "Full name",
+    "phone": "Mobile number",
+    "city": "City",
+    "selectCity": "Select your city",
+    "address": "Full address",
+    "valid": "Shipping information is valid."
+  },
+  "cities": {
+    "cairo": "Cairo",
+    "giza": "Giza",
+    "alexandria": "Alexandria",
+    "other": "Other"
+  },
+  "delivery": {
+    "title": "Delivery method",
+    "standard": "Standard delivery",
+    "express": "Express delivery",
+    "unavailable": "Available only in Cairo and Giza"
+  },
+  "summary": {
+    "title": "Order summary",
+    "subtotal": "Subtotal",
+    "warranty": "Extended warranty",
+    "shipping": "Shipping",
+    "discount": "Discount",
+    "total": "Total"
+  },
+  "continue": "Continue"
+}
